@@ -1,24 +1,34 @@
 # 贸知事 AI 工作技能仓（maozhishi-skills）
 
-[![建站技能 v3.2.14](https://img.shields.io/badge/%E5%BB%BA%E7%AB%99%E6%8A%80%E8%83%BD-v3.2.14-green?style=flat-square)](laicms-site-builder/SKILL.md) [![来发信 v1.0.0](https://img.shields.io/badge/%E6%9D%A5%E5%8F%91%E4%BF%A1-v1.0.0-blue?style=flat-square)](laifaxin-leadgen/SKILL.md) [![适用 Muse 与其他 AI 助手](https://img.shields.io/badge/%E9%80%82%E7%94%A8-Muse%20Code%20%E4%B8%8E%E5%85%B6%E4%BB%96%20AI%20%E5%8A%A9%E6%89%8B-607D8B?style=flat-square)](#怎么开始用)
+[![建站技能 v3.2.14](https://img.shields.io/badge/%E5%BB%BA%E7%AB%99%E6%8A%80%E8%83%BD-v3.2.14-green?style=flat-square)](laicms-site-builder/SKILL.md) [![来发信 v1.0.0](https://img.shields.io/badge/%E6%9D%A5%E5%8F%91%E4%BF%A1-v1.0.0-blue?style=flat-square)](laifaxin-leadgen/SKILL.md) [![适用 Muse 与其他 AI 助手](https://img.shields.io/badge/%E9%80%82%E7%94%A8-Muse%20Code%20%E4%B8%8E%E5%85%B6%E4%BB%96%20AI%20%E5%8A%A9%E6%89%8B-607D8B?style=flat-square)](#先复制这段话)
 
 公众号「贸知事」出品的 AI 工作技能集。所谓「技能」，就是写给 AI 的一份干活说明书：你把资料交给 AI，它照着说明书把活干完。
+
+## 先复制这段话
+
+把下面这段话复制、发给你的 Muse，它会自己读完这个仓、把技能装好，然后一步步带你干活；不懂技术没关系，它问什么你答什么就行。
+
+```
+请打开并完整读完这个仓库：https://github.com/tony-apan/maozhishi-skills
+读完后按里面的说明书把技能装好，然后用大白话告诉我你能帮我做哪几件事，带我从第一件小事开始。需要我提供资料或授权时，一次只问我一件事，并说清要什么、用来做什么。
+```
+
+用其他 AI 助手也可以，把这段话连同仓库链接一起发给它即可。
+
+## 用之前先备好
+
+想稳定用 AI 获客，先开通来发信 SVIP；想建独立站，先注册一个 AllinCMS 账号。没开通也能先让 Muse 带你了解流程、跑个小样，正式干活前备好就行。
+
+## 官网与联系方式
+
+- [来发信](https://laifa.xin/)：AI 获客工具。官网公示联系方式：电话 17091913071、邮箱 help@zhijixinxi.com。
+- [AllinCMS](https://www.allincms.com/)：外贸独立站建站工具。联系方式见官网（扫码加客服微信）。
 
 ## 它能帮你做什么
 
 - **建外贸独立站**：搭站、上架产品、写文章、日常更新。
 - **找客户、发开发信**：找国外客户、做背调、写开发信、跟进。
 - **整理资料**：公司和产品资料归好类放一处，建站、写信都从这里取。
-
-## 你需要准备什么
-
-一个能干活的 AI 助手、相关平台的账号，还有公司介绍、产品规格和图片这些资料，有多少先给多少。
-
-## 怎么开始用
-
-- **用 Muse**：把本仓链接发给你的 Muse，它会自己读仓、装好技能；之后你按它给的开工清单提供资料、做授权就行，不用自己搬文件夹。
-- **用其他 AI 助手**：打开要用的说明书主文件（SKILL.md），把全文发给它，让它照着执行。
-- 干活时产生的公司档案、产品底稿和台账会存进你的工作区资料库，那是给 AI 的长期记忆，下次打开接着用。
 
 ## 里面有什么
 
@@ -53,12 +63,6 @@
 | [INDEX.md](workspace-template/40-output/INDEX.md)（模板 · 成品） | 文章、开发信等成品存这里 |
 | [INDEX.md](workspace-template/50-data/INDEX.md)（模板 · 数据） | 台账和数据 |
 | [INDEX.md](workspace-template/90-handover/INDEX.md)（模板 · 交接） | 进度、卡点和下一步 |
-
-## 先看这里
-
-- **先小样试跑**：先做一个产品、一篇文章，看过效果再批量做。
-- **账号授权要你本人**：登录、点授权、绑邮箱，只能你自己操作，AI 会告诉你点哪里。
-- **对外发送前要你确认**：开发信要发、文章要发之前，先过一眼，确认了再发。
 
 ## 版本与更新
 
