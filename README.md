@@ -9,6 +9,7 @@
 先到这两个官网把账号注册好，再回来往下走：
 
 - [来发信官网](https://laifa.xin)：做 AI 获客用。
+- [AllinCMS 官网](https://www.allincms.com)：建外贸独立站用。
 
 <a id="先复制这段话"></a>
 ## 2️⃣ 先复制这段话
