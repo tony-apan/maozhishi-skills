@@ -1,6 +1,6 @@
 # 贸知事 AI 工作技能仓（maozhishi-skills）
 
-[![建站技能 v3.2.14](https://img.shields.io/badge/%E5%BB%BA%E7%AB%99%E6%8A%80%E8%83%BD-v3.2.14-green?style=flat-square)](laicms-site-builder/SKILL.md) [![来发信 v1.0.1](https://img.shields.io/badge/%E6%9D%A5%E5%8F%91%E4%BF%A1-v1.0.1-blue?style=flat-square)](laifaxin-leadgen/SKILL.md) [![适用 Muse 与其他 AI 助手](https://img.shields.io/badge/%E9%80%82%E7%94%A8-Muse%20Code%20%E4%B8%8E%E5%85%B6%E4%BB%96%20AI%20%E5%8A%A9%E6%89%8B-607D8B?style=flat-square)](#先复制这段话)
+[![建站技能 v3.2.15](https://img.shields.io/badge/%E5%BB%BA%E7%AB%99%E6%8A%80%E8%83%BD-v3.2.15-green?style=flat-square)](laicms-site-builder/SKILL.md) [![来发信 v1.0.2](https://img.shields.io/badge/%E6%9D%A5%E5%8F%91%E4%BF%A1-v1.0.2-blue?style=flat-square)](laifaxin-leadgen/SKILL.md) [![适用 Muse 与其他 AI 助手](https://img.shields.io/badge/%E9%80%82%E7%94%A8-Muse%20Code%20%E4%B8%8E%E5%85%B6%E4%BB%96%20AI%20%E5%8A%A9%E6%89%8B-607D8B?style=flat-square)](#先复制这段话)
 
 公众号「贸知事」出品的 AI 工作技能集。所谓「技能」，就是写给 AI 的一份干活说明书：你把资料交给 AI，它照着说明书把活干完。
 
@@ -34,8 +34,8 @@
 
 | 模块 | 能干什么 | 版本 |
 | --- | --- | --- |
-| [LaiCMS 外贸独立站建站](laicms-site-builder/SKILL.md) | 建站、上架产品、写文章、日常更新 | v3.2.14 |
-| [来发信 AI 获客](laifaxin-leadgen/SKILL.md) | 找客户、做背调、写开发信、跟进 | v1.0.1 |
+| [LaiCMS 外贸独立站建站](laicms-site-builder/SKILL.md) | 建站、上架产品、写文章、日常更新 | v3.2.15 |
+| [来发信 AI 获客](laifaxin-leadgen/SKILL.md) | 找客户、做背调、写开发信、跟进 | v1.0.2 |
 | [工作区模板](workspace-template/README.md) | 放公司和产品资料的文件夹架子，各模块共用 | 随仓更新 |
 | [模块地图](docs/module-map.md) | 几个模块怎么配合、共用哪些东西 | 随仓更新 |
 
@@ -47,10 +47,10 @@
 | [版本说明.md](版本说明.md) | 每次更新改了什么 |
 | [module-map.md](docs/module-map.md)（模块地图） | 模块之间的关系和共用部分 |
 | [repo-structure-proposal.md](docs/repo-structure-proposal.md)（结构设想） | 建仓前的结构设想（老文档，以模块地图为准） |
-| [SKILL.md](laicms-site-builder/SKILL.md)（建站） | 建站说明书主文件，现行 **v3.2.14** |
+| [SKILL.md](laicms-site-builder/SKILL.md)（建站） | 建站说明书主文件，现行 **v3.2.15** |
 | [skill.yaml](laicms-site-builder/skill.yaml)（建站） | 建站模块的登记信息 |
 | [beauty-review.md](laicms-site-builder/references/beauty-review.md)（建站） | 页面美观打分细则，随建站说明书一起用 |
-| [SKILL.md](laifaxin-leadgen/SKILL.md)（获客） | 获客说明书主文件，现行 **v1.0.1** |
+| [SKILL.md](laifaxin-leadgen/SKILL.md)（获客） | 获客说明书主文件，现行 **v1.0.2** |
 | [skill.yaml](laifaxin-leadgen/skill.yaml)（获客） | 获客模块的登记信息 |
 | [README.md](workspace-template/README.md)（模板） | 资料文件夹模板的用法 |
 | [INDEX.md](workspace-template/00-inbox/INDEX.md)（模板 · 收件） | 新资料先放这里 |
