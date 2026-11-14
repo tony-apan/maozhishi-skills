@@ -9,9 +9,6 @@
 先到这两个官网把账号注册好，再回来往下走：
 
 - [来发信官网](https://laifa.xin)：做 AI 获客用。
-- [AllinCMS 官网](https://www.allincms.com)：建外贸独立站用。联系方式见官网（扫码加客服微信）。
-
-**小提醒**：来发信的 SVIP **不用现在开**——先装好、用起来；正式发信前，你的 Muse 会查一下账号状态，不是 SVIP 它会提醒你，升级之后发信更稳。
 
 <a id="先复制这段话"></a>
 ## 2️⃣ 先复制这段话
@@ -39,38 +36,15 @@
 | [来发信 AI 获客](laifaxin-leadgen/SKILL.md) | 找客户、做背调、写开发信、跟进，每月免费点数自动帮你领 | v1.0.6 |
 | [工作区模板](workspace-template/README.md) | 放公司和产品资料的文件夹架子，各模块共用 | 随仓更新 |
 
-## 🗂️ 文件一览
-
-| 文件 | 是干什么的 |
-| --- | --- |
-| [README.md](README.md) | 本文件，先看这份 |
-| [版本说明.md](版本说明.md) | 每次更新改了什么 |
-| [VERSION](VERSION) | 仓库现在的版本号 |
-| [SKILL.md](laicms-site-builder/SKILL.md)（建站） | 建站说明书主文件，现行 **v3.2.20** |
-| [laicms-新手使用说明.md](laicms-site-builder/references/laicms-新手使用说明.md)（建站） | 第一次用先看这份：带 11 张截图，跟着一个新人从准备、提问、施工到验收走全程 |
-| [skill.yaml](laicms-site-builder/skill.yaml)（建站） | 建站模块的登记信息 |
-| [联系说明.md](laicms-site-builder/联系说明.md)（建站） | 没有 AllinCMS 账号时，怎么联系官方开通 |
-| [beauty-review.md](laicms-site-builder/references/beauty-review.md)（建站） | 页面美观打分细则，随建站说明书一起用 |
-| [allincms-官方教程索引.md](laicms-site-builder/references/allincms-官方教程索引.md)（建站） | 官方全部教程的索引，带链接和要点 |
-| [laicms-模块标准库.md](laicms-site-builder/references/laicms-模块标准库.md)（建站） | 每个模块怎么填、填多少的量化标准，照着做就行 |
-| [laicms-风格档案.md](laicms-site-builder/references/laicms-风格档案.md)（建站） | 外贸 B 端和跨境 C 端两种风格的区别，选好风格照着它走 |
-| [SKILL.md](laifaxin-leadgen/SKILL.md)（获客） | 获客说明书主文件，现行 **v1.0.6** |
-| [skill.yaml](laifaxin-leadgen/skill.yaml)（获客） | 获客模块的登记信息 |
-| [README.md](workspace-template/README.md)（模板） | 资料文件夹模板的用法 |
-| [INDEX.md](workspace-template/00-inbox/INDEX.md)（模板 · 收件） | 新资料先放这里 |
-| [INDEX.md](workspace-template/10-sources/INDEX.md)（模板 · 来源） | 记每份资料的出处和日期 |
-| [INDEX.md](workspace-template/20-knowledge/INDEX.md)（模板 · 资料库） | 整理好的公司和产品资料 |
-| [公司档案.md](workspace-template/20-knowledge/公司档案.md)（模板 · 资料库） | 公司档案模板 |
-| [产品事实底稿-模板.md](workspace-template/20-knowledge/产品事实底稿-模板.md)（模板 · 资料库） | 产品资料模板，一个产品一份 |
-| [素材索引.md](workspace-template/20-knowledge/素材索引.md)（模板 · 资料库） | 图片、文案等素材清单模板 |
-| [INDEX.md](workspace-template/30-tasks/INDEX.md)（模板 · 任务） | 在做的事和排期 |
-| [INDEX.md](workspace-template/40-output/INDEX.md)（模板 · 成品） | 文章、开发信等成品存这里 |
-| [INDEX.md](workspace-template/50-data/INDEX.md)（模板 · 数据） | 台账和数据 |
-| [INDEX.md](workspace-template/90-handover/INDEX.md)（模板 · 交接） | 进度、卡点和下一步 |
+每个文件的详细清单，见 [文件索引](文件索引.md)。
 
 ## 🔄 版本与更新
 
 每次更新改了什么，见 [版本说明.md](版本说明.md)。
+
+## 🏗️ 建站先开通 AllinCMS
+
+建外贸独立站用的是 AllinCMS。还没有账号的，先看 [联系说明](laicms-site-builder/联系说明.md)，里面写了怎么联系官方开通；也可以先到 [AllinCMS 官网](https://www.allincms.com) 了解一下。账号开通后，回来让你的 AI 照着建站技能开工就行。
 
 ## 📧 来发信
 
