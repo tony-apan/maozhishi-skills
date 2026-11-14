@@ -1,0 +1,5 @@
+name: laifaxin_leadgen
+title: 来发信 Muse 获客（精发/群发）
+description: Guides a Muse user through Laifaxin-based lead generation: prospecting and saving contacts, AI scoring, one-to-one precision outreach via the user's own Gmail/Outlook mailboxes over OAuth, and bulk follow-up sequences on Laifaxin's quality channel, all run from a single Google Sheets ledger with strict send-safety gates.
+category: Work and knowledge
+include_in_prompt: false
