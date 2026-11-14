@@ -14,7 +14,7 @@
 ## 模块清单
 
 模块一 独立站（LaiCMS）
-- 状态：已发布 v3.2.16（2026-11-13，目录 `laicms-site-builder/`；v3.2.0 双席审过＋同日 Tony 直令规范增补七项；首次全流程试跑已过：测试站建成、双小样发布、前台核对无误）
+- 状态：已发布 v3.2.17（2026-11-14，目录 `laicms-site-builder/`；v3.2.0 双席审过＋同日 Tony 直令规范增补七项；首次全流程试跑已过：测试站建成、双小样发布、前台核对无误）
 - 内容：建站、美化、传产品、写文章与 SEO、数据查看与日报、每天更新一篇文章、巡检维护（巡检按单独授权的任务跑，不承诺全天候）
 - 账号：LaiCMS 后台（workspace.laicms.com），没有先联系官方开通
 
@@ -52,4 +52,4 @@
 - 每个模块一个子目录加一份 SKILL，根目录 README 是全仓地图，每层有索引
 - 新模块先占位登记在本图，再立项施工，不许写进已发布模块的正文充数
 
-公开发布：公开版在 [tony-apan/maozhishi-skills](https://github.com/tony-apan/maozhishi-skills)；发版流程见本目录 [release-sop.md](release-sop.md)。
+公开发布：公开版在 [tony-apan/maozhishi-skills](https://github.com/tony-apan/maozhishi-skills)；发版流程见母仓 SOP，发版记录见根目录《版本说明.md》。
