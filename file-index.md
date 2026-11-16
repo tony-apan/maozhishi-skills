@@ -17,8 +17,9 @@ owner: 贸知事
 | [file-index.md](file-index.md) | 本索引：每个文件是干什么的 |
 | [CHANGELOG.md](CHANGELOG.md) | 每次更新改了什么 |
 | [VERSION](VERSION) | 仓库现在的版本号 |
-| [SKILL.md](laicms-site-builder/SKILL.md)（建站） | 建站说明书主文件，现行 **v3.2.22** |
+| [SKILL.md](laicms-site-builder/SKILL.md)（建站） | 建站说明书主文件，现行 **v3.2.23** |
 | [beginner-guide.md](laicms-site-builder/references/beginner-guide.md)（建站） | 新手使用说明：第一次用先看这份，带 11 张截图，跟着一个新人从准备、提问、施工到验收走全程 |
+| [laicms-platform-guide.md](laicms-site-builder/references/laicms-platform-guide.md)（建站） | AllinCMS 平台介绍与文档地图：平台是什么、怎么收费、官方教程在哪怎么查 |
 | [guide-images/](laicms-site-builder/references/guide-images/)（建站） | 新手使用说明里的 11 张截图（平台后台、演示站前台、仓库页面实拍） |
 | [skill.yaml](laicms-site-builder/skill.yaml)（建站） | 建站模块的登记信息 |
 | [contact-guide.md](laicms-site-builder/contact-guide.md)（建站） | 联系说明：没有 AllinCMS 账号时，怎么联系官方开通 |
@@ -27,7 +28,7 @@ owner: 贸知事
 | [module-standards.md](laicms-site-builder/references/module-standards.md)（建站） | 模块标准库：每个模块怎么填、填多少的量化标准，照着做就行 |
 | [style-profiles.md](laicms-site-builder/references/style-profiles.md)（建站） | 风格档案：外贸 B 端和跨境 C 端两种风格的区别，选好风格照着它走 |
 | [social-sharing.md](laicms-site-builder/references/social-sharing.md)（建站） | 文章发布后，四平台现成分享文案的生成规则 |
-| [SKILL.md](laifaxin-leadgen/SKILL.md)（获客） | 获客说明书主文件，现行 **v1.0.7** |
+| [SKILL.md](laifaxin-leadgen/SKILL.md)（获客） | 获客说明书主文件，现行 **v1.0.8** |
 | [skill.yaml](laifaxin-leadgen/skill.yaml)（获客） | 获客模块的登记信息 |
 | [README.md](workspace-template/README.md)（模板） | 资料文件夹模板的用法 |
 | [INDEX.md](workspace-template/00-inbox/INDEX.md)（模板 · 收件） | 新资料先放这里 |

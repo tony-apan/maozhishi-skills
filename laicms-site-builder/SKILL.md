@@ -1,8 +1,8 @@
 ---
 name: laicms_site_builder
-version: 3.2.22
+version: 3.2.23
 status: active
-version_status: 现行版本 v3.2.22（2026-11-16：文件规范化——模块内文件名改英文 kebab-case、全量 md 补元描述、自检更新补改名清理规则，内容规则不变）。v3.2.21（2026-11-14：① 新增社媒分享包——每篇文章发布验收后，按 references/social-sharing.md 生成 Facebook、X、领英、WhatsApp 四平台现成文案，钩子按痛点式／数字式／提问式打法写；② 新增领英风控警告——领英风控严格，只许 AI 写、人来发，不许自动发布、自动加人、自动私信、自动点赞评论（Tony 2026-11-14 令；同日经对抗核验返修））。v3.2.20 新增 references/beginner-guide.md——带 11 张截图的新手说明（GitHub 仓库／建站平台后台／演示站前台实拍），模拟一位新人从准备、提问、施工到验收走完全程，SKILL 卷首已加「新手先看」指向。v3.2.19 新增网站风格选择机制——开工让用户二选一（外贸 B 端为默认轨／跨境 C 端），新增 references/style-profiles.md 双轨对照档案，SKILL 各环节加按轨指向、美观评审改双轨判据（Tony 2026-11-14 定版）。历史版本沿革见《CHANGELOG.md》。
+version_status: 现行版本 v3.2.23（2026-11-16：新增《AllinCMS 平台介绍与文档地图》`references/laicms-platform-guide.md`，内容规则不变）。v3.2.22（2026-11-16：文件规范化——模块内文件名改英文 kebab-case、全量 md 补元描述、自检更新补改名清理规则，内容规则不变）。v3.2.21（2026-11-14：① 新增社媒分享包——每篇文章发布验收后，按 references/social-sharing.md 生成 Facebook、X、领英、WhatsApp 四平台现成文案，钩子按痛点式／数字式／提问式打法写；② 新增领英风控警告——领英风控严格，只许 AI 写、人来发，不许自动发布、自动加人、自动私信、自动点赞评论（Tony 2026-11-14 令；同日经对抗核验返修））。v3.2.20 新增 references/beginner-guide.md——带 11 张截图的新手说明（GitHub 仓库／建站平台后台／演示站前台实拍），模拟一位新人从准备、提问、施工到验收走完全程，SKILL 卷首已加「新手先看」指向。v3.2.19 新增网站风格选择机制——开工让用户二选一（外贸 B 端为默认轨／跨境 C 端），新增 references/style-profiles.md 双轨对照档案，SKILL 各环节加按轨指向、美观评审改双轨判据（Tony 2026-11-14 定版）。历史版本沿革见《CHANGELOG.md》。
 description: 什么时候用我——用户要新建或维护 LaiCMS 独立站、传产品、写文章、美化页面、看数据或开每日更新时用我；双通道执行：环境支持时走接口回放（见发文规范增补第六条），否则走登录网页操作。
 doc_id: laicms-skill
 title: LaiCMS 建站技能

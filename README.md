@@ -47,9 +47,13 @@
 
 ## 🏗️ 建站先开通 AllinCMS
 
+想先了解平台本身？看 [AllinCMS 平台介绍与文档地图](laicms-site-builder/references/laicms-platform-guide.md)：平台是什么、怎么收费、官方教程在哪，一篇看懂。
+
 建外贸独立站用的是 AllinCMS。还没有账号的，先看 [联系说明](laicms-site-builder/contact-guide.md)，里面写了怎么联系官方开通；也可以先到 [AllinCMS 官网](https://www.allincms.com) 了解一下。账号开通后，回来让你的 AI 照着建站技能开工就行。
 
 ## 📧 来发信
+
+想先了解平台本身？看 [来发信平台介绍与文档地图](laifaxin-leadgen/references/laifaxin-platform-guide.md)：平台是什么、点数怎么花、官方文档在哪，一篇看懂。
 
 [来发信官网](https://laifa.xin)：上面「来发信 AI 获客」技能配套的平台。找客户、验证邮箱、发开发信、自动跟进，都在来发信里完成；技能是写给 AI 的说明书，让你的 AI 照着把这些活一步步干完。先在官网注册账号，再回来用技能开工。
 
