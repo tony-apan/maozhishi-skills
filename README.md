@@ -1,6 +1,6 @@
 # 贸知事 AI 工作技能仓（maozhishi-skills）
 
-[![仓库版 v1.3.0](https://img.shields.io/badge/%E4%BB%93%E5%BA%93%E7%89%88-v1.3.0-orange?style=flat-square)](VERSION) [![建站技能 v3.2.26](https://img.shields.io/badge/%E5%BB%BA%E7%AB%99%E6%8A%80%E8%83%BD-v3.2.26-green?style=flat-square)](laicms-site-builder/SKILL.md) [![来发信 v1.3.0](https://img.shields.io/badge/%E6%9D%A5%E5%8F%91%E4%BF%A1-v1.3.0-blue?style=flat-square)](laifaxin-leadgen/SKILL.md) [![适用 Muse 与其他 AI 助手](https://img.shields.io/badge/%E9%80%82%E7%94%A8-Muse%20Code%20%E4%B8%8E%E5%85%B6%E4%BB%96%20AI%20%E5%8A%A9%E6%89%8B-607D8B?style=flat-square)](#先复制这段话)
+[![技能仓 v1.3.0](https://img.shields.io/badge/%E6%8A%80%E8%83%BD%E4%BB%93-v1.3.0-orange?style=flat-square)](VERSION) [![建站技能 v3.2.26](https://img.shields.io/badge/%E5%BB%BA%E7%AB%99%E6%8A%80%E8%83%BD-v3.2.26-green?style=flat-square)](laicms-site-builder/SKILL.md) [![来发信 v1.3.0](https://img.shields.io/badge/%E6%9D%A5%E5%8F%91%E4%BF%A1-v1.3.0-blue?style=flat-square)](laifaxin-leadgen/SKILL.md)
 
 公众号「贸知事」出品的**外贸获客技能仓**。所谓「技能」，就是**写给 AI 的一份干活说明书**：你把资料交给 AI，它照着说明书把活干完——建站、找客户、写开发信、跟进，都在这里。
 
@@ -31,13 +31,13 @@
 
 ## 📦 里面有什么
 
-### 1️⃣ [外贸独立站](laicms-site-builder/SKILL.md) ![v3.2.26](https://img.shields.io/badge/v3.2.26-green?style=flat-square)
+### 1️⃣ [外贸独立站](laicms-site-builder/SKILL.md)
 
 **建站、上架产品、写文章、日常更新**；自带 **GEO/SEO**：按客户的搜索意图做内容，**让网站被搜索引擎和 AI 推荐，带来流量、询盘和订单**。附模块标准库，开工先选风格（外贸 B 端／跨境 C 端）
 
 📖 **使用说明**：[新手使用说明](laicms-site-builder/references/beginner-guide.md)——带截图的全流程说明，跟着走一遍就会。
 
-### 2️⃣ [来发信 AI 获客](laifaxin-leadgen/SKILL.md) ![v1.3.0](https://img.shields.io/badge/v1.3.0-blue?style=flat-square)
+### 2️⃣ [来发信 AI 获客](laifaxin-leadgen/SKILL.md)
 
 **找客户、做背调、写开发信、自动跟进**，还能**梳理 WhatsApp 会话、提炼客户痛点**；平台操作走**官方 Agent 通道**（网页授权一次、接口直达，不用一页页点）；每月免费点数**自动帮你领**，不用惦记
 
