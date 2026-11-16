@@ -17,7 +17,7 @@ owner: 贸知事
 | [file-index.md](file-index.md) | 本索引：每个文件是干什么的 |
 | [CHANGELOG.md](CHANGELOG.md) | 每次更新改了什么 |
 | [VERSION](VERSION) | 仓库现在的版本号 |
-| [SKILL.md](laicms-site-builder/SKILL.md)（建站） | 建站说明书主文件，现行 **v3.2.23** |
+| [SKILL.md](laicms-site-builder/SKILL.md)（建站） | 建站说明书主文件，现行 **v3.2.24** |
 | [beginner-guide.md](laicms-site-builder/references/beginner-guide.md)（建站） | 新手使用说明：第一次用先看这份，带 11 张截图，跟着一个新人从准备、提问、施工到验收走全程 |
 | [laicms-platform-guide.md](laicms-site-builder/references/laicms-platform-guide.md)（建站） | AllinCMS 平台介绍与文档地图：平台是什么、怎么收费、官方教程在哪怎么查 |
 | [guide-images/](laicms-site-builder/references/guide-images/)（建站） | 新手使用说明里的 11 张截图（平台后台、演示站前台、仓库页面实拍） |
