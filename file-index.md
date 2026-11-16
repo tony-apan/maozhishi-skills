@@ -17,7 +17,7 @@ owner: 贸知事
 | [file-index.md](file-index.md) | 本索引：每个文件是干什么的 |
 | [CHANGELOG.md](CHANGELOG.md) | 每次更新改了什么 |
 | [VERSION](VERSION) | 仓库现在的版本号 |
-| [SKILL.md](laicms-site-builder/SKILL.md)（建站） | 建站说明书主文件，现行 **v3.2.25** |
+| [SKILL.md](laicms-site-builder/SKILL.md)（建站） | 建站说明书主文件，现行 **v3.2.26** |
 | [beginner-guide.md](laicms-site-builder/references/beginner-guide.md)（建站） | 新手使用说明：第一次用先看这份，带 11 张截图，跟着一个新人从准备、提问、施工到验收走全程 |
 | [laicms-platform-guide.md](laicms-site-builder/references/laicms-platform-guide.md)（建站） | AllinCMS 平台介绍与文档地图：平台是什么、怎么收费、官方教程在哪怎么查 |
 | [guide-images/](laicms-site-builder/references/guide-images/)（建站） | 新手使用说明里的 11 张截图（平台后台、演示站前台、仓库页面实拍） |
@@ -28,7 +28,7 @@ owner: 贸知事
 | [module-standards.md](laicms-site-builder/references/module-standards.md)（建站） | 模块标准库：每个模块怎么填、填多少的量化标准，照着做就行 |
 | [style-profiles.md](laicms-site-builder/references/style-profiles.md)（建站） | 风格档案：外贸 B 端和跨境 C 端两种风格的区别，选好风格照着它走 |
 | [social-sharing.md](laicms-site-builder/references/social-sharing.md)（建站） | 文章发布后，四平台现成分享文案的生成规则 |
-| [SKILL.md](laifaxin-leadgen/SKILL.md)（获客） | 获客说明书主文件，现行 **v1.1.1** |
+| [SKILL.md](laifaxin-leadgen/SKILL.md)（获客） | 获客说明书主文件，现行 **v1.2.0** |
 | [laifaxin-platform-guide.md](laifaxin-leadgen/references/laifaxin-platform-guide.md)（获客） | 来发信平台介绍与文档地图：平台是什么、点数怎么花、官方文档在哪怎么查 |
 | [beginner-guide.md](laifaxin-leadgen/references/beginner-guide.md)（获客） | 新手使用说明：第一次用先看这份，跟着一个新人从注册、领点数、找客、筛客、发信到跟进走全程 |
 | [mailbox-binding-guide.md](laifaxin-leadgen/references/mailbox-binding-guide.md)（获客） | 邮箱绑定指南：服务器参数表、密码类型速查、授权码获取的逐步引导、绑失败错误码自查 |
