@@ -1,6 +1,6 @@
 # 贸知事 AI 工作技能仓（maozhishi-skills）
 
-[![仓库版 v1.1.0](https://img.shields.io/badge/%E4%BB%93%E5%BA%93%E7%89%88-v1.1.0-orange?style=flat-square)](VERSION) [![建站技能 v3.2.23](https://img.shields.io/badge/%E5%BB%BA%E7%AB%99%E6%8A%80%E8%83%BD-v3.2.23-green?style=flat-square)](laicms-site-builder/SKILL.md) [![来发信 v1.1.0](https://img.shields.io/badge/%E6%9D%A5%E5%8F%91%E4%BF%A1-v1.1.0-blue?style=flat-square)](laifaxin-leadgen/SKILL.md) [![适用 Muse 与其他 AI 助手](https://img.shields.io/badge/%E9%80%82%E7%94%A8-Muse%20Code%20%E4%B8%8E%E5%85%B6%E4%BB%96%20AI%20%E5%8A%A9%E6%89%8B-607D8B?style=flat-square)](#先复制这段话)
+[![仓库版 v1.1.3](https://img.shields.io/badge/%E4%BB%93%E5%BA%93%E7%89%88-v1.1.3-orange?style=flat-square)](VERSION) [![建站技能 v3.2.23](https://img.shields.io/badge/%E5%BB%BA%E7%AB%99%E6%8A%80%E8%83%BD-v3.2.23-green?style=flat-square)](laicms-site-builder/SKILL.md) [![来发信 v1.1.1](https://img.shields.io/badge/%E6%9D%A5%E5%8F%91%E4%BF%A1-v1.1.1-blue?style=flat-square)](laifaxin-leadgen/SKILL.md) [![适用 Muse 与其他 AI 助手](https://img.shields.io/badge/%E9%80%82%E7%94%A8-Muse%20Code%20%E4%B8%8E%E5%85%B6%E4%BB%96%20AI%20%E5%8A%A9%E6%89%8B-607D8B?style=flat-square)](#先复制这段话)
 
 公众号「贸知事」出品的**外贸获客技能仓**。所谓「技能」，就是**写给 AI 的一份干活说明书**：你把资料交给 AI，它照着说明书把活干完——建站、找客户、写开发信、跟进，都在这里。
 
@@ -31,23 +31,27 @@
 
 ## 📦 里面有什么
 
-### 1️⃣ 🏗️ [外贸独立站](laicms-site-builder/SKILL.md) ![v3.2.23](https://img.shields.io/badge/v3.2.23-green?style=flat-square)
+### 1️⃣ [外贸独立站](laicms-site-builder/SKILL.md) ![v3.2.23](https://img.shields.io/badge/v3.2.23-green?style=flat-square)
 
-**建站、上架产品、写文章、日常更新**；自带 **GEO/SEO**：按客户的搜索意图做内容，**让网站被搜索引擎和 AI 推荐，带来流量、询盘和订单**。附模块标准库与带截图的新手说明，开工先选风格（外贸 B 端／跨境 C 端）
+**建站、上架产品、写文章、日常更新**；自带 **GEO/SEO**：按客户的搜索意图做内容，**让网站被搜索引擎和 AI 推荐，带来流量、询盘和订单**。附模块标准库，开工先选风格（外贸 B 端／跨境 C 端）
 
-### 2️⃣ 📧 [来发信 AI 获客](laifaxin-leadgen/SKILL.md) ![v1.1.0](https://img.shields.io/badge/v1.1.0-blue?style=flat-square)
+📖 **使用说明**：[新手使用说明](laicms-site-builder/references/beginner-guide.md)——带截图的全流程说明，跟着走一遍就会。
+
+### 2️⃣ [来发信 AI 获客](laifaxin-leadgen/SKILL.md) ![v1.1.1](https://img.shields.io/badge/v1.1.1-blue?style=flat-square)
 
 **找客户、做背调、写开发信、自动跟进**；每月免费点数**自动帮你领**，不用惦记
 
-### 3️⃣ 🛒 B2B 运营 ![测试中](https://img.shields.io/badge/%E6%B5%8B%E8%AF%95%E4%B8%AD-orange?style=flat-square)
+📖 **使用说明**：[新手使用说明](laifaxin-leadgen/references/beginner-guide.md)——从注册到发出第一封开发信，跟着走一遍就会。
+
+### 3️⃣ B2B 运营 ![测试中](https://img.shields.io/badge/%E6%B5%8B%E8%AF%95%E4%B8%AD-orange?style=flat-square)
 
 **免费 B2B 平台注册、铺店、产品上架**；公司和产品资料整理一次，多个平台复用
 
-### 4️⃣ 📣 社媒运营 ![测试中](https://img.shields.io/badge/%E6%B5%8B%E8%AF%95%E4%B8%AD-orange?style=flat-square)
+### 4️⃣ 社媒运营 ![测试中](https://img.shields.io/badge/%E6%B5%8B%E8%AF%95%E4%B8%AD-orange?style=flat-square)
 
 **公众号、视频号等平台的内容发布与运营**；网站新文章自动备帖、分发到各平台
 
-### 5️⃣ 📁 [工作区模板](workspace-template/README.md) ![随仓更新](https://img.shields.io/badge/%E9%9A%8F%E4%BB%93%E6%9B%B4%E6%96%B0-grey?style=flat-square)
+### 5️⃣ [工作区模板](workspace-template/README.md) ![随仓更新](https://img.shields.io/badge/%E9%9A%8F%E4%BB%93%E6%9B%B4%E6%96%B0-grey?style=flat-square)
 
 放公司和产品资料的**文件夹架子**，各模块共用
 
