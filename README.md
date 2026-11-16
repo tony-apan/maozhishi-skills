@@ -1,17 +1,8 @@
----
-doc_id: repo-readme
-title: 贸知事 AI 工作技能仓
-description: 技能仓总说明：装什么、怎么装、版本与模块入口。
-status: active
-updated: 2026-11-16
-owner: 贸知事
----
-
 # 贸知事 AI 工作技能仓（maozhishi-skills）
 
-[![仓库版 v1.0.7](https://img.shields.io/badge/%E4%BB%93%E5%BA%93%E7%89%88-v1.0.7-orange?style=flat-square)](VERSION) [![建站技能 v3.2.22](https://img.shields.io/badge/%E5%BB%BA%E7%AB%99%E6%8A%80%E8%83%BD-v3.2.22-green?style=flat-square)](laicms-site-builder/SKILL.md) [![来发信 v1.0.7](https://img.shields.io/badge/%E6%9D%A5%E5%8F%91%E4%BF%A1-v1.0.7-blue?style=flat-square)](laifaxin-leadgen/SKILL.md) [![适用 Muse 与其他 AI 助手](https://img.shields.io/badge/%E9%80%82%E7%94%A8-Muse%20Code%20%E4%B8%8E%E5%85%B6%E4%BB%96%20AI%20%E5%8A%A9%E6%89%8B-607D8B?style=flat-square)](#先复制这段话)
+[![仓库版 v1.0.8](https://img.shields.io/badge/%E4%BB%93%E5%BA%93%E7%89%88-v1.0.8-orange?style=flat-square)](VERSION) [![建站技能 v3.2.22](https://img.shields.io/badge/%E5%BB%BA%E7%AB%99%E6%8A%80%E8%83%BD-v3.2.22-green?style=flat-square)](laicms-site-builder/SKILL.md) [![来发信 v1.0.7](https://img.shields.io/badge/%E6%9D%A5%E5%8F%91%E4%BF%A1-v1.0.7-blue?style=flat-square)](laifaxin-leadgen/SKILL.md) [![适用 Muse 与其他 AI 助手](https://img.shields.io/badge/%E9%80%82%E7%94%A8-Muse%20Code%20%E4%B8%8E%E5%85%B6%E4%BB%96%20AI%20%E5%8A%A9%E6%89%8B-607D8B?style=flat-square)](#先复制这段话)
 
-公众号「贸知事」出品的 AI 工作技能集。所谓「技能」，就是**写给 AI 的一份干活说明书**：你把资料交给 AI，它照着说明书把活干完。
+公众号「贸知事」出品的**外贸获客技能仓**。所谓「技能」，就是**写给 AI 的一份干活说明书**：你把资料交给 AI，它照着说明书把活干完——建站、找客户、写开发信、跟进，都在这里。
 
 ## 1️⃣ 先注册
 
@@ -42,15 +33,17 @@ owner: 贸知事
 
 | 模块 | 能干什么 | 版本 |
 | --- | --- | --- |
-| [LaiCMS 外贸独立站建站](laicms-site-builder/SKILL.md) | 建站、上架产品、写文章、日常更新，附模块标准库与带截图的新手说明，开工先选风格（外贸 B 端／跨境 C 端） | v3.2.22 |
-| [来发信 AI 获客](laifaxin-leadgen/SKILL.md) | 找客户、做背调、写开发信、跟进，每月免费点数自动帮你领 | v1.0.7 |
-| [工作区模板](workspace-template/README.md) | 放公司和产品资料的文件夹架子，各模块共用 | 随仓更新 |
+| [LaiCMS 外贸独立站建站](laicms-site-builder/SKILL.md) | 建站、上架产品、写文章、日常更新，附模块标准库与带截图的新手说明，开工先选风格（外贸 B 端／跨境 C 端） | ![v3.2.22](https://img.shields.io/badge/v3.2.22-green?style=flat-square) |
+| [来发信 AI 获客](laifaxin-leadgen/SKILL.md) | 找客户、做背调、写开发信、跟进，每月免费点数自动帮你领 | ![v1.0.7](https://img.shields.io/badge/v1.0.7-blue?style=flat-square) |
+| [工作区模板](workspace-template/README.md) | 放公司和产品资料的文件夹架子，各模块共用 | ![随仓更新](https://img.shields.io/badge/%E9%9A%8F%E4%BB%93%E6%9B%B4%E6%96%B0-grey?style=flat-square) |
 
 每个文件的详细清单，见 [文件索引](file-index.md)。
 
+**现在是这两套技能，后续会不断新增。** 缺哪一块、想要什么新技能，或者用着出了问题，都可以到仓库的 [Issues](https://github.com/tony-apan/maozhishi-skills/issues) 里提出来，作者会看、会更新。
+
 ## 🔄 版本与更新
 
-每次更新改了什么，见 [CHANGELOG.md](CHANGELOG.md)。
+每次更新改了什么，见 [CHANGELOG.md](CHANGELOG.md)。新技能、新版本**先在贸知事社群里发**，社群成员优先更新、优先用上；想优先，扫文末二维码进社群。
 
 ## 🏗️ 建站先开通 AllinCMS
 
@@ -64,7 +57,8 @@ owner: 贸知事
 
 用着有问题，或者想和同行交流 AI 做外贸的经验，欢迎来找我们：
 
+- 仓库 [Issues](https://github.com/tony-apan/maozhishi-skills/issues)：提问、提需求、报问题，作者会回、会更新
 - 邮箱：**help@zhijixinxi.com**
-- 微信：扫下面的码加好友，备注「技能仓」，拉你进贸知事社群
+- 微信：扫下面的码加好友，备注「技能仓」，拉你进贸知事社群——**新技能、新版本在群里优先发**
 
 <img src="https://cos.files.maozhishi.com/data/web/web-files/wx/tony-apan.png" width="220" alt="微信二维码">

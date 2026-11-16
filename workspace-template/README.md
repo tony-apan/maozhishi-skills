@@ -1,12 +1,3 @@
----
-doc_id: template-readme
-title: 工作区模板说明
-description: 用户工作区模板的结构与使用说明。
-status: active
-updated: 2026-11-16
-owner: 贸知事
----
-
 # 用户本地工作区模板（workspace-template）
 
 这是给每位使用者建「本地真源」的起点：把整个目录复制到你自己的电脑/工作区，改名为你的工作区即可。所有模块（建站、获客、B2B、社媒、广告）都只往这里读写资料，不散落在聊天记录里。
