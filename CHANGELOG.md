@@ -4,7 +4,7 @@ title: 版本说明
 description: 整仓与两模块的版本沿革、发版登记与改名映射。
 status: active
 updated: 2026-11-16
-owner: 技能两仓线
+owner: 贸知事
 ---
 
 # 版本说明
