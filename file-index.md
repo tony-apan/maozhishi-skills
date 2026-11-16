@@ -28,8 +28,9 @@ owner: 贸知事
 | [module-standards.md](laicms-site-builder/references/module-standards.md)（建站） | 模块标准库：每个模块怎么填、填多少的量化标准，照着做就行 |
 | [style-profiles.md](laicms-site-builder/references/style-profiles.md)（建站） | 风格档案：外贸 B 端和跨境 C 端两种风格的区别，选好风格照着它走 |
 | [social-sharing.md](laicms-site-builder/references/social-sharing.md)（建站） | 文章发布后，四平台现成分享文案的生成规则 |
-| [SKILL.md](laifaxin-leadgen/SKILL.md)（获客） | 获客说明书主文件，现行 **v1.0.8** |
+| [SKILL.md](laifaxin-leadgen/SKILL.md)（获客） | 获客说明书主文件，现行 **v1.1.0** |
 | [laifaxin-platform-guide.md](laifaxin-leadgen/references/laifaxin-platform-guide.md)（获客） | 来发信平台介绍与文档地图：平台是什么、点数怎么花、官方文档在哪怎么查 |
+| [mailbox-binding-guide.md](laifaxin-leadgen/references/mailbox-binding-guide.md)（获客） | 邮箱绑定指南：服务器参数表、密码类型速查、授权码获取的逐步引导、绑失败错误码自查 |
 | [skill.yaml](laifaxin-leadgen/skill.yaml)（获客） | 获客模块的登记信息 |
 | [README.md](workspace-template/README.md)（模板） | 资料文件夹模板的用法 |
 | [INDEX.md](workspace-template/00-inbox/INDEX.md)（模板 · 收件） | 新资料先放这里 |
