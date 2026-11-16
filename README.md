@@ -31,13 +31,25 @@
 
 ## 📦 里面有什么
 
-| 模块 | 能干什么 |
-| --- | --- |
-| 🏗️ [外贸独立站](laicms-site-builder/SKILL.md)<br>![v3.2.23](https://img.shields.io/badge/v3.2.23-green?style=flat-square) | **建站、上架产品、写文章、日常更新**；自带 **GEO/SEO**：按客户的搜索意图做内容，**让网站被搜索引擎和 AI 推荐，带来流量、询盘和订单**。附模块标准库与带截图的新手说明，开工先选风格（外贸 B 端／跨境 C 端） |
-| 📧 [来发信 AI 获客](laifaxin-leadgen/SKILL.md)<br>![v1.1.0](https://img.shields.io/badge/v1.1.0-blue?style=flat-square) | **找客户、做背调、写开发信、自动跟进**；每月免费点数**自动帮你领**，不用惦记 |
-| 🛒 **B2B 运营**<br>![测试中](https://img.shields.io/badge/%E6%B5%8B%E8%AF%95%E4%B8%AD-orange?style=flat-square) | **免费 B2B 平台注册、铺店、产品上架**；公司和产品资料整理一次，多个平台复用 |
-| 📣 **社媒运营**<br>![测试中](https://img.shields.io/badge/%E6%B5%8B%E8%AF%95%E4%B8%AD-orange?style=flat-square) | **公众号、视频号等平台的内容发布与运营**；网站新文章自动备帖、分发到各平台 |
-| 📁 [工作区模板](workspace-template/README.md)<br>![随仓更新](https://img.shields.io/badge/%E9%9A%8F%E4%BB%93%E6%9B%B4%E6%96%B0-grey?style=flat-square) | 放公司和产品资料的**文件夹架子**，各模块共用 |
+### 🏗️ [外贸独立站](laicms-site-builder/SKILL.md) ![v3.2.23](https://img.shields.io/badge/v3.2.23-green?style=flat-square)
+
+**建站、上架产品、写文章、日常更新**；自带 **GEO/SEO**：按客户的搜索意图做内容，**让网站被搜索引擎和 AI 推荐，带来流量、询盘和订单**。附模块标准库与带截图的新手说明，开工先选风格（外贸 B 端／跨境 C 端）
+
+### 📧 [来发信 AI 获客](laifaxin-leadgen/SKILL.md) ![v1.1.0](https://img.shields.io/badge/v1.1.0-blue?style=flat-square)
+
+**找客户、做背调、写开发信、自动跟进**；每月免费点数**自动帮你领**，不用惦记
+
+### 🛒 B2B 运营 ![测试中](https://img.shields.io/badge/%E6%B5%8B%E8%AF%95%E4%B8%AD-orange?style=flat-square)
+
+**免费 B2B 平台注册、铺店、产品上架**；公司和产品资料整理一次，多个平台复用
+
+### 📣 社媒运营 ![测试中](https://img.shields.io/badge/%E6%B5%8B%E8%AF%95%E4%B8%AD-orange?style=flat-square)
+
+**公众号、视频号等平台的内容发布与运营**；网站新文章自动备帖、分发到各平台
+
+### 📁 [工作区模板](workspace-template/README.md) ![随仓更新](https://img.shields.io/badge/%E9%9A%8F%E4%BB%93%E6%9B%B4%E6%96%B0-grey?style=flat-square)
+
+放公司和产品资料的**文件夹架子**，各模块共用
 
 每个文件的详细清单，见 [文件索引](file-index.md)。
 
