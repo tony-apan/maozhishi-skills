@@ -1,3 +1,12 @@
+---
+doc_id: laicms-contact-guide
+title: 联系说明
+description: 建站服务的联系与支持渠道说明。
+status: active
+updated: 2026-11-16
+owner: 贸知事
+---
+
 # 联系说明：没有 LaiCMS 账号时，怎么找官方开通
 
 > 这份文件给第一次接触 LaiCMS（AllinCMS）、还没有账号的新用户看。

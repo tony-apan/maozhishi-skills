@@ -1,3 +1,12 @@
+---
+doc_id: template-company-profile
+title: 公司档案
+description: 公司基本信息与对外口径的档案模板。
+status: active
+updated: 2026-11-16
+owner: 贸知事
+---
+
 # 公司档案（模板）
 
 - 公司英文名：

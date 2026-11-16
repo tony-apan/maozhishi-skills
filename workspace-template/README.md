@@ -1,3 +1,12 @@
+---
+doc_id: template-readme
+title: 工作区模板说明
+description: 用户工作区模板的结构与使用说明。
+status: active
+updated: 2026-11-16
+owner: 贸知事
+---
+
 # 用户本地工作区模板（workspace-template）
 
 这是给每位使用者建「本地真源」的起点：把整个目录复制到你自己的电脑/工作区，改名为你的工作区即可。所有模块（建站、获客、B2B、社媒、广告）都只往这里读写资料，不散落在聊天记录里。
@@ -18,9 +27,9 @@
 
 ## 资料库四格与七层的对应
 
-- 公司档案 → `20-knowledge/公司档案.md`（模板已备）
+- 公司档案 → `20-knowledge/company-profile.md`（模板已备）
 - 产品事实底稿 → `20-knowledge/产品事实底稿-<产品名>.md`（一产品一档，模板已备）
-- 素材库 → 原文件放 `00-inbox/` 或云盘，索引记在 `20-knowledge/素材索引.md`
+- 素材库 → 原文件放 `00-inbox/` 或云盘，索引记在 `20-knowledge/asset-index.md`
 - 数据与台账 → `50-data/`
 
 ## 同步与安全

@@ -1,9 +1,18 @@
+---
+doc_id: laicms-docs-index
+title: AllinCMS 官方教程索引
+description: 官方教程 40 页的标题、链接与用途索引。
+status: active
+updated: 2026-11-16
+owner: 贸知事
+---
+
 # AllinCMS 官方教程索引
 
 > 用途：操作前先在这里找到对应官方页，再打开官网最新版核对一遍再动手（口径见 SKILL 第十一章「教程保鲜」）。
 > 每条记：标题、官网地址、要点三行、抓取日期。官网与索引不一致时以官网为准，并当场更新本索引与抓取日期。
 > 官网选型价格页（https://www.allincms.com/website-solution）不在文档站内，未收录进本索引。
-> 官网首页 https://www.allincms.com/ 仅作辅助核对（非教程页、不计条目）：官网公示的开通方式是扫码加客服微信、人工开通，开户指路见同目录《联系说明.md》。
+> 官网首页 https://www.allincms.com/ 仅作辅助核对（非教程页、不计条目）：官网公示的开通方式是扫码加客服微信、人工开通，开户指路见同目录《contact-guide.md》。
 
 ## 索引状态
 

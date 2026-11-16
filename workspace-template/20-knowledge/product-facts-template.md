@@ -1,3 +1,12 @@
+---
+doc_id: template-product-facts
+title: 产品事实底稿模板
+description: 产品参数与卖点的事实底稿填写模板。
+status: active
+updated: 2026-11-16
+owner: 贸知事
+---
+
 # 产品事实底稿 · <产品名>（模板，一产品一档）
 
 - 产品名（中文/英文）：
