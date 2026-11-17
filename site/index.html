@@ -55,7 +55,10 @@
 
   /* prompt card: white, ink border, hard shadow */
   .prompt-card { margin-top:36px; background:#fff; border:2px solid var(--ink); border-radius:14px; padding:24px 26px 20px; box-shadow:10px 10px 0 rgba(22,104,216,.16); }
-  .prompt-card .p-label { font-size:12.5px; letter-spacing:.26em; color:var(--blue); font-weight:700; margin-bottom:12px; }
+  .prompt-card .p-label { font-size:13px; letter-spacing:.14em; color:var(--blue); font-weight:700; margin-bottom:12px; }
+  .p-steps { display:flex; flex-wrap:wrap; align-items:center; gap:8px 10px; margin-top:16px; padding-top:14px; border-top:1px dashed var(--line); font-size:13.5px; color:var(--ink2); }
+  .p-steps b { display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px; border-radius:50%; background:var(--blue); color:#fff; font-size:12px; margin-right:6px; }
+  .p-steps i { font-style:normal; color:var(--mut); }
   .prompt-card .p-text { font-size:16.5px; line-height:1.65; font-weight:600; overflow-wrap:anywhere; }
   .prompt-card .p-head { display:flex; justify-content:space-between; align-items:center; gap:12px 16px; flex-wrap:wrap; margin-bottom:14px; }
   .prompt-card .p-head .p-label { margin-bottom:0; }
@@ -251,13 +254,14 @@
       </div>
       <div class="prompt-card">
           <div class="p-head">
-            <div class="p-label">在 Muse 里发这一句话</div>
+            <div class="p-label">复制这句话 · 发给 Muse</div>
             <div class="p-actions">
               <span class="copied" id="copyTip" role="status"></span>
-              <button class="btn" onclick="copyPrompt()">复 制 这 句 话</button>
+              <button class="btn" onclick="copyPrompt()">复制这句话</button>
             </div>
           </div>
           <div class="p-text" id="promptText">请阅读 https://skill.maozhishi.com/doc/skill-setup.md ，为我安装贸知事技能仓并跑一遍开工自检，之后按技能的规程在云端替我执行。</div>
+          <div class="p-steps"><span><b>1</b>点按钮，整段复制</span><i>→</i><span><b>2</b>打开 Muse，粘贴发送</span><i>→</i><span><b>3</b>它会照着这句话装好技能、跑完自检</span></div>
       </div>
     </div>
   </div>
