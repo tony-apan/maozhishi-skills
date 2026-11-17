@@ -33,10 +33,9 @@
   h1 .blue { color:var(--blue); }
   h1 .mark { background-image:linear-gradient(transparent 78%, rgba(201,79,14,.32) 78%, rgba(201,79,14,.32) 94%, transparent 94%); }
   .hero-grid { display:grid; grid-template-columns:1.25fr .95fr; gap:30px 56px; align-items:start; }
-  .hero-main { grid-column:1; grid-row:1; }
-  .hero-notes { grid-column:1; grid-row:2; }
-  .report { grid-column:2; grid-row:1 / span 2; margin-top:12px; }
-  .hero-grid > .prompt-card { grid-column:1 / -1; grid-row:3; max-width:none; margin-top:4px; }
+  .hero-left { grid-column:1; grid-row:1; display:flex; flex-direction:column; gap:30px; min-width:0; }
+  .report { grid-column:2; grid-row:1; margin-top:12px; min-width:0; }
+  .hero-grid > .prompt-card { grid-column:1 / -1; grid-row:2; max-width:none; margin-top:4px; min-width:0; }
   @media (min-width:1280px) { .trust-line { white-space:nowrap; font-size:14px; } }
   .hero .sub { font-size:18.5px; color:var(--ink2); margin-top:26px; line-height:1.75; max-width:600px; }
   .hero .sub strong { color:var(--ink); }
@@ -150,7 +149,7 @@
     .marquee span { padding:4px 12px; } }
   @media (max-width:900px) {
     .hero-grid { display:flex; flex-direction:column; gap:34px; }
-    .hero-main { order:1; } .prompt-card { order:2; } .report { order:3; margin-top:0; } .hero-notes { order:4; }
+    .hero-left { display:contents; } .hero-main { order:1; } .prompt-card { order:2; } .report { order:3; margin-top:0; } .hero-notes { order:4; }
     .mini h4 { white-space:normal; }
     .mini { flex-wrap:wrap; }
   }
@@ -200,9 +199,24 @@
   <div class="hero">
     <div class="eyebrow">贸知事技能仓 · 在 Muse 云端运行</div>
     <div class="hero-grid">
+      <div class="hero-left">
       <div class="hero-main">
         <h1>一个人，<br>也能像<span class="blue">一个</span><span class="mark">团队</span>。</h1>
         <p class="sub">跑工厂、盯生产、陪客户，一天已经够满了。建站更新、找客户、写开发信、排跟进这些<strong>耗时间的活</strong>，现在不用你一件件干：在 Muse 里装上贸知事技能仓，它们都由 Muse 在<strong>云端全自动执行</strong>。你白天忙外面的，晚上回到家，日报已经躺在对话里等你看。</p>
+      </div>
+      <div class="hero-notes">
+        <p class="support">Muse 是你的 AI 助手应用，网页、手机、电脑上都能用，还没有的先去 <a href="https://muse.ai" target="_blank" rel="noopener">muse.ai</a> 看看。本站主推 Muse 云端运行；技能源码公开，其他 AI 助手也可自行取用。</p>
+        <p class="trust-line">技能全部源码公开，随时可查；你的账号、密码只存你自己的保险库，不经过聊天、不写进任何文件。云端干活也要你先交代、先授权，关键动作都会回到你面前确认。</p>
+      </div>
+      </div>
+      <div class="report" role="region" aria-label="日报样式示意">
+        <div class="r-head"><span class="r-title">日报长这样</span><span class="r-tag">样式示例</span></div>
+        <div class="r-sub">每天晚上发到你对话里的日报，栏目是这几样</div>
+        <div class="r-item"><span class="dot">·</span><div><b>网站更新</b><span>今天更新了哪几页、巡检有没有异常，一条条列清</span></div></div>
+        <div class="r-item"><span class="dot">·</span><div><b>客户跟进</b><span>今天跟进了哪些客户、发到第几轮，这里能查</span></div></div>
+        <div class="r-item"><span class="dot">·</span><div><b>新回复</b><span>新回信先帮你分好轻重，重要的排在前面</span></div></div>
+        <div class="r-item"><span class="dot">·</span><div><b>等你点头</b><span>需要你拍板的事单独列出来，你不点头，它不动</span></div></div>
+        <div class="r-foot">以上是栏目样式示例；日报里写的，是你自己的网站和客户的进展。</div>
       </div>
       <div class="prompt-card">
           <div class="p-head">
@@ -213,19 +227,6 @@
             </div>
           </div>
           <div class="p-text" id="promptText">请阅读 https://skill.maozhishi.com/doc/skill-setup.md ，为我安装贸知事技能仓并跑一遍开工自检，之后按技能的规程在云端替我执行。</div>
-      </div>
-      <div class="hero-notes">
-        <p class="support">Muse 是你的 AI 助手应用，网页、手机、电脑上都能用，还没有的先去 <a href="https://muse.ai" target="_blank" rel="noopener">muse.ai</a> 看看。本站主推 Muse 云端运行；技能源码公开，其他 AI 助手也可自行取用。</p>
-        <p class="trust-line">技能全部源码公开，随时可查；你的账号、密码只存你自己的保险库，不经过聊天、不写进任何文件。云端干活也要你先交代、先授权，关键动作都会回到你面前确认。</p>
-      </div>
-      <div class="report" role="region" aria-label="日报样式示意">
-        <div class="r-head"><span class="r-title">日报长这样</span><span class="r-tag">样式示例</span></div>
-        <div class="r-sub">每天晚上发到你对话里的日报，栏目是这几样</div>
-        <div class="r-item"><span class="dot">·</span><div><b>网站更新</b><span>今天更新了哪几页、巡检有没有异常，一条条列清</span></div></div>
-        <div class="r-item"><span class="dot">·</span><div><b>客户跟进</b><span>今天跟进了哪些客户、发到第几轮，这里能查</span></div></div>
-        <div class="r-item"><span class="dot">·</span><div><b>新回复</b><span>新回信先帮你分好轻重，重要的排在前面</span></div></div>
-        <div class="r-item"><span class="dot">·</span><div><b>等你点头</b><span>需要你拍板的事单独列出来，你不点头，它不动</span></div></div>
-        <div class="r-foot">以上是栏目样式示例；日报里写的，是你自己的网站和客户的进展。</div>
       </div>
     </div>
   </div>
