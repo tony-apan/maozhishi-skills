@@ -10,9 +10,10 @@
   :root { --blue:#1668d8; --org:#c94f0e; --ink:#0c1f30; --ink2:#3d5265; --mut:#5d7a93; --line:#dce7f1; --wash:#eef5fc; --paper:#fbfcfe; }
   * { margin:0; padding:0; box-sizing:border-box; }
   html { scroll-behavior:smooth; }
+  html { scroll-padding-top:110px; }
   body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; color:var(--ink); background:var(--paper); line-height:1.8; -webkit-font-smoothing:antialiased; }
   .wrap { max-width:920px; margin:0 auto; padding:0 24px; }
-  .topbar { display:flex; justify-content:space-between; align-items:center; padding:26px 0 22px; position:relative; }
+  .topbar { display:flex; justify-content:space-between; align-items:center; padding:26px 0 22px; position:sticky; top:0; z-index:100; background:var(--paper); border-bottom:1px solid var(--line); }
   .brand { font-size:20px; font-weight:800; letter-spacing:.02em; white-space:nowrap; }
   .brand small { font-weight:400; color:var(--mut); font-size:12.5px; letter-spacing:.18em; margin-left:9px; }
   .brand .sep { color:#c3dff5; font-weight:300; margin:0 12px; }
@@ -33,7 +34,11 @@
   .drop .t { display:block; font-size:15px; font-weight:700; color:var(--ink); }
   .drop .d { display:block; font-size:12.5px; font-weight:500; color:var(--mut); margin-top:1px; }
   @media (max-width:760px) {
-    .topbar { flex-wrap:wrap; row-gap:12px; }
+    .topbar { flex-wrap:wrap; row-gap:10px; padding:14px 0 12px; }
+    .nav { position:relative; }
+    .has-drop { position:static; }
+    .drop { left:0; right:0; width:auto; max-width:none; top:calc(100% + 10px); }
+    html { scroll-padding-top:100px; }
     .nav { width:100%; gap:19px; margin-left:0; }
     .brand .svc, .brand .sep { display:none; }
   }

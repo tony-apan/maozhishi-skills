@@ -12,11 +12,12 @@
   }
   * { margin:0; padding:0; box-sizing:border-box; }
   html { scroll-behavior:smooth; }
+  html { scroll-padding-top:110px; }
   body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; color:var(--ink); background:var(--paper); line-height:1.7; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
   .wrap { max-width:1160px; margin:0 auto; padding:0 32px; position:relative; }
 
   /* top bar */
-  .topbar { display:flex; justify-content:space-between; align-items:center; padding:26px 0 22px; position:relative; }
+  .topbar { display:flex; justify-content:space-between; align-items:center; padding:26px 0 22px; position:sticky; top:0; z-index:100; background:var(--paper); border-bottom:1px solid var(--line); }
   .brand { font-size:20px; font-weight:800; letter-spacing:.02em; white-space:nowrap; }
   .brand small { font-weight:400; color:var(--mut); font-size:12.5px; letter-spacing:.18em; margin-left:9px; }
   .brand .sep { color:#c3dff5; font-weight:300; margin:0 12px; }
@@ -174,7 +175,11 @@
     .prompt-card .p-text { font-size:15px; }
     .marquee { margin-top:44px; }
     section { padding:58px 0 4px; }
-    .topbar { flex-wrap:wrap; row-gap:12px; }
+    .topbar { flex-wrap:wrap; row-gap:10px; padding:14px 0 12px; }
+    .nav { position:relative; }
+    .has-drop { position:static; }
+    .drop { left:0; right:0; width:auto; max-width:none; top:calc(100% + 10px); }
+    html { scroll-padding-top:100px; }
     .nav { width:100%; gap:19px; margin-left:0; }
     .brand .svc, .brand .sep { display:none; }
     .steps { grid-template-columns:1fr; gap:32px; }
