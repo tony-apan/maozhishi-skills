@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>来发信精发教程 · 用自己的邮箱一客一信 · 贸知事</title>
+<meta name="description" content="来发信教程精发篇：绑上你自己的邮箱，AI 给每家重点客户做背调、一客一信地写开发信，按第 3、7、14 天的节奏自动跟进。">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+  :root { --blue:#1668d8; --org:#c94f0e; --ink:#0c1f30; --ink2:#3d5265; --mut:#5d7a93; --line:#dce7f1; --wash:#eef5fc; --paper:#fbfcfe; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  html { scroll-padding-top:110px; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; color:var(--ink); background:var(--paper); line-height:1.8; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:920px; margin:0 auto; padding:0 24px; }
+  .topbar { display:flex; justify-content:space-between; align-items:center; padding:26px 0 22px; position:sticky; top:0; z-index:100; background:var(--paper); border-bottom:1px solid var(--line); }
+  .brand { font-size:20px; font-weight:800; letter-spacing:.02em; white-space:nowrap; }
+  .brand small { font-weight:400; color:var(--mut); font-size:12.5px; letter-spacing:.18em; margin-left:9px; }
+  .brand .sep { color:#c3dff5; font-weight:300; margin:0 12px; }
+  .brand .svc { font-size:14px; font-weight:500; color:var(--ink2); letter-spacing:.1em; }
+  .nav { display:flex; gap:34px; flex:1; margin-left:34px; align-items:center; }
+  .nav a { color:var(--ink2); text-decoration:none; font-size:14.5px; font-weight:600; white-space:nowrap; background-image:linear-gradient(currentColor,currentColor); background-size:0% 2px; background-repeat:no-repeat; background-position:0 100%; transition:background-size .3s, color .2s; padding-bottom:2px; }
+  .nav a:hover { color:var(--blue); background-size:100% 2px; }
+  .has-drop { position:relative; display:inline-block; }
+  .drop { position:absolute; top:calc(100% + 14px); left:0; transform:translateY(8px); width:240px; max-width:calc(100vw - 40px); background:#fff; border:2px solid var(--ink); border-radius:14px; box-shadow:7px 7px 0 rgba(12,31,48,.9); padding:8px; opacity:0; pointer-events:none; transition:opacity .18s, transform .18s; z-index:60; }
+  .drop::before { content:""; position:absolute; left:0; right:0; top:-16px; height:16px; }
+  .has-drop:hover .drop, .has-drop:focus-within .drop, .has-drop.open .drop { opacity:1; pointer-events:auto; transform:translateY(0); }
+  .has-drop.suppressed .drop { opacity:0; pointer-events:none; transform:translateY(8px); }
+  .nav .gh { margin-left:auto; display:inline-flex; align-items:center; gap:7px; color:var(--ink); background-image:none; padding-bottom:0; }
+  .nav .gh:hover { color:var(--blue); background-image:none; }
+  .nav .gh svg { display:block; }
+  .drop a { display:block; padding:10px 12px; border-radius:9px; background-image:none; white-space:normal; }
+  .drop a:hover { background:var(--wash); background-image:none; }
+  .drop .t { display:block; font-size:15px; font-weight:700; color:var(--ink); }
+  .drop .d { display:block; font-size:12.5px; font-weight:500; color:var(--mut); margin-top:1px; }
+  @media (max-width:760px) {
+    .topbar { flex-wrap:wrap; row-gap:10px; padding:14px 0 12px; }
+    .nav { position:relative; }
+    .has-drop { position:static; }
+    .drop { left:0; right:0; width:auto; max-width:none; top:calc(100% + 10px); }
+    html { scroll-padding-top:100px; }
+    .nav { width:100%; gap:19px; margin-left:0; }
+    .brand .svc, .brand .sep { display:none; }
+  }
+  .p-head { padding:44px 0 4px; }
+  .eyebrow { color:var(--blue); font-weight:700; font-size:13.5px; letter-spacing:.22em; margin-bottom:14px; }
+  h1 { font-size:clamp(32px,5.4vw,46px); font-weight:850; line-height:1.2; letter-spacing:.01em; }
+  h1 .mark { background-image:linear-gradient(transparent 76%, rgba(201,79,14,.30) 76%, rgba(201,79,14,.30) 94%, transparent 94%); }
+  .lead { margin-top:16px; font-size:17px; color:var(--ink2); max-width:38em; }
+  .toc { display:flex; flex-wrap:wrap; gap:10px; margin:28px 0 6px; }
+  .toc a { border:1.5px solid var(--ink); border-radius:999px; padding:6px 16px; font-size:14px; font-weight:700; color:var(--ink); text-decoration:none; background:#fff; }
+  .toc a:hover { background:var(--wash); color:var(--blue); border-color:var(--blue); }
+  article { font-size:16.5px; }
+  article h2 { font-size:25px; font-weight:800; margin:2.3em 0 .7em; padding-bottom:.35em; border-bottom:2px solid var(--line); scroll-margin-top:24px; }
+  article h2::before { content:""; display:inline-block; width:.48em; height:.48em; background:var(--org); border-radius:2px; margin-right:.45em; }
+  article h3 { font-size:18.5px; font-weight:800; margin:1.7em 0 .5em; }
+  article p { margin:.75em 0; color:var(--ink2); }
+  article p strong, article li strong { color:var(--ink); }
+  article ul, article ol { margin:.6em 0 .9em 1.4em; color:var(--ink2); }
+  article li { margin:.35em 0; }
+  article a { color:var(--blue); text-underline-offset:.22em; }
+  article table { width:100%; border-collapse:separate; border-spacing:0; border:1.5px solid var(--line); border-radius:12px; overflow:hidden; margin:1em 0; font-size:15px; }
+  article th { background:var(--wash); color:var(--ink); font-weight:700; text-align:left; }
+  article th, article td { padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top; }
+  article tr:last-child td { border-bottom:0; }
+  .note, .warn { border-radius:12px; padding:16px 20px; margin:1.2em 0; font-size:15.5px; }
+  .note { background:var(--wash); border-left:5px solid var(--blue); color:var(--ink2); }
+  .warn { background:#fdf1e7; border-left:5px solid var(--org); color:var(--ink2); }
+  .note strong, .warn strong { color:var(--ink); }
+  .faq dt { font-weight:800; color:var(--ink); margin-top:1.3em; }
+  .faq dd { color:var(--ink2); margin:.3em 0 0; }
+  .next { display:block; background:#fff; border:2px solid var(--ink); border-radius:16px; padding:24px 28px 20px; text-decoration:none; color:var(--ink); box-shadow:7px 7px 0 rgba(12,31,48,.9); margin-top:52px; transition:transform .15s, box-shadow .15s; }
+  .next:hover { transform:translate(-2px,-2px); box-shadow:9px 9px 0 rgba(12,31,48,.9); }
+  .next .no { font-size:13px; font-weight:800; letter-spacing:.2em; color:var(--org); }
+  .next h2 { font-size:23px; font-weight:800; margin:8px 0 6px; border:0; padding:0; }
+  .next h2::before { display:none; }
+  .next p { color:var(--ink2); font-size:15.5px; }
+  .foot { margin-top:48px; padding:26px 0 44px; border-top:1px solid var(--line); font-size:13.5px; color:var(--mut); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+  .foot a { color:var(--mut); text-decoration:none; }
+  .foot a:hover { color:var(--blue); }
+  @media (max-width:640px) { article { font-size:16px; } }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } .next { transition:none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">贸知事<small>MAOZHISHI</small><span class="sep">|</span><span class="svc">AI 工作技能仓</span></div>
+    <div class="nav">
+      <a href="/">首页</a>
+      <span class="has-drop"><a href="/#tutorials" aria-expanded="false">教程</a><span class="drop">
+        <a href="/muse/"><span class="t">先认识 Muse</span><span class="d">注册、开通、装上技能</span></a>
+        <a href="/laifaxin/"><span class="t">来发信技能使用教程</span><span class="d">开发信获客，全程一篇</span></a>
+        <a href="/laicms/"><span class="t">独立站技能使用教程</span><span class="d">建站全程，带真实截图</span></a>
+      </span></span>
+      <a href="/#skills">技能</a>
+      <a href="/contact/">联系</a>
+      <a class="gh" href="https://github.com/tony-apan/maozhishi-skills" target="_blank" rel="noopener" aria-label="GitHub 仓库"><svg viewBox="0 0 16 16" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg><span>GitHub</span></a>
+    </div>
+  </div>
+
+  <div class="p-head">
+    <div class="eyebrow">第二篇 · 获客 · 精发篇</div>
+    <h1>精发：用自己的邮箱，<span class="mark">一客一信</span></h1>
+    <p class="lead">这一篇走<strong>精发</strong>路线：绑上你自己的邮箱，AI 给每家重点客户做背调、一封一封地写。开始之前，先在<a href="/laifaxin/">总览</a>里走完前四步——把客户名单筛好，再回来走这一篇。</p>
+    <div class="toc">
+      <a href="#mailbox">第一步 · 绑邮箱</a>
+      <a href="#write">第二步 · 写信</a>
+      <a href="#rhythm">第三步 · 发送与跟进</a>
+      <a href="/laifaxin/">回到总览</a>
+    </div>
+  </div>
+
+  <article>
+<h2 id="mailbox">第一步：绑上你自己的邮箱</h2>
+    <p>只做群发的话，这一步可以跳过。想用自己的邮箱给重点客户一对一发信（精发），就把邮箱绑上，两条路：</p>
+    <ol>
+      <li><strong>Gmail / Outlook</strong>：跟着 AI 给出的授权页面点确认就行，全程不用交出密码。</li>
+      <li><strong>其他邮箱</strong>（企业邮箱、163、QQ 等共 23 类常用邮箱）：在来发信平台里用「授权码」绑定。授权码是邮箱发给第三方客户端的一个独立密码，不是你的登录密码，能单独作废。该你本人动手的那几步（比如生成授权码），AI 会一步一步带你点；凭据只填进平台，不经过 AI。</li>
+    </ol>
+
+    <h3>绑之前先分清：用哪种密码</h3>
+    <p>绑不上多半是用错了密码。绝大多数邮箱要用<strong>授权码 / 应用专用密码</strong>（各家叫法不同，本质都是邮箱给第三方客户端的独立密码，可单独撤销）：Gmail、QQ、163、Outlook、企业邮箱全系都属这类；只有少数（阿里邮箱、电信 189/21cn）用登录密码。开了两步验证的邮箱，一律先生成应用专用密码再绑。</p>
+    <h3>常用邮箱服务器参数（已核对 5 家）</h3>
+    <table>
+      <tr><th>邮箱</th><th>IMAP（收）</th><th>SMTP（发）</th></tr>
+      <tr><td>Gmail</td><td>imap.gmail.com:993 SSL</td><td>smtp.gmail.com:465 SSL 或 587 TLS</td></tr>
+      <tr><td>QQ</td><td>imap.qq.com:993 SSL</td><td>smtp.qq.com:465 SSL</td></tr>
+      <tr><td>网易 163 系</td><td>imap.163.com:993 SSL</td><td>smtp.163.com:465 SSL</td></tr>
+      <tr><td>Outlook/Hotmail</td><td>outlook.office365.com:993 SSL</td><td>smtp.office365.com:587 TLS</td></tr>
+      <tr><td>腾讯企业邮箱</td><td>imap.exmail.qq.com:993 SSL</td><td>smtp.exmail.qq.com:465 SSL</td></tr>
+    </table>
+    <p>其余各家的参数照来发信官网对应单篇填，不要凭记忆填。</p>
+    <h3>跟着检查点走</h3>
+    <ol>
+      <li><strong>企业邮箱先行</strong>：先确认你有没有邮箱管理后台权限。企业邮箱的 IMAP/SMTP 常默认关闭、要管理员开；没权限先找管理员。</li>
+      <li><strong>开服务</strong>：按该邮箱的路径打开 IMAP/SMTP（Gmail 要先开两步验证，才有应用密码入口）。</li>
+      <li><strong>生成并保存</strong>：授权码<strong>只显示一次</strong>，生成后立刻存进密码管理器；每个客户端单独生成一个，方便单独撤销。</li>
+      <li><strong>回平台绑定</strong>：你自己把授权码粘贴进来发信绑定框，填上面的参数，<strong>填完要点保存才生效</strong>。</li>
+      <li><strong>双验</strong>：发一封测试信确认发得出、同步确认收得到，都过了才算绑好。测试信可以让 AI 帮你发，发前它会把发信身份、收件地址、内容逐项念给你确认。</li>
+    </ol>
+    <h3>绑不上，先查这张表</h3>
+    <table>
+      <tr><th style="width:34%">报错</th><th>多半是什么问题</th></tr>
+      <tr><td>535 Authentication failed</td><td>密码错，或没用应用专用密码——用授权码重绑（最常见）</td></tr>
+      <tr><td>534 Application-specific password required</td><td>开了两步验证却用普通密码——去生成应用专用密码</td></tr>
+      <tr><td>Connection refused / timeout</td><td>服务器地址、端口填错，或 VPN/防火墙拦截——核对参数、关 VPN</td></tr>
+      <tr><td>Login disabled / IMAP disabled</td><td>后台没开 IMAP/SMTP 服务——先去邮箱后台开启</td></tr>
+      <tr><td>反复弹密码框</td><td>授权过期——重新生成授权码，回平台更新</td></tr>
+    </table>
+    <div class="warn">
+      <strong>友情提醒</strong>：平时办公用的邮箱、公司的企业邮箱，不适合拿来大批量发开发信——发多了容易被邮箱服务商封号，企业邮箱还会连累整个公司域名的信誉，日常往来邮件都可能进客户的垃圾箱。量大的发送走平台的发送通道更稳妥。你了解风险之后还是想用自己的邮箱发，也照常发，AI 会把精发的数量和节奏控制在稳妥范围：每个邮箱每天默认 30 封以内，新邮箱从少量开始、慢慢加。
+    </div>
+
+    <h2 id="write">第二步：写信——一客一信，先给你看</h2>
+    <ol>
+      <li><strong>先背调，再动笔</strong>：AI 先看这家公司的官网和公开资料——对方卖什么、可能缺什么、最近有什么动静，把证据记下来；写信只用查证过的事实，不编造、不夸大。</li>
+      <li><strong>一封一封写</strong>：每封信的切入点都不一样，是针对这家公司写的，不是一封模板改个名字。写好了先给你看，你点头才发。</li>
+      <li><strong>先小样</strong>：第一次先挑几家试发，看送达、退信、回复都正常，再按排期慢慢放量。</li>
+    </ol>
+
+    <h2 id="rhythm">第三步：发送节奏与跟进</h2>
+    <ul>
+      <li><strong>量要控着来</strong>：每个邮箱每天 30 封以内是稳妥节奏，新绑的邮箱还要先从少量慢慢爬坡。AI 会替你控着，不会一口气超量发。</li>
+      <li><strong>自动跟进三封</strong>：首封发出后，AI 在第 3 天、第 7 天、第 14 天（按工作日算）各跟进一封；对方一回信，跟进立刻停下，交给你接手。</li>
+      <li><strong>回信先分类</strong>：回信 AI 先分好类——询盘和明确感兴趣的优先提醒你；说不要的、退订的立刻停发，并记进不再打扰的名单，这个名单精发、群发都生效。</li>
+    </ul>
+    <p>日报和询盘处理的更多安排，在<a href="/laifaxin/#follow">总览的第五步</a>里。</p>
+
+    <a class="next" href="/laifaxin/qunfa/">
+      <div class="no">另一条路线</div>
+      <h2>群发：用平台通道把量铺开</h2>
+      <p>名单量大的时候，先用群发铺一遍、筛出有回应的，再转回来精发攻重点。</p>
+    </a>
+</article>
+
+  <div class="foot">
+    <span>贸知事 AI 工作技能仓 · 使用教程</span>
+    <span><a href="/#tutorials">教程首页</a> · <a href="/">技能站首页</a></span>
+  </div>
+</div>
+<script>
+  var hd = document.querySelector('.has-drop');
+  if (hd) {
+    var hdLink = hd.querySelector('a');
+    function syncAria() {
+      var open = !hd.classList.contains('suppressed') && (hd.classList.contains('open') || hd.matches(':hover') || hd.contains(document.activeElement));
+      hdLink.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    hdLink.addEventListener('click', function(e) {
+      hd.classList.remove('suppressed');
+      if (window.matchMedia('(hover: none)').matches && !hd.classList.contains('open')) {
+        e.preventDefault();
+        hd.classList.add('open');
+      } else {
+        hd.classList.remove('open');
+      }
+      syncAria();
+    });
+    document.addEventListener('click', function(e) {
+      if (!hd.contains(e.target)) {
+        hd.classList.remove('open');
+        if (document.activeElement && hd.contains(document.activeElement)) { document.activeElement.blur(); }
+        syncAria();
+      }
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && (hd.classList.contains('open') || hd.matches(':hover') || hd.contains(document.activeElement))) {
+        hd.classList.remove('open');
+        hd.classList.add('suppressed');
+        if (document.activeElement && hd.contains(document.activeElement)) { document.activeElement.blur(); }
+        syncAria();
+      }
+    });
+    hd.addEventListener('mouseenter', function() { hd.classList.remove('suppressed'); syncAria(); });
+    hd.addEventListener('mouseleave', function() { hd.classList.remove('suppressed'); syncAria(); });
+    hd.addEventListener('focusin', function() { hd.classList.remove('suppressed'); syncAria(); });
+    hd.addEventListener('focusout', function() { setTimeout(syncAria, 0); });
+  }
+</script>
+</body>
+</html>
