@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>联系我们 · 贸知事</title>
+<meta name="description" content="贸知事技能仓的联系方式：微信、邮箱、GitHub Issues。装不上、不会用，先看使用教程，还有问题通过这三条找我们。">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+  :root { --blue:#1668d8; --org:#c94f0e; --ink:#0c1f30; --ink2:#33506e; --mut:#5d7a93; --line:#dce7f1; --wash:#eef5fc; --paper:#fbfcfe; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; color:var(--ink); background:var(--paper); line-height:1.75; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:920px; margin:0 auto; padding:0 24px; }
+  .topbar { display:flex; justify-content:space-between; align-items:center; padding:24px 0 18px; border-bottom:2px solid var(--ink); }
+  .brand { font-weight:800; font-size:17px; letter-spacing:.03em; }
+  .brand small { color:var(--mut); font-weight:600; margin-left:8px; letter-spacing:.14em; font-size:11px; }
+  .brand .sep { color:var(--line); margin:0 10px; }
+  .brand .svc { color:var(--ink2); font-size:14.5px; }
+  .nav { display:flex; gap:26px; }
+  .nav a { color:var(--ink2); text-decoration:none; font-size:14.5px; font-weight:600; white-space:nowrap; }
+  .nav a:hover { color:var(--blue); }
+  .p-head { padding:44px 0 8px; }
+  .eyebrow { color:var(--blue); font-weight:700; font-size:13.5px; letter-spacing:.22em; margin-bottom:14px; }
+  h1 { font-size:clamp(32px,5.4vw,46px); font-weight:850; line-height:1.2; letter-spacing:.01em; }
+  h1 .mark { background-image:linear-gradient(transparent 76%, rgba(201,79,14,.30) 76%, rgba(201,79,14,.30) 94%, transparent 94%); }
+  .lead { margin-top:16px; font-size:17px; color:var(--ink2); max-width:38em; }
+  .lead a { color:var(--blue); text-underline-offset:.22em; }
+  .cards { display:grid; grid-template-columns:repeat(3, 1fr); gap:22px; margin:38px 0 10px; }
+  .ccard { background:#fff; border:2px solid var(--ink); border-radius:16px; padding:26px 24px 22px; box-shadow:7px 7px 0 rgba(12,31,48,.9); }
+  .ccard .k { font-size:13px; font-weight:800; letter-spacing:.2em; color:var(--org); }
+  .ccard h2 { font-size:20px; font-weight:800; margin:10px 0 8px; }
+  .ccard p { color:var(--ink2); font-size:15px; }
+  .ccard a { color:var(--blue); text-underline-offset:.22em; font-weight:700; }
+  .ccard img { width:150px; height:150px; display:block; margin:14px 0 6px; }
+  .tip { margin-top:30px; background:var(--wash); border-left:5px solid var(--blue); border-radius:12px; padding:16px 20px; font-size:15.5px; color:var(--ink2); }
+  .tip strong { color:var(--ink); }
+  .foot { margin-top:56px; padding:26px 0 44px; border-top:1px solid var(--line); font-size:13.5px; color:var(--mut); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+  .foot a { color:var(--mut); text-decoration:none; }
+  .foot a:hover { color:var(--blue); }
+  @media (max-width:760px) { .cards { grid-template-columns:1fr; } .nav { gap:16px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">贸知事<small>MAOZHISHI</small><span class="sep">|</span><span class="svc">联系</span></div>
+    <div class="nav">
+      <a href="/#tutorials">使用教程</a>
+      <a href="/">技能站首页</a>
+    </div>
+  </div>
+
+  <div class="p-head">
+    <div class="eyebrow">联系</div>
+    <h1>有问题，<span class="mark">找我们</span></h1>
+    <p class="lead">先说一句：装不上、不会用的问题，多数在<a href="/#tutorials">使用教程</a>里就有答案，先翻一遍最快。还有问题，就走下面三条路，说清你卡在哪一步，我们才好帮你。</p>
+  </div>
+
+  <div class="cards">
+    <div class="ccard">
+      <div class="k">微信</div>
+      <h2>扫码加微信</h2>
+      <img src="https://cos.files.maozhishi.com/data/web/web-files/wx/tony-apan.png" alt="微信二维码" width="150" height="150" loading="lazy">
+      <p>进交流群，和其他用技能的外贸人一起聊；急事也可以直接留言。</p>
+    </div>
+    <div class="ccard">
+      <div class="k">邮箱</div>
+      <h2><a href="mailto:help@zhijixinxi.com">help@zhijixinxi.com</a></h2>
+      <p>把问题写清楚发过来：你做到哪一步、屏幕上显示什么。工作日回复。</p>
+    </div>
+    <div class="ccard">
+      <div class="k">问题反馈</div>
+      <h2><a href="https://github.com/tony-apan/maozhishi-skills/issues" target="_blank" rel="noopener">GitHub Issues</a></h2>
+      <p>技能本身的问题、建议和常见问题都记在这里，提之前可以先搜一下有没有人问过。</p>
+    </div>
+  </div>
+
+  <div class="tip">
+    <strong>提问题的小窍门</strong>：说清三件事，回得最快——你用的是哪个技能、卡在教程的第几步、屏幕上原样显示了什么。截图比形容更管用。
+  </div>
+
+  <div class="foot">
+    <span>贸知事 AI 工作技能仓 · 联系</span>
+    <span><a href="/#tutorials">使用教程</a> · <a href="/">技能站首页</a></span>
+  </div>
+</div>
+</body>
+</html>

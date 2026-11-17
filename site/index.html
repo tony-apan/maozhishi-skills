@@ -24,6 +24,13 @@
   .nav { display:flex; gap:34px; }
   .nav a { color:var(--ink2); text-decoration:none; font-size:14.5px; font-weight:600; white-space:nowrap; background-image:linear-gradient(currentColor,currentColor); background-size:0% 2px; background-repeat:no-repeat; background-position:0 100%; transition:background-size .3s, color .2s; padding-bottom:2px; }
   .nav a:hover { color:var(--blue); background-size:100% 2px; }
+  .has-drop { position:relative; display:inline-block; }
+  .drop { position:absolute; top:calc(100% + 14px); left:50%; transform:translate(-50%, 8px); min-width:248px; background:#fff; border:2px solid var(--ink); border-radius:14px; box-shadow:7px 7px 0 rgba(12,31,48,.9); padding:8px; opacity:0; pointer-events:none; transition:opacity .18s, transform .18s; z-index:60; }
+  .has-drop:hover .drop, .has-drop:focus-within .drop, .has-drop.open .drop { opacity:1; pointer-events:auto; transform:translate(-50%, 0); }
+  .drop a { display:block; padding:10px 12px; border-radius:9px; background-image:none; white-space:normal; }
+  .drop a:hover { background:var(--wash); background-image:none; }
+  .drop .t { display:block; font-size:15px; font-weight:700; color:var(--ink); }
+  .drop .d { display:block; font-size:12.5px; font-weight:500; color:var(--mut); margin-top:1px; }
 
   /* hero */
   .hero { padding:56px 0 0; position:relative; }
@@ -197,10 +204,14 @@
   <div class="topbar">
     <div class="brand">贸知事<small>MAOZHISHI</small><span class="sep">|</span><span class="svc">AI 工作技能仓</span></div>
     <div class="nav">
-      <a href="#tutorials">使用教程</a>
+      <span class="has-drop"><a href="#tutorials">使用教程</a><span class="drop">
+        <a href="/muse/"><span class="t">先认识 Muse</span><span class="d">注册、开通、装上技能</span></a>
+        <a href="/laifaxin/"><span class="t">来发信技能使用教程</span><span class="d">开发信获客，全程一篇</span></a>
+        <a href="/laicms/"><span class="t">独立站技能使用教程</span><span class="d">建站全程，带真实截图</span></a>
+      </span></span>
       <a href="https://github.com/tony-apan/maozhishi-skills" target="_blank" rel="noopener">GitHub</a>
       <a href="#skills">技能一览</a>
-      <a href="#contact">联系与社群</a>
+      <a href="/contact/">联系</a>
     </div>
   </div>
 
@@ -381,6 +392,19 @@
       document.body.removeChild(ta);
       if (ok) { done(); } else { fail(); }
     }
+  }
+  var hd = document.querySelector('.has-drop');
+  if (hd) {
+    var hdLink = hd.querySelector('a');
+    hdLink.addEventListener('click', function(e) {
+      if (window.matchMedia('(hover: none)').matches && !hd.classList.contains('open')) {
+        e.preventDefault();
+        hd.classList.add('open');
+      }
+    });
+    document.addEventListener('click', function(e) {
+      if (!hd.contains(e.target)) { hd.classList.remove('open'); }
+    });
   }
 </script>
 </body>
