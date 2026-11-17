@@ -1,0 +1,19 @@
+{
+ "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+ "skills": [
+  {
+   "name": "laicms-site-builder",
+   "description": "什么时候用我——用户要新建或维护 LaiCMS 独立站、传产品、写文章、美化页面、看数据或开每日更新时用我；双通道执行：环境支持时走接口回放（见发文规范增补第六条），否则走登录网页操作。",
+   "digest": "sha256:40b39395cad19f4d6dd072e866578d86a0cc5a8dcd7a3d2da3c3da97acfda7b2",
+   "type": "archive",
+   "url": "laicms-site-builder-v3.2.28.zip"
+  },
+  {
+   "name": "laifaxin-leadgen",
+   "description": "什么时候用我——用户要做外贸获客时用我：找客户、存联系人、AI 评分、自有邮箱精发与来发信优质通道群发跟进，WhatsApp 网页版会话梳理与一对一触达，全程一张台账，严守发送安全闸；平台操作首选来发信官方 Agent 接口通道、网页操作兜底。",
+   "digest": "sha256:7dd22db82eb7d73337ea71b8699899c37b8caa4eac2403258387234b596713ee",
+   "type": "archive",
+   "url": "laifaxin-leadgen-v1.3.2.zip"
+  }
+ ]
+}

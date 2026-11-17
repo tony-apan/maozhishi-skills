@@ -28,6 +28,8 @@ owner: 贸知事
 | [module-standards.md](laicms-site-builder/references/module-standards.md)（建站） | 模块标准库：每个模块怎么填、填多少的量化标准，照着做就行 |
 | [style-profiles.md](laicms-site-builder/references/style-profiles.md)（建站） | 风格档案：外贸 B 端和跨境 C 端两种风格的区别，选好风格照着它走 |
 | [social-sharing.md](laicms-site-builder/references/social-sharing.md)（建站） | 文章发布后，四平台现成分享文案的生成规则 |
+| [ai-api-and-language.md](laicms-site-builder/references/ai-api-and-language.md)（建站） | 站点 AI 配置引导（绑 Key 分工与选型）与语言策略：不建议主站开多语言、先英语站见效再按地区建独立站做站群 |
+| [seo-geo-optimization.md](laicms-site-builder/references/seo-geo-optimization.md)（建站） | SEO/GEO 双轨优化：勤更新为主线，标题描述、问答式小节、常见问答与上线验收都由 AI 顺手做完 |
 | [SKILL.md](laifaxin-leadgen/SKILL.md)（获客） | 获客说明书主文件，现行 **v1.3.1** |
 | [laifaxin-platform-guide.md](laifaxin-leadgen/references/laifaxin-platform-guide.md)（获客） | 来发信平台介绍与文档地图：平台是什么、点数怎么花、官方文档在哪怎么查 |
 | [beginner-guide.md](laifaxin-leadgen/references/beginner-guide.md)（获客） | 新手使用说明：第一次用先看这份，跟着一个新人从注册、领点数、找客、筛客、发信到跟进走全程 |
