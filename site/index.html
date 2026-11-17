@@ -330,7 +330,7 @@
     var t = src.innerText;
     var tip = document.getElementById('copyTip');
     function done() { if (tip) { tip.textContent = '已复制，去粘贴给 Muse'; tip.style.color = '#15803d'; tip.style.display = 'inline'; } }
-    function fail() { if (tip) { tip.textContent = '没复制上，请长按上面这段话手动复制'; tip.style.color = '#b3261e'; tip.style.display = 'inline'; } }
+    function fail() { if (tip) { tip.textContent = '没复制上，选中上面这段话复制一下就行'; tip.style.color = '#b3261e'; tip.style.display = 'inline'; } }
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(t).then(done).catch(function(){ fallback(); });
     } else { fallback(); }
