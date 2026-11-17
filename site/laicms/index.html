@@ -20,6 +20,21 @@
   .nav { display:flex; gap:26px; }
   .nav a { color:var(--ink2); text-decoration:none; font-size:14.5px; font-weight:600; white-space:nowrap; }
   .nav a:hover { color:var(--blue); }
+  .nav { flex:1; margin-left:34px; align-items:center; }
+  .has-drop { position:relative; display:inline-block; }
+  .drop { position:absolute; top:calc(100% + 14px); left:0; transform:translateY(8px); width:240px; max-width:calc(100vw - 40px); background:#fff; border:2px solid var(--ink); border-radius:14px; box-shadow:7px 7px 0 rgba(12,31,48,.9); padding:8px; opacity:0; pointer-events:none; transition:opacity .18s, transform .18s; z-index:60; text-align:left; }
+
+  .drop::before { content:""; position:absolute; left:0; right:0; top:-16px; height:16px; }
+  .has-drop:hover .drop, .has-drop:focus-within .drop, .has-drop.open .drop { opacity:1; pointer-events:auto; transform:translateY(0); }
+  .has-drop.suppressed .drop { opacity:0; pointer-events:none; transform:translateY(8px); }
+  .drop a { display:block; padding:10px 12px; border-radius:9px; white-space:normal; }
+  .drop a:hover { background:var(--wash); }
+  .drop .t { display:block; font-size:15px; font-weight:700; color:var(--ink); }
+  .drop .d { display:block; font-size:12.5px; font-weight:500; color:var(--mut); margin-top:1px; }
+  .nav .gh { margin-left:auto; display:inline-flex; align-items:center; gap:7px; color:var(--ink); }
+  .nav .gh:hover { color:var(--blue); }
+  .nav .gh svg { display:block; }
+  @media (max-width:760px) { .topbar { flex-wrap:wrap; row-gap:12px; } .brand .sep, .brand .svc { display:none; } .nav { margin-left:0; gap:19px; flex-wrap:wrap; width:100%; } }
   .p-head { padding:44px 0 4px; }
   .eyebrow { color:var(--blue); font-weight:700; font-size:13.5px; letter-spacing:.22em; margin-bottom:14px; }
   h1 { font-size:clamp(32px,5.4vw,46px); font-weight:850; line-height:1.2; letter-spacing:.01em; }
@@ -66,10 +81,17 @@
 <body>
 <div class="wrap">
   <div class="topbar">
-    <div class="brand">贸知事<small>MAOZHISHI</small><span class="sep">|</span><span class="svc">使用教程</span></div>
+    <div class="brand">贸知事<small>MAOZHISHI</small><span class="sep">|</span><span class="svc">AI 工作技能仓</span></div>
     <div class="nav">
-      <a href="/#tutorials">教程首页</a>
-      <a href="/">技能站首页</a>
+      <a href="/">首页</a>
+      <span class="has-drop"><a href="/#tutorials" aria-expanded="false">教程</a><span class="drop">
+        <a href="/muse/"><span class="t">先认识 Muse</span><span class="d">注册、开通、装上技能</span></a>
+        <a href="/laifaxin/"><span class="t">来发信技能使用教程</span><span class="d">开发信获客，全程一篇</span></a>
+        <a href="/laicms/"><span class="t">独立站技能使用教程</span><span class="d">建站全程，带真实截图</span></a>
+      </span></span>
+      <a href="/#skills">技能</a>
+      <a href="/contact/">联系</a>
+      <a class="gh" href="https://github.com/tony-apan/maozhishi-skills" target="_blank" rel="noopener" aria-label="GitHub 仓库"><svg viewBox="0 0 16 16" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg><span>GitHub</span></a>
     </div>
   </div>
 
@@ -275,5 +297,44 @@
     <span><a href="/#tutorials">教程首页</a> · <a href="/">技能站首页</a></span>
   </div>
 </div>
+<script>
+  var hd = document.querySelector('.has-drop');
+  if (hd) {
+    var hdLink = hd.querySelector('a');
+    function syncAria() {
+      var open = !hd.classList.contains('suppressed') && (hd.classList.contains('open') || hd.matches(':hover') || hd.contains(document.activeElement));
+      hdLink.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    hdLink.addEventListener('click', function(e) {
+      hd.classList.remove('suppressed');
+      if (window.matchMedia('(hover: none)').matches && !hd.classList.contains('open')) {
+        e.preventDefault();
+        hd.classList.add('open');
+      } else {
+        hd.classList.remove('open');
+      }
+      syncAria();
+    });
+    document.addEventListener('click', function(e) {
+      if (!hd.contains(e.target)) {
+        hd.classList.remove('open');
+        if (document.activeElement && hd.contains(document.activeElement)) { document.activeElement.blur(); }
+        syncAria();
+      }
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && (hd.classList.contains('open') || hd.matches(':hover') || hd.contains(document.activeElement))) {
+        hd.classList.remove('open');
+        hd.classList.add('suppressed');
+        if (document.activeElement && hd.contains(document.activeElement)) { document.activeElement.blur(); }
+        syncAria();
+      }
+    });
+    hd.addEventListener('mouseenter', function() { hd.classList.remove('suppressed'); syncAria(); });
+    hd.addEventListener('mouseleave', function() { hd.classList.remove('suppressed'); syncAria(); });
+    hd.addEventListener('focusin', function() { hd.classList.remove('suppressed'); syncAria(); });
+    hd.addEventListener('focusout', function() { setTimeout(syncAria, 0); });
+  }
+</script>
 </body>
 </html>
