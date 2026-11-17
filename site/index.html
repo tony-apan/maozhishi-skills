@@ -6,95 +6,188 @@
 <title>贸知事技能仓 × Muse — 外贸的活，在云端全自动跑</title>
 <meta name="description" content="在 Muse 里装上贸知事技能仓：建独立站、每日更新、找客户、发开发信、自动跟进，都由 Muse 在云端全自动执行。你交代资料和要求，关键节点点个头，其余时间看结果。">
 <style>
+  :root{
+    --ink:#0c1f30; --ink2:#3d5265; --mut:#5d7a93; --blue:#1668d8; --blue-d:#0f4fa8;
+    --org:#c94f0e; --org-d:#a63f08; --paper:#fbfcfe; --wash:#eef5fc; --line:#dce7f1; --line2:#e8eff6;
+  }
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; color:#14273a; background:#f7fafd; line-height:1.7; -webkit-font-smoothing:antialiased; }
-  .wrap { max-width:1020px; margin:0 auto; padding:0 28px; }
-  .topbar { display:flex; justify-content:space-between; align-items:center; padding:22px 0 20px; border-bottom:1px solid #dfe9f2; }
-  .brand { font-size:19px; font-weight:700; letter-spacing:.02em; white-space:nowrap; }
-  .brand small { font-weight:400; color:#7d9dbd; font-size:13px; letter-spacing:.14em; margin-left:8px; }
-  .brand .sep { color:#c3dff5; font-weight:300; margin:0 10px; }
-  .brand .svc { font-size:14px; font-weight:500; color:#4a5a6a; letter-spacing:.08em; }
-  .nav { display:flex; gap:30px; }
-  .nav a { color:#4a5a6a; text-decoration:none; font-size:14px; white-space:nowrap; }
-  .nav a:hover { color:#1b6de0; }
-  .hero { padding:54px 0 46px; border-bottom:1px solid #dfe9f2; }
-  .eyebrow { font-size:13px; letter-spacing:.32em; color:#7d9dbd; margin-bottom:20px; }
-  h1 { font-size:46px; line-height:1.25; font-weight:700; letter-spacing:-.01em; max-width:760px; }
-  .hero .sub { font-size:18px; color:#4a5a6a; max-width:640px; margin-top:18px; line-height:1.7; }
-  .prompt-wrap { margin-top:32px; max-width:920px; }
-  .prompt-label { font-size:13px; color:#7d9dbd; margin-bottom:10px; }
-  .prompt-box { border:1px solid #14273a; padding:16px 20px; font-size:15.5px; line-height:1.6; background:#fff; overflow-wrap:anywhere; }
-  .copy-row { display:flex; align-items:center; gap:16px; margin-top:16px; }
-  .btn { appearance:none; border:1px solid #1b6de0; background:#1b6de0; color:#fff; font-size:15px; font-weight:600; letter-spacing:.06em; padding:13px 34px; cursor:pointer; border-radius:2px; transition:background .15s; }
-  .btn:hover { background:#155cb8; }
-  .copied { color:#15803d; font-size:14px; display:none; }
-  .support { font-size:13.5px; color:#93a9bd; margin-top:14px; }
-  .trust-line { font-size:14px; color:#33475c; margin-top:20px; padding-left:14px; border-left:2px solid #1b6de0; max-width:660px; }
-  .facts { display:grid; grid-template-columns:repeat(4,1fr); gap:36px; padding:32px 0; border-bottom:1px solid #dfe9f2; }
-  .fact .k { font-size:12.5px; letter-spacing:.22em; color:#7d9dbd; display:block; margin-bottom:8px; }
-  .fact .v { font-size:15px; font-weight:600; line-height:1.55; }
-  .fact .v small { display:block; font-weight:400; color:#7d9dbd; font-size:13.5px; margin-top:2px; }
-  section { padding:68px 0; border-bottom:1px solid #dfe9f2; }
-  .sec-title { font-size:13px; letter-spacing:.32em; color:#7d9dbd; margin-bottom:40px; }
-  .skill-card { border:1px solid #dfe9f2; background:#fff; padding:34px 36px; margin-bottom:28px; }
-  .skill-card h3 { font-size:24px; font-weight:700; line-height:1.4; }
-  .skill-card h3 .no { color:#1b6de0; margin-right:10px; }
-  .chip { display:inline-block; font-size:12.5px; font-weight:600; color:#1b6de0; border:1px solid #a8d2f5; padding:2px 10px; border-radius:999px; margin-left:12px; vertical-align:middle; }
-  .skill-card p { font-size:15.5px; color:#4a5a6a; margin-top:12px; max-width:780px; }
-  .skill-card .links { margin-top:16px; font-size:14.5px; }
-  .skill-card .links a { color:#1b6de0; text-decoration:none; margin-right:26px; }
-  .skill-card .links a:hover { text-decoration:underline; }
-  .mini-rows { margin-top:6px; }
-  .mini { display:flex; gap:18px; align-items:baseline; padding:16px 2px; border-top:1px solid #e6eff7; }
-  .mini h4 { font-size:16.5px; font-weight:600; white-space:nowrap; min-width:300px; }
-  .mini .st { font-size:12px; font-weight:600; color:#b45309; border:1px solid #fcd34d; padding:1px 9px; border-radius:999px; white-space:nowrap; }
-  .mini .st.gray { color:#64748b; border-color:#cbd5e1; }
-  .mini p { font-size:14.5px; color:#4a5a6a; }
-  .feats { display:grid; grid-template-columns:1fr 1fr; column-gap:64px; }
-  .feat { display:flex; gap:22px; padding:22px 0; border-top:1px solid #e6eff7; }
-  .feat h3 { font-size:16.5px; font-weight:600; white-space:nowrap; min-width:110px; }
-  .feat p { font-size:15px; color:#4a5a6a; }
-  .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:44px; }
-  .step .num { font-size:44px; font-weight:200; color:#a8d2f5; line-height:1; display:block; margin-bottom:18px; }
-  .step h3 { font-size:18px; font-weight:600; margin-bottom:8px; }
-  .step p { font-size:15px; color:#4a5a6a; }
-  .step p a { color:#1b6de0; text-decoration:none; }
-  .cmd { margin-top:34px; border:1px solid #dfe9f2; background:#fff; padding:16px 20px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:14.5px; overflow-x:auto; white-space:nowrap; }
-  .cmd-note { font-size:13.5px; color:#93a9bd; margin-top:10px; }
-  .ver p { font-size:15.5px; color:#4a5a6a; max-width:760px; }
+  html { scroll-behavior:smooth; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; color:var(--ink); background:var(--paper); line-height:1.7; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  .wrap { max-width:1160px; margin:0 auto; padding:0 32px; position:relative; }
+
+  /* top bar */
+  .topbar { display:flex; justify-content:space-between; align-items:center; padding:26px 0 22px; position:relative; }
+  .brand { font-size:20px; font-weight:800; letter-spacing:.02em; white-space:nowrap; }
+  .brand small { font-weight:400; color:var(--mut); font-size:12.5px; letter-spacing:.18em; margin-left:9px; }
+  .brand .sep { color:#c3dff5; font-weight:300; margin:0 12px; }
+  .brand .svc { font-size:14px; font-weight:500; color:var(--ink2); letter-spacing:.1em; }
+  .nav { display:flex; gap:34px; }
+  .nav a { color:var(--ink2); text-decoration:none; font-size:14.5px; font-weight:600; white-space:nowrap; background-image:linear-gradient(currentColor,currentColor); background-size:0% 2px; background-repeat:no-repeat; background-position:0 100%; transition:background-size .3s, color .2s; padding-bottom:2px; }
+  .nav a:hover { color:var(--blue); background-size:100% 2px; }
+
+  /* hero */
+  .hero { padding:56px 0 0; position:relative; }
+  .eyebrow { display:inline-flex; align-items:center; gap:10px; font-size:12.5px; letter-spacing:.3em; color:var(--blue); font-weight:700; margin-bottom:26px; }
+  .eyebrow::before { content:""; width:26px; height:3px; background:var(--blue); border-radius:2px; }
+  h1 { font-size:clamp(40px, 6.2vw, 72px); line-height:1.13; font-weight:900; letter-spacing:-.01em; animation:rise .7s ease both; }
+  h1 .blue { color:var(--blue); }
+  h1 .mark { background-image:linear-gradient(transparent 78%, rgba(201,79,14,.32) 78%, rgba(201,79,14,.32) 94%, transparent 94%); }
+  .hero-grid { display:grid; grid-template-columns:1.25fr .95fr; gap:30px 56px; align-items:start; }
+  .hero-main { grid-column:1; grid-row:1; }
+  .hero-notes { grid-column:1; grid-row:2; }
+  .report { grid-column:2; grid-row:1 / span 2; margin-top:12px; }
+  .hero-grid > .prompt-card { grid-column:1 / -1; grid-row:3; max-width:none; margin-top:4px; }
+  @media (min-width:1280px) { .trust-line { white-space:nowrap; font-size:14px; } }
+  .hero .sub { font-size:18.5px; color:var(--ink2); margin-top:26px; line-height:1.75; max-width:600px; }
+  .hero .sub strong { color:var(--ink); }
+
+  /* prompt card: white, ink border, hard shadow */
+  .prompt-card { margin-top:36px; background:#fff; border:2px solid var(--ink); border-radius:14px; padding:24px 26px 20px; box-shadow:10px 10px 0 rgba(22,104,216,.16); }
+  .prompt-card .p-label { font-size:12.5px; letter-spacing:.26em; color:var(--blue); font-weight:700; margin-bottom:12px; }
+  .prompt-card .p-text { font-size:16.5px; line-height:1.65; font-weight:600; overflow-wrap:anywhere; }
+  .prompt-card .p-head { display:flex; justify-content:space-between; align-items:center; gap:12px 16px; flex-wrap:wrap; margin-bottom:14px; }
+  .prompt-card .p-head .p-label { margin-bottom:0; }
+  .prompt-card .p-actions { display:flex; align-items:center; gap:12px; margin-left:auto; }
+  .prompt-card .p-actions .btn { padding:11px 26px; }
+  .btn { appearance:none; border:0; background:var(--org); color:#fff; font-size:15px; font-weight:700; letter-spacing:.1em; padding:13px 34px; cursor:pointer; border-radius:9px; transition:transform .15s, background .15s; box-shadow:0 8px 18px -10px rgba(201,79,14,.5); }
+  .btn:hover { background:var(--org-d); transform:translateY(-2px); }
+  .btn:active { transform:translateY(0); }
+  .copied { color:#15803d; font-size:14px; display:none; font-weight:700; }
+  .support { font-size:14px; color:var(--ink2); margin-top:22px; }
+  .support a { color:var(--blue); text-decoration:none; font-weight:600; }
+  .trust-line { font-size:14.5px; color:var(--ink); margin-top:16px; padding:14px 18px; background:var(--wash); border-left:4px solid var(--blue); border-radius:0 10px 10px 0; }
+
+  /* daily report mock */
+  .report { background:#fff; border:1.5px solid var(--line); border-radius:16px; padding:26px 28px; box-shadow:0 30px 50px -30px rgba(12,31,48,.35); animation:rise .7s .15s ease both; }
+  .report .r-head { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px; }
+  .report .r-title { font-size:16px; font-weight:800; }
+  .report .r-tag { font-size:11.5px; font-weight:700; color:var(--ink2); background:var(--wash); padding:2px 10px; border-radius:999px; letter-spacing:.06em; }
+  .report .r-sub { font-size:13px; color:var(--mut); margin-bottom:14px; }
+  .report .r-item { display:flex; gap:12px; padding:13px 0; border-top:1px solid var(--line2); font-size:14.5px; }
+  .report .r-item .dot { flex:none; width:22px; height:22px; border-radius:50%; background:#e7f6ec; color:#15803d; font-size:13px; font-weight:800; display:flex; align-items:center; justify-content:center; margin-top:2px; }
+  .report .r-item b { display:block; font-size:15px; }
+  .report .r-item span { color:var(--ink2); font-size:13.5px; }
+  .report .r-foot { margin-top:14px; font-size:13px; color:var(--mut); border-top:1px dashed var(--line); padding-top:12px; }
+
+  /* marquee */
+  .marquee { margin-top:64px; background:var(--blue); transform:rotate(-1.2deg); overflow:hidden; padding:13px 0; width:100vw; margin-left:calc(50% - 50vw); }
+  .marquee .track { display:flex; gap:0; white-space:nowrap; animation:scroll 30s linear infinite; width:max-content; }
+  .marquee span { color:#fff; font-size:15.5px; font-weight:700; letter-spacing:.14em; padding:0 18px; }
+  .marquee i { color:#ffffff; font-style:normal; }
+  @keyframes scroll { to { transform:translateX(-50%); } }
+
+  /* facts */
+  .facts { display:grid; grid-template-columns:repeat(4,1fr); gap:40px; padding:38px 0 6px; }
+  .fact { border-top:3px solid var(--ink); padding-top:16px; }
+  .fact:nth-child(2) { border-top-color:var(--blue); }
+  .fact:nth-child(3) { border-top-color:var(--ink); }
+  .fact:nth-child(4) { border-top-color:var(--blue); }
+  .fact .k { font-size:12px; letter-spacing:.34em; color:var(--mut); font-weight:700; display:block; margin-bottom:8px; }
+  .fact .v { font-size:16.5px; font-weight:800; line-height:1.5; }
+  .fact .v small { display:block; font-weight:400; color:var(--mut); font-size:13.5px; margin-top:3px; line-height:1.55; }
+
+  /* sections */
+  section { padding:88px 0 8px; position:relative; }
+  .sec-head { display:flex; align-items:baseline; gap:18px; margin-bottom:42px; }
+  .sec-head .idx { font-size:15px; font-weight:900; color:var(--blue); }
+  .sec-head h2 { font-size:28px; font-weight:800; letter-spacing:.05em; }
+  .sec-head::after { content:""; height:1px; background:var(--line); flex:1; align-self:center; }
+
+  .feats { display:grid; grid-template-columns:1fr 1fr; column-gap:72px; }
+  .feat { padding:24px 0 26px; border-top:1px solid var(--line2); }
+  .feat h3 { font-size:17.5px; font-weight:700; margin-bottom:8px; }
+  .feat p { font-size:15.5px; color:var(--ink2); }
+
+  /* skills */
+  .skill { display:grid; grid-template-columns:96px 1fr; gap:8px 26px; padding:38px 30px; margin:0 -30px; border-radius:16px; border:1.5px solid transparent; border-top-color:var(--line2); transition:transform .2s, box-shadow .2s, border-color .2s, background .2s; }
+  .skill:hover { background:#fff; border-color:var(--line); border-top-color:var(--line); transform:translateY(-3px); box-shadow:0 22px 40px -22px rgba(12,31,48,.28); }
+  .skill .big-no { font-size:56px; font-weight:900; color:transparent; -webkit-text-stroke:2px #a8d2f5; line-height:1; }
+  .skill h3 { font-size:25px; font-weight:800; line-height:1.4; }
+  .chip { display:inline-block; font-size:12.5px; font-weight:700; color:#fff; background:var(--blue); padding:3px 12px; border-radius:999px; margin-left:12px; vertical-align:middle; }
+  .skill p { font-size:16px; color:var(--ink2); margin-top:12px; max-width:800px; }
+  .skill p strong { color:var(--ink); }
+  .skill .links { margin-top:18px; font-size:15px; display:flex; gap:30px; flex-wrap:wrap; }
+  .skill .links a { color:var(--blue); text-decoration:none; font-weight:700; background-image:linear-gradient(currentColor,currentColor); background-size:0% 2px; background-repeat:no-repeat; background-position:0 100%; transition:background-size .3s; padding-bottom:2px; }
+  .skill .links a:hover { background-size:100% 2px; }
+  .mini-rows { margin-top:14px; border-top:1px solid var(--line); }
+  .mini { display:flex; gap:20px; align-items:baseline; padding:18px 2px; border-bottom:1px solid var(--line2); }
+  .mini h4 { font-size:16.5px; font-weight:600; white-space:nowrap; min-width:290px; }
+  .mini .m-no { font-size:22px; font-weight:900; color:transparent; -webkit-text-stroke:1.3px #a8d2f5; margin-right:10px; vertical-align:-2px; }
+  .mini .st { font-size:12px; font-weight:700; color:#0f4fa8; background:#e8f2fd; padding:2px 10px; border-radius:999px; white-space:nowrap; }
+  .mini .st.gray { color:#475569; background:#e8edf3; }
+  .mini p { font-size:14.5px; color:var(--ink2); }
+
+  /* steps */
+  .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:48px; }
+  .step .num { font-size:48px; font-weight:900; color:transparent; -webkit-text-stroke:2px #a8d2f5; line-height:1; display:block; margin-bottom:16px; }
+  .step h3 { font-size:18px; font-weight:700; margin-bottom:8px; }
+  .step p { font-size:15px; color:var(--ink2); }
+  .step p a { color:var(--blue); text-decoration:none; font-weight:700; }
+  .cmd { margin-top:36px; background:var(--ink); color:#d9ecfd; border-radius:10px; padding:16px 22px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:14.5px; overflow-x:auto; white-space:nowrap; }
+  .cmd-note { font-size:13.5px; color:var(--mut); margin-top:12px; max-width:760px; }
+  .cmd-note a { color:var(--blue); text-decoration:none; font-weight:600; }
+
+  .ver p { font-size:16px; color:var(--ink2); max-width:780px; }
   .ver p + p { margin-top:10px; }
-  .contact { display:grid; grid-template-columns:repeat(3,1fr); gap:36px; }
-  .contact .k { font-size:12.5px; letter-spacing:.22em; color:#7d9dbd; display:block; margin-bottom:8px; }
-  .contact .v { font-size:17px; font-weight:600; }
-  .contact .v a { color:#14273a; text-decoration:none; }
-  .contact .v a:hover { color:#1b6de0; }
-  .contact .d { font-size:13.5px; color:#7d9dbd; margin-top:2px; }
-  .contact img { width:150px; height:150px; display:block; }
-  footer { padding:34px 0 44px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:13.5px; color:#93a9bd; }
-  footer a { color:#7d9dbd; text-decoration:none; }
-  footer a:hover { color:#1b6de0; }
+  .ver strong { color:var(--ink); }
+
+  /* contact */
+  .contact { display:grid; grid-template-columns:repeat(3,1fr); gap:40px; }
+  .contact .k { font-size:12px; letter-spacing:.34em; color:var(--blue); font-weight:700; display:block; margin-bottom:10px; }
+  .contact .v { font-size:17.5px; font-weight:700; }
+  .contact .v a { color:var(--ink); text-decoration:none; }
+  .contact .v a:hover { color:var(--blue); }
+  .contact .d { font-size:13.5px; color:var(--mut); margin-top:3px; }
+  .contact img { width:150px; height:150px; display:block; border-radius:12px; border:1px solid var(--line); }
+  footer { margin-top:88px; padding:30px 0 46px; border-top:1px solid var(--line); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:13.5px; color:var(--mut); }
+  footer a { color:var(--mut); text-decoration:none; }
+  footer a:hover { color:var(--blue); }
+
+  @keyframes rise { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:none; } }
+  @media (prefers-reduced-motion: reduce) { * { animation:none !important; transition:none !important; } html { scroll-behavior:auto; } .skill:hover, .btn:hover { transform:none; }
+    .marquee .track { flex-wrap:wrap; white-space:normal; width:auto; transform:none; }
+    .marquee .track span:nth-child(2) { display:none; }
+    .marquee span { padding:4px 12px; } }
+  @media (max-width:900px) {
+    .hero-grid { display:flex; flex-direction:column; gap:34px; }
+    .hero-main { order:1; } .prompt-card { order:2; } .report { order:3; margin-top:0; } .hero-notes { order:4; }
+    .mini h4 { white-space:normal; }
+    .mini { flex-wrap:wrap; }
+  }
   @media (max-width:760px) {
-    h1 { font-size:32px; }
-    .hero { padding:40px 0 36px; }
-    section { padding:48px 0; }
+    .wrap { padding:0 20px; }
+    h1 { font-size:38px; }
+    .hero { padding:38px 0 0; }
+    .hero .sub { font-size:16.5px; }
+    .prompt-card { padding:20px; box-shadow:6px 6px 0 rgba(22,104,216,.16); }
+    .prompt-card .p-text { font-size:15px; }
+    .marquee { margin-top:44px; }
+    section { padding:58px 0 4px; }
     .topbar { flex-wrap:wrap; row-gap:12px; }
     .nav { width:100%; gap:26px; }
     .brand .svc, .brand .sep { display:none; }
-    .steps { grid-template-columns:1fr; gap:34px; }
+    .steps { grid-template-columns:1fr; gap:32px; }
     .feats { grid-template-columns:1fr; }
-    .feat { flex-wrap:wrap; gap:6px; }
-    .feat h3 { min-width:0; }
     .facts { grid-template-columns:1fr 1fr; gap:26px; }
-    .contact { grid-template-columns:1fr; gap:26px; }
-    .skill-card { padding:26px 22px; }
-    .skill-card h3 { font-size:20px; }
+    .contact { grid-template-columns:1fr; gap:28px; }
+    .skill { grid-template-columns:1fr; padding:28px 20px; margin:0 -20px; }
+    .skill .big-no { font-size:40px; }
+    .skill h3 { font-size:20px; }
     .mini { flex-wrap:wrap; gap:6px; }
-    .mini h4 { min-width:0; }
+    .cmd { -webkit-mask-image:linear-gradient(90deg,#000 94%,transparent); mask-image:linear-gradient(90deg,#000 94%,transparent); }
+    .mini h4 { min-width:0; white-space:normal; }
+    .sec-head h2 { font-size:22px; }
+  }
+  @media (max-width:560px) { .facts { grid-template-columns:1fr; gap:20px; } }
+  @media (max-width:420px) {
+    h1 { font-size:31px; }
+    .report { padding:20px; }
   }
 </style>
 </head>
 <body>
 <div class="wrap">
+
   <div class="topbar">
     <div class="brand">贸知事<small>MAOZHISHI</small><span class="sep">|</span><span class="svc">AI 工作技能仓</span></div>
     <div class="nav">
@@ -105,30 +198,54 @@
   </div>
 
   <div class="hero">
-    <div class="eyebrow">贸 知 事 技 能 仓 · 在 Muse 云 端 运 行</div>
-    <h1>一个人，<br>也能像一个团队。</h1>
-    <p class="sub">跑工厂、盯生产、陪客户，一天已经够满了。建站更新、找客户、写开发信、排跟进这些<strong>耗时间的活</strong>，现在不用你一件件干：在 Muse 里装上贸知事技能仓，它们都由 Muse 在<strong>云端全自动执行</strong>。你白天忙外面的，晚上回到家，日报已经躺在对话里等你看。</p>
-    <div class="prompt-wrap">
-      <div class="prompt-label">在 Muse 里发这一句话</div>
-      <div class="prompt-box" id="promptText">请阅读 https://skill.maozhishi.com/doc/skill-setup.md ，为我安装贸知事技能仓并跑一遍开工自检，之后按技能的规程在云端替我执行。</div>
-      <div class="copy-row">
-        <button class="btn" onclick="copyPrompt()">复 制 这 句 话</button>
-        <span class="copied" id="copiedTip">已复制，去粘贴给 Muse</span>
+    <div class="eyebrow">贸知事技能仓 · 在 Muse 云端运行</div>
+    <div class="hero-grid">
+      <div class="hero-main">
+        <h1>一个人，<br>也能像<span class="blue">一个</span><span class="mark">团队</span>。</h1>
+        <p class="sub">跑工厂、盯生产、陪客户，一天已经够满了。建站更新、找客户、写开发信、排跟进这些<strong>耗时间的活</strong>，现在不用你一件件干：在 Muse 里装上贸知事技能仓，它们都由 Muse 在<strong>云端全自动执行</strong>。你白天忙外面的，晚上回到家，日报已经躺在对话里等你看。</p>
       </div>
-      <p class="support">Muse 是你的 AI 助手应用，网页、手机、电脑上都能用，还没有的先去 <a href="https://muse.ai" target="_blank" rel="noopener" style="color:#1b6de0;text-decoration:none;">muse.ai</a> 看看。本站主推 Muse 云端运行；技能源码公开，其他 AI 助手也可自行取用。</p>
-      <p class="trust-line">技能全部源码公开，随时可查；你的账号、密码只存你自己的保险库，不经过聊天、不写进任何文件。云端干活也要你先交代、先授权，关键动作都会回到你面前确认。</p>
+      <div class="prompt-card">
+          <div class="p-head">
+            <div class="p-label">在 Muse 里发这一句话</div>
+            <div class="p-actions">
+              <span class="copied" id="copyTip" role="status"></span>
+              <button class="btn" onclick="copyPrompt()">复 制 这 句 话</button>
+            </div>
+          </div>
+          <div class="p-text" id="promptText">请阅读 https://skill.maozhishi.com/doc/skill-setup.md ，为我安装贸知事技能仓并跑一遍开工自检，之后按技能的规程在云端替我执行。</div>
+      </div>
+      <div class="hero-notes">
+        <p class="support">Muse 是你的 AI 助手应用，网页、手机、电脑上都能用，还没有的先去 <a href="https://muse.ai" target="_blank" rel="noopener">muse.ai</a> 看看。本站主推 Muse 云端运行；技能源码公开，其他 AI 助手也可自行取用。</p>
+        <p class="trust-line">技能全部源码公开，随时可查；你的账号、密码只存你自己的保险库，不经过聊天、不写进任何文件。云端干活也要你先交代、先授权，关键动作都会回到你面前确认。</p>
+      </div>
+      <div class="report" role="region" aria-label="日报样式示意">
+        <div class="r-head"><span class="r-title">日报长这样</span><span class="r-tag">样式示例</span></div>
+        <div class="r-sub">每天晚上发到你对话里的日报，栏目是这几样</div>
+        <div class="r-item"><span class="dot">·</span><div><b>网站更新</b><span>今天更新了哪几页、巡检有没有异常，一条条列清</span></div></div>
+        <div class="r-item"><span class="dot">·</span><div><b>客户跟进</b><span>今天跟进了哪些客户、发到第几轮，这里能查</span></div></div>
+        <div class="r-item"><span class="dot">·</span><div><b>新回复</b><span>新回信先帮你分好轻重，重要的排在前面</span></div></div>
+        <div class="r-item"><span class="dot">·</span><div><b>等你点头</b><span>需要你拍板的事单独列出来，你不点头，它不动</span></div></div>
+        <div class="r-foot">以上是栏目样式示例；日报里写的，是你自己的网站和客户的进展。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="track">
+      <span>建站上线 <i>✦</i> 每日更新 <i>✦</i> 全球找客户 <i>✦</i> 写开发信 <i>✦</i> 自动跟进 <i>✦</i> WhatsApp 梳理 <i>✦</i> 每晚日报 <i>✦</i> 云端全自动 <i>✦</i></span>
+      <span>建站上线 <i>✦</i> 每日更新 <i>✦</i> 全球找客户 <i>✦</i> 写开发信 <i>✦</i> 自动跟进 <i>✦</i> WhatsApp 梳理 <i>✦</i> 每晚日报 <i>✦</i> 云端全自动 <i>✦</i></span>
     </div>
   </div>
 
   <div class="facts">
-    <div class="fact"><span class="k">运 行 方 式</span><span class="v">云端全自动<small>电脑关了也在干，不用你守着</small></span></div>
-    <div class="fact"><span class="k">时 间</span><span class="v">半夜也在干活<small>正对上欧美客户的白天，不用熬夜等回复</small></span></div>
-    <div class="fact"><span class="k">费 用</span><span class="v">技能仓免费<small>平台与 AI 服务按各自规则收费</small></span></div>
-    <div class="fact"><span class="k">放 心</span><span class="v">关键动作先经你确认<small>源码全部公开，账号只存你的保险库</small></span></div>
+    <div class="fact"><span class="k">运行方式</span><span class="v">云端全自动<small>电脑关了也在干，不用你守着</small></span></div>
+    <div class="fact"><span class="k">时间</span><span class="v">半夜也在干活<small>正对上欧美客户的白天，不用熬夜等回复</small></span></div>
+    <div class="fact"><span class="k">费用</span><span class="v">技能仓免费<small>平台与 AI 服务按各自规则收费</small></span></div>
+    <div class="fact"><span class="k">放心</span><span class="v">关键动作先经你确认<small>源码全部公开，账号只存你的保险库</small></span></div>
   </div>
 
   <section>
-    <div class="sec-title">为 什 么 放 在 云 端 跑</div>
+    <div class="sec-head"><span class="idx">01</span><h2>为什么放在云端跑</h2></div>
     <div class="feats">
       <div class="feat"><h3>白天你忙外面的</h3><p>跑工厂、看样品、见客户——网站更新和客户开发在云端自己往前走，不占你白天的时间。</p></div>
       <div class="feat"><h3>半夜不用熬夜</h3><p>欧美客户上班的时候，跟进按点在云端发出、回复进来先帮你整理好，不用你定闹钟爬起来。</p></div>
@@ -138,48 +255,54 @@
   </section>
 
   <section id="skills">
-    <div class="sec-title">技 能 一 览</div>
+    <div class="sec-head"><span class="idx">02</span><h2>技能一览</h2></div>
 
-    <div class="skill-card">
-      <h3><span class="no">1️⃣</span>外贸独立站 · 全自动更新 · SEO/GEO<span class="chip">建站技能 v3.2.28</span></h3>
-      <p>网站建好就没人管、半年不更新，客户搜不到你——很多外贸站就是这样慢慢没声的。这个技能管全程：<strong>建站、上架产品、写文章、日常更新</strong>；自带 <strong>SEO/GEO</strong>，按客户的搜索意图做内容，<strong>让网站被搜索引擎和 AI 推荐，带来流量、询盘和订单</strong>。<strong>设定好后，Muse 每天在云端替你更新、巡检，网站一直「活着」，你只看日报。</strong></p>
-      <div class="links">
-        <a href="https://github.com/tony-apan/maozhishi-skills/blob/main/laicms-site-builder/references/beginner-guide.md" target="_blank" rel="noopener">📖 新手使用说明</a>
-        <a href="https://github.com/tony-apan/maozhishi-skills/blob/main/laicms-site-builder/SKILL.md" target="_blank" rel="noopener">技能原文</a>
-        <a href="https://www.allincms.com" target="_blank" rel="noopener">AllinCMS 官网（先开通）</a>
+    <div class="skill">
+      <div class="big-no">01</div>
+      <div>
+        <h3>外贸独立站 · 全自动更新 · SEO/GEO<span class="chip">建站技能 v3.2.28</span></h3>
+        <p>网站建好就没人管、半年不更新，客户搜不到你——很多外贸站就是这样慢慢没声的。这个技能管全程：<strong>建站、上架产品、写文章、日常更新</strong>；自带 <strong>SEO/GEO</strong>，按客户的搜索意图做内容，<strong>让网站被搜索引擎和 AI 推荐，带来流量、询盘和订单</strong>。<strong>设定好后，Muse 每天在云端替你更新、巡检，网站一直「活着」，你只看日报。</strong></p>
+        <div class="links">
+          <a href="https://github.com/tony-apan/maozhishi-skills/blob/main/laicms-site-builder/references/beginner-guide.md" target="_blank" rel="noopener">📖 新手使用说明</a>
+          <a href="https://github.com/tony-apan/maozhishi-skills/blob/main/laicms-site-builder/SKILL.md" target="_blank" rel="noopener">技能原文</a>
+          <a href="https://www.allincms.com" target="_blank" rel="noopener">AllinCMS 官网（先开通）</a>
+        </div>
       </div>
     </div>
 
-    <div class="skill-card">
-      <h3><span class="no">2️⃣</span>来发信 AI 获客 · 24 小时全自动开发客户<span class="chip">来发信 v1.3.2</span></h3>
-      <p>客户名单躺在表格里、开发信写一封歇三天、跟进全靠脑子记——单子就是这样漏掉的。这个技能把获客全程接管：<strong>找客户、验证邮箱、写开发信、排好节奏自动跟进</strong>；还能<strong>梳理 WhatsApp 会话、提炼客户痛点</strong>。<strong>计划排好后，云端 24 小时照节奏执行，该你出面时它提醒你。</strong></p>
-      <div class="links">
-        <a href="https://github.com/tony-apan/maozhishi-skills/blob/main/laifaxin-leadgen/references/beginner-guide.md" target="_blank" rel="noopener">📖 新手使用说明</a>
-        <a href="https://github.com/tony-apan/maozhishi-skills/blob/main/laifaxin-leadgen/SKILL.md" target="_blank" rel="noopener">技能原文</a>
-        <a href="https://laifa.xin" target="_blank" rel="noopener">来发信官网（先注册）</a>
+    <div class="skill">
+      <div class="big-no">02</div>
+      <div>
+        <h3>来发信 AI 获客 · 24 小时全自动开发客户<span class="chip">来发信 v1.3.2</span></h3>
+        <p>客户名单躺在表格里、开发信写一封歇三天、跟进全靠脑子记——单子就是这样漏掉的。这个技能把获客全程接管：<strong>找客户、验证邮箱、写开发信、排好节奏自动跟进</strong>；还能<strong>梳理 WhatsApp 会话、提炼客户痛点</strong>。<strong>计划排好后，云端 24 小时照节奏执行，该你出面时它提醒你。</strong></p>
+        <div class="links">
+          <a href="https://github.com/tony-apan/maozhishi-skills/blob/main/laifaxin-leadgen/references/beginner-guide.md" target="_blank" rel="noopener">📖 新手使用说明</a>
+          <a href="https://github.com/tony-apan/maozhishi-skills/blob/main/laifaxin-leadgen/SKILL.md" target="_blank" rel="noopener">技能原文</a>
+          <a href="https://laifa.xin" target="_blank" rel="noopener">来发信官网（先注册）</a>
+        </div>
       </div>
     </div>
 
     <div class="mini-rows">
-      <div class="mini"><h4>3️⃣ 🛒 B2B 运营</h4><span class="st">测试中</span><p><strong>免费 B2B 平台注册、铺店、产品上架</strong>；公司和产品资料整理一次，多个平台复用。</p></div>
-      <div class="mini"><h4>4️⃣ 📣 社媒运营</h4><span class="st">测试中</span><p><strong>公众号、视频号等平台的内容发布与运营</strong>；网站新文章自动备帖、分发到各平台。</p></div>
-      <div class="mini"><h4>5️⃣ 📁 工作区模板</h4><span class="st gray">随仓更新</span><p>台账、清单、交接的现成模板，装好技能仓就能用，干活的记录都在你自己手里。</p></div>
+      <div class="mini"><h4><span class="m-no">03</span>🛒 B2B 运营</h4><span class="st">测试中</span><p><strong>免费 B2B 平台注册、铺店、产品上架</strong>；公司和产品资料整理一次，多个平台复用。</p></div>
+      <div class="mini"><h4><span class="m-no">04</span>📣 社媒运营</h4><span class="st">测试中</span><p><strong>公众号、视频号等平台的内容发布与运营</strong>；网站新文章自动备帖、分发到各平台。</p></div>
+      <div class="mini"><h4><span class="m-no">05</span>📁 工作区模板</h4><span class="st gray">随仓更新</span><p>台账、清单、交接的现成模板，装好技能仓就能用，干活的记录都在你自己手里。</p></div>
     </div>
   </section>
 
   <section>
-    <div class="sec-title">怎 么 装</div>
+    <div class="sec-head"><span class="idx">03</span><h2>怎么装</h2></div>
     <div class="steps">
       <div class="step"><span class="num">01</span><h3>在 Muse 里发这句话</h3><p>复制本页最上面那句话，粘贴到 Muse 的对话里，剩下的它自己办。</p></div>
       <div class="step"><span class="num">02</span><h3>Muse 装好技能并自检</h3><p>装技能、核对文件、跑自检，全是它在云端自己办，你不用懂技术，装没装好它会明确告诉你。</p></div>
       <div class="step"><span class="num">03</span><h3>交代资料，云端开工</h3><p>建站先开通 <a href="https://www.allincms.com" target="_blank" rel="noopener">AllinCMS</a>，获客先注册 <a href="https://laifa.xin" target="_blank" rel="noopener">来发信</a>；把产品目录、公司介绍发给 Muse，它问什么你答什么，活就在云端跑起来了。</p></div>
     </div>
     <div class="cmd">npx skills add https://skill.maozhishi.com -g -y</div>
-    <p class="cmd-note">用本地 AI 工具的话，也可以直接运行这一行装到本地；连不上 GitHub 也没关系——安装与更新都走本站，技能包也可以从本站直接下载、解压安装，办法见<a href="/doc/skill-setup.md" style="color:#1b6de0;text-decoration:none;">安装说明</a>。</p>
+    <p class="cmd-note">用本地 AI 工具的话，也可以直接运行这一行装到本地；连不上 GitHub 也没关系——安装与更新都走本站，技能包也可以从本站直接下载、解压安装，办法见<a href="/doc/skill-setup.md">安装说明</a>。</p>
   </section>
 
   <section>
-    <div class="sec-title">版 本 与 更 新</div>
+    <div class="sec-head"><span class="idx">04</span><h2>版本与更新</h2></div>
     <div class="ver">
       <p>当前技能仓版本 <strong>v1.3.3</strong>（建站技能 v3.2.28 · 来发信技能 v1.3.2）。</p>
       <p>版本你也不用管：每次开工它自己先检查，有新版先备份你的东西再更新，先备份再更新，你填过的资料都还在、随时能找回。版本说明与历史版本都在 GitHub 仓库里。</p>
@@ -187,11 +310,11 @@
   </section>
 
   <section id="contact">
-    <div class="sec-title">联 系 与 社 群</div>
+    <div class="sec-head"><span class="idx">05</span><h2>联系与社群</h2></div>
     <div class="contact">
-      <div><span class="k">微 信</span><img src="https://cos.files.maozhishi.com/data/web/web-files/wx/tony-apan.png" alt="微信二维码"><div class="d">扫码加微信，进交流群</div></div>
-      <div><span class="k">邮 箱</span><span class="v">help@zhijixinxi.com</span><div class="d">工作日回复</div></div>
-      <div><span class="k">问 题 反 馈</span><span class="v"><a href="https://github.com/tony-apan/maozhishi-skills/issues" target="_blank" rel="noopener">GitHub Issues</a></span><div class="d">装不上、不会用，也可以到这里提问、看常见问题</div></div>
+      <div><span class="k">微信</span><img src="https://cos.files.maozhishi.com/data/web/web-files/wx/tony-apan.png" alt="微信二维码" width="150" height="150" loading="lazy"><div class="d">扫码加微信，进交流群</div></div>
+      <div><span class="k">邮箱</span><span class="v">help@zhijixinxi.com</span><div class="d">工作日回复</div></div>
+      <div><span class="k">问题反馈</span><span class="v"><a href="https://github.com/tony-apan/maozhishi-skills/issues" target="_blank" rel="noopener">GitHub Issues</a></span><div class="d">装不上、不会用，也可以到这里提问、看常见问题</div></div>
     </div>
   </section>
 
@@ -202,16 +325,22 @@
 </div>
 <script>
   function copyPrompt() {
-    var t = document.getElementById('promptText').innerText;
-    function done() { document.getElementById('copiedTip').style.display = 'inline'; }
+    var src = document.getElementById('promptText');
+    if (!src) { return; }
+    var t = src.innerText;
+    var tip = document.getElementById('copyTip');
+    function done() { if (tip) { tip.textContent = '已复制，去粘贴给 Muse'; tip.style.color = '#15803d'; tip.style.display = 'inline'; } }
+    function fail() { if (tip) { tip.textContent = '没复制上，请长按上面这段话手动复制'; tip.style.color = '#b3261e'; tip.style.display = 'inline'; } }
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(t).then(done).catch(function(){ fallback(); });
     } else { fallback(); }
     function fallback() {
       var ta = document.createElement('textarea');
       ta.value = t; document.body.appendChild(ta); ta.select();
-      try { document.execCommand('copy'); } catch(e) {}
-      document.body.removeChild(ta); done();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch(e) { ok = false; }
+      document.body.removeChild(ta);
+      if (ok) { done(); } else { fail(); }
     }
   }
 </script>
