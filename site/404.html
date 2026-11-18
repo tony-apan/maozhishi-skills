@@ -3,113 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>贸知事技能仓 × Muse — 外贸的活，在云端全自动跑</title>
-<meta name="description" content="在 Muse 里装上贸知事技能仓：建独立站、每日更新、找客户、发开发信、自动跟进，都由 Muse 在云端全自动执行。你交代资料和要求，关键节点点个头，其余时间看结果。">
+<title>页面跳转中 — 贸知事技能仓</title>
+<meta name="robots" content="noindex">
+<script>
+(function () {
+  var p = location.pathname;
+  var seg = p.split('/').filter(Boolean);
+  var known = { muse: 1, laifaxin: 1, laicms: 1, contact: 1, doc: 1 };
+  if (seg.length && known[seg[0]] && !/\.[a-zA-Z0-9]+$/.test(p)) {
+    var target = (p.endsWith('/') ? p : p + '/') + 'index.html';
+    location.replace(target + location.search + location.hash);
+  }
+})();
+</script>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; color:#14273a; background:#f7fafd; line-height:1.7; -webkit-font-smoothing:antialiased; }
-  .wrap { max-width:1020px; margin:0 auto; padding:0 28px; }
-  .topbar { display:flex; justify-content:space-between; align-items:center; padding:22px 0 20px; border-bottom:1px solid #dfe9f2; }
-  .brand { font-size:19px; font-weight:700; letter-spacing:.02em; white-space:nowrap; }
-  .brand small { font-weight:400; color:#7d9dbd; font-size:13px; letter-spacing:.14em; margin-left:8px; }
-  .brand .sep { color:#c3dff5; font-weight:300; margin:0 10px; }
-  .brand .svc { font-size:14px; font-weight:500; color:#4a5a6a; letter-spacing:.08em; }
-  .nav { display:flex; gap:30px; }
-  .nav a { color:#4a5a6a; text-decoration:none; font-size:14px; white-space:nowrap; }
-  .nav a:hover { color:#1b6de0; }
-  .hero { padding:54px 0 46px; border-bottom:1px solid #dfe9f2; }
-  .eyebrow { font-size:13px; letter-spacing:.32em; color:#7d9dbd; margin-bottom:20px; }
-  h1 { font-size:46px; line-height:1.25; font-weight:700; letter-spacing:-.01em; max-width:760px; }
-  .hero .sub { font-size:18px; color:#4a5a6a; max-width:640px; margin-top:18px; line-height:1.7; }
-  .prompt-wrap { margin-top:32px; max-width:920px; }
-  .prompt-label { font-size:13px; color:#7d9dbd; margin-bottom:10px; }
-  .prompt-box { border:1px solid #14273a; padding:16px 20px; font-size:15.5px; line-height:1.6; background:#fff; }
-  .copy-row { display:flex; align-items:center; gap:16px; margin-top:16px; }
-  .btn { appearance:none; border:1px solid #1b6de0; background:#1b6de0; color:#fff; font-size:15px; font-weight:600; letter-spacing:.06em; padding:13px 34px; cursor:pointer; border-radius:2px; transition:background .15s; }
-  .btn:hover { background:#155cb8; }
-  .copied { color:#15803d; font-size:14px; display:none; }
-  .support { font-size:13.5px; color:#93a9bd; margin-top:14px; }
-  .trust-line { font-size:14px; color:#33475c; margin-top:20px; padding-left:14px; border-left:2px solid #1b6de0; max-width:660px; }
-  .facts { display:grid; grid-template-columns:repeat(4,1fr); gap:36px; padding:32px 0; border-bottom:1px solid #dfe9f2; }
-  .fact .k { font-size:12.5px; letter-spacing:.22em; color:#7d9dbd; display:block; margin-bottom:8px; }
-  .fact .v { font-size:15px; font-weight:600; line-height:1.55; }
-  .fact .v small { display:block; font-weight:400; color:#7d9dbd; font-size:13.5px; margin-top:2px; }
-  section { padding:68px 0; border-bottom:1px solid #dfe9f2; }
-  .sec-title { font-size:13px; letter-spacing:.32em; color:#7d9dbd; margin-bottom:40px; }
-  .skill-card { border:1px solid #dfe9f2; background:#fff; padding:34px 36px; margin-bottom:28px; }
-  .skill-card h3 { font-size:24px; font-weight:700; line-height:1.4; }
-  .skill-card h3 .no { color:#1b6de0; margin-right:10px; }
-  .chip { display:inline-block; font-size:12.5px; font-weight:600; color:#1b6de0; border:1px solid #a8d2f5; padding:2px 10px; border-radius:999px; margin-left:12px; vertical-align:middle; }
-  .skill-card p { font-size:15.5px; color:#4a5a6a; margin-top:12px; max-width:780px; }
-  .skill-card .links { margin-top:16px; font-size:14.5px; }
-  .skill-card .links a { color:#1b6de0; text-decoration:none; margin-right:26px; }
-  .skill-card .links a:hover { text-decoration:underline; }
-  .mini-rows { margin-top:6px; }
-  .mini { display:flex; gap:18px; align-items:baseline; padding:16px 2px; border-top:1px solid #e6eff7; }
-  .mini h4 { font-size:16.5px; font-weight:600; white-space:nowrap; min-width:300px; }
-  .mini .st { font-size:12px; font-weight:600; color:#b45309; border:1px solid #fcd34d; padding:1px 9px; border-radius:999px; white-space:nowrap; }
-  .mini .st.gray { color:#64748b; border-color:#cbd5e1; }
-  .mini p { font-size:14.5px; color:#4a5a6a; }
-  .feats { display:grid; grid-template-columns:1fr 1fr; column-gap:64px; }
-  .feat { display:flex; gap:22px; padding:22px 0; border-top:1px solid #e6eff7; }
-  .feat h3 { font-size:16.5px; font-weight:600; white-space:nowrap; min-width:110px; }
-  .feat p { font-size:15px; color:#4a5a6a; }
-  .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:44px; }
-  .step .num { font-size:44px; font-weight:200; color:#a8d2f5; line-height:1; display:block; margin-bottom:18px; }
-  .step h3 { font-size:18px; font-weight:600; margin-bottom:8px; }
-  .step p { font-size:15px; color:#4a5a6a; }
-  .step p a { color:#1b6de0; text-decoration:none; }
-  .cmd { margin-top:34px; border:1px solid #dfe9f2; background:#fff; padding:16px 20px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:14.5px; overflow-x:auto; white-space:nowrap; }
-  .cmd-note { font-size:13.5px; color:#93a9bd; margin-top:10px; }
-  .ver p { font-size:15.5px; color:#4a5a6a; max-width:760px; }
-  .ver p + p { margin-top:10px; }
-  .contact { display:grid; grid-template-columns:repeat(3,1fr); gap:36px; }
-  .contact .k { font-size:12.5px; letter-spacing:.22em; color:#7d9dbd; display:block; margin-bottom:8px; }
-  .contact .v { font-size:17px; font-weight:600; }
-  .contact .v a { color:#14273a; text-decoration:none; }
-  .contact .v a:hover { color:#1b6de0; }
-  .contact .d { font-size:13.5px; color:#7d9dbd; margin-top:2px; }
-  .contact img { width:150px; height:150px; display:block; }
-  footer { padding:34px 0 44px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:13.5px; color:#93a9bd; }
-  footer a { color:#7d9dbd; text-decoration:none; }
-  footer a:hover { color:#1b6de0; }
-  .proto { position:fixed; right:14px; bottom:14px; background:#b45309; color:#fff; font-size:12.5px; font-weight:600; padding:6px 14px; border-radius:999px; letter-spacing:.08em; }
-  @media (max-width:760px) {
-    h1 { font-size:32px; }
-    .hero { padding:40px 0 36px; }
-    section { padding:48px 0; }
-    .topbar { flex-wrap:wrap; row-gap:12px; }
-    .nav { width:100%; gap:26px; }
-    .brand .svc, .brand .sep { display:none; }
-    .steps { grid-template-columns:1fr; gap:34px; }
-    .feats { grid-template-columns:1fr; }
-    .feat { flex-wrap:wrap; gap:6px; }
-    .feat h3 { min-width:0; }
-    .facts { grid-template-columns:1fr 1fr; gap:26px; }
-    .contact { grid-template-columns:1fr; gap:26px; }
-    .skill-card { padding:26px 22px; }
-    .skill-card h3 { font-size:20px; }
-    .mini { flex-wrap:wrap; gap:6px; }
-    .mini h4 { min-width:0; }
-  }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; background:#f7f8fa; color:#1c2733; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px; }
+  .card { background:#fff; border:1px solid #e4e8ee; border-radius:14px; max-width:520px; width:100%; padding:36px 32px; text-align:center; box-shadow:0 6px 24px rgba(20,40,80,.06); }
+  h1 { font-size:22px; margin-bottom:10px; }
+  p { font-size:15px; line-height:1.7; color:#5a6a7a; margin-bottom:22px; }
+  .links { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+  .links a { display:inline-block; padding:9px 16px; border:1px solid #d7dee8; border-radius:999px; color:#14509e; text-decoration:none; font-size:14px; }
+  .links a:first-child { background:#e8590c; border-color:#e8590c; color:#fff; }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="topbar">
-    <div class="brand">贸知事<small>MAOZHISHI</small><span class="sep">|</span><span class="svc">AI 工作技能仓</span></div>
-    <div class="nav"><a href="/">返回首页</a></div>
+  <div class="card">
+    <h1>这个页面没找到</h1>
+    <p>链接可能已经变更。如果是教程页面，正在为你自动跳转；没有跳转的话，点下面的入口直接进。</p>
+    <div class="links">
+      <a href="/index.html">技能仓首页</a>
+      <a href="/muse/index.html">Muse 使用指南</a>
+      <a href="/laifaxin/index.html">来发信教程</a>
+      <a href="/laicms/index.html">建站教程</a>
+      <a href="/contact/index.html">联系我们</a>
+    </div>
   </div>
-  <div class="hero">
-    <div class="eyebrow">4 0 4</div>
-    <h1>这一页不存在。</h1>
-    <p class="sub">可能是链接打错了，或者这一页还没建好。回首页看看，或者把你的需求直接发给 Muse，它会带你到对的地方。</p>
-    <div class="copy-row"><a class="btn" href="/" style="text-decoration:none;">回 到 首 页</a></div>
-  </div>
-  <footer>
-    <span>贸知事 AI 工作技能仓</span>
-    <span><a href="https://github.com/tony-apan/maozhishi-skills" target="_blank" rel="noopener">GitHub</a></span>
-  </footer>
-</div>
 </body>
 </html>
