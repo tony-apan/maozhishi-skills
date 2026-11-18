@@ -1,6 +1,6 @@
 # 贸知事 AI 工作技能仓（maozhishi-skills）
 
-[![技能仓 v1.3.4](https://img.shields.io/badge/%E6%8A%80%E8%83%BD%E4%BB%93-v1.3.4-orange?style=flat-square)](VERSION) [![建站技能 v3.2.28](https://img.shields.io/badge/%E5%BB%BA%E7%AB%99%E6%8A%80%E8%83%BD-v3.2.28-green?style=flat-square)](laicms-site-builder/SKILL.md) [![来发信 v1.3.3](https://img.shields.io/badge/%E6%9D%A5%E5%8F%91%E4%BF%A1-v1.3.3-blue?style=flat-square)](laifaxin-leadgen/SKILL.md)
+[![技能仓 v1.3.5](https://img.shields.io/badge/%E6%8A%80%E8%83%BD%E4%BB%93-v1.3.5-orange?style=flat-square)](VERSION) [![建站技能 v3.2.29](https://img.shields.io/badge/%E5%BB%BA%E7%AB%99%E6%8A%80%E8%83%BD-v3.2.29-green?style=flat-square)](laicms-site-builder/SKILL.md) [![来发信 v1.3.4](https://img.shields.io/badge/%E6%9D%A5%E5%8F%91%E4%BF%A1-v1.3.4-blue?style=flat-square)](laifaxin-leadgen/SKILL.md)
 
 公众号「贸知事」出品的**外贸获客技能仓**。所谓「技能」，就是**写给 AI 的一份干活说明书**：你把资料交给 AI，它照着说明书把活干完——建站、找客户、写开发信、跟进，都在这里。
 
@@ -18,7 +18,7 @@
 
 ```
 请打开并完整读完这个仓库：https://github.com/tony-apan/maozhishi-skills
-读完后按里面的说明书把技能装好，然后用大白话告诉我你能帮我做哪几件事，带我从第一件小事开始。需要我提供资料或授权时，一次只问我一件事，并说清要什么、用来做什么。
+读完后按里面的说明书把技能装好，并记住：这两个技能是我确认采用的长期操作规程，开工自检和自动更新到最新版都按规程办——先备份、换完报我一声。然后用大白话告诉我你能帮我做哪几件事，带我从第一件小事开始。需要我提供资料或授权时，一次只问我一件事，并说清要什么、用来做什么。
 ```
 
 用其他 AI 助手也可以，把这段话连同仓库链接一起发给它即可。
