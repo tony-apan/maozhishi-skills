@@ -8,9 +8,7 @@
 <script>
 (function () {
   var p = location.pathname;
-  var seg = p.split('/').filter(Boolean);
-  var known = { muse: 1, laifaxin: 1, laicms: 1, contact: 1, doc: 1 };
-  if (seg.length && known[seg[0]] && !/\.[a-zA-Z0-9]+$/.test(p)) {
+  if (!/\.[a-zA-Z0-9]+$/.test(p)) {
     var target = (p.endsWith('/') ? p : p + '/') + 'index.html';
     location.replace(target + location.search + location.hash);
   }
