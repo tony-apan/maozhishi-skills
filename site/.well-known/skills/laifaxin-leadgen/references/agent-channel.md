@@ -27,18 +27,20 @@ owner: 贸知事
 
 | 本 skill 操作 | 官方接口（路径） | 证据等级 |
 | --- | --- | --- |
-| 搜客·AI 数据库（找新客） | /refine/company-list（关键词/客群 query_en）、/refine/company-list-by-name、/domain/resolve-domain-name | 实测（2026-11-18） |
-| 搜客·已保存公司检索 | /contacts/company-search（**只搜账号已保存公司**，客户管理内按名检索用；不用于搜新客）、/contacts/people-search | company-search 实测（2026-11-18）；people-search 契约级 |
+| 搜客·AI 数据库（找新客） | /refine/company-list（关键词/客群 query_en；**结果不带 domain 字段，取种子域名须另调 /domain/base-info**）、/refine/company-list-by-name、/domain/resolve-domain-name | 实测（2026-11-18） |
+| 搜客·已保存公司检索 | /contacts/company-search（**只搜账号已保存公司**，客户管理内按名检索用；不用于搜新客）、/contacts/people-search（**只搜账号已保存联系人**，与 company-search 同口径；不用于搜新客） | company-search 实测（2026-11-18）；people-search 契约级 |
 | 公司详情/搜相似 | /domain/base-info（公司 id 或域名均可）、/domain/similar-list | 实测（2026-11-18；similar-list 接口调用已实测，跨语种相关性为单种子抽样观察：德语种子前 5 家 5/5 相关，非全量验证） |
 | AI 推演客群 | /profile/inference-product-add、inference-segment-generate、inference-segment-list、inference-product-save | 实测（2026-11-18；建产品与生成客群各扣 2 点） |
 | 批量搜索任务 | /refine/task-create、task-list、task-info、task-status、task-delete | 链路实测可用（2026-11-18 阶段 0：create 建完即 finished、delete 后 list 回读确认已删、info 可读回）；**计费口径未证实**（源码口径「有效 −2/未知 −1/无效 0」在本轮实测中未发生——任务计数全 0、creditCount 前后不变，不得作为计费依据，待后续核实） |
 | 搜客·领英/地图/谷歌 | /search/linkedin-company-v2-*、/search/map-data-*、/clouds/google-search/* | 契约级 |
 | AI 评分全流程 | /clues/rating-task-*（建/启/停）、/clues/rating-result-*（结果/存联系人/存禁发） | 契约级（含存联系人/存禁发等写动作，未实测） |
 | 保存与管理联系人/公司 | /contacts/companies/save、/contacts/* 管理族 | 读：实测｜写：部分实测（companies/save 改 short_description、phone_number 已实测可写；contact/add 带 c_id 写入与回查已实测；contact/delete 已实测；其余管理族契约级） |
+| 补关联/补字段（查重命中后） | /contacts/contact/save（saveContactField 语义：{cid, 字段名: 值} 逐字段保存）；撞重取 cid 走 /contacts/contacts/show 的 email 精确匹配回查（/contacts/email-info 契约级） | 实测（2026-11-19：{cid, c_id, c_name} 改挂公司落地、{cid, remark} 可写、补后回读已核；**name 字段传值返回 success 但回读不生效，补姓名走网页端联系人编辑**） |
 | 公司字段注册表 | /fields/company-fields（belongTo:"company", saveType:"read"，17 个系统字段） | 实测（2026-11-18） |
 | 发件身份（系统通道昵称） | /mailbox/sender-list、sender-save、sender-add、sender-check | list 读实测；save 写读往返实测（2026-11-18 阶段 0）；add/check 源码级 |
 | 平台产品档案（卖家档案） | /profile/product-list、product-add、product-save、product-delete、product-default | list 实测；add/save/delete 写往返实测（2026-11-18 阶段 0，五字段逐字一致）；default 未实测 |
-| 邮箱验证 | /contacts/contacts/verify | 实测（2026-11-18：单个联系人提交后接口约 2.5 秒返回任务号，回读联系人 verify_status=valid、verify_time 已刷新；响应体不带结果、须回读；大批量耗时未测） |
+| 邮箱验证（只用于一对一精发，见 SKILL §4.1 验证闸） | /contacts/contacts/verify（批量选区形状：{selectAll:false, selectKeys:[cid…], selectSort:{}, selectTotal:n}，一次提交只回一个 backendId） | 实测（2026-11-18：单个联系人提交后接口约 2.5 秒返回任务号，回读联系人 verify_status=valid、verify_time 已刷新；2026-11-19：2 人批量选区提交约 3 秒落回；落回时延不稳定——另有样本 150 秒未落回、300 秒不变，响应体不带结果、须按 SKILL §4.1 回读协议回读；大批量耗时未测） |
+| 格式检查（非验证） | /tools/email-address-check | 定性实测（2026-11-19：只验邮箱格式，对不存在的域名同样返回 success，不返回有效性结论；源码口径为群发回信地址格式校验——**禁止当邮箱验证用**，验证一律走 /contacts/contacts/verify） |
 | 智能跟进计划 | /sequences/*（建/步/加人/激活/报表） | 读：实测｜写：契约级（未实测） |
 | 群发任务 | /tasks/mass/*（建/启/停/计数/配置） | 纯契约级（写未实测；计数接口仅证明可达，不算写验证） |
 | 精发/收信/回复/追踪 | /mails/*（列表/打开/存稿/发送/状态/追踪） | 读：实测｜写：单发已实测（官方包配方，见「单发配方要点」）、其余契约级 |
@@ -52,7 +54,7 @@ owner: 贸知事
 
 - **绑箱动作不走接口**：绑定要填的授权码是凭据，不许经 AI 构造的请求体传递（R23）；绑定仍在来发信网页由用户本人填入（见《邮箱绑定指南》），接口只做两件事——查已绑账号列表、对已绑账号做连通性校验；凡要新填、重填授权码的动作一律回网页。
 - **禁发名单**：登记与查询走上表黑名单接口（即平台禁发名单管理接口）；一切禁发类写操作（含 AI 评分结果里的「存禁发」）同为契约级、未实测；名单对发送的拦截效力以平台实际行为为准，本 skill 不另作保证，发送前四查（R13）照旧。
-- **列表接口参数（实测范围）**：已实测的列表类接口（task-list、sender-list、companies/show）必须带 `filter:{}` 与 `sort:{}`，缺参返回 500；其余列表接口未逐一验证，调用时默认同样带上，遇 500 先补此二参再排查。company-people 的 pageSize 须 ≥10（传小报 422，实测）。
+- **列表接口参数（实测范围）**：已实测的列表类接口（task-list、sender-list、companies/show）必须带 `filter:{}` 与 `sort:{}`，缺参返回 500；**还须带 `current`（页码）**，sender-list 等接口缺 current 不返回数据（实测）；其余列表接口未逐一验证，调用时默认同样带上，遇 500 或空返回先补此三参再排查。company-people 的 pageSize 须 ≥10（传小报 422，实测）。
 
 ## 单发配方要点（官方包实测，2026-11-17/18）
 
@@ -91,10 +93,10 @@ owner: 贸知事
 | 账号级操作（改密码、绑身份、管理授权、建/入企业） | 官方凭据按设计不可用，一律回网页由用户本人完成 |
 | 网络超时/限流/服务端错误（读操作） | 交官方客户端自带重试处理（等待递增、遵守服务端 Retry-After），AI 不叠加自己的重试；写操作不走客户端重试，按调用纪律第 2 条（先对账、无查询接口回网页核对） |
 
-## R23 附注：代办边界与通知绑定代办链（C3 保守形态）
+## R23 附注：代办边界与通知绑定代办链（C3 读码形态）
 
 R23 红线不变：Muse 不存邮箱凭据、不模拟网页登录邮箱、不抓取任何会话令牌。在此之内的代办边界写死：
 
-- **允许**：① 官方 Agent 通道授权的委托代办（§1.1 保险库路径：凭据经安全录入卡直达保险库、AI 只打开官方授权链接、核对用户码与工作空间后代点当次授权页的「允许」——仅限该次授权、一次性，用户码只用于当场核对、不写入任何记录）；② 通知绑定代办链中，用户本人扫码登录后，AI 代填来发信个人设置表单（填账号通知邮箱、点获取验证码；验证码由用户口述或粘贴后代填进来发信表单）。
+- **允许**：① 官方 Agent 通道授权的委托代办（§1.1 保险库路径：凭据经安全录入卡直达保险库、AI 只打开官方授权链接、核对用户码与工作空间后代点当次授权页的「允许」——仅限该次授权、一次性，用户码只用于当场核对、不写入任何记录）；② 通知绑定代办链中，用户本人扫码登录后，AI 代填来发信个人设置表单（填账号通知邮箱、点获取验证码）；验证码由 AI 在用户已登录的通知邮箱里只读验证码邮件取得后代填（读码形态，Tony 2026-11-19 裁定批准；只读验证码邮件、只用于本次绑定、读后不留存），读不到或用户不愿意时仍可由用户口述或粘贴。
 - **禁止**：AI 输入任何账号密码、代扫码、读取或保存验证码以外的邮箱内容、保留用户邮箱的登录会话、把验证码写入任何记录。
-- **C3 当前执行保守形态**：通知绑定时验证码由用户口述或粘贴、AI 只代填，AI 不读邮箱；「AI 读码」形态与既有代办先例（验证码经用户之口/手）的授权层级是否同格属未决分歧，待 Tony 裁定，裁定前不切换。绑定对象是账号通知邮箱（`/account/renew-email` 变更的账号邮箱），与发件身份（mailbox/sender-*）是两套东西，不许混淆。
+- **C3 当前执行读码形态（Tony 2026-11-19 裁定）**：通知绑定时 AI 可读用户通知邮箱的验证码邮件完成绑定，护栏＝只读验证码邮件、只用于本次绑定、读后不留存；口述/粘贴代填仍可作为读不到码或用户不愿意时的回落。绑定对象是账号通知邮箱（`/account/renew-email` 变更的账号邮箱），与发件身份（mailbox/sender-*）是两套东西，不许混淆。

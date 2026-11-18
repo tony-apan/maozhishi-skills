@@ -1,6 +1,6 @@
 # 贸知事 AI 工作技能仓（maozhishi-skills）
 
-[![技能仓 v1.3.8](https://img.shields.io/badge/%E6%8A%80%E8%83%BD%E4%BB%93-v1.3.8-orange?style=flat-square)](VERSION) [![建站技能 v3.2.30](https://img.shields.io/badge/%E5%BB%BA%E7%AB%99%E6%8A%80%E8%83%BD-v3.2.30-green?style=flat-square)](laicms-site-builder/SKILL.md) [![来发信 v1.3.7](https://img.shields.io/badge/%E6%9D%A5%E5%8F%91%E4%BF%A1-v1.3.7-blue?style=flat-square)](laifaxin-leadgen/SKILL.md)
+[![技能仓 v1.3.9](https://img.shields.io/badge/%E6%8A%80%E8%83%BD%E4%BB%93-v1.3.9-orange?style=flat-square)](VERSION) [![建站技能 v3.2.30](https://img.shields.io/badge/%E5%BB%BA%E7%AB%99%E6%8A%80%E8%83%BD-v3.2.30-green?style=flat-square)](laicms-site-builder/SKILL.md) [![来发信 v1.3.8](https://img.shields.io/badge/%E6%9D%A5%E5%8F%91%E4%BF%A1-v1.3.8-blue?style=flat-square)](laifaxin-leadgen/SKILL.md)
 
 公众号「贸知事」出品的**外贸获客技能仓**。所谓「技能」，就是**写给 AI 的一份干活说明书**：你把资料交给 AI，它照着说明书把活干完——建站、找客户、写开发信、跟进，都在这里。
 
@@ -50,7 +50,11 @@
 
 **公众号、视频号等平台的内容发布与运营**；网站新文章自动备帖、分发到各平台
 
-### 5️⃣ [工作区模板](workspace-template/README.md) ![随仓更新](https://img.shields.io/badge/%E9%9A%8F%E4%BB%93%E6%9B%B4%E6%96%B0-grey?style=flat-square)
+### 5️⃣ 广告投放 ![测试中](https://img.shields.io/badge/%E6%B5%8B%E8%AF%95%E4%B8%AD-orange?style=flat-square)
+
+**海外广告投放、盯盘与优化**；Google、Meta 等平台的广告账户搭建、预算分配与效果优化，自动盯花费与询盘成本，钱花偏了先提醒你
+
+### 6️⃣ [工作区模板](workspace-template/README.md) ![随仓更新](https://img.shields.io/badge/%E9%9A%8F%E4%BB%93%E6%9B%B4%E6%96%B0-grey?style=flat-square)
 
 放公司和产品资料的**文件夹架子**，各模块共用
 
