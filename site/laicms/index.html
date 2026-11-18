@@ -83,6 +83,15 @@
   .foot a:hover { color:var(--blue); }
   @media (max-width:640px) { article { font-size:16px; } }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } .next { transition:none; } }
+
+  .layout { display:flex; gap:40px; align-items:flex-start; }
+  .wrap:has(.layout) { max-width:1200px; }
+  .outline { position:sticky; top:96px; flex:0 0 210px; width:210px; background:var(--wash); border-radius:12px; padding:16px 18px; margin-top:8px; }
+  .outline .ol-title { font-weight:700; font-size:13.5px; letter-spacing:.1em; color:var(--ink2); margin-bottom:8px; }
+  .outline a { display:block; padding:5px 0; color:var(--ink2); text-decoration:none; font-size:14.5px; line-height:1.5; }
+  .outline a:hover { color:var(--blue); }
+  .layout article { flex:1; min-width:0; }
+  @media (max-width:1080px) { .outline { display:none; } }
 </style>
 </head>
 <body>
@@ -92,12 +101,12 @@
     <div class="nav">
       <a href="/">首页</a>
       <span class="has-drop"><a href="/#tutorials" aria-expanded="false">教程</a><span class="drop">
-        <a href="/muse/"><span class="t">先认识 Muse</span><span class="d">注册、开通、装上技能</span></a>
-        <a href="/laifaxin/"><span class="t">来发信技能使用教程</span><span class="d">开发信获客，全程一篇</span></a>
-        <a href="/laicms/"><span class="t">独立站技能使用教程</span><span class="d">建站全程，带真实截图</span></a>
+        <a href="/muse/index.html"><span class="t">先认识 Muse</span><span class="d">注册、开通、装上技能</span></a>
+        <a href="/laifaxin/index.html"><span class="t">来发信技能使用教程</span><span class="d">开发信获客，全程一篇</span></a>
+        <a href="/laicms/index.html"><span class="t">独立站技能使用教程</span><span class="d">建站全程，带真实截图</span></a>
       </span></span>
       <a href="/#skills">技能</a>
-      <a href="/contact/">联系</a>
+      <a href="/contact/index.html">联系</a>
       <a class="gh" href="https://github.com/tony-apan/maozhishi-skills" target="_blank" rel="noopener" aria-label="GitHub 仓库"><svg viewBox="0 0 16 16" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg><span>GitHub</span></a>
     </div>
   </div>
@@ -118,10 +127,21 @@
     </div>
   </div>
 
-  <article>
+  <div class="layout">
+    <aside class="outline">
+      <div class="ol-title">本页大纲</div>
+      <a href="#prep">开始之前，先准备好三样东西</a>
+      <a href="#install">第一步：把技能仓交给 AI</a>
+      <a href="#ask">第二步：AI 问你问题，你照实回答</a>
+      <a href="#build">第三步：AI 进后台干活，你等着看样站</a>
+      <a href="#check">第四步：你来验收，不满意就说人话</a>
+      <a href="#daily">第五步：上线之后，日常不用你操心</a>
+      <a href="#faq">常见问题</a>
+    </aside>
+    <article>
     <h2 id="prep">开始之前，先准备好三样东西</h2>
     <ol>
-      <li><strong>一个 AI 助手</strong>：比如 Muse。没有的话先看 <a href="/muse/">《先认识 Muse》</a> 注册一个。</li>
+      <li><strong>一个 AI 助手</strong>：比如 Muse。没有的话先看 <a href="/muse/index.html">《先认识 Muse》</a> 注册一个。</li>
       <li><strong>贸知事技能仓</strong>：不用你下载，待会儿在技能站首页复制一句话发给 AI，它自己就装好了。</li>
       <li><strong>一个建站平台账号</strong>：到 AllinCMS 官网 <a href="https://www.allincms.com" target="_blank" rel="noopener">allincms.com</a> 按指引开通。官网只有一种联系方式——扫码加客服微信、人工开通；拿到账号后，登录入口是 workspace.laicms.com。账号开在你自己名下，建出来的站就是你的。</li>
     </ol>
@@ -297,7 +317,7 @@
       <h2>教程首页</h2>
       <p>三篇教程都在这里：先认识 Muse、来发信获客、独立站建站。</p>
     </a>
-  </article>
+  </div></article>
 
   <div class="foot">
     <span>贸知事 AI 工作技能仓 · 使用教程</span>

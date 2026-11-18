@@ -80,6 +80,15 @@
   .foot a:hover { color:var(--blue); }
   @media (max-width:640px) { article { font-size:16px; } }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } .next { transition:none; } }
+
+  .layout { display:flex; gap:40px; align-items:flex-start; }
+  .wrap:has(.layout) { max-width:1200px; }
+  .outline { position:sticky; top:96px; flex:0 0 210px; width:210px; background:var(--wash); border-radius:12px; padding:16px 18px; margin-top:8px; }
+  .outline .ol-title { font-weight:700; font-size:13.5px; letter-spacing:.1em; color:var(--ink2); margin-bottom:8px; }
+  .outline a { display:block; padding:5px 0; color:var(--ink2); text-decoration:none; font-size:14.5px; line-height:1.5; }
+  .outline a:hover { color:var(--blue); }
+  .layout article { flex:1; min-width:0; }
+  @media (max-width:1080px) { .outline { display:none; } }
 </style>
 </head>
 <body>
@@ -89,12 +98,12 @@
     <div class="nav">
       <a href="/">首页</a>
       <span class="has-drop"><a href="/#tutorials" aria-expanded="false">教程</a><span class="drop">
-        <a href="/muse/"><span class="t">先认识 Muse</span><span class="d">注册、开通、装上技能</span></a>
-        <a href="/laifaxin/"><span class="t">来发信技能使用教程</span><span class="d">开发信获客，全程一篇</span></a>
-        <a href="/laicms/"><span class="t">独立站技能使用教程</span><span class="d">建站全程，带真实截图</span></a>
+        <a href="/muse/index.html"><span class="t">先认识 Muse</span><span class="d">注册、开通、装上技能</span></a>
+        <a href="/laifaxin/index.html"><span class="t">来发信技能使用教程</span><span class="d">开发信获客，全程一篇</span></a>
+        <a href="/laicms/index.html"><span class="t">独立站技能使用教程</span><span class="d">建站全程，带真实截图</span></a>
       </span></span>
       <a href="/#skills">技能</a>
-      <a href="/contact/">联系</a>
+      <a href="/contact/index.html">联系</a>
       <a class="gh" href="https://github.com/tony-apan/maozhishi-skills" target="_blank" rel="noopener" aria-label="GitHub 仓库"><svg viewBox="0 0 16 16" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg><span>GitHub</span></a>
     </div>
   </div>
@@ -102,16 +111,23 @@
   <div class="p-head">
     <div class="eyebrow">第二篇 · 获客 · 精发篇</div>
     <h1>精发：用自己的邮箱，<span class="mark">一客一信</span></h1>
-    <p class="lead">这一篇走<strong>精发</strong>路线：绑上你自己的邮箱，AI 给每家重点客户做背调、一封一封地写。开始之前，先在<a href="/laifaxin/">总览</a>里走完前四步——把客户名单筛好，再回来走这一篇。</p>
+    <p class="lead">这一篇走<strong>精发</strong>路线：绑上你自己的邮箱，AI 给每家重点客户做背调、一封一封地写。开始之前，先在<a href="/laifaxin/index.html">总览</a>里走完前四步——把客户名单筛好，再回来走这一篇。</p>
     <div class="toc">
       <a href="#mailbox">第一步 · 绑邮箱</a>
       <a href="#write">第二步 · 写信</a>
       <a href="#rhythm">第三步 · 发送与跟进</a>
-      <a href="/laifaxin/">回到总览</a>
+      <a href="/laifaxin/index.html">回到总览</a>
     </div>
   </div>
 
-  <article>
+  <div class="layout">
+    <aside class="outline">
+      <div class="ol-title">本页大纲</div>
+      <a href="#mailbox">第一步：绑上你自己的邮箱</a>
+      <a href="#write">第二步：写信——一客一信，先给你看</a>
+      <a href="#rhythm">第三步：发送节奏与跟进</a>
+    </aside>
+    <article>
 <h2 id="mailbox">第一步：绑上你自己的邮箱</h2>
     <p>只做群发的话，这一步可以跳过。想用自己的邮箱给重点客户一对一发信（精发），就把邮箱绑上，两条路：</p>
     <ol>
@@ -165,14 +181,14 @@
       <li><strong>自动跟进三封</strong>：首封发出后，AI 在第 3 天、第 7 天、第 14 天（按工作日算）各跟进一封；对方一回信，跟进立刻停下，交给你接手。</li>
       <li><strong>回信先分类</strong>：回信 AI 先分好类——询盘和明确感兴趣的优先提醒你；说不要的、退订的立刻停发，并记进不再打扰的名单，这个名单精发、群发都生效。</li>
     </ul>
-    <p>日报和询盘处理的更多安排，在<a href="/laifaxin/#follow">总览的第五步</a>里。</p>
+    <p>日报和询盘处理的更多安排，在<a href="/laifaxin/index.html#follow">总览的第五步</a>里。</p>
 
-    <a class="next" href="/laifaxin/qunfa/">
+    <a class="next" href="/laifaxin/index.htmlqunfa/index.html">
       <div class="no">另一条路线</div>
       <h2>群发：用平台通道把量铺开</h2>
       <p>名单量大的时候，先用群发铺一遍、筛出有回应的，再转回来精发攻重点。</p>
     </a>
-</article>
+</div></article>
 
   <div class="foot">
     <span>贸知事 AI 工作技能仓 · 使用教程</span>
