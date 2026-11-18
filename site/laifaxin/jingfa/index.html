@@ -78,7 +78,7 @@
   .foot { margin-top:48px; padding:26px 0 44px; border-top:1px solid var(--line); font-size:13.5px; color:var(--mut); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
   .foot a { color:var(--mut); text-decoration:none; }
   .foot a:hover { color:var(--blue); }
-  @media (max-width:640px) { article { font-size:16px; } }
+  @media (max-width:640px) { article { font-size:16px; } td, th { overflow-wrap:anywhere; } .tblwrap { overflow-x:auto; -webkit-overflow-scrolling:touch; box-shadow:inset -16px 0 12px -10px rgba(23,50,77,.35); border-radius:10px; } table.params { min-width:560px; } table.params td, table.params th { overflow-wrap:normal; } }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } .next { transition:none; } }
 
       .outline { box-sizing:border-box; background:var(--wash); border-radius:12px; padding:16px 18px; margin:0 0 10px; }
@@ -157,7 +157,8 @@
     <h3>绑之前先分清：用哪种密码</h3>
     <p>绑不上多半是用错了密码。绝大多数邮箱要用<strong>授权码 / 应用专用密码</strong>（各家叫法不同，本质都是邮箱给第三方客户端的独立密码，可单独撤销）：Gmail、QQ、163、Outlook、企业邮箱全系都属这类；只有少数（阿里邮箱、电信 189/21cn）用登录密码。开了两步验证的邮箱，一律先生成应用专用密码再绑。</p>
     <h3>常用邮箱服务器参数（已核对 5 家）</h3>
-    <table>
+    <div class="tblwrap">
+    <table class="params">
       <tr><th>邮箱</th><th>IMAP（收）</th><th>SMTP（发）</th></tr>
       <tr><td>Gmail</td><td>imap.gmail.com:993 SSL</td><td>smtp.gmail.com:465 SSL 或 587 TLS</td></tr>
       <tr><td>QQ</td><td>imap.qq.com:993 SSL</td><td>smtp.qq.com:465 SSL</td></tr>
@@ -165,6 +166,7 @@
       <tr><td>Outlook/Hotmail</td><td>outlook.office365.com:993 SSL</td><td>smtp.office365.com:587 TLS</td></tr>
       <tr><td>腾讯企业邮箱</td><td>imap.exmail.qq.com:993 SSL</td><td>smtp.exmail.qq.com:465 SSL</td></tr>
     </table>
+    </div>
     <p>其余各家的参数照来发信官网对应单篇填，不要凭记忆填。</p>
     <h3>跟着检查点走</h3>
     <ol>

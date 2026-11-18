@@ -70,6 +70,10 @@
   .faq dt { font-weight:800; color:var(--ink); margin-top:1.3em; }
   .faq dd { color:var(--ink2); margin:.3em 0 0; }
   .next { display:block; background:#fff; border:2px solid var(--ink); border-radius:16px; padding:24px 28px 20px; text-decoration:none; color:var(--ink); box-shadow:7px 7px 0 rgba(12,31,48,.9); margin-top:52px; transition:transform .15s, box-shadow .15s; }
+  .routes { margin-top:52px; }
+  .routes .next { margin-top:0; }
+  .routes .next + .next { margin-top:22px; }
+  @media (min-width:1081px) { .routes { display:grid; grid-template-columns:1fr 1fr; gap:22px; } .routes .next + .next { margin-top:0; } }
   .next:hover { transform:translate(-2px,-2px); box-shadow:9px 9px 0 rgba(12,31,48,.9); }
   .next .no { font-size:13px; font-weight:800; letter-spacing:.2em; color:var(--org); }
   .next h2 { font-size:23px; font-weight:800; margin:8px 0 6px; border:0; padding:0; }
@@ -78,7 +82,7 @@
   .foot { margin-top:48px; padding:26px 0 44px; border-top:1px solid var(--line); font-size:13.5px; color:var(--mut); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
   .foot a { color:var(--mut); text-decoration:none; }
   .foot a:hover { color:var(--blue); }
-  @media (max-width:640px) { article { font-size:16px; } }
+  @media (max-width:640px) { article { font-size:16px; } td, th { overflow-wrap:anywhere; } }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } .next { transition:none; } }
 
       .outline { box-sizing:border-box; background:var(--wash); border-radius:12px; padding:16px 18px; margin:0 0 10px; }
@@ -191,6 +195,7 @@
 
     <h2 id="routes">选路线：精发，还是群发</h2>
     <p>名单筛好了，接下来有两条路。两条路共用同一份客户名单、同一本不再打扰的名单——退订、拒收的人，两条路都不会再发。你可以只走一条，也可以先群发铺量、再对重点客户转精发。</p>
+    <div class="routes">
     <a class="next" href="/laifaxin/jingfa/index.html">
       <div class="no">路线一 · 精发</div>
       <h2 id="sec-7">用平台通道，一客一信</h2>
@@ -201,6 +206,7 @@
       <h2 id="sec-8">用平台通道，把量铺开</h2>
       <p>一封模板配上称呼变量，分批发出，先把面铺开、筛出有回应的客户。名单量大的时候走这条。</p>
     </a>
+    </div>
 
     <h2 id="follow">第五步：跟进和询盘，不用你盯着</h2>
     <ul>
