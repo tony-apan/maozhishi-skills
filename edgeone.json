@@ -1,1 +1,1 @@
-{"rewrites":[{"destination":"/$1/index.html","source":"/(.+)/"}]}
+{"redirects":[{"destination":"/:seg/index.html","source":"/:seg/","statusCode":301},{"destination":"/:seg/:sub/index.html","source":"/:seg/:sub/","statusCode":301}]}
