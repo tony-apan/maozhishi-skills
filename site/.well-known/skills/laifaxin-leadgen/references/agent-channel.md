@@ -3,7 +3,7 @@ doc_id: laifaxin-agent-channel
 title: 官方 Agent 通道（接口映射与调用纪律）
 description: 来发信官方 Agent Skill 作为本 skill 首选执行通道的接入、接口映射（带证据等级）、调用纪律与降级规则；绑箱动作维持网页通道。
 status: active
-updated: 2026-11-17
+updated: 2026-11-19
 owner: 贸知事
 ---
 
@@ -27,11 +27,18 @@ owner: 贸知事
 
 | 本 skill 操作 | 官方接口（路径） | 证据等级 |
 | --- | --- | --- |
-| 搜客·公司/联系人搜索 | /contacts/company-search、/contacts/people-search | 契约级 |
+| 搜客·AI 数据库（找新客） | /refine/company-list（关键词/客群 query_en）、/refine/company-list-by-name、/domain/resolve-domain-name | 实测（2026-11-18） |
+| 搜客·已保存公司检索 | /contacts/company-search（**只搜账号已保存公司**，客户管理内按名检索用；不用于搜新客）、/contacts/people-search | company-search 实测（2026-11-18）；people-search 契约级 |
+| 公司详情/搜相似 | /domain/base-info（公司 id 或域名均可）、/domain/similar-list | 实测（2026-11-18；similar-list 接口调用已实测，跨语种相关性为单种子抽样观察：德语种子前 5 家 5/5 相关，非全量验证） |
+| AI 推演客群 | /profile/inference-product-add、inference-segment-generate、inference-segment-list、inference-product-save | 实测（2026-11-18；建产品与生成客群各扣 2 点） |
+| 批量搜索任务 | /refine/task-create、task-list、task-info、task-status、task-delete | 链路实测可用（2026-11-18 阶段 0：create 建完即 finished、delete 后 list 回读确认已删、info 可读回）；**计费口径未证实**（源码口径「有效 −2/未知 −1/无效 0」在本轮实测中未发生——任务计数全 0、creditCount 前后不变，不得作为计费依据，待后续核实） |
 | 搜客·领英/地图/谷歌 | /search/linkedin-company-v2-*、/search/map-data-*、/clouds/google-search/* | 契约级 |
 | AI 评分全流程 | /clues/rating-task-*（建/启/停）、/clues/rating-result-*（结果/存联系人/存禁发） | 契约级（含存联系人/存禁发等写动作，未实测） |
-| 保存与管理联系人/公司 | /contacts/companies/save、/contacts/* 管理族 | 读：实测｜写：契约级（未实测） |
-| 邮箱验证 | /contacts/contacts/verify | 契约级 |
+| 保存与管理联系人/公司 | /contacts/companies/save、/contacts/* 管理族 | 读：实测｜写：部分实测（companies/save 改 short_description、phone_number 已实测可写；contact/add 带 c_id 写入与回查已实测；contact/delete 已实测；其余管理族契约级） |
+| 公司字段注册表 | /fields/company-fields（belongTo:"company", saveType:"read"，17 个系统字段） | 实测（2026-11-18） |
+| 发件身份（系统通道昵称） | /mailbox/sender-list、sender-save、sender-add、sender-check | list 读实测；save 写读往返实测（2026-11-18 阶段 0）；add/check 源码级 |
+| 平台产品档案（卖家档案） | /profile/product-list、product-add、product-save、product-delete、product-default | list 实测；add/save/delete 写往返实测（2026-11-18 阶段 0，五字段逐字一致）；default 未实测 |
+| 邮箱验证 | /contacts/contacts/verify | 实测（2026-11-18：单个联系人提交后接口约 2.5 秒返回任务号，回读联系人 verify_status=valid、verify_time 已刷新；响应体不带结果、须回读；大批量耗时未测） |
 | 智能跟进计划 | /sequences/*（建/步/加人/激活/报表） | 读：实测｜写：契约级（未实测） |
 | 群发任务 | /tasks/mass/*（建/启/停/计数/配置） | 纯契约级（写未实测；计数接口仅证明可达，不算写验证） |
 | 精发/收信/回复/追踪 | /mails/*（列表/打开/存稿/发送/状态/追踪） | 读：实测｜写：单发已实测（官方包配方，见「单发配方要点」）、其余契约级 |
@@ -45,6 +52,7 @@ owner: 贸知事
 
 - **绑箱动作不走接口**：绑定要填的授权码是凭据，不许经 AI 构造的请求体传递（R23）；绑定仍在来发信网页由用户本人填入（见《邮箱绑定指南》），接口只做两件事——查已绑账号列表、对已绑账号做连通性校验；凡要新填、重填授权码的动作一律回网页。
 - **禁发名单**：登记与查询走上表黑名单接口（即平台禁发名单管理接口）；一切禁发类写操作（含 AI 评分结果里的「存禁发」）同为契约级、未实测；名单对发送的拦截效力以平台实际行为为准，本 skill 不另作保证，发送前四查（R13）照旧。
+- **列表接口参数（实测范围）**：已实测的列表类接口（task-list、sender-list、companies/show）必须带 `filter:{}` 与 `sort:{}`，缺参返回 500；其余列表接口未逐一验证，调用时默认同样带上，遇 500 先补此二参再排查。company-people 的 pageSize 须 ≥10（传小报 422，实测）。
 
 ## 单发配方要点（官方包实测，2026-11-17/18）
 
@@ -57,8 +65,14 @@ owner: 贸知事
 - **正文与附件**：`html` 字段传 HTML（段落 `<p>`、换行 `<br>`、加粗 `<strong>`）；只传纯文本会连成一段。附件先 `upload` 取得 `url/name/size` 再填 `attachments`（与附件库引用 `attIds` 别混）。
 - **追踪**：`track: true` 在正文末尾埋追踪像素；打开数据查 `/mails/track-info`，参数 `sid` 取已发送记录的 `ssid` 字段（不是发送返回的 sendId）。真实打开事件回录未端到端验通，查到空数组不等于没人打开。
 - **定时**：`sendAtOnce: false`＋`timeStart`（未来 90 天内的毫秒时间戳，缺失或超限后端明确报错）；提交返回邮件 `id`（不是 sendId），到点自动发出。改期 `/mails/change-timer`、取消 `/mails/cancel-timer`；取消是幂等的，取消后必须回查列表确认该记录落 Drafts 且 `timeStart` 为 null 才算生效。
-- **发件昵称**：发送请求里不能临时设昵称（`fromName` 字段被忽略）；昵称是发件人身份属性，在发件人设置里维护（`/mailbox/sender-save`）。系统通道下经 API 发送时收件端显示名不随昵称设置变化（实测观察），要对外显示名可控，走绑定邮箱通道。
+- **发件昵称**：发送请求里不能临时设昵称（`fromName` 字段被忽略）；昵称是发件人身份属性，在发件人设置里维护（`/mailbox/sender-save`）。分通道口径（2026-11-19 定案）：**网页端发送时发件人名称真实生效**——网页端把主发件身份昵称改为测试名后网页真发 1 封，收件原始头 header_from_name 即为新昵称（改后已恢复原值）；**经 Agent API 单发时不带昵称**——把非主用发件身份的 fromName 改成测试值后经 API 发信，收件侧显示名仍是账号 userid；以 fromName 长期为「Tony」的发件身份发对照信、主身份历史已发送邮件，显示名同为 userid，合计 5 样本一致，对照组已排除「延迟生效」解释。即问题只在 API 单发路径：sender 的 fromName 改动未反映在 API 单发的收件侧显示名上。昵称设置本身（sender-save）写读往返已实测可用；经 API 单发又在意对外显示名的，走绑定邮箱通道。
 - **系统通道注意**：`maid: "system"` 从平台大量轮换域名发出、扣通用点数，与群发共用同一平台系统通道，是正式发送通道之一。**运营实测（Tony 2026-11-18）**：收件人以企业邮箱为主时投递表现好、比免费邮箱更容易进收件箱，日量可达数千至数万封；实际量以平台账号额度与点数预算为界。**收件侧区分**：官方实测样本（数量有限）中直发 Gmail 均进垃圾箱——此为免费邮箱（Gmail 等）侧的小样本结论；名单混有免费邮箱收件人时单独分组、先小样实测，通道仍按 SKILL.md 优先级口径选（默认系统通道），只有满足例外 (b) 或用户明确指定时才改用绑定邮箱通道，企业邮箱与免费邮箱的结论不互相外推。平台账号侧有自身风控（发送被拒先核对发件标识、再查账号状态），禁发名单四查与熔断对系统通道同等适用（见 SKILL.md §4.2 路线丙与 §4.3）。`readReceipt`（已读回执）与 `priority`（优先级）在系统通道下不生效。
+
+## 公司字段回写配方（modifyCompanies，实测 2026-11-18）
+
+- **接口**：`POST /contacts/companies/save`（批量改字段口）。正解参数：`{selectAll:false, selectKeys:[公司_id], selectSort:{}, selectTotal:1, changeField:"<字段名>", changeType:"renew", changeValue:<新值>}`。踩坑记录：只传 {_id, 字段} 报 422（缺 selectTotal）；传 {ids:[...]} 返回 success 但 matchedCount=0（假成功），一律不用。
+- **已实测可写字段**：short_description（公司简介，改＋恢复全程读回无残留）、phone_number（公司电话）。判读注意：同值写入 matchedCount=1、**modifiedCount=0**——是后端 no-op 语义，不等于字段不可写；改值写入 modifiedCount=1 且回读在位才算验通。
+- **字段存在性以注册表为准**：`POST /fields/company-fields` {belongTo:"company", saveType:"read"} 返回 17 个系统字段（orgName、domain、website、countryCode、status、tags、employees、industry、phone_number、linkedin_url、facebook_url、twitter_url、founded、short_description、company_address、create_time、scoreLevels）。**公司没有 remark 字段**（记录转储/编辑表单/类型定义/字段注册表四源核实）；公司级备注走自定义字段补建（SKILL §4.1 B4，补建路径已实测——2026-11-19 网页端建并回验、失败降级）。联系人有 remark 与 source。
 
 ## 调用纪律（与 R29 同口径）
 
@@ -76,3 +90,11 @@ owner: 贸知事
 | 通道整体不可用（宿主限制、装不上） | 全面回网页操作，设置页标 degraded 并向用户明示 |
 | 账号级操作（改密码、绑身份、管理授权、建/入企业） | 官方凭据按设计不可用，一律回网页由用户本人完成 |
 | 网络超时/限流/服务端错误（读操作） | 交官方客户端自带重试处理（等待递增、遵守服务端 Retry-After），AI 不叠加自己的重试；写操作不走客户端重试，按调用纪律第 2 条（先对账、无查询接口回网页核对） |
+
+## R23 附注：代办边界与通知绑定代办链（C3 保守形态）
+
+R23 红线不变：Muse 不存邮箱凭据、不模拟网页登录邮箱、不抓取任何会话令牌。在此之内的代办边界写死：
+
+- **允许**：① 官方 Agent 通道授权的委托代办（§1.1 保险库路径：凭据经安全录入卡直达保险库、AI 只打开官方授权链接、核对用户码与工作空间后代点当次授权页的「允许」——仅限该次授权、一次性，用户码只用于当场核对、不写入任何记录）；② 通知绑定代办链中，用户本人扫码登录后，AI 代填来发信个人设置表单（填账号通知邮箱、点获取验证码；验证码由用户口述或粘贴后代填进来发信表单）。
+- **禁止**：AI 输入任何账号密码、代扫码、读取或保存验证码以外的邮箱内容、保留用户邮箱的登录会话、把验证码写入任何记录。
+- **C3 当前执行保守形态**：通知绑定时验证码由用户口述或粘贴、AI 只代填，AI 不读邮箱；「AI 读码」形态与既有代办先例（验证码经用户之口/手）的授权层级是否同格属未决分歧，待 Tony 裁定，裁定前不切换。绑定对象是账号通知邮箱（`/account/renew-email` 变更的账号邮箱），与发件身份（mailbox/sender-*）是两套东西，不许混淆。
