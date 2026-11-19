@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>版本发布 — 贸知事技能仓</title>
+<meta name="description" content="贸知事技能仓每个版本的更新说明：最新版改了什么、历史版本记录。技能每次开工自动检查更新，先备份再更新。">
+<style>
+  :root{
+    --ink:#0c1f30; --ink2:#3d5265; --mut:#5d7a93; --blue:#1668d8; --blue-d:#0f4fa8;
+    --org:#c94f0e; --paper:#fbfcfe; --wash:#eef5fc; --line:#dce7f1;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; color:var(--ink); background:var(--paper); line-height:1.7; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:1160px; margin:0 auto; padding:0 32px; }
+  .topbar { display:flex; justify-content:space-between; align-items:center; padding:26px 0 22px; border-bottom:1px solid var(--line); }
+  .brand { font-size:20px; font-weight:800; letter-spacing:.02em; white-space:nowrap; }
+  .brand small { font-weight:400; color:var(--mut); font-size:12.5px; letter-spacing:.18em; margin-left:9px; }
+  .brand .sep { color:#c3dff5; font-weight:300; margin:0 12px; }
+  .brand .svc { font-size:14px; font-weight:500; color:var(--ink2); letter-spacing:.1em; }
+  .nav { display:flex; gap:34px; align-items:center; }
+  .nav a { color:var(--ink2); text-decoration:none; font-size:14.5px; font-weight:600; }
+  .nav a:hover { color:var(--blue); }
+  h1 { font-size:34px; font-weight:900; margin:44px 0 10px; }
+  .intro { font-size:16.5px; color:var(--ink2); max-width:760px; }
+  .rel { background:#fff; border:1.5px solid var(--line); border-radius:16px; padding:26px 30px; margin-top:26px; }
+  .rel-head { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  .rel-ver { font-size:23px; font-weight:900; }
+  .rel-tag { font-size:12px; font-weight:700; color:#fff; background:var(--blue); padding:2px 10px; border-radius:999px; letter-spacing:.06em; }
+  .rel-tag.hist { background:#8aa3b8; }
+  .rel-date { font-size:14px; color:var(--mut); }
+  .rel-mods { font-size:14px; color:var(--ink2); margin-top:4px; }
+  .rel ul { margin:12px 0 2px; padding-left:20px; }
+  .rel li { margin-bottom:8px; line-height:1.7; }
+  .closing { margin:30px 0 6px; font-size:15.5px; color:var(--ink2); }
+  footer { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; padding:30px 0 40px; margin-top:44px; border-top:1px solid var(--line); font-size:14px; color:var(--mut); }
+  footer a { color:var(--mut); text-decoration:none; }
+  footer a:hover { color:var(--blue); }
+  @media (max-width:760px) {
+    .wrap { padding:0 20px; }
+    h1 { font-size:27px; }
+    .brand .svc, .brand .sep { display:none; }
+    .rel { padding:20px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="brand">贸知事<small>MAOZHISHI</small><span class="sep">|</span><span class="svc">AI 工作技能仓</span></div>
+    <div class="nav">
+      <a href="/">首页</a>
+      <a href="https://github.com/tony-apan/maozhishi-skills" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+
+  <h1>版本发布</h1>
+  <p class="intro">建议始终使用最新版。技能每次开工会自己检查更新：有新版先备份你的东西再更新，你填过的资料都还在、随时能找回，不用手动安装。每个版本改了什么，都记在这里。</p>
+
+  <div class="rel">
+    <div class="rel-head"><span class="rel-ver">v1.3.9</span><span class="rel-tag">最新版</span><span class="rel-date">2026 年 11 月 19 日</span></div>
+    <p class="rel-mods">技能仓 v1.3.9 · 来发信技能 v1.3.8 · 建站技能 v3.2.30</p>
+    <ul>
+      <li><strong>跟进信改全自动</strong>：不再逐封等你点头。AI 到点前先重看对方官网和背调记录、照最新情况现写，自检通过后自动发；发送前最后一刻再终查一遍——对方已回信、已打询盘标签、明确说过不要再发的，立刻停发。已发出的信没法撤回，技能不会承诺能取消，只会如实记下状态。</li>
+      <li><strong>邮箱验证口径收口</strong>：发送前验证只管一对一精发，验证结果 30 天内有效；大批量群发由平台在发送前自动验证。每次验证消耗 1 次验证额度（每月有大额赠送），额度用完后预计 0.1 点/次、以平台账单为准。</li>
+      <li><strong>绑邮箱时 AI 能帮你读验证码</strong>：绑定代办时，AI 只读你通知邮箱里的验证码邮件、只用于这一次绑定、读完不留存；绑之前会先确认你自己能登录这个邮箱。</li>
+      <li><strong>询盘来了自动停跟进</strong>：联系人被打上询盘标签，就自动进入「不发送」名单，建跟进计划时自动排除，不会再追着人家发。</li>
+      <li><strong>找客户先查再建</strong>：同一家公司按域名先查后建，已在库里的不重复建、不重复打扰；万一建重了，也有现成的办法把联系人重新关联回正确的公司。</li>
+      <li><strong>平台问题反馈多一条路</strong>：遇到平台的问题，技能先拟好问题单、你确认后提交到 GitHub，同时发邮件备案，两边都留记录。</li>
+    </ul>
+  </div>
+
+  <div class="rel">
+    <div class="rel-head"><span class="rel-ver">v1.3.8</span><span class="rel-tag hist">历史版本</span><span class="rel-date">2026 年 11 月 19 日</span></div>
+    <p class="rel-mods">技能仓 v1.3.8 · 来发信技能 v1.3.7 · 建站技能 v3.2.30</p>
+    <ul>
+      <li><strong>精发流程完善</strong>：开工先建档——你的公司和产品资料提炼成卖家档案，平台和本地各存一份、口径不一致先问你；找客户全程留痕（搜索日志、客群表、公司去重总账），同一家公司不会重复进名单。</li>
+      <li><strong>官网联系方式全量入库</strong>：官网上看到的邮箱、电话都存进联系人并关联公司，不再漏掉 sales、info 这类常由老板本人看的邮箱。</li>
+      <li><strong>发送前验证闸上线</strong>：无效不发、没验的先验，验完回读确认才发。</li>
+      <li><strong>每日主动开发先算账</strong>：每天发多少先按你的点数余额算清，余额不足当天停发并提醒；每天收尾有巡检，开发效果和退订原因都有归因记录。</li>
+      <li><strong>问题反馈通道上线</strong>：用着有问题，技能会先自己排查，解决不了就帮你拟好问题单，你确认后提交。</li>
+    </ul>
+  </div>
+
+  <div class="rel">
+    <div class="rel-head"><span class="rel-ver">v1.3.7</span><span class="rel-tag hist">历史版本</span><span class="rel-date">2026 年 11 月 18 日</span></div>
+    <p class="rel-mods">技能仓 v1.3.7 · 来发信技能 v1.3.6 · 建站技能 v3.2.30</p>
+    <ul>
+      <li><strong>精发新增官方通道直发</strong>：一对一开发信可以直接经官方接口发送，带打开追踪、跟进可以提前预约定时，不用再守在网页前逐封点。</li>
+      <li><strong>系统通道定为默认优先</strong>：精发默认走平台系统通道（不占你自己的邮箱、不用担心封号），自有邮箱只在三种情形下用——发件身份必须是你自己的、收件人以免费邮箱为主且小样效果差、或你明确指定。</li>
+    </ul>
+  </div>
+
+  <div class="rel">
+    <div class="rel-head"><span class="rel-ver">v1.3.6</span><span class="rel-tag hist">历史版本</span><span class="rel-date">2026 年 11 月 18 日</span></div>
+    <p class="rel-mods">技能仓 v1.3.6 · 来发信技能 v1.3.5 · 建站技能 v3.2.30</p>
+    <ul>
+      <li><strong>新手引导改造</strong>：第一次用的时候，技能会先用大白话讲清「确认之后它会替你做哪些事」，再把确认句单独摆出来让你复制，不再甩行话。</li>
+      <li><strong>自动运行清单</strong>：首次自检报告里，哪些事会自动做、哪些要先问你、哪些还没开起来，三类分开写清，没开起来的不说成在自动运行。</li>
+    </ul>
+  </div>
+
+  <p class="closing">更早的版本说明，见 <a href="https://github.com/tony-apan/maozhishi-skills" target="_blank" rel="noopener">GitHub 仓库</a>里的《版本说明》。历史版本不用手动装——技能自检时会自动升到最新版。用着有问题，发邮件到 help@zhijixinxi.com，或到 <a href="https://github.com/tony-apan/maozhishi-skills/issues" target="_blank" rel="noopener">GitHub Issues</a> 提问。</p>
+
+  <footer>
+    <span>贸知事 AI 工作技能仓 · 技能仓 v1.3.9</span>
+    <span><a href="https://github.com/tony-apan/maozhishi-skills" target="_blank" rel="noopener">GitHub</a></span>
+  </footer>
+</div>
+</body>
+</html>

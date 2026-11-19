@@ -212,6 +212,15 @@
   .tut p { font-size:14.5px; color:var(--ink2); line-height:1.65; }
   .tut .go { margin-top:14px; font-size:14.5px; font-weight:700; color:var(--blue); }
   @media (max-width:900px) { .tut-grid { grid-template-columns:1fr; } }
+  .rel-line { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  .rel-ver { font-size:24px; font-weight:900; color:var(--ink); }
+  .rel-tag { font-size:12px; font-weight:700; color:#fff; background:var(--blue); padding:2px 10px; border-radius:999px; letter-spacing:.06em; }
+  .rel-date { font-size:14px; color:var(--mut); }
+  .rel-mods { font-size:14px; color:var(--ink2); margin-top:2px; }
+  .rel-notes { margin:12px 0 4px; padding-left:20px; }
+  .rel-notes li { margin-bottom:8px; line-height:1.7; }
+  .rel-more { color:var(--blue); font-weight:700; text-decoration:none; }
+  .rel-more:hover { text-decoration:underline; }
 </style>
 </head>
 <body>
@@ -233,7 +242,7 @@
   </div>
 
   <div class="hero">
-    <div class="eyebrow">贸知事技能仓 · 在 Muse 云端运行</div>
+    <div class="eyebrow">贸知事技能仓 · 在 Muse 云端运行 · 当前版本 v1.3.9</div>
     <div class="hero-grid">
       <div class="hero-left">
       <div class="hero-main">
@@ -365,10 +374,18 @@
   </section>
 
   <section>
-    <div class="sec-head"><span class="idx">05</span><h2>版本与更新</h2></div>
+    <div class="sec-head"><span class="idx">05</span><h2>最新版本</h2></div>
     <div class="ver">
-      <p>当前技能仓版本 <strong>v1.3.8</strong>（建站技能 v3.2.30 · 来发信技能 v1.3.7），2026-11-19 更新。</p>
-      <p>版本你也不用管：每次开工它自己先检查，有新版先备份你的东西再更新，先备份再更新，你填过的资料都还在、随时能找回。版本说明与历史版本都在 GitHub 仓库里。</p>
+      <p class="rel-line"><strong class="rel-ver">v1.3.9</strong><span class="rel-tag">最新版</span><span class="rel-date">2026 年 11 月 19 日</span></p>
+      <p class="rel-mods">技能仓 v1.3.9 · 来发信技能 v1.3.8 · 建站技能 v3.2.30</p>
+      <ul class="rel-notes">
+        <li><strong>跟进信改全自动</strong>：到点前 AI 先重看对方官网、照最新情况现写，自检通过就自动发，不再逐封等你点头；发送前最后一刻还会再查一遍——对方已回信、已打询盘标签、说过不要再发的，立刻停发。</li>
+        <li><strong>邮箱验证口径说清了</strong>：一对一精发逐个验、30 天内有效；群发由平台在发送前自动验，不用你操心。</li>
+        <li><strong>绑邮箱更省事</strong>：绑定时的验证码，AI 可以直接读你的通知邮箱帮你填（只读验证码、只用这一次、读完不留）。</li>
+        <li><strong>找客户不再重复</strong>：同一家公司先查再建，已在库里的不重复建、不重复打扰。</li>
+      </ul>
+      <p>版本你也不用管：每次开工它自己先检查，有新版先备份你的东西再更新，你填过的资料都还在、随时能找回。</p>
+      <p><a class="rel-more" href="/releases.html">看全部版本说明 →</a></p>
     </div>
   </section>
 
@@ -382,7 +399,7 @@
   </section>
 
   <footer>
-    <span>贸知事 AI 工作技能仓 · 技能仓 v1.3.8</span>
+    <span>贸知事 AI 工作技能仓 · 技能仓 v1.3.9</span>
     <span><a href="https://github.com/tony-apan/maozhishi-skills" target="_blank" rel="noopener">GitHub</a></span>
   </footer>
 </div>
