@@ -59,7 +59,19 @@
   <p class="intro">建议始终使用最新版。技能每次开工会自己检查更新：有新版先备份你的东西再更新，你填过的资料都还在、随时能找回，不用手动安装。每个版本改了什么，都记在这里。</p>
 
   <div class="rel">
-    <div class="rel-head"><span class="rel-ver">v1.4.0</span><span class="rel-tag">最新版</span><span class="rel-date">2026 年 11 月 19 日</span></div>
+    <div class="rel-head"><span class="rel-ver">v1.4.1</span><span class="rel-tag">最新版</span><span class="rel-date">2026 年 11 月 19 日</span></div>
+    <p class="rel-mods">技能仓 v1.4.1 · 来发信技能 v1.4.1 · 建站技能 v3.2.32</p>
+    <ul>
+      <li><strong>别拿 Gmail、Outlook 批量发信（新增警告）</strong>：绑邮箱时和第一次批量发送前，技能会各提醒你一次并说清后果——发多了会被限制发送、严重的直接封号，号封了里面的历史邮件、联系人可能就打不开了，申诉也未必能要回来；企业邮箱批量发还可能影响公司邮箱以后正常发信。开发新客户请用平台帮你发。提醒归提醒：风险讲清后你坚持用自己的邮箱发，技能照常执行。</li>
+      <li><strong>营销群发改走接口、不再点网页向导</strong>：网页新建群发向导在窄窗口、嵌入式浏览器面板下「保存」按钮不显示，已有真实用户因此卡死。技能改走接口建任务，计数、配置、回读的接口都按实测改正；也说清了接口没有「只存草稿」的模式——你只说先准备、不要发时，技能只存本机方案，绝不替你提交。</li>
+      <li><strong>接口报错兜底</strong>：新增一套「参数没给全」的自查办法：几个常用列表接口调用前先对着清单逐项检查，附上现成的请求配方；报错也翻译成了处置——报 500 先查自己的参数、不冤枉平台，买点数失败先核对订单到底建成没有再决定下一步，接口回了成功也要回读确认才算办成。</li>
+      <li><strong>内部说法换成人话</strong>：两个技能里「打码、脱敏」这类说法逐处改成了具体动作。安全要求一条没减——密码、密钥、客户信息该删的删、该不外发的坚决不外发——只是再也不拿内部词跟你交代。</li>
+      <li><strong>系统通道先验能不能发</strong>：有用户改走系统通道后，测试信发到自己的 QQ 邮箱被平台拦下，还被报错文案误导成「通道被锁」——其实是平台配合反诈不给国内邮箱发信，谁发都发不出。技能现在会在安装时先发一封测试信验通道，测试信只发非国内邮箱；真发不出，当场按顺序查清原因（多半是收件邮箱的问题），不会等到正式发送那天才发现。</li>
+    </ul>
+  </div>
+
+  <div class="rel">
+    <div class="rel-head"><span class="rel-ver">v1.4.0</span><span class="rel-tag hist">历史版本</span><span class="rel-date">2026 年 11 月 19 日</span></div>
     <p class="rel-mods">技能仓 v1.4.0 · 来发信技能 v1.4.0 · 建站技能 v3.2.31</p>
     <ul>
       <li><strong>数据备份与换账号接续</strong>：安装向导多了一步「定备份地」——点一下预填好的链接就能建好你自己的私有备份仓（两个技能共用一个），客户资料、台账、记忆自动同步备份；以后换 Muse 账号，凭备份就能把工作区整个接回来，换哪个 AI 接手都照同一套规矩认数据。备份地是不是公开仓，技能会当场帮你检查，公开的会提醒你改私有。</li>
@@ -116,7 +128,7 @@
   <p class="closing">更早的版本说明，见 <a href="https://github.com/tony-apan/maozhishi-skills" target="_blank" rel="noopener">GitHub 仓库</a>里的《版本说明》。历史版本不用手动装——技能自检时会自动升到最新版。用着有问题，发邮件到 help@zhijixinxi.com，或到 <a href="https://github.com/tony-apan/maozhishi-skills/issues" target="_blank" rel="noopener">GitHub Issues</a> 提问。</p>
 
   <footer>
-    <span>贸知事 AI 工作技能仓 · 技能仓 v1.4.0</span>
+    <span>贸知事 AI 工作技能仓 · 技能仓 v1.4.1</span>
     <span><a href="https://github.com/tony-apan/maozhishi-skills" target="_blank" rel="noopener">GitHub</a></span>
   </footer>
 </div>

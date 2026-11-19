@@ -3,7 +3,7 @@ doc_id: laicms-docs-index
 title: AllinCMS 官方教程索引
 description: 官方教程 40 页的标题、链接与用途索引。
 status: active
-updated: 2026-11-16
+updated: 2026-11-19
 owner: 贸知事
 ---
 
@@ -368,7 +368,7 @@ owner: 贸知事
   - AI API 是连接站点与大模型服务商的钥匙，绑后才能用 AI 写产品、写文章、做翻译、做多语言；费用由模型服务商按 Token 收，不经平台。
   - 流程：选模型→服务商官网注册（可能要实名）加小额充值→创建 Key→后台设置→AI API 配置填 Base URL、API 格式、API Key、模型 ID→测试连接成功后保存；换绑直接改四项重测，不影响已生成内容。
   - 模型速查：DeepSeek（deepseek-chat 做日常与翻译，新手优先）、Kimi（长文档与 PDF）、GLM（批量快）、OpenAI、Claude、Gemini；ChatGPT Plus 是订阅不是 API，不能绑。
-  - Key 只显示一次，创建后立即保存；只填自己后台，截图先打码。
+  - Key 只显示一次，创建后立即保存；只填自己后台；截图时别把 Key 拍进去，拍到了不要外发、删掉重截。
   - 本技能的引导口径见 references/ai-api-and-language.md 第二节。
 - 抓取日期：2026-11-17
 
