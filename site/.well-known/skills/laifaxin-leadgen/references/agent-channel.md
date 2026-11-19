@@ -3,7 +3,7 @@ doc_id: laifaxin-agent-channel
 title: 官方 Agent 通道（接口映射与调用纪律）
 description: 来发信官方 Agent Skill 作为本 skill 首选执行通道的接入、接口映射（带证据等级）、调用纪律与降级规则；绑箱动作维持网页通道。
 status: active
-updated: 2026-11-19
+updated: 2026-11-20
 owner: 贸知事
 ---
 
@@ -33,21 +33,25 @@ owner: 贸知事
 | AI 推演客群 | /profile/inference-product-add、inference-segment-generate、inference-segment-list、inference-product-save | 实测（2026-11-18；建产品与生成客群各扣 2 点） |
 | 批量搜索任务 | /refine/task-create、task-list、task-info、task-status、task-delete | 链路实测可用（2026-11-18 阶段 0：create 建完即 finished、delete 后 list 回读确认已删、info 可读回）；**计费口径未证实**（源码口径「有效 −2/未知 −1/无效 0」在本轮实测中未发生——任务计数全 0、creditCount 前后不变，不得作为计费依据，待后续核实） |
 | 搜客·领英/地图/谷歌 | /search/linkedin-company-v2-*、/search/map-data-*、/clouds/google-search/* | 契约级 |
-| AI 评分全流程 | /clues/rating-task-*（建/启/停）、/clues/rating-result-*（结果/存联系人/存禁发） | 契约级（含存联系人/存禁发等写动作，未实测） |
-| 保存与管理联系人/公司 | /contacts/companies/save、/contacts/* 管理族 | 读：实测｜写：部分实测（companies/save 改 short_description、phone_number 已实测可写；contact/add 带 c_id 写入与回查已实测；contact/delete 已实测；其余管理族契约级） |
+| AI 评分全流程 | /clues/rating-task-*（启/停/改名/删/查——**该族没有「建任务」端点**）、/clues/rating-result-*（结果/存联系人/存禁发）；**建评分任务按来源走**：AI 数据库 /refine/company-rating、领英 /search/linkedin-company-rating、结果页重评 /clues/rating-result-rating-again | 契约级（含存联系人/存禁发等写动作，未实测） |
+| 保存与管理联系人/公司 | 公司本体新建 /contacts/company/add、保存 /contacts/company/save；批量改字段 /contacts/companies/save（**不是保存口**：选择集＋changeField/changeType/changeValue 批量改字段，配方见下「公司字段回写配方」）；/contacts/* 管理族 | 读：实测｜写：部分实测（companies/save 批量改 short_description、phone_number 已实测可写；contact/add 带 c_id 写入与回查已实测；contact/delete 已实测；company/add、company/save 契约级，其余管理族契约级） |
 | 补关联/补字段（查重命中后） | /contacts/contact/save（saveContactField 语义：{cid, 字段名: 值} 逐字段保存）；撞重取 cid 走 /contacts/contacts/show 的 email 精确匹配回查（/contacts/email-info 契约级） | 实测（2026-11-19：{cid, c_id, c_name} 改挂公司落地、{cid, remark} 可写、补后回读已核；**name 字段传值返回 success 但回读不生效，补姓名走网页端联系人编辑**） |
 | 公司字段注册表 | /fields/company-fields（belongTo:"company", saveType:"read"，17 个系统字段） | 实测（2026-11-18） |
 | 发件身份（系统通道昵称） | /mailbox/sender-list、sender-save、sender-add、sender-check | list 读实测；save 写读往返实测（2026-11-18 阶段 0）；add/check 源码级 |
 | 平台产品档案（卖家档案） | /profile/product-list、product-add、product-save、product-delete、product-default | list 实测；add/save/delete 写往返实测（2026-11-18 阶段 0，五字段逐字一致）；default 未实测 |
 | 邮箱验证（只用于一对一精发，见 SKILL §4.1 验证闸） | /contacts/contacts/verify（批量选区形状：{selectAll:false, selectKeys:[cid…], selectSort:{}, selectTotal:n}，一次提交只回一个 backendId） | 实测（2026-11-18：单个联系人提交后接口约 2.5 秒返回任务号，回读联系人 verify_status=valid、verify_time 已刷新；2026-11-19：2 人批量选区提交约 3 秒落回；落回时延不稳定——另有样本 150 秒未落回、300 秒不变，响应体不带结果、须按 SKILL §4.1 回读协议回读；大批量耗时未测） |
 | 格式检查（非验证） | /tools/email-address-check | 定性实测（2026-11-19：只验邮箱格式，对不存在的域名同样返回 success，不返回有效性结论；源码口径为群发回信地址格式校验——**禁止当邮箱验证用**，验证一律走 /contacts/contacts/verify） |
-| 智能跟进计划 | /sequences/*（建/步/加人/激活/报表） | 读：实测｜写：契约级（未实测） |
-| 群发任务 | 建/删/启/停：/tasks/mass/add、/tasks/mass/delete、/tasks/mass/drop、/tasks/mass/multi-delete、/tasks/mass/multi-drop、/tasks/mass/start、/tasks/mass/stop；计数：/tasks/mass-count；任务输入回读：/tasks/mass-info；配置：/tasks/get-mass-config、/tasks/save-mass-config；撤销：/tasks/mass-revoke | 读接口实测；写接口仅实测到校验失败路径（2026-11-19：mass-count 与 get-mass-config 真调成功；mass/add 按官方前端源码的向导草稿体提交——模板为空回「邮件模板为空」、收件人为空回「任务对象为空」，零收件人建不了任务）；**成功建任务未实测**——首次正式建群发时，先以 sendAtOnce=false＋未来时间提交**已经用户确认的真实任务**（收件人与内容都已确认），回读 mass-info 核对（任务状态为未发送/待启动、收件数与选区一致）无误、经用户点头才 start，不许拿未确认的名单试发。**口径写死**：mass/add 是提交动作（带 sendAtOnce/timeStart，官方随附说明原文口径），接口全量目录（417 个端点）与官方前端源码里都没有「只存草稿不提交」的端点——用户只说「先准备、不要发」时只存本机方案与模板、不调这个接口，只做选区核对（mass-count）并回报；limitNum:0 表示不限量、不是零封；请求体字段与网页向导草稿同构（name/mode/match/exclude/contentsIds/attIds/filters/logic/keyword/selectOption/selectSort/selectKeys/selectTotal/skipNum/limitNum/channel/senders/track/timeSleep/fromName/replyTo/proxy/attNormal/sendAtOnce/timeStart/aiGuard），contentsIds 须给真实模板 id、收件人选区须非空（先用 /tasks/mass-count 按同口径数字段数确认 >0 再提交） |
+| 智能跟进计划 | /sequences/*（建/步/激活/报表）；**加人分流写死**：往计划加**指定联系人**用 /contacts/contacts/sequence-add，按视图/标签**整批**加入才用 /sequences/contact-add，两口不许混用；**建步配方**（官方配方口径）：step-create 的 senders 传发件身份 _id（取 /mailbox/sender-list 的 _id），传单发用的完整发件标识会回「发送者错误」 | 读：实测｜写：契约级（未实测） |
+| 群发任务 | 建/删/启/停：/tasks/mass/add、/tasks/mass/delete、/tasks/mass/drop、/tasks/mass/multi-delete、/tasks/mass/multi-drop、/tasks/mass/start、/tasks/mass/stop；计数：/tasks/mass-count；任务输入回读：/tasks/mass-info；配置：/tasks/get-mass-config、/tasks/save-mass-config；撤销：/tasks/mass-revoke | 读接口实测；写接口仅实测到校验失败路径（2026-11-19：mass-count 与 get-mass-config 真调成功；mass/add 按官方前端源码的向导草稿体提交——模板为空回「邮件模板为空」、收件人为空回「任务对象为空」，零收件人建不了任务）；**成功建任务未实测**——首次正式建群发时，先以 sendAtOnce=false＋未来时间提交**已经用户确认的真实任务**（收件人与内容都已确认），回读 mass-info 核对（任务状态为未发送/待启动、收件数与选区一致）无误、经用户点头才 start，不许拿未确认的名单试发。**口径写死**：mass/add 是提交动作（带 sendAtOnce/timeStart，官方随附说明原文口径），接口全量目录（417 个端点）与官方前端源码里都没有「只存草稿不提交」的端点（此全量断言待专项核验，登记 BK-148-观2）——用户只说「先准备、不要发」时只存本机方案与模板、不调这个接口，只做选区核对（mass-count）并回报；limitNum:0 表示不限量、不是零封；**重发已有任务时读 /tasks/mass-info 的任务输入**（不要拿统计口 /marketing/task-details 当任务输入读）；请求体字段与网页向导草稿同构（name/mode/match/exclude/contentsIds/attIds/filters/logic/keyword/selectOption/selectSort/selectKeys/selectTotal/skipNum/limitNum/channel/senders/track/timeSleep/fromName/replyTo/proxy/attNormal/sendAtOnce/timeStart/aiGuard），contentsIds 须给真实模板 id、收件人选区须非空（先用 /tasks/mass-count 按同口径数字段数确认 >0 再提交） |
 | 精发/收信/回复/追踪 | /mails/*（列表/打开/存稿/发送/状态/追踪） | 读：实测｜写：单发已实测（官方包配方，见「单发配方要点」）、其余契约级 |
 | 每月权益领取（§1.6） | /expenses/give-status（查）、/expenses/give-get（领） | 读：实测｜领：契约级（未实测） |
-| 点数/费用读数 | /account/*、/expenses/* | 读实测 |
+| 点数/费用读数与算账口径 | /account/*、/expenses/*。**余额三口定位**：本月赠送桶看 /expenses/give-status 的 creditCount、总持有看 /tasks/mass-count 响应的 creditCount、流水查 /expenses/billing/show（须带 filter{source:'total'} 并按时间倒序，空 filter 回空列表）；**扣点口径**：建群发任务不扣点、不预留，实际发送时按封扣（流水 source=send、−1/封；**不存在域名/未验证地址被计入任务后、真发时扣不扣点未验，不许按已扣口径向用户报账**）；AI 推演建产品与生成客群各 −2 点（流水 source='ai'） | 读实测（扣点口径为 2026-11-19 全量对账三余额口互证＋逐笔流水样本） |
 | 禁发名单登记与查询（⑪） | /contacts/black/*（域名）、companies-black、contacts-black、/mails/mails-address-black | 契约级 |
-| 绑箱状态查询/校验 | /mails/accounts-list、/mails/accounts-check | 契约级 |
+| 绑箱状态查询/校验 | /mails/accounts-list、/mails/accounts-check；**只查状态/配置探测三口**：/mails/accounts-config（配置回填）、/mails/accounts-poste-config（邮箱配置探测）、/mails/accounts-show（单个已绑账号详情） | 契约级（三口为 2026-11-19 全量对账补显名；accounts-add、accounts-save 涉填授权码，按 R23 有意不显名、不走接口；同族 accounts-delete 属删账号的账号级动作、回网页，/mailbox/account-items 与 accounts-list 同为账号列表口，本表不单列） |
+| 邮件模板/签名/片段 | 模板：/mailbox/templates-list（**参数口径写死**：{filter:{}, current, pageSize, sort:{_id:1}, owner:"everyone"}，缺 sort/owner 曾实测回参数校验错误）、template-info、template-add、template-save、template-delete、templates-delete、templates-folder-list、template-folder-add、template-folder-save、template-folder-delete、templates-update（移动/共享）、template-score；签名：/mailbox/sign-list、sign-add、sign-save、sign-delete、sign-default-set；片段：/mailbox/snippets-list、snippets-text-list、snippets-content-add、snippets-content-save、snippets-content-delete、snippets-folder-list、snippets-folder-add、snippets-folder-save、snippets-folder-delete、snippets-delete、snippets-move | 实测（2026-11-19 全量对账：自建对象生命周期实测通过、测后删净回查；templates-list 参数口径同轮钉死） |
+| 群发统计与任务日志（marketing） | /marketing/tasks/show（任务数据）、/marketing/tasks/show-count（计数）、/marketing/task-details（单任务明细）、/marketing/task-logs（收件人日志；**status 须传枚举值如 total/delivered，传 all 回空；gtid 放 filter 内、平铺顶层回参数错误**）、/marketing/task-rename | 实测（2026-11-19 全量对账通过）；/marketing/task-html、task-preview 与 tracks 追踪族未覆盖（缺样本/涉真实发送日志），不在口径内、要用先小步验证 |
+| 跟进记录与跟进任务（record） | 记录：/record/log-list、log-add、log-save、log-delete；任务：/record/task-list、task-info、task-add、task-save、task-delete、tasks-delete（task-list 属缺参 500 家族，配方见下节） | 实测（2026-11-19 全量对账：自建对象生命周期实测通过、测后删净/恢复基线） |
+| 视图（views） | /views/views-list、view-config、view-fields、view-add、view-save、view-rename、view-delete、views-pin、views-pin-save（多带 type 区分视图对象、置顶保存口用 viewType） | 实测（2026-11-19 全量对账通过） |
 | WhatsApp 会话（§4.4） | 无——不是平台功能，维持浏览器通道 | 不适用 |
 
 两条边界写死：
@@ -55,6 +59,7 @@ owner: 贸知事
 - **绑箱动作不走接口**：绑定要填的授权码是凭据，不许经 AI 构造的请求体传递（R23）；绑定仍在来发信网页由用户本人填入（见《邮箱绑定指南》），接口只做两件事——查已绑账号列表、对已绑账号做连通性校验；凡要新填、重填授权码的动作一律回网页。
 - **禁发名单**：登记与查询走上表黑名单接口（即平台禁发名单管理接口）；一切禁发类写操作（含 AI 评分结果里的「存禁发」）同为契约级、未实测；名单对发送的拦截效力以平台实际行为为准，本 skill 不另作保证，发送前四查（R13）照旧。
 - **列表接口参数（实测范围）**：已实测的列表类接口（task-list、sender-list、companies/show）必须带 `filter:{}` 与 `sort:{}`，缺参返回 500；**还须带 `current`（页码）**，sender-list 等接口缺 current 不返回数据（实测）；其余列表接口未逐一验证，调用时默认同样带上，遇 500 或空返回先补此三参再排查。company-people 的 pageSize 须 ≥10（传小报 422，实测）。
+- **批量选择信封（实测样本）**：带选择集的写口（邮箱验证、批量改字段、群发选区）请求体带同一套信封字段——`selectAll`、`selectKeys`、`selectSort`、`selectTotal`；其中批量改字段口缺 `selectTotal` 回 422（实测 2026-11-18，见下「公司字段回写配方」）；`match`/`exclude` 类字段传数组、不传标量（全量对账一手确认）。
 
 ## 缺参 500 兜底：预检、配方与报错翻译（2026-11-19 实测沉淀）
 
@@ -159,9 +164,9 @@ owner: 贸知事
 - **发件标识 `sender`**：必须用**完整标识**（形如 `1804106008.z7pvxh`）；只填发件人列表里的裸 `name` 会被拒，报「该邮箱无法发送，请联系客服解锁发送」——处置顺序写死：先核对发件标识、再查账号状态；这条报错不构成账号被锁的证据（实测对照：标识错误必报此错、换完整标识即发送成功）。完整标识从已发送记录（`POST /mails/mails-list`）读回、缓存复用；记录里有多个 `sender` 时按目标发件人的 `name` 后缀匹配、同后缀取最新；工作区还没有已发送记录时，从网页端写信窗的发件人下拉取。
 - **收件人格式**：每个地址写 `<邮箱>` 或 `显示名 <邮箱>`，多人用英文逗号拼接；只写裸邮箱报「发送对象地址格式错误」。漏传 `sendAtOnce` 报「需要明确 sendAtOnce」。
 - **`single`**：`true`＝分别发送（每个收件人单独一封、互不可见，发送状态总数＝收件人数）；省略或 `false`＝一封同达（收件端能看到全部收件人）。精发与多人发送必须显式传 `true`，单收件人直发同样用 `true`。
-- **正文与附件**：`html` 字段传 HTML（段落 `<p>`、换行 `<br>`、加粗 `<strong>`）；只传纯文本会连成一段。附件先 `upload` 取得 `url/name/size` 再填 `attachments`（与附件库引用 `attIds` 别混）。
+- **正文与附件**：`html` 字段传 HTML（段落 `<p>`、换行 `<br>`、加粗 `<strong>`）；只传纯文本会连成一段。附件先 `upload` 取得 `url/name/size` 再填 `attachments`（与附件库引用 `attIds` 别混）；**上传后须等 `/file/save-log` 成功才算服务端落点完成**，只拿到 upload 返回不算落稳。
 - **追踪**：`track: true` 在正文末尾埋追踪像素；打开数据查 `/mails/track-info`，参数 `sid` 取已发送记录的 `ssid` 字段（不是发送返回的 sendId）。真实打开事件回录未端到端验通，查到空数组不等于没人打开。
-- **定时**：`sendAtOnce: false`＋`timeStart`（未来 90 天内的毫秒时间戳，缺失或超限后端明确报错）；提交返回邮件 `id`（不是 sendId），到点自动发出。改期 `/mails/change-timer`、取消 `/mails/cancel-timer`；取消是幂等的，取消后必须回查列表确认该记录落 Drafts 且 `timeStart` 为 null 才算生效。
+- **定时**：`sendAtOnce: false`＋`timeStart`（未来 90 天内的毫秒时间戳，缺失或超限后端明确报错）；提交返回邮件 `id`（不是 sendId），到点自动发出。改期 `/mails/change-timer`（参数 `{id, timeStart}`）、取消 `/mails/cancel-timer`（参数 `{id}`）；取消是幂等的，取消后必须回查列表确认该记录落 Drafts 且 `timeStart` 为 null 才算生效。
 - **发件昵称**：发送请求里不能临时设昵称（`fromName` 字段被忽略）；昵称是发件人身份属性，在发件人设置里维护（`/mailbox/sender-save`）。分通道口径（2026-11-19 定案）：**网页端发送时发件人名称真实生效**——网页端把主发件身份昵称改为测试名后网页真发 1 封，收件原始头 header_from_name 即为新昵称（改后已恢复原值）；**经 Agent API 单发时不带昵称**——把非主用发件身份的 fromName 改成测试值后经 API 发信，收件侧显示名仍是账号 userid；以 fromName 长期为「Tony」的发件身份发对照信、主身份历史已发送邮件，显示名同为 userid，合计 5 样本一致，对照组已排除「延迟生效」解释。即问题只在 API 单发路径：sender 的 fromName 改动未反映在 API 单发的收件侧显示名上。昵称设置本身（sender-save）写读往返已实测可用；经 API 单发又在意对外显示名的，走绑定邮箱通道。
 - **系统通道注意**：`maid: "system"` 从平台大量轮换域名发出、扣通用点数，与群发共用同一平台系统通道，是正式发送通道之一。**运营实测（Tony 2026-11-18）**：收件人以企业邮箱为主时投递表现好、比免费邮箱更容易进收件箱，日量可达数千至数万封；实际量以平台账号额度与点数预算为界。**收件侧区分**：官方实测样本（数量有限）中直发 Gmail 均进垃圾箱——此为免费邮箱（Gmail 等）侧的小样本结论；名单混有免费邮箱收件人时单独分组、先小样实测，通道仍按 SKILL.md 优先级口径选（默认系统通道），只有满足例外 (b) 或用户明确指定时才改用绑定邮箱通道，企业邮箱与免费邮箱的结论不互相外推。平台账号侧有自身风控（发送被拒先核对发件标识、再查账号状态），禁发名单四查与熔断对系统通道同等适用（见 SKILL.md §4.2 路线丙与 §4.3）。`readReceipt`（已读回执）与 `priority`（优先级）在系统通道下不生效。
 
