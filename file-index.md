@@ -3,7 +3,7 @@ doc_id: repo-file-index
 title: 文件索引
 description: 仓库全部文件的一览与用途。
 status: active
-updated: 2026-11-16
+updated: 2026-11-19
 owner: 贸知事
 ---
 
@@ -18,7 +18,7 @@ owner: 贸知事
 | [CHANGELOG.md](CHANGELOG.md) | 每次更新改了什么 |
 | [VERSION](VERSION) | 仓库现在的版本号 |
 | [feedback.md](.github/ISSUE_TEMPLATE/feedback.md) | 用技能遇到问题时的提单模板（在仓库 Issues 里新建问题时自动带出） |
-| [SKILL.md](laicms-site-builder/SKILL.md)（建站） | 建站说明书主文件，现行 **v3.2.30** |
+| [SKILL.md](laicms-site-builder/SKILL.md)（建站） | 建站说明书主文件，现行 **v3.2.31** |
 | [beginner-guide.md](laicms-site-builder/references/beginner-guide.md)（建站） | 新手使用说明：第一次用先看这份，带 11 张截图，跟着一个新人从准备、提问、施工到验收走全程 |
 | [laicms-platform-guide.md](laicms-site-builder/references/laicms-platform-guide.md)（建站） | AllinCMS 平台介绍与文档地图：平台是什么、怎么收费、官方教程在哪怎么查 |
 | [guide-images/](laicms-site-builder/references/guide-images/)（建站） | 新手使用说明里的 11 张截图（平台后台、演示站前台、仓库页面实拍） |
@@ -31,13 +31,24 @@ owner: 贸知事
 | [social-sharing.md](laicms-site-builder/references/social-sharing.md)（建站） | 文章发布后，四平台现成分享文案的生成规则 |
 | [ai-api-and-language.md](laicms-site-builder/references/ai-api-and-language.md)（建站） | 站点 AI 配置引导（绑 Key 分工与选型）与语言策略：不建议主站开多语言、先英语站见效再按地区建独立站做站群 |
 | [seo-geo-optimization.md](laicms-site-builder/references/seo-geo-optimization.md)（建站） | SEO/GEO 双轨优化：勤更新为主线，标题描述、问答式小节、常见问答与上线验收都由 AI 顺手做完 |
-| [SKILL.md](laifaxin-leadgen/SKILL.md)（获客） | 获客说明书主文件，现行 **v1.3.8** |
+| [SKILL.md](laifaxin-leadgen/SKILL.md)（获客） | 获客说明书主文件，现行 **v1.4.0** |
 | [laifaxin-platform-guide.md](laifaxin-leadgen/references/laifaxin-platform-guide.md)（获客） | 来发信平台介绍与文档地图：平台是什么、点数怎么花、官方文档在哪怎么查 |
 | [beginner-guide.md](laifaxin-leadgen/references/beginner-guide.md)（获客） | 新手使用说明：第一次用先看这份，跟着一个新人从注册、领点数、找客、筛客、发信到跟进走全程 |
 | [mailbox-binding-guide.md](laifaxin-leadgen/references/mailbox-binding-guide.md)（获客） | 邮箱绑定指南：服务器参数表、密码类型速查、授权码获取的逐步引导、绑失败错误码自查 |
 | [agent-channel.md](laifaxin-leadgen/references/agent-channel.md)（获客） | 官方 Agent 通道：平台操作首选的官方接口通道怎么接、哪些操作走哪些接口、接口被拒了怎么降级回网页 |
+| [tag-dictionary.md](laifaxin-leadgen/references/tag-dictionary.md)（获客） | 系统标签字典：客户状态、来源、通道、阶段标签的全网统一口径，哪个 AI 接手都照这套认 |
 | [skill.yaml](laifaxin-leadgen/skill.yaml)（获客） | 获客模块的登记信息 |
+| [backup-continuity-spec.md](shared/backup-continuity-spec.md)（整仓共用） | 备份与换账号接续规格：备份地怎么定、数据怎么分区、换账号怎么凭备份接回来，两个技能共用 |
 | [README.md](workspace-template/README.md)（模板） | 资料文件夹模板的用法 |
+| [INDEX.md](workspace-template/INDEX.md)（模板） | 工作区分区地图：根共用区、两个技能的分区、备份地记在哪，一页看清 |
+| [INDEX.md](workspace-template/memory/INDEX.md)（模板 · 记忆） | 长期记忆区：用户档案、决定记录、未结事项都在这里 |
+| [user-profile.md](workspace-template/memory/user-profile.md)（模板 · 记忆） | 用户档案模板 |
+| [decisions.md](workspace-template/memory/decisions.md)（模板 · 记忆） | 决定记录模板：定过的事和依据记在这里 |
+| [open-items.md](workspace-template/memory/open-items.md)（模板 · 记忆） | 未结事项模板 |
+| [INDEX.md](workspace-template/laifaxin/INDEX.md)（模板 · 来发信分区） | 来发信技能的专属分区：任务、成品、数据、交接分开放 |
+| [INDEX.md](workspace-template/allincms/INDEX.md)（模板 · 建站分区） | 建站技能的专属分区：任务、成品、数据、交接分开放 |
+| [INDEX.md](workspace-template/misc/INDEX.md)（模板 · 待问区） | 暂时归不进任何分区的新资料先放这里 |
+
 | [INDEX.md](workspace-template/00-inbox/INDEX.md)（模板 · 收件） | 新资料先放这里 |
 | [INDEX.md](workspace-template/10-sources/INDEX.md)（模板 · 来源） | 记每份资料的出处和日期 |
 | [INDEX.md](workspace-template/20-knowledge/INDEX.md)（模板 · 资料库） | 整理好的公司和产品资料 |
