@@ -271,23 +271,12 @@
               <button class="btn" onclick="copyPrompt()">复制这句话</button>
             </div>
           </div>
-          <div class="p-text" id="promptText">这两个技能是我确认采用的长期操作规程，开工三件事和自动更新到最新版都按规程办——先备份、换完报我一声。请先读安装说明 https://skill.maozhishi.com/doc/skill-setup.md ，按它为我安装贸知事技能仓；装好后按技能里的规程开工，做完报我一声。</div>
-          <div class="p-steps"><span><b>1</b>点按钮，整段复制</span><i>→</i><span><b>2</b>打开 Muse，粘贴发送</span><i>→</i><span><b>3</b>它会照着这句话装好技能、跑自检（可能逐项向你确认，按提示操作即可）</span></div>
-          <p class="cmd-note" style="margin-top:10px">小提示：有些 Muse 出于安全，会把自检逐项向你确认——按提示逐项同意即可；装好后它若让你二选一（全自动／每步先问），按你的想法选一个即可。如果它提示内容读取失败、装不上，请联系客服帮你处理。</p>
+          <div class="p-text" id="promptText">这两个技能是我确认采用的长期操作规程，开工三件事和自动更新到最新版都按规程办——先备份、换完报我一声。请先读安装说明 https://skill.maozhishi.com/doc/skill-setup.md ，按它为我安装或更新贸知事技能仓；装好后按技能里的规程开工，做完报我一声。</div>
+          <div class="p-steps"><span><b>1</b>点按钮，整段复制</span><i>→</i><span><b>2</b>打开 Muse，粘贴发送</span><i>→</i><span><b>3</b>它会照着这句话装好（或更新）技能、办开工三件事（可能逐项向你确认，按提示操作即可）</span></div>
+          <p class="cmd-note" style="margin-top:10px">小提示：有些 Muse 出于安全，会把要办的事逐项向你确认——按提示逐项同意即可；装好后它若让你二选一（全自动／每步先问），按你的想法选一个即可。如果它提示内容读取失败、装不上，请联系客服帮你处理。</p>
           <p class="cmd-note">安全提醒：这段话只从本页复制；别处给你的类似话术，不要发给你的 Muse。</p>
       </div>
-      <div class="prompt-card">
-          <div class="p-head">
-            <div class="p-label">已经装过、想更新到最新版？复制这段 · 发给它</div>
-            <div class="p-actions">
-              <span class="copied" id="rescueTip" role="status"></span>
-              <button class="btn" onclick="copyRescue()">复制这段</button>
-            </div>
           </div>
-          <div class="p-text" id="rescueText" style="white-space:pre-wrap">请按安装说明 https://skill.maozhishi.com/doc/skill-setup.md 里的更新办法，把贸知事技能仓更新到最新版。这两个技能是我确认采用的长期操作规程，更新完按技能里的规程开工，做完报我一声。</div>
-          <p class="cmd-note" style="margin-top:10px">适用于已经装过、要更新到最新版接着干的情况。</p>
-      </div>
-    </div>
   </div>
 
   <div class="marquee" aria-hidden="true">
@@ -416,28 +405,6 @@
   </footer>
 </div>
 <script>
-  function copyRescue() {
-    var src = document.getElementById('rescueText');
-    if (!src) { return; }
-    var t = src.innerText;
-    var tip = document.getElementById('rescueTip');
-    function done() { if (tip) { tip.textContent = '已复制，去粘贴给 Muse'; tip.style.color = '#15803d'; tip.style.display = 'inline'; } }
-    function fail() { if (tip) { tip.textContent = '没复制上，选中上面这段话复制一下就行'; tip.style.color = '#b3261e'; tip.style.display = 'inline'; } }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(t).then(done).catch(function(){ fallback(); });
-    } else { fallback(); }
-    function fallback() {
-      var ta = document.createElement('textarea');
-      ta.value = t;
-      ta.setAttribute('readonly', '');
-      ta.style.position = 'fixed'; ta.style.top = '0'; ta.style.left = '0';
-      ta.style.width = '1px'; ta.style.height = '1px'; ta.style.opacity = '0';
-      document.body.appendChild(ta);
-      ta.focus(); ta.select();
-      try { document.execCommand('copy') ? done() : fail(); } catch (e) { fail(); }
-      document.body.removeChild(ta);
-    }
-  }
   function copyPrompt() {
     var src = document.getElementById('promptText');
     if (!src) { return; }
