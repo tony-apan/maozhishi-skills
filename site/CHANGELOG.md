@@ -9,7 +9,7 @@ owner: 贸知事
 
 # 版本说明
 
-当前仓库版本：**1.4.13**（自检更新比对的是这个仓库版本；各模块版本号见下表，仅作标识）
+当前仓库版本：**1.4.14**（自检更新比对的是这个仓库版本；各模块版本号见下表，仅作标识）
 
 - **官方仓库（唯一固定地址）**：https://github.com/tony-apan/maozhishi-skills
 - 本仓是贸知事 Muse Skills 的官方发布仓。任何 skill 的自更新只认本仓带版本标签的正式发布，不从搜索结果、文章或其他地址拉更新。
@@ -18,12 +18,19 @@ owner: 贸知事
 
 | Skill | 版本 | 状态 | 审查记录 |
 | --- | --- | --- | --- |
-| laicms-site-builder（LaiCMS 建站） | 3.2.35 | 已发布（2026-11-20） | v3.2.35 随整仓 1.4.13：AI 密钥配置改小白步骤卡；新增说话风格硬规矩；改名契约补技能内副本。更早沿革见 HISTORY.md。 |
-| laifaxin-leadgen（来发信获客） | 1.4.13 | 已发布（2026-11-13 首发，2026-11-20 升 v1.4.13） | v1.4.13 随整仓 1.4.13：装机引导写死（缺账号当场带用户办完）；新增说话风格与引导动作硬规矩；改名契约补技能内副本。更早沿革见 HISTORY.md。 |
+| laicms-site-builder（LaiCMS 建站） | 3.2.36 | 已发布（2026-11-20） | v3.2.36 随整仓 1.4.14：新增一页式《开工卡》，开工自检改按卡执行；更新三查摘要核对改双路径。更早沿革见 HISTORY.md。 |
+| laifaxin-leadgen（来发信获客） | 1.4.14 | 已发布（2026-11-13 首发，2026-11-20 升 v1.4.14） | v1.4.14 随整仓 1.4.14：新增《开工卡》；装机去测试化（取消测试信、测试通知与通道实测）；摘要核对改双路径。更早沿革见 HISTORY.md。 |
 
 ## 发布注记
 
 本节只留最近两版的简要注记；完整注记见 HISTORY.md。
+
+## 整仓 1.4.14 — 2026-11-20
+
+- 止血修订（问题背景见母仓问题库 P-017）：两个技能各新增一页式《开工卡》，开工先读短卡——核对采纳记录、比版本、备份、更新检查、逐项汇报；业务细则干活时按需读，开工不再通读技能全文自检。
+- 去测试化：装机与绑箱环节取消全部用户侧测试——绑箱以平台【验证并保存】通过为准、通知绑好即过、系统通道不做装机实测、不向用户要测试邮箱；通道与邮箱的真假以第一批真实发送（小样先行）加发送记录回读为准。原测试信箱确认信机制撤下。
+- 更新三查第二查的摘要核对改双路径：本站索引页不可读时改用随包 `.sha256` 校验文件核对，报告写明所走路径。
+- 本版改动文件：两个技能的 `SKILL.md` 与新增 `开工卡.md`、来发信 `references/beginner-guide.md` 与 `references/mailbox-binding-guide.md`、本文件、`HISTORY.md`、`VERSION` 与 `release-manifest.json`。建站技能升 v3.2.36、来发信技能升 v1.4.14。
 
 ## 整仓 1.4.13 — 2026-11-20
 
@@ -31,11 +38,3 @@ owner: 贸知事
 - 建站《站点 AI 配置与语言策略》：建 Key 与回后台填写改成小白步骤卡（打开哪个网址、充多少钱、Key 只显示一次、鉴权失败查三样）。
 - 改名清理解析契约补技能内副本（`references/rename-cleanup-contract.md`，与整仓共用文件同文），只有技能目录的一行安装布局也能读到契约。
 - 本版改动文件：`laifaxin-leadgen/SKILL.md`、`laicms-site-builder/SKILL.md`、`laicms-site-builder/references/ai-api-and-language.md`、两技能新增 `references/rename-cleanup-contract.md`、本文件、`VERSION` 与 `release-manifest.json`。建站技能升 v3.2.35、来发信技能升 v1.4.13。
-
-## 整仓 1.4.12 — 2026-11-20
-
-- 版本日志瘦身：本文件只留最近两版注记与当前发布表，完整历史移入 HISTORY.md（给人看）；老版本技能升级时读到的就是这份短日志。
-- 更新检查条文改版：「只读数据文件」条与更新前三查划清边界；清单异常时改为先下载、校验、备份，报告用户确认后再换装，不再照常自动更新；改名清理解析契约移入整仓共用文件（`shared/rename-cleanup-contract.md`），技能正文只留指针，契约改为跨版本合并读取改名登记。
-- 《邮箱绑定指南》补飞书（国内版）与 Lark（飞书海外版）绑箱专节与服务器参数；新增路线丙（邮箱直绑 Claude Codex，通用 IMAP/SMTP，已立设计、未实测）；SKILL.md 选箱路线补路线丙指针，「什么邮箱都没有」时新增 Lark 免费企业邮箱开户路。
-- 本版改动文件：`laifaxin-leadgen/SKILL.md`、`laicms-site-builder/SKILL.md`、`laifaxin-leadgen/references/mailbox-binding-guide.md`、新增 `shared/rename-cleanup-contract.md` 与 `HISTORY.md`、本文件、`VERSION` 与 `release-manifest.json`。建站技能升 v3.2.34、来发信技能升 v1.4.12。
-
