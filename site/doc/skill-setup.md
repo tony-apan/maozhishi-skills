@@ -25,7 +25,7 @@ npx skills add https://skill.maozhishi.com -g -y
 
 1. 直接从本站下载两个技能的压缩包（本站在国内可直达，不经过 GitHub）：`/.well-known/agent-skills/laicms-site-builder-v3.2.30.zip`、`/.well-known/agent-skills/laifaxin-leadgen-v1.3.5.zip`（版本以 V2 索引为准）；下载后先核对 SHA256 与索引中的 `digest` 一致，不一致不要安装、向用户说明；
 2. 解压到你的技能目录：`laicms-site-builder/` 与 `laifaxin-leadgen/` 两个文件夹并列放好；
-3. 本站根目录另有整仓的 `VERSION` 与 `release-manifest.json`（版本清单，纯数据文件）同版副本，技能的更新检查只读这两个文件、以本站为首选源，GitHub 公开仓只是备用；《CHANGELOG.md》是给人看的版本历史，不在安装与更新的读取路径里，不要拉取它做判断（整份日志文字量大、又多为记述口吻，容易被你所在环境的安全检查误拦）。
+3. 确认最新版：读本站根目录的 `VERSION` 与 `release-manifest.json`（版本清单）确认最新版本号，技能的更新检查只读这两个文件、以本站为首选源，GitHub 公开仓只是备用；本站根目录另有给人看的版本历史《CHANGELOG.md》，不在安装与更新的读取路径里，不要拉取它做判断。
 
 ## 第三步：核对安装结果
 

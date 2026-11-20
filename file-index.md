@@ -15,11 +15,12 @@ owner: 贸知事
 | --- | --- |
 | [README.md](README.md) | 本文件，先看这份 |
 | [file-index.md](file-index.md) | 本索引：每个文件是干什么的 |
-| [CHANGELOG.md](CHANGELOG.md) | 每次更新改了什么 |
+| [CHANGELOG.md](CHANGELOG.md) | 每次更新改了什么（给人看的版本历史） |
+| [HISTORY.md](HISTORY.md) | 完整版本历史（给人看） |
 | [release-manifest.json](release-manifest.json) | 版本清单（机器读：最新版本号、每版摘要、改名映射） |
 | [VERSION](VERSION) | 仓库现在的版本号 |
 | [feedback.md](.github/ISSUE_TEMPLATE/feedback.md) | 用技能遇到问题时的提单模板（在仓库 Issues 里新建问题时自动带出） |
-| [SKILL.md](laicms-site-builder/SKILL.md)（建站） | 建站说明书主文件，现行 **v3.2.33** |
+| [SKILL.md](laicms-site-builder/SKILL.md)（建站） | 建站说明书主文件，现行 **v3.2.34** |
 | [beginner-guide.md](laicms-site-builder/references/beginner-guide.md)（建站） | 新手使用说明：第一次用先看这份，带 11 张截图，跟着一个新人从准备、提问、施工到验收走全程 |
 | [laicms-platform-guide.md](laicms-site-builder/references/laicms-platform-guide.md)（建站） | AllinCMS 平台介绍与文档地图：平台是什么、怎么收费、官方教程在哪怎么查 |
 | [guide-images/](laicms-site-builder/references/guide-images/)（建站） | 新手使用说明里的 11 张截图（平台后台、演示站前台、仓库页面实拍） |
@@ -32,7 +33,7 @@ owner: 贸知事
 | [social-sharing.md](laicms-site-builder/references/social-sharing.md)（建站） | 文章发布后，四平台现成分享文案的生成规则 |
 | [ai-api-and-language.md](laicms-site-builder/references/ai-api-and-language.md)（建站） | 站点 AI 配置引导（绑 Key 分工与选型）与语言策略：不建议主站开多语言、先英语站见效再按地区建独立站做站群 |
 | [seo-geo-optimization.md](laicms-site-builder/references/seo-geo-optimization.md)（建站） | SEO/GEO 双轨优化：勤更新为主线，标题描述、问答式小节、常见问答与上线验收都由 AI 顺手做完 |
-| [SKILL.md](laifaxin-leadgen/SKILL.md)（获客） | 获客说明书主文件，现行 **v1.4.11** |
+| [SKILL.md](laifaxin-leadgen/SKILL.md)（获客） | 获客说明书主文件，现行 **v1.4.12** |
 | [laifaxin-platform-guide.md](laifaxin-leadgen/references/laifaxin-platform-guide.md)（获客） | 来发信平台介绍与文档地图：平台是什么、点数怎么花、官方文档在哪怎么查 |
 | [beginner-guide.md](laifaxin-leadgen/references/beginner-guide.md)（获客） | 新手使用说明：第一次用先看这份，跟着一个新人从注册、领点数、找客、筛客、发信到跟进走全程 |
 | [mailbox-binding-guide.md](laifaxin-leadgen/references/mailbox-binding-guide.md)（获客） | 邮箱绑定指南：服务器参数表、密码类型速查、授权码获取的逐步引导、绑失败错误码自查 |
@@ -40,6 +41,7 @@ owner: 贸知事
 | [tag-dictionary.md](laifaxin-leadgen/references/tag-dictionary.md)（获客） | 系统标签字典：客户状态、来源、通道、阶段标签的全网统一口径，哪个 AI 接手都照这套认 |
 | [skill.yaml](laifaxin-leadgen/skill.yaml)（获客） | 获客模块的登记信息 |
 | [backup-continuity-spec.md](shared/backup-continuity-spec.md)（整仓共用） | 备份与换账号接续规格：备份地怎么定、数据怎么分区、换账号怎么凭备份接回来，两个技能共用 |
+| [rename-cleanup-contract.md](shared/rename-cleanup-contract.md)（整仓共用） | 改名清理解析契约：技能更新时按版本清单的改名登记清理旧名文件的判定规矩，两个技能共用 |
 | [README.md](workspace-template/README.md)（模板） | 资料文件夹模板的用法 |
 | [INDEX.md](workspace-template/INDEX.md)（模板） | 工作区分区地图：根共用区、两个技能的分区、备份地记在哪，一页看清 |
 | [INDEX.md](workspace-template/memory/INDEX.md)（模板 · 记忆） | 长期记忆区：用户档案、决定记录、未结事项都在这里 |
