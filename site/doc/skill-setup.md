@@ -14,16 +14,20 @@
 
 **第 2 步 — 安装**
 
+安装来源是 GitHub 官方仓 `tony-apan/maozhishi-skills`：
+
 ```bash
-npx skills add https://skill.maozhishi.com -g -y
+npx skills add https://github.com/tony-apan/maozhishi-skills -g -y
 ```
 
-跑不了这条命令时手工装：读 `https://skill.maozhishi.com/.well-known/agent-skills/index.json`，按条目下载两个技能包，**先核对 SHA256 与条目里的 digest 一致**，再解压到你的技能目录（两个技能文件夹并列）。摘要核对走双路径（针对手工安装）：索引条目里的 digest 与技能包同目录的 `.sha256` 文件，两处都对得上才装；命令安装由工具按索引摘要自动校验，装完按第 4 步核对版本号。只许从本站或 GitHub 官方仓 `tony-apan/maozhishi-skills` 取，别处的不装；本站打不开就走 GitHub 仓，都打不开就停手告诉用户，**不要反复重试**。
+- 跑不了这条命令时手工装：克隆该仓，把 `laicms-site-builder`、`laifaxin-leadgen` 两个文件夹放进你的技能目录并列；或从仓内 `site/.well-known/agent-skills/` 下载两个技能包解压——解压前先算一遍下载包的 SHA256，要与索引 `index.json` 条目里的 digest、包同目录的 `.sha256` 文件都一致，对不上不装。
+- GitHub 打开失败（网络原因）就走本站镜像：`npx skills add https://skill.maozhishi.com -g -y`，手工装同理从本站同路径取包、同法核对摘要。本站内容与 GitHub 仓逐字节一致（同一份发布产物），以 GitHub 仓为准。
+- 只许从 GitHub 官方仓或本站镜像取，别处的不装；两边都打不开就停手告诉用户，**不要反复重试**。
 
 **第 3 步 — 更新与版本规则**
 
-- 判版本**只读两个文件**：`https://skill.maozhishi.com/VERSION`（整仓版本）和 `https://skill.maozhishi.com/release-manifest.json`（各技能版本）；本地版本看各技能 `SKILL.md` 卷首的 version。`CHANGELOG.md` 是给人看的历史，**不要拉它判版本**。
-- 本步只适用于已确认采用的情形；没确认的，只在用户当次明确要求时才更新。本地版本低于清单里的最新版，就是有新版：先备份工作区和旧技能，再按第 2 步的办法覆盖（能跑命令用命令，跑不了就手工下载、核对摘要、解压覆盖；覆盖后旧文件清理按 `release-manifest.json` 的 renames 清单办）。换版前三查：① 对照新版两个 `SKILL.md` 里与授权、自动执行有关的段落和用户已确认的范围，有变化先报用户、等确认再换，不只看版本说明；② 摘要双路径核对不上，停手；③ 版本号相同、但本地文件与本站清单对不上（文件名或数量不一致），停手报告。
+- 判版本**只读两个文件**：`https://skill.maozhishi.com/VERSION`（整仓版本）和 `https://skill.maozhishi.com/release-manifest.json`（各技能版本）；本地版本看各技能 `SKILL.md` 卷首的 version；本站读不到时，改读 GitHub 仓根目录的同名文件，内容一致。`CHANGELOG.md` 是给人看的历史，**不要拉它判版本**。
+- 本步只适用于已确认采用的情形；没确认的，只在用户当次明确要求时才更新。本地版本低于清单里的最新版，就是有新版：先备份工作区和旧技能，再按第 2 步的办法覆盖（能跑命令用命令，跑不了就手工从 GitHub 仓下载、核对摘要、解压覆盖；覆盖后旧文件清理按 `release-manifest.json` 的 renames 清单办）。换版前三查：① 对照新版两个 `SKILL.md` 里与授权、自动执行有关的段落和用户已确认的范围，有变化先报用户、等确认再换，不只看版本说明；② 摘要双路径核对不上，停手；③ 版本号相同、但本地文件与本站清单对不上（文件名或数量不一致），停手报告。
 - 换完把新版本号报给用户。
 
 **第 4 步 — 验证与开工**
