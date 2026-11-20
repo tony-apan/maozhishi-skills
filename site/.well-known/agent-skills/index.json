@@ -4,16 +4,16 @@
   {
    "name": "laicms-site-builder",
    "description": "什么时候用我——用户要新建或维护 LaiCMS 独立站、传产品、写文章、美化页面、看数据或开每日更新时用我；双通道执行：环境支持时走接口回放（见发文规范增补第六条），否则走登录网页操作。",
-   "digest": "sha256:1c95a42a794b3eea2782fc4d5a5598128c8eae09cb21336e856ee69289df996c",
+   "digest": "sha256:604dddb1e978e22e50e9c020ffd891757216f788b91dcfcd50e3ac253f1b23ce",
    "type": "archive",
-   "url": "laicms-site-builder-v3.2.32.zip"
+   "url": "laicms-site-builder-v3.2.33.zip"
   },
   {
    "name": "laifaxin-leadgen",
    "description": "什么时候用我——用户要做外贸获客时用我：找客户、存联系人、AI 评分、自有邮箱精发与来发信优质通道群发跟进，WhatsApp 网页版会话梳理与一对一触达，全程一张台账，严守发送安全闸；平台操作首选来发信官方 Agent 接口通道、网页操作兜底。",
-   "digest": "sha256:419fb30e61de04ae036dfc030bb1884f178af04c6ef1b879f2872b58dbba3a87",
+   "digest": "sha256:bcec25006ef91a0355fce9754b78a5e9b1e1a17bc67aa23ac2738cb24bbc0961",
    "type": "archive",
-   "url": "laifaxin-leadgen-v1.4.10.zip"
+   "url": "laifaxin-leadgen-v1.4.11.zip"
   }
  ]
 }
