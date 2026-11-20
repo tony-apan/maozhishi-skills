@@ -9,7 +9,7 @@ owner: 贸知事
 
 # 版本说明
 
-当前仓库版本：**1.4.12**（自检更新比对的是这个仓库版本；各模块版本号见下表，仅作标识）
+当前仓库版本：**1.4.13**（自检更新比对的是这个仓库版本；各模块版本号见下表，仅作标识）
 
 - **官方仓库（唯一固定地址）**：https://github.com/tony-apan/maozhishi-skills
 - 本仓是贸知事 Muse Skills 的官方发布仓。任何 skill 的自更新只认本仓带版本标签的正式发布，不从搜索结果、文章或其他地址拉更新。
@@ -18,12 +18,19 @@ owner: 贸知事
 
 | Skill | 版本 | 状态 | 审查记录 |
 | --- | --- | --- | --- |
-| laicms-site-builder（LaiCMS 建站） | 3.2.34 | 已发布（2026-11-20） | v3.2.34 随整仓 1.4.12：更新检查条文改版（判定范围与更新前三查划界、清单异常先报告确认再换装）；改名清理解析契约移入整仓共用文件 `shared/rename-cleanup-contract.md`，正文只留指针；更早沿革见 HISTORY.md。 |
-| laifaxin-leadgen（来发信获客） | 1.4.12 | 已发布（2026-11-13 首发，2026-11-20 升 v1.4.12） | v1.4.12 随整仓 1.4.12：同左条文改版与契约迁移；《邮箱绑定指南》补飞书/Lark 绑箱专节与路线丙（邮箱直绑 Claude Codex，通用 IMAP/SMTP，已立设计、未实测）；更早沿革见 HISTORY.md。 |
+| laicms-site-builder（LaiCMS 建站） | 3.2.35 | 已发布（2026-11-20） | v3.2.35 随整仓 1.4.13：AI 密钥配置改小白步骤卡；新增说话风格硬规矩；改名契约补技能内副本。更早沿革见 HISTORY.md。 |
+| laifaxin-leadgen（来发信获客） | 1.4.13 | 已发布（2026-11-13 首发，2026-11-20 升 v1.4.13） | v1.4.13 随整仓 1.4.13：装机引导写死（缺账号当场带用户办完）；新增说话风格与引导动作硬规矩；改名契约补技能内副本。更早沿革见 HISTORY.md。 |
 
 ## 发布注记
 
 本节只留最近两版的简要注记；完整注记见 HISTORY.md。
+
+## 整仓 1.4.13 — 2026-11-20
+
+- 引导修订（真实用户反馈：装完只列「未完成」清单、用户不知道怎么接账号）：来发信装机引导立总规矩——缺账号、缺授权、缺资料时当场按编号步骤带用户办完，不许只列清单等用户问；两个技能新增说话风格硬规矩（编号分步、短句、重点加粗、写明网址与金额）。
+- 建站《站点 AI 配置与语言策略》：建 Key 与回后台填写改成小白步骤卡（打开哪个网址、充多少钱、Key 只显示一次、鉴权失败查三样）。
+- 改名清理解析契约补技能内副本（`references/rename-cleanup-contract.md`，与整仓共用文件同文），只有技能目录的一行安装布局也能读到契约。
+- 本版改动文件：`laifaxin-leadgen/SKILL.md`、`laicms-site-builder/SKILL.md`、`laicms-site-builder/references/ai-api-and-language.md`、两技能新增 `references/rename-cleanup-contract.md`、本文件、`VERSION` 与 `release-manifest.json`。建站技能升 v3.2.35、来发信技能升 v1.4.13。
 
 ## 整仓 1.4.12 — 2026-11-20
 
@@ -32,6 +39,3 @@ owner: 贸知事
 - 《邮箱绑定指南》补飞书（国内版）与 Lark（飞书海外版）绑箱专节与服务器参数；新增路线丙（邮箱直绑 Claude Codex，通用 IMAP/SMTP，已立设计、未实测）；SKILL.md 选箱路线补路线丙指针，「什么邮箱都没有」时新增 Lark 免费企业邮箱开户路。
 - 本版改动文件：`laifaxin-leadgen/SKILL.md`、`laicms-site-builder/SKILL.md`、`laifaxin-leadgen/references/mailbox-binding-guide.md`、新增 `shared/rename-cleanup-contract.md` 与 `HISTORY.md`、本文件、`VERSION` 与 `release-manifest.json`。建站技能升 v3.2.34、来发信技能升 v1.4.12。
 
-## 整仓 1.4.11 — 2026-11-20
-
-- 整仓新增纯数据版本清单 `release-manifest.json`；两个技能的更新检查改读 `VERSION` 与清单两份数据文件，版本日志退出更新判断；改名清理改读清单里的改名登记。本版完整记述见 HISTORY.md，问题背景见母仓问题库 P-017。
