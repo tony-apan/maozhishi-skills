@@ -1,6 +1,6 @@
 ---
 name: laifaxin_leadgen
-version: 1.4.17
+version: 1.4.18
 status: active
 version_status: 正式版
 description: 什么时候用我——用户要做外贸获客时用我：找客户、存联系人、AI 评分、自有邮箱精发与来发信优质通道群发跟进，WhatsApp 网页版会话梳理与一对一触达，全程一张台账，严守发送安全闸；平台操作首选来发信官方 Agent 接口通道、网页操作兜底。
