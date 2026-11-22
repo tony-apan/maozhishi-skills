@@ -65,11 +65,16 @@
   .p-head { display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:nowrap; margin-bottom:14px; position:relative; }
   .p-label { font-size:14px; font-weight:800; color:var(--blue-d); letter-spacing:.04em; white-space:nowrap; }
   .p-head-r { display:flex; align-items:center; gap:12px; margin-left:auto; flex:none; }
-  .btn.head { font-size:14px; padding:10px 22px; }
-  .p-head .copied { white-space:nowrap; }
+  .btn.head { font-size:15px; padding:12px 26px; }
+  .p-head .copied { white-space:nowrap; position:absolute; top:calc(100% - 2px); right:0; z-index:3; font-size:12.5px; background:#fff; border:1px solid var(--line); border-radius:999px; padding:2px 3px 2px 9px; box-shadow:var(--sh-sm); }
+  .p-head .copied .open-claude { font-size:12.5px; padding:4px 11px; }
+  .open-claude { background:var(--blue); color:#fff; text-decoration:none; font-size:13px; font-weight:700; padding:6px 14px; border-radius:999px; white-space:nowrap; box-shadow:0 6px 14px -6px rgba(23,112,203,.5); }
+  .open-claude:hover { background:var(--blue-d); }
+  .p-sub { font-size:12.5px; color:var(--mut); line-height:1.6; margin:-2px 0 12px; }
+  .p-sub a { font-weight:700; text-decoration:none; }
+  .p-sub a:hover { text-decoration:underline; }
   @media (max-width:1200px) {
-    .p-head { margin-bottom:34px; }
-    .p-head .copied { position:absolute; top:calc(100% + 4px); right:0; font-size:13px; line-height:20px; }
+    .prompt-card { padding:22px; }
   }
   .p-box { background:var(--sky); border-radius:12px; padding:18px 20px; }
   .p-text { font-size:16px; line-height:1.7; font-weight:600; overflow-wrap:break-word; }
@@ -78,13 +83,17 @@
   .btn:hover { background:var(--blue-d); }
   .btn:active { transform:translateY(1px); }
   .btn.small { font-size:14px; padding:9px 22px; }
-  .copied { color:var(--blue-d); font-size:14px; display:none; font-weight:700; }
+  .copied { color:var(--blue-d); font-size:14px; display:none; font-weight:700; align-items:center; gap:10px; }
   .note { font-size:13.5px; color:var(--mut); margin-top:12px; line-height:1.7; }
   .prompt-card .note { font-size:13px; margin-top:10px; line-height:1.6; }
   .p-steps { display:grid; grid-template-columns:1fr auto 1fr auto 1fr; align-items:start; gap:8px; font-size:13px; line-height:1.55; text-align:left; color:var(--ink2); margin-top:12px; padding-top:12px; border-top:1px dashed var(--line); }
   .p-steps span { min-width:0; }
   .p-steps b { display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:var(--sky); color:var(--blue-d); font-size:12.5px; margin-right:7px; }
   .p-steps i { font-style:normal; color:var(--mut); }
+  @media (max-width:1200px) {
+    .p-text { font-size:15.5px; }
+    .p-box { padding:16px 18px; }
+  }
 
   /* daily report panel */
   .report { margin-top:48px; background:var(--sky2); border-radius:var(--r); padding:26px 28px; }
@@ -167,6 +176,16 @@
   .ver-line a { font-weight:700; text-decoration:none; margin-left:auto; }
   .ver-line a:hover { text-decoration:underline; }
   .ver-note { font-size:13.5px; color:var(--mut); margin-top:8px; max-width:780px; }
+  .ver-band { margin-top:72px; background:var(--sky2); border-radius:var(--r); padding:20px 24px; display:grid; grid-template-columns:1.15fr .85fr; gap:8px 48px; align-items:center; }
+  .ver-band .ver-line { margin-top:0; border-top:0; padding-top:0; }
+  .ver-band .fee-line { margin-top:12px; }
+  .ver-band .ver-note { margin-top:0; max-width:none; }
+  .ver-band .ver-more { display:inline-block; margin-top:12px; font-weight:700; text-decoration:none; }
+  .ver-band .ver-more:hover { text-decoration:underline; }
+  .nav .caret { font-size:10px; color:var(--mut); margin-left:3px; }
+  .same-note { font-size:12.5px; color:var(--mut); margin-left:12px; white-space:nowrap; }
+  .step .btn-row { display:block; margin-top:14px; }
+  .step .btn-row .btn { margin-top:0; }
   .fee-line { display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-top:14px; font-size:14px; color:var(--ink2); }
   .fee-line .fee-k { font-weight:800; letter-spacing:.08em; color:var(--mut); }
   .fee-line strong { color:var(--ink); font-size:15.5px; }
@@ -177,12 +196,16 @@
   .contact .cell + .cell { border-left:1px solid var(--line2); }
   .contact .k { font-size:13px; letter-spacing:.1em; color:var(--mut); font-weight:700; display:block; margin-bottom:14px; }
   .contact .v { font-size:19px; font-weight:700; word-break:break-all; }
-  .contact .v a { color:var(--ink); text-decoration:none; }
+  .contact .v a { color:var(--blue-d); text-decoration:underline; text-underline-offset:3px; }
   .contact .v a:hover { color:var(--blue); }
   .contact .d { font-size:13.5px; color:var(--mut); margin-top:12px; }
-  .contact img { width:112px; height:112px; display:block; border-radius:12px; border:1px solid var(--line); }
+  .contact img { width:84px; height:84px; display:block; border-radius:12px; border:1px solid var(--line); }
+  .contact .v.mail-v { display:flex; align-items:center; gap:12px; flex-wrap:wrap; word-break:normal; }
+  .mail-copy { appearance:none; font-family:inherit; font-size:12.5px; font-weight:700; color:var(--blue-d); background:var(--sky); border:1px solid var(--line); border-radius:999px; padding:5px 14px; cursor:pointer; white-space:nowrap; }
+  .mail-copy:hover { background:var(--sky2); }
   @media (min-width:761px) {
-    .contact .cell { display:grid; grid-template-rows:auto 112px auto; align-content:start; }
+    .contact .cell { display:grid; grid-template-rows:auto 84px auto; align-content:start; }
+    .contact .v { align-self:center; }
   }
   footer { margin-top:72px; border-top:1px solid var(--line2); padding:24px 0 36px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; font-size:13.5px; color:var(--mut); }
   footer a { color:var(--mut); text-decoration:none; font-weight:600; }
@@ -196,7 +219,12 @@
     .eyebrow { order:0; }
     .hero h1 { order:1; }
     .hero .sub { order:2; }
-    .prompt-card { order:3; margin-top:28px; width:100%; }
+    .prompt-card { order:3; margin-top:28px; width:100%; display:flex; flex-direction:column; }
+    .prompt-card .p-head { order:0; }
+    .prompt-card .p-box { order:1; }
+    .prompt-card .p-sub { order:2; margin:10px 0 0; }
+    .prompt-card .note { order:3; }
+    .prompt-card .p-steps { order:4; }
     .support { order:4; margin-top:20px; }
     .report { order:5; }
     .report .r-grid { grid-template-columns:1fr 1fr; }
@@ -214,15 +242,26 @@
     .nav { flex:none; margin-left:auto; gap:18px; position:relative; }
     .has-drop { position:static; }
     .drop { left:0; right:0; width:auto; max-width:none; top:calc(100% + 8px); }
-    .hero { padding-top:28px; }
-    h1 { font-size:34px; }
-    .prompt-card { padding:20px; }
+    .hero { padding-top:18px; }
+    .eyebrow { margin-bottom:10px; }
+    .eyebrow .e-date { display:none; }
+    h1 { font-size:30px; line-height:1.22; }
+    .hero .sub { margin-top:14px; }
+    .prompt-card { padding:12px; margin-top:16px; }
+    .p-box { padding:12px; }
+    .p-text { font-size:15px; line-height:1.65; }
+    .p-url { font-size:12.5px; line-height:1.5; }
+    .prompt-card .note { margin-top:6px; line-height:1.55; }
+    .prompt-card .p-sub { margin-top:8px; line-height:1.5; }
+    .p-steps { margin-top:10px; padding-top:10px; }
     .report { padding:20px; margin-top:36px; }
     .report .r-grid { grid-template-columns:1fr; gap:12px; }
     section { padding:52px 0 0; }
     .sec-head h2 { font-size:25px; }
     .skill { grid-template-columns:1fr; padding:24px 20px; }
-    .skill .links { flex-direction:column; gap:8px; }
+    .skill p { min-height:calc(15.5px * 1.85 * 11); }
+    .skill .links { flex-direction:row; flex-wrap:wrap; column-gap:22px; row-gap:10px; margin-top:12px; }
+    .skill .links a { display:inline-flex; align-items:center; min-height:40px; }
     .mini { padding:18px 20px; display:grid; grid-template-columns:auto 1fr auto; grid-template-areas:"mno mtitle mpill" "mdesc mdesc mdesc"; align-items:center; column-gap:14px; row-gap:4px; }
     .mini .m-no { grid-area:mno; }
     .mini h4 { min-width:0; white-space:normal; grid-area:mtitle; }
@@ -231,11 +270,16 @@
     .trow { padding:20px; position:relative; }
     .trow .t-main span { padding-right:76px; }
     .trow .t-go { position:absolute; right:20px; bottom:20px; margin-left:0; }
-    .step { padding:20px; }
+    .step { display:grid; grid-template-columns:auto 1fr; grid-template-areas:"num title" "body body" "btn btn"; column-gap:12px; row-gap:6px; padding:20px 18px; }
+    .step > div { display:contents; }
+    .step .num { grid-area:num; align-self:center; }
+    .step h3 { grid-area:title; align-self:center; margin-bottom:0; }
+    .step p { grid-area:body; }
+    .step .btn-row { grid-area:btn; margin-top:8px; }
     .contact { grid-template-columns:1fr; }
     .contact .cell + .cell { border-left:0; border-top:1px solid var(--line2); }
-    .ver-line a { margin-left:0; }
-    .ver-line { margin-top:52px; }
+    .contact .d { text-wrap:balance; }
+    .ver-band { grid-template-columns:1fr; margin-top:52px; padding:22px 20px; }
     footer { margin-top:52px; }
   }
   @media (max-width:420px) { .nav .gh span { display:none; } }
@@ -248,7 +292,7 @@
     <div class="brand">贸知事<small>MAOZHISHI</small><span class="sep">|</span><span class="svc">AI 工作技能仓</span></div>
     <div class="nav">
       <a href="/">首页</a>
-      <span class="has-drop"><a href="#tutorials" aria-expanded="false">教程</a><span class="drop">
+      <span class="has-drop"><a href="#tutorials" aria-expanded="false">教程<span class="caret" aria-hidden="true">▾</span></a><span class="drop">
         <a href="/muse/index.html"><span class="t">先认识 Muse</span><span class="d">注册、开通、装上技能</span></a>
         <a href="/laifaxin/index.html"><span class="t">来发信技能使用教程</span><span class="d">开发信获客，全程一篇</span></a>
         <a href="/laicms/index.html"><span class="t">独立站技能使用教程</span><span class="d">建站全程，带真实截图</span></a>
@@ -262,7 +306,7 @@
   <div class="hero">
     <div class="hero-grid">
       <div class="hero-main">
-        <p class="eyebrow"><span>贸知事技能仓</span><span class="e-date" id="docDate">2026 年 11 月 22 日</span></p>
+        <p class="eyebrow"><span>贸知事技能仓</span><span class="e-date" id="docDate">今日 2026 年 11 月 22 日</span></p>
         <h1>一个人，<br>也能像一个<span class="mark">团队</span>。</h1>
         <p class="sub">跑工厂、盯生产、陪客户，一天已经够满了。建站更新、找客户、写开发信、排跟进这些<strong>耗时间的活</strong>，现在不用你一件件干：在 Muse 里装上贸知事技能仓，它们都由 Muse 在<strong>云端全自动执行</strong>。你白天忙外面的，晚上回到家，日报已经躺在对话里等你看。</p>
         <p class="support">Muse 是你的 AI 助手应用，网页、手机、电脑上都能用，还没有的先去 <a href="https://muse.ai" target="_blank" rel="noopener">muse.ai</a> 看看。本站主推 Muse 云端运行；技能源码公开，其他 AI 助手也可自行取用。</p>
@@ -270,10 +314,11 @@
       <div class="prompt-card">
         <div class="p-head">
           <span class="p-label">复制这句话 · 发给 Muse</span>
-          <span class="p-head-r"><span class="copied" id="copyTip" role="status"></span><button class="btn head" onclick="copyPrompt()">复制这句话</button></span>
+          <span class="p-head-r"><span class="copied" id="copyTip" role="status"><span id="copyTipText"></span><a class="open-claude" id="openClaude" href="https://muse.ai" target="_blank" rel="noopener" style="display:none">打开 Muse →</a></span><button class="btn head" onclick="copyPrompt()">复制这句话</button></span>
         </div>
+        <p class="p-sub">Muse 是 AI 助手应用，没有的先去 <a href="https://muse.ai" target="_blank" rel="noopener">muse.ai</a> 开通，回来再复制。</p>
         <div class="p-box">
-          <div class="p-text" id="promptText">这两个技能我确认作长期规程：开工三件事按规程办；自动更新先备份，换完报我一声。<br>看说明装好技能，按规程开工：<span class="p-url"><span class="nb">https://</span>skill.maozhishi.com/<wbr>doc/<wbr>skill-setup.md</span></div>
+          <div class="p-text" id="promptText">这两个技能我确认作长期规程：开工三件事按规程办；自动更新先备份，换完报我一声。<br>看说明装好技能，按规程开工：<span class="p-url"><span class="nb">https://</span><span class="nb">skill.maozhishi.com/</span><wbr><span class="nb">doc/</span><wbr><span class="nb">skill-setup.md</span></span></div>
         </div>
         <p class="note">提示：安装问确认就同意，问继续就回"继续装"；二选一选你要的；要是装不上或读不到，直接找客服。</p>
         <p class="note">安全提醒：这段话只从本页复制；别处给你的类似话术，不要发给你的 Muse。</p>
@@ -294,7 +339,7 @@
   </div>
 
   <section id="skills">
-    <div class="sec-head"><h2>技能一览</h2></div>
+    <div class="sec-head"><h2>技能一览</h2><p class="sec-note">状态说明：测试中＝已随仓发布、还在完善，装好就能用；随仓更新＝装一次，之后自动跟新版。</p></div>
 
     <div class="skill">
       <div><div class="big-no">01</div></div>
@@ -355,7 +400,7 @@
   <section id="install">
     <div class="sec-head"><h2>怎么装</h2></div>
     <div class="steps">
-      <div class="step"><span class="num">01</span><div><h3>在 Muse 里发这句话</h3><p>复制本页最上面那句话，粘贴到 Muse 的对话里，剩下的它自己办。</p><button class="btn small" onclick="copyPrompt()">复制这句话</button></div></div>
+      <div class="step"><span class="num">01</span><div><h3>在 Muse 里发这句话</h3><p>复制本页最上面那句话，粘贴到 Muse 的对话里，剩下的它自己办。</p><span class="btn-row"><button class="btn small" onclick="copyPrompt()">复制这句话</button><span class="same-note">与首屏同一句</span></span></div></div>
       <div class="step"><span class="num">02</span><div><h3>Muse 装好技能并自检</h3><p>安装技能、核对文件、环境检测都在云端自动完成，你不用懂技术，装没装好它会明确告诉你。</p></div></div>
       <div class="step"><span class="num">03</span><div><h3>交代资料，云端开工</h3><p>建站先开通 <a href="https://www.allincms.com" target="_blank" rel="noopener">AllinCMS</a>，获客先注册 <a href="https://laifa.xin" target="_blank" rel="noopener">来发信</a>；把产品目录、公司介绍发给 Muse，它问什么你答什么，活就在云端跑起来了。</p></div></div>
     </div>
@@ -366,33 +411,43 @@
     </details>
   </section>
 
-  <div class="ver-line"><span class="v-tag">最新版本</span><strong>v1.4.21</strong><span>2026 年 11 月 22 日</span><a href="https://github.com/tony-apan/maozhishi-skills/releases">看全部版本说明 →</a></div>
-  <p class="fee-line"><span class="fee-k">费用</span><strong>技能仓免费</strong><span>平台与 AI 服务按各自规则收费</span></p>
-  <p class="ver-note">版本更新无须操心：每次工作前会自动检查，升级时先周全备份已有数据，以往填写的资料妥善保存、随时可查。</p>
+  <div class="ver-band">
+    <div>
+      <div class="ver-line"><span class="v-tag">最新版本</span><strong>技能仓 v1.4.21（来发信 v1.4.21 · 建站 v3.2.42）</strong><span>2026 年 11 月 22 日</span></div>
+      <p class="fee-line"><span class="fee-k">费用</span><strong>技能仓免费</strong><span>平台与 AI 服务按各自规则收费</span></p>
+    </div>
+    <div>
+      <p class="ver-note">版本更新无须操心：每次工作前会自动检查，升级时先周全备份已有数据，以往填写的资料妥善保存、随时可查。</p>
+      <a class="ver-more" href="https://github.com/tony-apan/maozhishi-skills/releases">看全部版本说明 →</a>
+    </div>
+  </div>
 
   <section id="contact">
     <div class="sec-head"><h2>联系与社群</h2></div>
     <div class="contact">
-      <div class="cell"><span class="k">微信</span><img src="https://cos.files.maozhishi.com/data/web/web-files/wx/tony-apan.png" alt="微信二维码" width="112" height="112" loading="lazy"><div class="d">微信扫码，加入同行交流群</div></div>
-      <div class="cell"><span class="k">邮箱</span><span class="v">help@zhijixinxi.com</span><div class="d">工作日及时回复</div></div>
+      <div class="cell"><span class="k">微信</span><img src="https://cos.files.maozhishi.com/data/web/web-files/wx/tony-apan.png" alt="微信二维码" width="84" height="84" loading="lazy"><div class="d">微信扫码，加入同行交流群</div></div>
+      <div class="cell"><span class="k">邮箱</span><span class="v mail-v"><a href="mailto:help@zhijixinxi.com">help@zhijixinxi.com</a><button class="mail-copy" id="mailCopyBtn" type="button" onclick="copyMail(event)">复制</button></span><div class="d">工作日及时回复</div></div>
       <div class="cell"><span class="k">问题反馈</span><span class="v"><a href="https://github.com/tony-apan/maozhishi-skills/issues" target="_blank" rel="noopener">GitHub Issues</a></span><div class="d">装不上、不会用，也可以到这里提问、看常见问题</div></div>
     </div>
   </section>
 
   <footer>
     <span>贸知事 AI 工作技能仓</span>
+    <span>运营：南京知机信息科技有限公司</span>
     <span><a href="https://github.com/tony-apan/maozhishi-skills" target="_blank" rel="noopener">GitHub</a></span>
   </footer>
 </div>
 <script>
-  (function(){ var nd = new Date(); var dateStr = nd.getFullYear() + ' 年 ' + (nd.getMonth() + 1) + ' 月 ' + nd.getDate() + ' 日'; var b = document.getElementById('docDate'); if (b) { b.textContent = dateStr; } })();
+  (function(){ var nd = new Date(); var dateStr = nd.getFullYear() + ' 年 ' + (nd.getMonth() + 1) + ' 月 ' + nd.getDate() + ' 日'; var b = document.getElementById('docDate'); if (b) { b.textContent = '今日 ' + dateStr; } })();
   function copyPrompt() {
     var src = document.getElementById('promptText');
     if (!src) { return; }
     var t = src.innerText;
     var tip = document.getElementById('copyTip');
-    function done() { if (tip) { tip.textContent = '已复制，去粘贴给 Muse'; tip.style.display = 'inline'; } }
-    function fail() { if (tip) { tip.textContent = '没复制上，选中上面这段话复制一下就行'; tip.style.display = 'inline'; } }
+    var tipText = document.getElementById('copyTipText');
+    var openLink = document.getElementById('openClaude');
+    function done() { if (tip) { tipText.textContent = '已复制，去粘贴给 Muse'; openLink.style.display = 'inline-block'; tip.style.display = 'inline-flex'; } }
+    function fail() { if (tip) { tipText.textContent = '没复制上，选中上面这段话复制一下就行'; openLink.style.display = 'none'; tip.style.display = 'inline-flex'; } }
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(t).then(done).catch(function(){ fallback(); });
     } else { fallback(); }
@@ -410,6 +465,35 @@
       document.body.removeChild(ta);
       if (ok) { done(); } else { fail(); }
     }
+  }
+  var mailCopyTimer = null;
+  function copyMail(e) {
+    if (e) { e.preventDefault(); e.stopPropagation(); }
+    var btn = document.getElementById('mailCopyBtn');
+    var addr = 'help@zhijixinxi.com';
+    function done() {
+      if (!btn) { return; }
+      btn.textContent = '已复制';
+      if (mailCopyTimer) { clearTimeout(mailCopyTimer); }
+      mailCopyTimer = setTimeout(function() { btn.textContent = '复制'; }, 1600);
+    }
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = addr;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed'; ta.style.top = '0'; ta.style.left = '0';
+      ta.style.width = '1px'; ta.style.height = '1px'; ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.focus(); ta.select();
+      try { ta.setSelectionRange(0, ta.value.length); } catch(err) {}
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch(err) { ok = false; }
+      document.body.removeChild(ta);
+      if (ok) { done(); }
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(addr).then(done).catch(function() { fallback(); });
+    } else { fallback(); }
   }
   function copyCmd() {
     var src = document.getElementById('cmdText');
