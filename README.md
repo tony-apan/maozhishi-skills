@@ -16,11 +16,13 @@
 
 打开你平时用的 AI，把这句话发给它就行——不用下载，不用复制长文：
 
-「把贸知事的来发信和建站两个技能装上：https://github.com/tony-apan/maozhishi-skills ——装好跟我说一声。」
+「把贸知事的来发信和建站两个技能装上，先读这份安装说明：https://github.com/tony-apan/maozhishi-skills/blob/main/INSTALL.md ——装好跟我说一声。」
 
 它会照着仓库把两个技能装好，装好后当面跟你确认，再带你开工。
 
-### 给来安装的 AI（简短指引）
+### 给来安装的 AI
+
+安装说明在 [INSTALL.md](INSTALL.md)，照它装即可。
 
 - 推荐装法：从官网发现索引 https://skill.maozhishi.com/.well-known/agent-skills/index.json 取两个包的文件名与 sha256，下载地址是 https://skill.maozhishi.com/.well-known/agent-skills/ 后面接文件名；下载后先把 sha256 与索引对一遍，对上再装。本仓的 laifaxin-leadgen/ 与 laicms-site-builder/ 两个目录是同一内容的展开形态。
 - 装法：每个技能放进你的技能目录、同名文件夹即可。

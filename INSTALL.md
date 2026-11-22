@@ -1,0 +1,7 @@
+# 贸知事技能 · 安装说明（给 AI）
+
+两个技能包都在官网索引里：https://skill.maozhishi.com/.well-known/agent-skills/index.json ——索引里有每个包的文件名、下载地址和 sha256。现行版本：来发信 laifaxin-leadgen v1.4.22、建站 laicms-site-builder v3.2.43。
+
+装法：下载 zip，解压到你的技能目录，一个技能一个同名文件夹。
+
+装好后：每个技能包里有一份《开工卡》，读它，按它跟用户当面确认后再开工。
