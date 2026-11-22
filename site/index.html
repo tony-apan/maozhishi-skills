@@ -100,6 +100,23 @@
   .ask-box .ask-tag { display:inline-block; font-size:12px; font-weight:700; color:var(--blue-d); background:var(--sky); border-radius:999px; padding:2px 10px; margin-bottom:8px; }
   .ask-box ul { margin:6px 0 6px 18px; }
 
+  /* copy buttons / safe note / report extras (review fix) */
+  .copy-btn { appearance:none; background:var(--blue); color:#fff; border:0; border-radius:999px; font-size:15px; font-weight:700; letter-spacing:.04em; padding:12px 26px; min-height:44px; cursor:pointer; box-shadow:0 10px 22px -10px rgba(23,112,203,.5); transition:background .15s; }
+  .copy-btn:hover { background:var(--blue-d); }
+  .copy-row { margin-top:12px; }
+  .safe-note { margin-top:22px; max-width:560px; background:var(--sky2); border:1px solid var(--line2); border-left:4px solid var(--blue); border-radius:12px; padding:14px 16px; }
+  .safe-note b { display:block; font-size:15px; margin-bottom:4px; }
+  .safe-note p { font-size:13.5px; color:var(--ink2); line-height:1.7; }
+  .p-nomuse { margin-top:14px; font-size:13.5px; }
+  .p-nomuse a { font-weight:700; text-decoration:none; }
+  .p-nomuse a:hover { text-decoration:underline; }
+  .report .r-points { display:none; }
+  .shot-act { text-align:center; margin-top:10px; }
+  .shot-btn { display:inline-block; background:var(--blue); color:#fff; font-size:14.5px; font-weight:700; text-decoration:none; padding:11px 26px; border-radius:999px; box-shadow:0 10px 22px -10px rgba(23,112,203,.5); transition:background .15s; }
+  .shot-btn:hover { background:var(--blue-d); }
+  .contact .gh-sub { font-size:12px; margin-top:8px; }
+  .contact .gh-sub a { color:var(--mut); font-weight:600; }
+
   /* daily report panel */
   .report { margin-top:48px; background:var(--sky2); border-radius:var(--r); padding:26px 28px; }
   .report .r-head { display:flex; justify-content:space-between; align-items:center; gap:16px; }
@@ -140,10 +157,10 @@
   .skill .links a { text-decoration:none; font-weight:700; }
   .skill .links a:hover { text-decoration:underline; }
   .mini-rows { background:var(--sky2); border-radius:var(--r); overflow:hidden; }
-  .mini { display:grid; grid-template-columns:auto 120px 1fr auto; column-gap:20px; align-items:baseline; padding:20px 28px; }
+  .mini { display:grid; grid-template-columns:auto auto 1fr auto; column-gap:20px; align-items:baseline; padding:20px 28px; }
   .mini + .mini { border-top:1px solid var(--line2); }
   .mini .m-no { font-size:16px; font-weight:800; color:var(--blue); }
-  .mini h4 { font-size:15.5px; font-weight:700; white-space:nowrap; min-width:120px; }
+  .mini h4 { font-size:15.5px; font-weight:700; white-space:nowrap; min-width:0; }
   .mini p { font-size:14px; color:var(--ink2); flex:1; }
   .mini .pill { margin-left:auto; }
 
@@ -227,14 +244,18 @@
     .eyebrow { order:0; }
     .hero h1 { order:1; }
     .hero .sub { order:2; }
-    .install-card { order:3; margin-top:28px; width:100%; display:flex; flex-direction:column; }
+    .install-card { order:4; margin-top:28px; width:100%; display:flex; flex-direction:column; }
     .install-card .p-head { order:0; }
-    .install-card .p-box { order:1; }
-    .install-card .p-sub { order:2; margin:10px 0 0; }
-    .install-card .note { order:3; }
-    .install-card .p-steps { order:4; }
-    .support { order:4; margin-top:20px; }
-    .report { order:5; }
+    .install-card .p-sub { order:1; margin:10px 0 0; }
+    .install-card .one-line { order:2; }
+    .install-card .copy-row { order:3; }
+    .install-card .note { order:4; }
+    .install-card .ask-box { order:5; }
+    .install-card .p-nomuse { order:6; }
+    .support { order:3; margin-top:20px; }
+    .safe-note { order:5; }
+    .report { order:6; }
+    .report .r-points { display:block; margin-top:14px; background:#fff; border-radius:10px; padding:10px 14px; font-size:14px; font-weight:600; line-height:1.6; }
     .report .r-grid { grid-template-columns:1fr 1fr; }
     .mini { flex-wrap:wrap; }
     .mini .pill { margin-left:0; }
@@ -316,15 +337,19 @@
         <p class="eyebrow"><span>贸知事技能仓</span><span class="e-date" id="docDate">· 2026 年 11 月 22 日</span></p>
         <h1>一个人，<br>也能顶一个<span class="mark">团队</span>。</h1>
         <p class="sub">跑工厂、盯生产已经够忙。建站、找客户、发信跟进等<strong>耗时杂活</strong>，装上贸知事技能仓，全由 Muse <strong>云端代跑</strong>。白天忙业务，晚上直接在对话里看日报。</p>
-        <p class="support">Muse 是随处可用的 AI 助手（<a href="https://muse.ai" target="_blank" rel="noopener">muse.ai</a>），推荐在云端运行；技能源码公开，其他 AI 助手也可自行取用。</p>
+        <p class="support">Muse 是随处可用的 AI 助手（<a href="https://muse.ai" target="_blank" rel="noopener">muse.ai</a>），推荐在云端运行；技能内容全部公开、谁都能查，其他 AI 助手也可自行取用。</p>
+        <div class="safe-note">
+          <b>你的资料，你说了算</b>
+          <p>客户名单和资料存在你自己的工作区里，技能在你的 AI 里干活；要往外发的内容，装好后会当面讲清、你点头才发。发信走官方通道、发之前先验地址，无效的不发，护着你的邮箱声誉。</p>
+        </div>
       </div>
       <div class="install-card" id="get-skills">
         <div class="p-head">
           <span class="p-label">怎么装 · 一句话就行</span>
         </div>
         <p class="p-sub">把下面这句话发给平常用的 AI，不用搜、不用下载，剩下的它自己办。</p>
-        <p class="one-line">「把贸知事的来发信和建站两个技能装上，用这个命令拉：npx skills add https://skill.maozhishi.com -g -y ——装好跟我说一声。」</p>
-        <div class="p-steps"><span><b>1</b>打开 AI</span><i>→</i><span><b>2</b>发这一句</span><i>→</i><span><b>3</b>它跑命令装好，跟你确认后开工</span></div>
+        <p class="one-line" id="heroSentence">「把贸知事的来发信和建站两个技能装上，用这个命令拉：npx skills add https://skill.maozhishi.com -g -y ——装好跟我说一声。」</p>
+        <div class="copy-row"><button type="button" class="copy-btn" data-copy-from="#heroSentence">一键复制这句话</button></div>
         <p class="note">命令会把两个技能直接装进你的 AI；装好后，它会当面讲清这个技能会读什么、改什么、会不会往外发东西、会不会在后台运行，再请你当场决定用不用、怎么用。命令跑不通时，下面还有备用办法。</p>
         <div class="ask-box">
           <span class="ask-tag">示意 · 装好后 AI 会这样问你</span>
@@ -336,6 +361,7 @@
           </ul>
           <p>全凭你定，你不点头，它绝不干活。</p>
         </div>
+        <p class="p-nomuse"><a href="/muse/index.html">还没有 Muse？先看这里，免费就能开始 →</a></p>
       </div>
     </div>
     <div class="report" role="region" aria-label="日报满量运行示意">
@@ -347,8 +373,8 @@
         <div class="r-item"><b>新回复</b><span class="r-desc">买家回信已按意向轻重分类，急件排在最前</span><span class="r-st">已分拣</span></div>
         <div class="r-item"><b>等你点头</b><span class="r-desc">需你拍板的事单独列出，你不点头它绝不动</span><span class="r-st wait">待点头</span></div>
       </div>
-      <figure class="r-shot"><a href="report-sample.png" target="_blank" rel="noopener"><img src="report-sample.png" alt="满量运行日报示意（背调与信件为真实节选，已脱敏）" loading="lazy"></a><figcaption>满量运行日报示意（点图看大图）· 背调与信件为真实节选</figcaption></figure>
-      <div class="r-foot">上方栏目为样式示意；下方日报数字为满量运行示意，背调与信件节选自真实运行记录。日报里写的，是你自己的网站和客户的进展。</div>
+      <figure class="r-shot"><a href="report-sample.png" target="_blank" rel="noopener"><img src="report-sample.png" alt="满量运行日报示意（背调与信件为真实节选，已脱敏）" loading="lazy"></a><figcaption>满量运行日报示意 · 背调与信件为真实节选 · 日报里写的，是你自己的网站和客户的进展。</figcaption><div class="shot-act"><a class="shot-btn" href="report-sample.png" target="_blank" rel="noopener">点图看大图</a></div></figure>
+      <p class="r-points">日报要点：找客名单 23,847 家 · 精发 3,214 封 · 新回复 118 封 · 询盘 32 个（满量运行示意）</p>
     </div>
   </div>
 
@@ -358,12 +384,12 @@
     <div class="skill">
       <div><div class="big-no">01</div></div>
       <div>
-        <h3>外贸独立站 · 云端自动更新 · SEO/GEO</h3>
+        <h3>外贸独立站 · 云端自动更新 · SEO</h3>
         <div class="ver-row"><span class="chip">建站技能 v3.2.43</span><span class="pill">已上线</span></div>
-        <p>独立站没空打理，久不更新难被买家搜到。这项技能包办建站、传产品、写文章与日常巡检，结合 SEO/GEO 提升曝光与询盘。配好后 Muse 每天云端自动维护，你只需看日报把关。</p>
+        <p>独立站没空打理，久不更新难被买家搜到。这项技能包办建站、传产品、写文章与日常巡检，结合 SEO 提升曝光与询盘。配好后 Muse 每天云端自动维护，你只需看日报把关。</p>
         <div class="links">
           <a href="/laicms/index.html">新手说明</a>
-          <a href="https://github.com/tony-apan/maozhishi-skills/blob/main/laicms-site-builder/SKILL.md" target="_blank" rel="noopener">技能原文</a>
+          <a href="https://github.com/tony-apan/maozhishi-skills/blob/main/laicms-site-builder/SKILL.md" target="_blank" rel="noopener">看技能全文</a>
           <a href="https://www.allincms.com" target="_blank" rel="noopener">AllinCMS 官网（先开通）</a>
         </div>
       </div>
@@ -377,7 +403,7 @@
         <p>已有 12,000+ 家企业在用。名单积压、跟进断续容易丢单。这项技能全自动跑通获客：找买家、验邮箱、发信跟进，并整理 WhatsApp 沟通诉求。云端 <span class="nb">24 小时</span>推进，关键节点主动请你把关。</p>
         <div class="links">
           <a href="/laifaxin/index.html">新手说明</a>
-          <a href="https://github.com/tony-apan/maozhishi-skills/blob/main/laifaxin-leadgen/SKILL.md" target="_blank" rel="noopener">技能原文</a>
+          <a href="https://github.com/tony-apan/maozhishi-skills/blob/main/laifaxin-leadgen/SKILL.md" target="_blank" rel="noopener">看技能全文</a>
           <a href="https://laifa.xin" target="_blank" rel="noopener">来发信官网（先注册）</a>
         </div>
       </div>
@@ -415,12 +441,13 @@
     <div class="sec-head"><h2>怎么装</h2></div>
     <div class="steps">
       <div class="step"><span class="num">01</span><div><h3>打开常用 AI</h3><p>Muse、WorkBuddy 都能用。在对话框直接办，什么都不用下载。</p></div></div>
-      <div class="step"><span class="num">02</span><div><h3>把话发给它</h3><p>直接发送：「把贸知事的来发信和建站两个技能装上，用这个命令拉：npx skills add https://skill.maozhishi.com -g -y ——装好跟我说一声。」它收到后跑这条命令，把两个技能直接装进你的 AI；装好后不会马上开工，下一步当面确认。</p></div></div>
+      <div class="step"><span class="num">02</span><div><h3>把话发给它</h3><p>直接发送：<span id="cmdSentence2">「把贸知事的来发信和建站两个技能装上，用这个命令拉：npx skills add https://skill.maozhishi.com -g -y ——装好跟我说一声。」</span>它收到后跑这条命令，把两个技能直接装进你的 AI；装好后不会马上开工，下一步当面确认。</p><span class="btn-row"><button type="button" class="copy-btn" data-copy-from="#cmdSentence2">一键复制这句话</button></span></div></div>
       <div class="step"><span class="num">03</span><div><h3>确认后再开工</h3><p>装好不等于开工。AI 会讲清读写、外发与运行权限由你拍板，本地记录随时可查改删。随后交接资料：建站开通 <a href="https://www.allincms.com" target="_blank" rel="noopener">AllinCMS</a>，获客注册 <a href="https://laifa.xin" target="_blank" rel="noopener">来发信</a>。</p></div></div>
     </div>
     <details class="cmd-wrap">
       <summary>一句话走不通？看备选办法</summary>
-      <p class="note">备选一 · 读说明装：把这句话发给你的 AI：「把贸知事的来发信和建站两个技能装上，先读这份安装说明：https://skill.maozhishi.com/INSTALL.md ——装好跟我说一声。」它照说明找到技能包，先审后装。</p>
+      <p class="note">备选一 · 读说明装：把这句话发给你的 AI：<span id="altSentence1">「把贸知事的来发信和建站两个技能装上，先读这份安装说明：https://skill.maozhishi.com/INSTALL.md」</span>它照说明找到技能包，先审后装。</p>
+      <p class="note"><button type="button" class="copy-btn" data-copy-from="#altSentence1">一键复制这句话</button></p>
       <p class="note">备选二 · 下载技能包发给 AI：下载<a href="/.well-known/agent-skills/laifaxin-leadgen-v1.4.22.zip" download>来发信获客技能包 v1.4.22</a>、<a href="/.well-known/agent-skills/laicms-site-builder-v3.2.43.zip" download>独立站建站技能包 v3.2.43</a>。无需解压，直接发进对话吩咐安装，AI 先审再装。微信端请在浏览器打开下载。</p>
       <p class="note">备选三 · 用 WorkBuddy 的：可在对话页点「+」添加已下载的包；或在左侧「专家 · 技能 · 连接器」的「技能」市场搜索安装——务必认准技能名「来发信-外贸获客与开发信助手」和发布者「知机」，勿装来源不明同名包。菜单名以实际显示为准。</p>
       <p class="note">备选安装后先别开工：导入不等于运行。让 AI 先查看文件并说明，由你确认后再开工。</p>
@@ -431,7 +458,7 @@
   <div class="ver-band">
     <div>
       <div class="ver-line"><span class="v-tag">最新版本</span><strong>技能仓 v1.4.22（来发信 v1.4.22 · 建站 v3.2.43）</strong><span>2026 年 11 月 22 日</span></div>
-      <p class="fee-line"><span class="fee-k">费用</span><strong>技能仓免费</strong><span>平台与 AI 按各自规则收费</span></p>
+      <p class="fee-line"><span>费用一次说清：技能仓免费。装上先领新人权益 6,100 点等值，够先跑起来；用完按点数走、明码标价。Muse 有免费版，付费版看 muse.ai 官网价。建站平台费以 AllinCMS 官网为准。没有装上之后才冒出来的收费。</span></p>
     </div>
     <div>
       <p class="ver-note">版本更新按你的规矩来：工作前自动检查新版。选自动更新的先备份再升级，没选的先询问再升级；历史资料妥善保存、随时可查。</p>
@@ -444,7 +471,7 @@
     <div class="contact">
       <div class="cell"><span class="k">微信</span><img src="https://cos.files.maozhishi.com/data/web/web-files/wx/tony-apan.png" alt="微信二维码" width="84" height="84" loading="lazy"><div class="d">扫码加入同行群</div></div>
       <div class="cell"><span class="k">邮箱</span><span class="v mail-v"><a href="mailto:help@zhijixinxi.com">help@zhijixinxi.com</a></span><div class="d">工作日及时回复</div></div>
-      <div class="cell"><span class="k">问题反馈</span><span class="v"><a href="https://github.com/tony-apan/maozhishi-skills/issues" target="_blank" rel="noopener">GitHub Issues</a></span><div class="d">常见问题与提问</div></div>
+      <div class="cell"><span class="k">问题反馈</span><span class="v mail-v"><a href="mailto:help@zhijixinxi.com">help@zhijixinxi.com</a></span><div class="d">微信群里问，或发邮件，都行</div><div class="d gh-sub">用 GitHub 的，也可在 <a href="https://github.com/tony-apan/maozhishi-skills/issues" target="_blank" rel="noopener">GitHub Issues</a> 提问</div></div>
     </div>
   </section>
 
@@ -493,6 +520,38 @@
     hd.addEventListener('focusin', function() { hd.classList.remove('suppressed'); syncAria(); });
     hd.addEventListener('focusout', function() { setTimeout(syncAria, 0); });
   }
+</script>
+<script>
+  document.querySelectorAll('.copy-btn').forEach(function(btn) {
+    var original = btn.textContent;
+    var timer = null;
+    function showDone() {
+      btn.textContent = '已复制，去发给你的 AI 吧';
+      if (timer) { clearTimeout(timer); }
+      timer = setTimeout(function() { btn.textContent = original; }, 2000);
+    }
+    function fallbackCopy(text) {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { if (document.execCommand('copy')) { showDone(); } } catch (e) {}
+      document.body.removeChild(ta);
+    }
+    btn.addEventListener('click', function() {
+      var target = document.querySelector(btn.getAttribute('data-copy-from'));
+      if (!target) { return; }
+      var text = target.textContent.trim().replace(/^「/, '').replace(/」$/, '');
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(showDone, function() { fallbackCopy(text); });
+      } else {
+        fallbackCopy(text);
+      }
+    });
+  });
 </script>
 </body>
 </html>
