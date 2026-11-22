@@ -104,6 +104,9 @@
   .copy-btn { appearance:none; background:var(--blue); color:#fff; border:0; border-radius:999px; font-size:15px; font-weight:700; letter-spacing:.04em; padding:12px 26px; min-height:44px; cursor:pointer; box-shadow:0 10px 22px -10px rgba(23,112,203,.5); transition:background .15s; }
   .copy-btn:hover { background:var(--blue-d); }
   .copy-row { margin-top:12px; }
+  .qbox { margin-top:12px; }
+  .qtop { display:flex; justify-content:flex-end; margin-bottom:8px; }
+  .step .btn-row.qtop-r { margin:0 0 10px; text-align:right; }
   .safe-note { margin-top:22px; max-width:560px; background:var(--sky2); border:1px solid var(--line2); border-left:4px solid var(--blue); border-radius:12px; padding:14px 16px; }
   .safe-note b { display:block; font-size:15px; margin-bottom:4px; }
   .safe-note p { font-size:13.5px; color:var(--ink2); line-height:1.7; }
@@ -247,11 +250,9 @@
     .install-card { order:4; margin-top:28px; width:100%; display:flex; flex-direction:column; }
     .install-card .p-head { order:0; }
     .install-card .p-sub { order:1; margin:10px 0 0; }
-    .install-card .one-line { order:2; }
-    .install-card .copy-row { order:3; }
+    .install-card .qbox { order:2; }
     .install-card .note { order:4; }
-    .install-card .ask-box { order:5; }
-    .install-card .p-nomuse { order:6; }
+    .install-card .p-nomuse { order:5; }
     .support { order:3; margin-top:20px; }
     .safe-note { order:5; }
     .report { order:6; }
@@ -348,19 +349,8 @@
           <span class="p-label">怎么装 · 一句话就行</span>
         </div>
         <p class="p-sub">把这句话发给常用 AI，不用搜、不用下，剩下它自己办。</p>
-        <p class="one-line" id="heroSentence">「请阅读 https://skill.maozhishi.com/INSTALL.md ，为我装上贸知事的来发信和独立站两个 skill。」</p>
-        <div class="copy-row"><button type="button" class="copy-btn" data-copy-from="#heroSentence">一键复制这句话</button></div>
-        <p class="note">它先读说明、再按说明装好，全程不用你会命令。装好后当面讲清读什么、改什么、是否外发、是否后台运行，由你定用不用、怎么用。这条走不通，下面有备用办法。</p>
-        <div class="ask-box">
-          <span class="ask-tag">示意 · 装好后 AI 会这样问你</span>
-          <p>样式参考，无需回复：</p>
-          <ul>
-            <li>列出读改文件；</li>
-            <li>讲清是否外发与后台运行；</li>
-            <li>选步步请示还是自主代办；</li>
-          </ul>
-          <p>全凭你定，不点头不干活。</p>
-        </div>
+        <div class="qbox"><div class="qtop"><button type="button" class="copy-btn" data-copy-from="#heroSentence">一键复制这句话</button></div><p class="one-line" id="heroSentence">「请阅读 https://skill.maozhishi.com/doc/cli-setup.md ，为我装上贸知事的来发信和独立站两个 skill。」</p></div>
+        <p class="note">它先读说明、再按说明装好，全程不用你会命令。装好后当面讲清读什么、改什么、是否外发、是否后台运行，由你定用不用、怎么用——你不点头，它绝不干活。这条走不通，下面有备用办法。</p>
         <p class="p-nomuse"><a href="/muse/index.html">还没用 Muse？点这里免费开始 →</a></p>
       </div>
     </div>
@@ -374,7 +364,7 @@
         <div class="r-item"><b>等你点头</b><span class="r-desc">需你拍板的事单独列出，不点头绝不动</span><span class="r-st wait">待点头</span></div>
       </div>
       <figure class="r-shot"><a href="report-sample.png" target="_blank" rel="noopener"><img src="report-sample.png" alt="满量运行日报示意（背调与信件为真实节选，已脱敏）" loading="lazy"></a><figcaption>满量运行日报示意 · 背调与信件为真实节选 · 日报里写的，是你自己的网站和客户的进展。</figcaption><div class="shot-act"><a class="shot-btn" href="report-sample.png" target="_blank" rel="noopener">点图看大图</a></div></figure>
-      <p class="r-points">日报要点：找客名单 23,847 家 · 精发 3,214 封 · 新回复 118 封 · 询盘 32 个（满量运行示意）</p>
+      <p class="r-points">日报要点：找客 300 多家 · 合格 96 家 · 精发 1,000 封（满量运行示意）</p>
     </div>
   </div>
 
@@ -441,7 +431,7 @@
     <div class="sec-head"><h2>怎么装</h2></div>
     <div class="steps">
       <div class="step"><span class="num">01</span><div><h3>打开常用 AI</h3><p>Muse、WorkBuddy 都能用。对话框直接办，不用下载。</p></div></div>
-      <div class="step"><span class="num">02</span><div><h3>把话发给它</h3><p>发送：<span id="cmdSentence2">「请阅读 https://skill.maozhishi.com/INSTALL.md ，为我装上贸知事的来发信和独立站两个 skill。」</span>AI 收到后自动安装；装好不马上开工，下一步当面确认。</p><span class="btn-row"><button type="button" class="copy-btn" data-copy-from="#cmdSentence2">一键复制这句话</button></span></div></div>
+      <div class="step"><span class="num">02</span><div><h3>把话发给它</h3><span class="btn-row qtop-r"><button type="button" class="copy-btn" data-copy-from="#cmdSentence2">一键复制这句话</button></span><p>发送：<span id="cmdSentence2">「请阅读 https://skill.maozhishi.com/doc/cli-setup.md ，为我装上贸知事的来发信和独立站两个 skill。」</span>AI 收到后自动安装；装好不马上开工，下一步当面确认。</p></div></div>
       <div class="step"><span class="num">03</span><div><h3>确认后再开工</h3><p>AI 讲清读写、外发与运行权限由你定，本地记录随时查改删。交接资料：建站开通 <a href="https://www.allincms.com" target="_blank" rel="noopener">AllinCMS</a>，获客注册 <a href="https://laifa.xin" target="_blank" rel="noopener">来发信</a>。</p></div></div>
     </div>
     <details class="cmd-wrap">
