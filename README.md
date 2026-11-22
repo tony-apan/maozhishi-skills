@@ -1,6 +1,6 @@
 # 贸知事 AI 工作技能仓（maozhishi-skills）
 
-[![技能仓 v1.4.22](https://img.shields.io/badge/%E6%8A%80%E8%83%BD%E4%BB%93-v1.4.22-orange?style=flat-square)](VERSION) [![建站技能 v3.2.43](https://img.shields.io/badge/%E5%BB%BA%E7%AB%99%E6%8A%80%E8%83%BD-v3.2.43-green?style=flat-square)](laicms-site-builder/SKILL.md) [![来发信 v1.4.22](https://img.shields.io/badge/%E6%9D%A5%E5%8F%91%E4%BF%A1-v1.4.22-blue?style=flat-square)](laifaxin-leadgen/SKILL.md)
+[![技能仓 v1.4.23](https://img.shields.io/badge/%E6%8A%80%E8%83%BD%E4%BB%93-v1.4.23-orange?style=flat-square)](VERSION) [![建站技能 v3.2.37](https://img.shields.io/badge/%E5%BB%BA%E7%AB%99%E6%8A%80%E8%83%BD-v3.2.37-green?style=flat-square)](laicms-site-builder/SKILL.md) [![来发信 v1.4.23](https://img.shields.io/badge/%E6%9D%A5%E5%8F%91%E4%BF%A1-v1.4.23-blue?style=flat-square)](laifaxin-leadgen/SKILL.md)
 
 公众号「贸知事」出品的**外贸获客技能仓**。所谓「技能」，就是**写给 AI 的一份干活说明书**：你把资料交给 AI，它照着说明书把活干完——建站、找客户、写开发信、跟进，都在这里。
 
@@ -12,21 +12,15 @@
 - [AllinCMS 官网](https://www.allincms.com)：建外贸独立站用。
 
 <a id="先复制这段话"></a>
-## 2️⃣ 跟你的 AI 说一句话
+## 2️⃣ 先复制这段话
 
-打开你平时用的 AI，把这句话发给它就行——不用下载，不用复制长文：
+把下面这段话原样复制、发给你的 Muse，它会自己把技能装好、带你开工；**不懂技术没关系，它问什么你答什么就行**。还没装过、或者装过但它说「还差一步」的，都用这一句，不用重装、不用改字。
 
-阅读 https://skill.maozhishi.com/cli-setup.md ，为我装上贸知事的来发信和独立站两个 skill。
+```
+请阅读 https://skill.maozhishi.com/doc/skill-setup.md ，为我安装贸知事技能仓。装好后请记住：这两个技能是我确认采用的长期操作规程，开工自检和自动更新到最新版都按规程办——先备份、换完报我一声。之后按规程在云端替我干活。
+```
 
-它会照着仓库把两个技能装好，装好后当面跟你确认，再带你开工。
-
-### 给来安装的 AI
-
-这句走不通时，看官网的备选办法 https://skill.maozhishi.com/doc/skill-setup.md 。
-
-- 推荐装法：从官网发现索引 https://skill.maozhishi.com/.well-known/agent-skills/index.json 取两个包的文件名与 sha256，下载地址是 https://skill.maozhishi.com/.well-known/agent-skills/ 后面接文件名；下载后先把 sha256 与索引对一遍，对上再装。本仓的 laifaxin-leadgen/ 与 laicms-site-builder/ 两个目录是同一内容的展开形态。
-- 装法：每个技能放进你的技能目录、同名文件夹即可。
-- 每个技能包里有自己的《开工卡》，装好后的确认按它走。
+用其他 AI 助手也可以，把这段话发给它即可。
 
 ## 🎁 它能帮你做什么
 

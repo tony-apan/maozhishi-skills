@@ -29,7 +29,8 @@ owner: 贸知事
 | --- | --- | --- |
 | 搜客·AI 数据库（找新客） | /refine/company-list（关键词/客群 query_en；**结果不带 domain 字段，取种子域名须另调 /domain/base-info**）、/refine/company-list-by-name、/domain/resolve-domain-name | 实测（2026-11-18） |
 | 搜客·已保存公司检索 | /contacts/company-search（**只搜账号已保存公司**，客户管理内按名检索用；不用于搜新客）、/contacts/people-search（**只搜账号已保存联系人**，与 company-search 同口径；不用于搜新客） | company-search 实测（2026-11-18）；people-search 契约级 |
-| 公司详情/搜相似 | /domain/base-info（公司 id 或域名均可）、/domain/similar-list | 实测（2026-11-18；similar-list 接口调用已实测，跨语种相关性为单种子抽样观察：德语种子前 5 家 5/5 相关，非全量验证） |
+| 公司详情 | /domain/base-info（公司 id 或域名均可） | 实测（2026-11-18） |
+| 搜相似【禁用】 | /domain/similar-list | **禁用，不许调用**（Tony 2026-11-21 令）：接口保留登记仅作识别；找相似公司一律改走 /refine/company-list 关键词搜索（§4.1、§5.2(e)）。历史实测记录：2026-11-18 接口调用实测通过，跨语种相关性为单种子抽样观察（德语种子前 5 家 5/5 相关，非全量验证） |
 | AI 推演客群 | /profile/inference-product-add、inference-segment-generate、inference-segment-list、inference-product-save | 实测（2026-11-18；建产品与生成客群各扣 2 点） |
 | 批量搜索任务 | /refine/task-create、task-list、task-info、task-status、task-delete | 链路实测可用（2026-11-18 阶段 0：create 建完即 finished、delete 后 list 回读确认已删、info 可读回）；**计费口径未证实**（源码口径「有效 −2/未知 −1/无效 0」在本轮实测中未发生——任务计数全 0、creditCount 前后不变，不得作为计费依据，待后续核实） |
 | 搜客·领英/地图/谷歌 | /search/linkedin-company-v2-*、/search/map-data-*、/clouds/google-search/* | 契约级 |
