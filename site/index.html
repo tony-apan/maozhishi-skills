@@ -62,6 +62,7 @@
 
   /* install card */
   .install-card { background:#fff; border:1.5px solid var(--blue); border-radius:var(--r); box-shadow:var(--sh); padding:24px; min-width:0; }
+  .one-line { font-size:19px; font-weight:800; line-height:1.65; background:var(--sky2); border-radius:12px; padding:16px 18px; margin:0 0 4px; }
   .p-head { display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:nowrap; margin-bottom:14px; position:relative; }
   .p-label { font-size:14px; font-weight:800; color:var(--blue-d); letter-spacing:.04em; white-space:nowrap; }
   .p-head-r { display:flex; align-items:center; gap:12px; margin-left:auto; flex:none; }
@@ -319,24 +320,12 @@
       </div>
       <div class="install-card" id="get-skills">
         <div class="p-head">
-          <span class="p-label">怎么装 · 三步就行</span>
+          <span class="p-label">怎么装 · 一句话就行</span>
         </div>
-        <p class="p-sub">不用记任何话。把技能包下载下来，在对话里发给你的 AI，剩下的由它当面跟你办。</p>
-        <div class="dl-list">
-          <div class="dl-item">
-            <b>来发信获客技能包</b>
-            <span>版本 v1.4.22 · 文件名：laifaxin-leadgen-v1.4.22.zip · 内容：技能说明、获客指南、平台指南与绑定指南</span>
-            <a class="btn" href="/.well-known/agent-skills/laifaxin-leadgen-v1.4.22.zip" download>下载这个包</a>
-          </div>
-          <div class="dl-item">
-            <b>独立站建站技能包</b>
-            <span>版本 v3.2.43 · 文件名：laicms-site-builder-v3.2.43.zip · 内容：技能说明、建站指南、平台指南与参考资料</span>
-            <a class="btn" href="/.well-known/agent-skills/laicms-site-builder-v3.2.43.zip" download>下载这个包</a>
-          </div>
-        </div>
-        <p class="wx-tip">在微信里打开本页时，先点右上角菜单、选择在浏览器里打开，再下载；微信里直接下载，文件容易找不到。</p>
-        <div class="p-steps"><span><b>1</b>下载技能包</span><i>→</i><span><b>2</b>在对话里把文件发给你的 AI</span><i>→</i><span><b>3</b>它先看文件，没问题再装，装好跟你确认后开工</span></div>
-        <p class="note">发过去之后，你的 AI 会先按五项清单审这个包，再如实告诉你查了什么、发现了什么；没有阻断问题才安装；没法审完、或有阻断问题，都会停下来讲清，审查不会因为你同意就跳过。装好后，它会当面讲清这个技能会读什么、改什么、会不会往外发东西、会不会在后台运行，再请你当场决定用不用、怎么用。</p>
+        <p class="p-sub">打开你平时用的 AI，把下面这句话发给它，剩下的它自己办，你什么都不用下载。</p>
+        <p class="one-line">「把贸知事的来发信和建站两个技能装上，装好跟我说一声。」</p>
+        <div class="p-steps"><span><b>1</b>打开你的 AI</span><i>→</i><span><b>2</b>发这一句</span><i>→</i><span><b>3</b>它自己找包、先审后装，装好跟你确认后开工</span></div>
+        <p class="note">它会自己找到官方技能包，先按五项清单审一遍再装，审不完或有问题都会停下来讲清；装好后，它会当面讲清这个技能会读什么、改什么、会不会往外发东西、会不会在后台运行，再请你当场决定用不用、怎么用。这句话走不通，下面还有下载包的备用办法。</p>
         <div class="ask-box">
           <span class="ask-tag">示意 · 装好后 AI 会这样问你</span>
           <p>下面只是问法的样子，不是让你照着回答：</p>
@@ -425,17 +414,17 @@
   <section id="install">
     <div class="sec-head"><h2>怎么装</h2></div>
     <div class="steps">
-      <div class="step"><span class="num">01</span><div><h3>下载你要用的技能包</h3><p>在本页最上面，两个技能包分开下载：做获客下「来发信获客技能包」，做独立站下「独立站建站技能包」。文件名里带版本号，下载后不用解压，原样留着就行。在微信里打开本页的，先点右上角菜单、在浏览器里打开再下载。</p></div></div>
-      <div class="step"><span class="num">02</span><div><h3>在对话里把文件发给你的 AI</h3><p>打开你平时用的 AI，把刚下载的技能包文件直接发进对话里，并说明你想装这个技能。你的 AI 会先按五项清单审这个包：有哪些文件、有没有要运行的程序、会不会联网、需要什么权限、会改哪些设置；审完如实告诉你查了什么、发现了什么，没有阻断问题就按你说的装上，没法审完或有阻断问题就停下来讲清，审查不会因为你同意就跳过。</p></div></div>
+      <div class="step"><span class="num">01</span><div><h3>打开你平时用的 AI</h3><p>Muse、WorkBuddy 这些能装技能的 AI 都行。用哪个，就在哪个的对话里办，什么都不用下载。</p></div></div>
+      <div class="step"><span class="num">02</span><div><h3>把那句话发给它</h3><p>就是首屏那句：「把贸知事的来发信和建站两个技能装上，装好跟我说一声。」它会自己找到官方技能包，先按五项清单审一遍：有哪些文件、有没有要运行的程序、会不会联网、需要什么权限、会改哪些设置；审完如实告诉你查了什么、发现了什么，没有阻断问题就装上，没法审完或有阻断问题就停下来讲清，审查不会因为你同意就跳过。</p></div></div>
       <div class="step"><span class="num">03</span><div><h3>装好后，当面确认再开工</h3><p>装好不等于开始干活。你的 AI 会当面讲清它会读什么、改什么、会不会往外发东西、会不会在后台运行，再请你当场确认用不用、选哪种做事方式。你确认之后，它会把你确认的范围写成一份你能看、能改、能删的本地记录。之后再交代资料：建站先开通 <a href="https://www.allincms.com" target="_blank" rel="noopener">AllinCMS</a>，获客先注册 <a href="https://laifa.xin" target="_blank" rel="noopener">来发信</a>。</p></div></div>
     </div>
     <details class="cmd-wrap">
       <summary>上面这条路走不通？看备选办法</summary>
-      <p class="note">备选一 · 只有 Muse 网页版或 App、身边没有能把文件装到本地的 AI 时，可以走设置页上传：先说一个开关——设置（Settings）里有「代码执行与文件创建」开关，打开后，Muse 能在云端运行代码、创建和保存文件；开不开由你自己决定，不开就用不了设置页上传，改走上面的主路（把包发给一个能落盘安装的 AI）。要走这条路，就按这几步：打开 Muse，进入设置（Settings），打开「代码执行与文件创建」开关；再进入自定义（Customize）里的技能（Skills），点添加、选上传技能，把下载好的技能包传上去，传完确认这个技能是开启状态。菜单名称可能略有差别，以你账号里实际显示的为准。</p>
-      <p class="note">备选二 · 用 WorkBuddy 的：在对话页点「+」，选从本地添加技能，把本站下载好的包导入；也可以在客户端左侧进入「专家 · 技能 · 连接器」，切到「技能」，在技能市场里搜技能名安装——在市场里装时，认准技能名「来发信-外贸获客与开发信助手」和发布者「知机」，别装来路不明的同名包。菜单名称以你账号里实际显示的为准（路径来源：渠道调研）。</p>
+      <p class="note">备选一 · 自己下载技能包发给 AI：一句话走不通时用这条。两个技能包分开下载：<a href="/.well-known/agent-skills/laifaxin-leadgen-v1.4.22.zip" download>来发信获客技能包 v1.4.22</a>、<a href="/.well-known/agent-skills/laicms-site-builder-v3.2.43.zip" download>独立站建站技能包 v3.2.43</a>。下载后不用解压，原样把文件发进对话里，并说明你想装这个技能；你的 AI 会先审包再装。在微信里打开本页的，先点右上角菜单、在浏览器里打开再下载，免得文件找不到。</p>
+      <p class="note">备选二 · 只有 Muse 网页版或 App、身边没有能把文件装到本地的 AI 时，可以走设置页上传：先说一个开关——设置（Settings）里有「代码执行与文件创建」开关，打开后，Muse 能在云端运行代码、创建和保存文件；开不开由你自己决定，不开就用不了设置页上传，改走一句话、或备选一（把包发给一个能落盘安装的 AI）。要走这条路，就按这几步：打开 Muse，进入设置（Settings），打开「代码执行与文件创建」开关；再进入自定义（Customize）里的技能（Skills），点添加、选上传技能，把下载好的技能包传上去，传完确认这个技能是开启状态。菜单名称可能略有差别，以你账号里实际显示的为准。</p>
+      <p class="note">备选三 · 用 WorkBuddy 的：在对话页点「+」，选从本地添加技能，把本站下载好的包导入；也可以在客户端左侧进入「专家 · 技能 · 连接器」，切到「技能」，在技能市场里搜技能名安装——在市场里装时，认准技能名「来发信-外贸获客与开发信助手」和发布者「知机」，别装来路不明的同名包。菜单名称以你账号里实际显示的为准（路径来源：渠道调研）。</p>
       <p class="note">用备选办法装好后，先别急着用：上传、导入只是把文件放进去，不会自己运行；让 AI 把装好的文件看一遍、把情况告诉你，再走装后确认。</p>
-      <p class="note">用其他支持装技能包的 AI 的，把文件发给它即可，流程同第二步。哪一步卡住了，就停在哪一步，联系客服 help@zhijixinxi.com，或看<a href="/doc/skill-setup.md">安装说明</a>。</p>
-      <p class="note">备用办法 · 什么都不用下载：直接在对话里跟你的 AI 说一句——「把贸知事的来发信和建站两个技能装上，装好跟我说一声。」剩下的让它自己去办；这条路走不通，再回到上面下载包的办法。</p>
+      <p class="note">用其他支持装技能包的 AI 的，把文件发给它即可，流程同备选一。哪一步卡住了，就停在哪一步，联系客服 help@zhijixinxi.com，或看<a href="/doc/skill-setup.md">安装说明</a>。</p>
     </details>
   </section>
 
