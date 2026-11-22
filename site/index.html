@@ -75,7 +75,9 @@
   .btn.small { font-size:14px; padding:9px 22px; }
   .copied { color:var(--blue-d); font-size:14px; display:none; font-weight:700; }
   .note { font-size:13.5px; color:var(--mut); margin-top:12px; line-height:1.7; }
-  .p-steps { display:grid; grid-template-columns:1fr auto 1fr auto 1fr; align-items:start; gap:10px 12px; font-size:13.5px; color:var(--ink2); margin-top:18px; padding-top:16px; border-top:1px dashed var(--line); }
+  .prompt-card .note { font-size:13px; margin-top:10px; line-height:1.6; }
+  .p-steps { display:grid; grid-template-columns:1fr auto 1fr auto 1fr; align-items:start; gap:8px; font-size:13px; line-height:1.55; text-align:left; color:var(--ink2); margin-top:12px; padding-top:12px; border-top:1px dashed var(--line); }
+  .p-steps span { min-width:0; }
   .p-steps b { display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:var(--sky); color:var(--blue-d); font-size:12.5px; margin-right:7px; }
   .p-steps i { font-style:normal; color:var(--mut); }
 
@@ -195,7 +197,7 @@
     .report .r-grid { grid-template-columns:1fr 1fr; }
     .mini { flex-wrap:wrap; }
     .mini .pill { margin-left:0; }
-    .p-steps { display:flex; flex-direction:column; align-items:flex-start; gap:8px; }
+    .p-steps { display:flex; flex-direction:column; align-items:flex-start; gap:6px; }
     .p-steps i { display:none; }
   }
   @media (max-width:760px) {
@@ -275,7 +277,7 @@
         </div>
         <p class="note">提示：安装问确认就同意，问继续就回"继续装"；二选一选你要的；要是装不上或读不到，直接找客服。</p>
         <p class="note">安全提醒：这段话只从本页复制；别处给你的类似话术，不要发给你的 Muse。</p>
-        <div class="p-steps"><span><b>1</b>点按钮，整段复制</span><i>→</i><span><b>2</b>打开 Muse，粘贴发送</span><i>→</i><span><b>3</b>它会照着这句话装好（或更新）技能、办开工三件事（可能逐项向你确认，按提示操作即可）</span></div>
+        <div class="p-steps"><span><b>1</b>点按钮，整段复制</span><i>→</i><span><b>2</b>打开 Muse，粘贴发送</span><i>→</i><span><b>3</b>它照着这句话装好（或更新）技能、办开工三件事</span></div>
       </div>
     </div>
     <div class="report" role="region" aria-label="日报样式示意">
