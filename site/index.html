@@ -62,13 +62,18 @@
 
   /* prompt card */
   .prompt-card { background:#fff; border:1.5px solid var(--blue); border-radius:var(--r); box-shadow:var(--sh); padding:24px; min-width:0; }
-  .p-head { display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:14px; }
-  .p-label { font-size:14px; font-weight:800; color:var(--blue-d); letter-spacing:.04em; }
-  .p-date { font-size:13px; color:var(--mut); white-space:nowrap; }
+  .p-head { display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:nowrap; margin-bottom:14px; position:relative; }
+  .p-label { font-size:14px; font-weight:800; color:var(--blue-d); letter-spacing:.04em; white-space:nowrap; }
+  .p-head-r { display:flex; align-items:center; gap:12px; margin-left:auto; flex:none; }
+  .btn.head { font-size:14px; padding:10px 22px; }
+  .p-head .copied { white-space:nowrap; }
+  @media (max-width:1200px) {
+    .p-head { margin-bottom:34px; }
+    .p-head .copied { position:absolute; top:calc(100% + 4px); right:0; font-size:13px; line-height:20px; }
+  }
   .p-box { background:var(--sky); border-radius:12px; padding:18px 20px; }
   .p-text { font-size:16px; line-height:1.7; font-weight:600; overflow-wrap:break-word; }
   .p-url { font-size:14px; color:var(--blue-d); }
-  .p-actions { display:flex; align-items:center; gap:16px; margin-top:18px; flex-wrap:wrap; }
   .btn { appearance:none; background:var(--blue); color:#fff; font-size:16px; font-weight:700; letter-spacing:.06em; padding:14px 32px; cursor:pointer; border:0; border-radius:999px; box-shadow:0 10px 22px -8px rgba(23,112,203,.5); transition:background .15s, transform .15s; }
   .btn:hover { background:var(--blue-d); }
   .btn:active { transform:translateY(1px); }
@@ -212,7 +217,6 @@
     .hero { padding-top:28px; }
     h1 { font-size:34px; }
     .prompt-card { padding:20px; }
-    .p-actions .btn { width:100%; text-align:center; }
     .report { padding:20px; margin-top:36px; }
     .report .r-grid { grid-template-columns:1fr; gap:12px; }
     section { padding:52px 0 0; }
@@ -266,18 +270,14 @@
       <div class="prompt-card">
         <div class="p-head">
           <span class="p-label">复制这句话 · 发给 Muse</span>
-          <span class="p-date" id="slipDate">2026 年 11 月 22 日</span>
+          <span class="p-head-r"><span class="copied" id="copyTip" role="status"></span><button class="btn head" onclick="copyPrompt()">复制这句话</button></span>
         </div>
         <div class="p-box">
           <div class="p-text" id="promptText">这两个技能我确认作长期规程：开工三件事按规程办；自动更新先备份，换完报我一声。<br>看说明装好技能，按规程开工：<span class="p-url"><span class="nb">https://</span>skill.maozhishi.com/<wbr>doc/<wbr>skill-setup.md</span></div>
         </div>
-        <div class="p-actions">
-          <button class="btn" onclick="copyPrompt()">复制这句话</button>
-          <span class="copied" id="copyTip" role="status"></span>
-        </div>
         <p class="note">提示：安装问确认就同意，问继续就回"继续装"；二选一选你要的；要是装不上或读不到，直接找客服。</p>
         <p class="note">安全提醒：这段话只从本页复制；别处给你的类似话术，不要发给你的 Muse。</p>
-        <div class="p-steps"><span><b>1</b>点按钮，整段复制</span><i>→</i><span><b>2</b>打开 Muse，粘贴发送</span><i>→</i><span><b>3</b>它照着这句话装好（或更新）技能、办开工三件事</span></div>
+        <div class="p-steps"><span><b>1</b>点按钮，整段复制</span><i>→</i><span><b>2</b>打开 Muse，粘贴发送</span><i>→</i><span><b>3</b>它装好技能、办开工三件事</span></div>
       </div>
     </div>
     <div class="report" role="region" aria-label="日报样式示意">
@@ -385,7 +385,7 @@
   </footer>
 </div>
 <script>
-  (function(){ var nd = new Date(); var dateStr = nd.getFullYear() + ' 年 ' + (nd.getMonth() + 1) + ' 月 ' + nd.getDate() + ' 日'; var a = document.getElementById('slipDate'); if (a) { a.textContent = dateStr; } var b = document.getElementById('docDate'); if (b) { b.textContent = dateStr; } })();
+  (function(){ var nd = new Date(); var dateStr = nd.getFullYear() + ' 年 ' + (nd.getMonth() + 1) + ' 月 ' + nd.getDate() + ' 日'; var b = document.getElementById('docDate'); if (b) { b.textContent = dateStr; } })();
   function copyPrompt() {
     var src = document.getElementById('promptText');
     if (!src) { return; }
