@@ -7,292 +7,232 @@
 <meta name="description" content="在 Muse 里装上贸知事技能仓：建独立站、每日更新、找客户、发开发信、自动跟进，都由 Muse 在云端全自动执行。你交代资料和要求，关键节点点个头，其余时间看结果。">
 <style>
   :root{
-    --ink:#0d1b2e; --ink2:#33465e; --mut:#47596e;
-    --blue:#1668d8; --blue-d:#0f4fa8;
-    --org:#c94f0e; --org-d:#a63f08; --stamp:#c23a1e;
-    --paper:#f7f9fc; --wash:#edf3fa; --line:#c9d6e4; --line2:#dde6ef;
-    --fs-1:14px; --fs-2:16px; --fs-3:20px; --fs-4:32px; --fs-5:48px;
-    --fs-h1min:34px; --fs-h2m:24px;
-    --white:#fff; --veil:rgba(255,255,255,.92);
-    --dot:#d7e2ee;
-    --org-band:rgba(201,79,14,.32); --ink-line:rgba(13,27,46,.045); --wash-hov:rgba(237,243,250,.65); --stamp-50:rgba(194,58,30,.5);
-    --shadow:8px 8px 0 var(--ink);
-    --sh-btn:4px 4px 0 var(--ink); --sh-btn-hov:5px 5px 0 var(--ink); --sh-btn-act:2px 2px 0 var(--ink);
-    --sh-hover:10px 10px 0 var(--ink);
-    --sh-line:inset 0 -3px 0 var(--ink);
-    --sh-stamp:inset 0 0 0 2px var(--white), inset 0 0 0 4px var(--stamp-50);
-    /* 字距例外登记：h1 的 -.01em＝标题例外、.stamp 的 .24em＝图形件例外；其余标签类字距一律 .18em，无未登记裸值 */
-    /* 半步压缩例外登记：.sheet 上内距 12px 与 .report 纵向内距 12px＝首屏压缩半步（不在 8 步进上，显名登记，与字距例外同例管理） */
-    /* 功能令牌说明：--fs-h1min＝h1 clamp 下限、--fs-h2m＝移动端节标题档；字号五档 --fs-1…5 每档都有真实使用，无空阶 */
+    --ink:#17324f; --ink2:#3f5a76; --mut:#527494;
+    --blue:#1770cb; --blue-d:#1268bd; --sky:#e8f3fd; --sky2:#f2f8fd;
+    --line:#d9e9f7; --line2:#e7f1fa;
+    --green:#177a4c; --amber:#9c6508;
+    --r:18px;
+    --sh:0 2px 6px rgba(23,112,203,.05), 0 20px 44px -18px rgba(23,112,203,.20);
+    --sh-sm:0 2px 6px rgba(23,112,203,.04), 0 12px 28px -14px rgba(23,112,203,.14);
   }
   * { margin:0; padding:0; box-sizing:border-box; }
   html { scroll-behavior:smooth; scroll-padding-top:96px; }
-  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; color:var(--ink); background:var(--paper); line-height:1.7; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
-  .wrap { max-width:1160px; margin:0 auto; padding:0 32px; position:relative; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; color:var(--ink); background:#fff; line-height:1.7; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  .wrap { max-width:1160px; margin:0 auto; padding:0 32px; }
+  a { color:var(--blue); }
 
-  /* top bar — 单据抬头 */
-  .topbar { display:flex; justify-content:space-between; align-items:center; gap:32px; padding:16px 0; position:sticky; top:0; z-index:100; background:var(--paper); border-bottom:2px solid var(--ink); }
-  .brand { font-size:var(--fs-3); font-weight:800; white-space:nowrap; }
-  .brand small { font-weight:400; color:var(--mut); font-size:var(--fs-1); letter-spacing:.18em; margin-left:8px; }
-  .brand .sep { color:var(--line); font-weight:300; margin:0 8px; }
-  .brand .svc { font-size:var(--fs-1); font-weight:500; color:var(--ink2); letter-spacing:.18em; }
+  /* top bar */
+  .topbar { display:flex; justify-content:space-between; align-items:center; gap:32px; padding:18px 0; position:sticky; top:0; z-index:100; background:rgba(255,255,255,.94); backdrop-filter:blur(8px); border-bottom:1px solid var(--line2); }
+  .brand { font-size:20px; font-weight:800; white-space:nowrap; }
+  .brand small { font-weight:400; color:var(--mut); font-size:13px; letter-spacing:.14em; margin-left:8px; }
+  .brand .sep { color:var(--line); font-weight:300; margin:0 10px; }
+  .brand .svc { font-size:14px; font-weight:500; color:var(--ink2); }
   .nav { display:flex; gap:32px; flex:1; margin-left:32px; align-items:center; }
-  .nav a { color:var(--ink2); text-decoration:none; font-size:var(--fs-1); font-weight:600; white-space:nowrap; transition:color .2s; padding-bottom:2px; }
-  .nav a:hover, .nav a:focus-visible { color:var(--blue); box-shadow:var(--sh-line); }
+  .nav a { color:var(--ink2); text-decoration:none; font-size:14px; font-weight:600; white-space:nowrap; transition:color .2s; }
+  .nav a:hover, .nav a:focus-visible { color:var(--blue); }
   .has-drop { position:relative; display:inline-block; }
-  .drop { position:absolute; top:calc(100% + 16px); left:0; transform:translateY(8px); width:256px; max-width:calc(100vw - 32px); background:var(--white); border:2px solid var(--ink); border-radius:2px; box-shadow:var(--shadow); padding:8px; opacity:0; pointer-events:none; transition:opacity .18s, transform .18s; z-index:60; }
-  .drop::before { content:""; position:absolute; left:0; right:0; top:-16px; height:16px; }
+  .drop { position:absolute; top:calc(100% + 14px); left:0; transform:translateY(6px); width:264px; max-width:calc(100vw - 32px); background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:var(--sh); padding:8px; opacity:0; pointer-events:none; transition:opacity .18s, transform .18s; z-index:60; }
+  .drop::before { content:""; position:absolute; left:0; right:0; top:-14px; height:14px; }
   .has-drop:hover .drop, .has-drop:focus-within .drop, .has-drop.open .drop { opacity:1; pointer-events:auto; transform:translateY(0); }
-  .has-drop.suppressed .drop { opacity:0; pointer-events:none; transform:translateY(8px); }
-  .nav .gh { margin-left:auto; display:inline-flex; align-items:center; gap:8px; color:var(--ink); padding-bottom:0; }
-  .nav .gh:hover { color:var(--blue); box-shadow:none; }
+  .has-drop.suppressed .drop { opacity:0; pointer-events:none; transform:translateY(6px); }
+  .nav .gh { margin-left:auto; display:inline-flex; align-items:center; gap:8px; color:var(--ink); }
+  .nav .gh:hover { color:var(--blue); }
   .nav .gh svg { display:block; }
-  .drop a { display:block; padding:8px; border-radius:2px; white-space:normal; }
-  .drop a:hover { background:var(--wash); box-shadow:none; }
-  .drop .t { display:block; font-size:var(--fs-2); font-weight:700; color:var(--ink); }
-  .drop .d { display:block; font-size:var(--fs-1); font-weight:500; color:var(--mut); }
+  .drop a { display:block; padding:10px 12px; border-radius:10px; white-space:normal; }
+  .drop a:hover { background:var(--sky2); }
+  .drop .t { display:block; font-size:15px; font-weight:700; color:var(--ink); }
+  .drop .d { display:block; font-size:13px; font-weight:500; color:var(--mut); }
 
   /* hero */
-  .hero { padding:16px 0 0; position:relative; }
-  /* 报纸大框：首屏整张收进一张纸，全页唯一硬阴影归它 */
-  .sheet { background:var(--white); border:2px solid var(--ink); border-radius:2px; box-shadow:var(--shadow); padding:12px 16px 16px; }
-  /* 单据抬头行：框内第一行，2px 线与正文区分隔 */
-  .doc-head { display:flex; justify-content:space-between; align-items:baseline; gap:16px; font-size:var(--fs-1); letter-spacing:.18em; font-weight:700; color:var(--ink2); border-bottom:2px solid var(--ink); padding-bottom:8px; margin-bottom:8px; }
-  .doc-head .dh-l { color:var(--blue-d); white-space:nowrap; }
-  .doc-head .dh-r { white-space:nowrap; }
-  h1 { font-size:clamp(var(--fs-h1min), 4.6vw, var(--fs-5)); line-height:1.2; font-weight:900; letter-spacing:-.01em; }
-  h1 .mark { background-image:linear-gradient(transparent 78%, var(--org-band) 78%, var(--org-band) 94%, transparent 94%); }
-  .hero-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px 48px; align-items:stretch; }
-  .hero-main { grid-column:1; grid-row:1; min-width:0; display:flex; flex-direction:column; }
-  .report { grid-column:2; grid-row:1; min-width:0; }
-  .hero-grid > .slip { grid-column:1 / -1; }
-  .hero .sub { font-size:var(--fs-2); color:var(--ink2); margin-top:8px; line-height:1.75; max-width:600px; }
+  .hero { padding:54px 0 0; }
+  .hero-grid { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
+  .hero-main { min-width:0; }
+  .eyebrow { display:flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.12em; color:var(--blue-d); margin-bottom:20px; }
+  .eyebrow::before { content:""; width:8px; height:8px; border-radius:50%; background:var(--blue); flex:none; }
+  .eyebrow .e-date { margin-left:auto; letter-spacing:.06em; font-weight:600; color:var(--mut); }
+  h1 { font-size:clamp(36px, 4.6vw, 52px); line-height:1.25; font-weight:800; }
+  h1 .mark { color:var(--blue); }
+  .hero .sub { font-size:16px; color:var(--ink2); margin-top:20px; line-height:1.85; max-width:560px; }
   .hero .sub strong { color:var(--ink); }
-  /* support 行移入左栏底部，与右栏样张底边齐平 */
-  .support { font-size:var(--fs-1); color:var(--ink2); margin-top:auto; padding-top:16px; }
-  .support a { color:var(--blue); text-decoration:none; font-weight:600; }
-  /* 正文容器词内不断行：中文短语整体换行（keep-all，断点只落标点与空格） */
-  .hero .sub, .support, .note, .p-steps, .skill p, .skill h3, .mini p, .mini h4, .step p, .step h3, .report .r-desc, .report .r-sub, .report .r-foot, .trow .t-main span, .trow .t-main b, .ver-note { word-break:keep-all; }
-
-  /* 话术单据（话条） */
-  .slip { display:flex; background:var(--white); border:2px solid var(--ink); border-radius:2px; min-width:0; position:relative; }
-  .punch { flex:none; width:16px; border-right:1px dashed var(--line); background-image:radial-gradient(circle, var(--dot) 3px, transparent 4px); background-size:16px 24px; background-position:center 8px; background-repeat:repeat-y; }
-  .slip-main { flex:1; min-width:0; }
-  .slip-head { display:grid; grid-template-columns:1fr 1fr 1.2fr 1fr; border-bottom:2px solid var(--ink); }
-  .sh-cell { padding:8px 16px; display:flex; align-items:baseline; gap:8px; min-width:0; }
-  .sh-cell + .sh-cell { border-left:1px solid var(--line2); }
-  .sh-k { font-size:var(--fs-1); font-weight:700; letter-spacing:.18em; color:var(--blue-d); white-space:nowrap; }
-  .sh-v { font-size:var(--fs-2); font-weight:700; white-space:nowrap; }
-  .slip-body { padding:16px 24px; }
-  .slip-body .p-head { display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; margin-bottom:8px; }
-  .p-label { font-size:var(--fs-1); letter-spacing:.18em; color:var(--blue-d); font-weight:700; }
-  .p-actions { display:flex; align-items:center; gap:16px; margin-left:auto; }
-  .btn { appearance:none; background:var(--org); color:var(--white); font-size:var(--fs-2); font-weight:700; letter-spacing:.18em; padding:16px 32px; cursor:pointer; border:2px solid var(--ink); border-radius:2px; box-shadow:var(--sh-btn); transition:transform .15s, background .15s, box-shadow .15s; }
-  .btn:hover { background:var(--org-d); transform:translate(-1px,-1px); box-shadow:var(--sh-btn-hov); }
-  .btn:active { transform:translate(2px,2px); box-shadow:var(--sh-btn-act); }
-  .btn.small { font-size:var(--fs-1); padding:8px 16px; }
-  .copied { color:var(--blue-d); font-size:var(--fs-1); display:none; font-weight:700; }
-  /* 数字短语不断行工具类（数字与单位/汉字之间不拆） */
+  .support { font-size:14px; color:var(--mut); margin-top:24px; line-height:1.8; max-width:560px; }
+  .support a { font-weight:600; text-decoration:none; }
+  .support a:hover { text-decoration:underline; }
+  .hero .sub, .support, .note, .skill p, .skill h3, .mini p, .step p, .step h3, .report .r-desc, .trow .t-main span, .trow .t-main b, .ver-note { word-break:keep-all; }
   .nb { white-space:nowrap; }
-  .p-box { position:relative; background:var(--wash); border:1px solid var(--line); padding:16px; }
-  .p-text { font-size:var(--fs-2); line-height:1.65; font-weight:600; overflow-wrap:break-word; }
-  .p-url { font-size:var(--fs-1); }
-  .stamp { position:absolute; bottom:16px; right:32px; transform:rotate(-6deg); font-size:var(--fs-3); font-weight:900; letter-spacing:.24em; color:var(--stamp); border:2px solid var(--stamp); border-radius:2px; padding:8px 16px 8px 24px; background:var(--veil); box-shadow:var(--sh-stamp); opacity:.94; pointer-events:none; }
-  .p-steps { display:flex; flex-wrap:wrap; align-items:center; gap:8px 16px; font-size:var(--fs-1); color:var(--ink2); }
-  /* 存根联（单据下联，与单据同宽同边，打孔撕线相连） */
-  .stub { border-top:2px dashed var(--line); padding:24px 216px 32px 24px; position:relative; }
-  .stub::before { content:""; position:absolute; top:8px; left:0; right:0; height:8px; background-image:radial-gradient(circle, var(--dot) 3px, transparent 4px); background-size:24px 8px; background-position:12px center; background-repeat:repeat-x; }
-  .p-steps b { display:inline-flex; align-items:center; justify-content:center; width:24px; height:24px; border-radius:2px; background:var(--white); border:2px solid var(--ink); color:var(--ink); font-size:var(--fs-1); margin-right:8px; }
+
+  /* prompt card */
+  .prompt-card { background:#fff; border:1.5px solid var(--blue); border-radius:var(--r); box-shadow:var(--sh); padding:24px; min-width:0; }
+  .p-head { display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; margin-bottom:14px; }
+  .p-label { font-size:14px; font-weight:800; color:var(--blue-d); letter-spacing:.04em; }
+  .p-date { font-size:13px; color:var(--mut); white-space:nowrap; }
+  .p-box { background:var(--sky); border-radius:12px; padding:18px 20px; }
+  .p-text { font-size:16px; line-height:1.7; font-weight:600; overflow-wrap:break-word; }
+  .p-url { font-size:14px; color:var(--blue-d); }
+  .p-actions { display:flex; align-items:center; gap:16px; margin-top:18px; flex-wrap:wrap; }
+  .btn { appearance:none; background:var(--blue); color:#fff; font-size:16px; font-weight:700; letter-spacing:.06em; padding:14px 32px; cursor:pointer; border:0; border-radius:999px; box-shadow:0 10px 22px -8px rgba(23,112,203,.5); transition:background .15s, transform .15s; }
+  .btn:hover { background:var(--blue-d); }
+  .btn:active { transform:translateY(1px); }
+  .btn.small { font-size:14px; padding:9px 22px; }
+  .copied { color:var(--blue-d); font-size:14px; display:none; font-weight:700; }
+  .note { font-size:13.5px; color:var(--mut); margin-top:12px; line-height:1.7; }
+  .p-steps { display:grid; grid-template-columns:1fr auto 1fr auto 1fr; align-items:start; gap:10px 12px; font-size:13.5px; color:var(--ink2); margin-top:18px; padding-top:16px; border-top:1px dashed var(--line); }
+  .p-steps b { display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:50%; background:var(--sky); color:var(--blue-d); font-size:12.5px; margin-right:7px; }
   .p-steps i { font-style:normal; color:var(--mut); }
-  .note { font-size:var(--fs-1); color:var(--mut); margin-top:8px; max-width:760px; }
-  .note a { color:var(--blue); text-decoration:none; font-weight:600; }
 
-  /* 日报面板（纸面行式：栏目名＋说明＋右端状态字） */
-  .report { background:var(--white); border:1px solid var(--line); border-radius:2px; padding:12px 24px; }
-  .report .r-head { display:flex; justify-content:space-between; align-items:center; gap:16px; margin-bottom:8px; }
-  .report .r-title { font-size:var(--fs-2); font-weight:800; }
-  .report .r-tag { font-size:var(--fs-1); font-weight:700; color:var(--ink); background:var(--white); border:1px solid var(--ink); padding:8px 16px; border-radius:2px; letter-spacing:.18em; white-space:nowrap; }
-  .report .r-sub { font-size:var(--fs-1); color:var(--mut); margin-bottom:4px; }
-  .report .r-item { display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; padding:6px 0; border-top:1px solid var(--line2); font-size:var(--fs-1); line-height:1.5; }
-  .report .r-item b { font-size:var(--fs-2); white-space:nowrap; }
-  .report .r-item .r-desc { color:var(--ink2); font-size:var(--fs-1); flex:1; min-width:192px; }
-  .report .r-item .r-st { font-size:var(--fs-1); font-weight:700; letter-spacing:.18em; color:var(--blue-d); white-space:nowrap; margin-left:auto; }
-  .report .r-item .r-st.wait { color:var(--ink); }
-  .report .r-foot { margin-top:8px; font-size:var(--fs-1); color:var(--mut); border-top:1px dashed var(--line); padding-top:8px; }
+  /* daily report panel */
+  .report { margin-top:48px; background:var(--sky2); border-radius:var(--r); padding:26px 28px; }
+  .report .r-head { display:flex; justify-content:space-between; align-items:center; gap:16px; }
+  .report .r-title { font-size:17px; font-weight:800; }
+  .report .r-tag { font-size:12.5px; font-weight:700; color:var(--blue-d); background:#fff; padding:4px 12px; border-radius:999px; white-space:nowrap; }
+  .report .r-sub { font-size:13.5px; color:var(--mut); margin-top:4px; }
+  .report .r-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; margin-top:18px; }
+  .report .r-item { background:#fff; border-radius:12px; padding:14px 16px; display:flex; flex-direction:column; }
+  .report .r-item b { display:block; font-size:15.5px; }
+  .report .r-item .r-desc { display:block; color:var(--ink2); font-size:13.5px; line-height:1.6; margin-top:4px; margin-bottom:8px; }
+  .report .r-item .r-st { display:inline-block; font-size:12.5px; font-weight:700; color:var(--green); margin-top:auto; }
+  .report .r-item .r-st.wait { color:var(--amber); }
+  .report .r-foot { margin-top:16px; font-size:13px; color:var(--mut); }
 
-  /* sections — 日报栏目式节头 */
-  section { padding:64px 0 0; position:relative; }
-  .sec-head { display:flex; align-items:center; gap:16px; margin-bottom:32px; border-bottom:2px solid var(--ink); padding-bottom:16px; }
-  .sec-tag { font-size:var(--fs-1); font-weight:800; letter-spacing:.18em; color:var(--white); background:var(--ink); padding:8px 16px; border-radius:2px; white-space:nowrap; }
-  .sec-head h2 { font-size:var(--fs-4); font-weight:800; white-space:nowrap; }
-  .sec-head .sec-note { margin-left:auto; font-size:var(--fs-1); color:var(--mut); text-align:right; }
+  /* sections */
+  section { padding:72px 0 0; }
+  .sec-head { margin-bottom:28px; }
+  .sec-head h2 { font-size:30px; font-weight:800; }
+  .sec-head .sec-note { font-size:14px; color:var(--mut); margin-top:6px; }
 
-  /* skills — 单据卡 */
-  .skill { display:grid; grid-template-columns:64px 1fr; gap:8px 24px; padding:32px; margin-bottom:32px; background:var(--white); border:2px solid var(--ink); border-radius:2px; box-shadow:var(--shadow); transition:transform .2s, box-shadow .2s; }
-  .skill:hover { transform:translate(-2px,-2px); box-shadow:var(--sh-hover); }
-  /* 索引数字 --fs-3（20px／900 墨色，全断点恒定），与条目标题同字号靠字重分先后（R6 裁定，旧 28px 索引档整支删除，蓝色只留单号小字） */
-  .skill .big-no { font-size:var(--fs-3); font-weight:900; color:var(--ink); line-height:1; }
-  .skill .s-no { font-size:var(--fs-1); font-weight:700; color:var(--blue-d); letter-spacing:.18em; line-height:1.6; margin-top:8px; }
-  .stamp-sm { display:inline-block; font-size:var(--fs-1); font-weight:800; letter-spacing:.18em; color:var(--stamp); border:2px solid var(--stamp); border-radius:2px; padding:0 8px; white-space:nowrap; transform:rotate(-3deg); background:var(--veil); }
-  .skill h3 { font-size:var(--fs-3); font-weight:800; line-height:1.4; }
-  .chip { display:inline-block; font-size:var(--fs-1); font-weight:700; color:var(--blue-d); background:var(--wash); border:1px solid var(--blue); padding:8px 16px; border-radius:2px; white-space:nowrap; }
-  /* 版本行：标题下 32px 一行，chip 左、状态印章右、基线对齐（双卡同构） */
-  .ver-row { display:flex; justify-content:space-between; align-items:center; gap:16px; height:32px; margin-top:8px; }
-  .ver-row .chip { padding:0 16px; height:32px; display:inline-flex; align-items:center; }
-  .skill p { font-size:var(--fs-2); color:var(--ink2); margin-top:16px; max-width:800px; }
+  /* skills */
+  .skill { display:grid; grid-template-columns:56px 1fr; gap:6px 24px; padding:30px 28px; margin-bottom:24px; background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--sh-sm); transition:transform .2s, box-shadow .2s; }
+  .skill:hover { transform:translateY(-2px); box-shadow:var(--sh); }
+  .skill .big-no { font-size:20px; font-weight:800; color:var(--blue); line-height:1.2; }
+  .skill h3 { font-size:20px; font-weight:800; line-height:1.45; }
+  .ver-row { display:flex; justify-content:space-between; align-items:center; gap:16px; margin-top:10px; }
+  .chip { display:inline-block; font-size:13.5px; font-weight:700; color:var(--blue-d); background:var(--sky); padding:5px 14px; border-radius:999px; white-space:nowrap; }
+  .pill { display:inline-flex; align-items:center; gap:7px; font-size:13px; font-weight:700; color:var(--ink2); white-space:nowrap; }
+  .pill::before { content:""; width:8px; height:8px; border-radius:50%; background:var(--green); flex:none; }
+  .pill.test::before { background:var(--amber); }
+  .pill.gray::before { background:var(--mut); }
+  .skill p { font-size:15.5px; color:var(--ink2); margin-top:14px; max-width:820px; line-height:1.85; }
   .skill p strong { color:var(--ink); }
-  .skill .links { margin-top:16px; font-size:var(--fs-2); display:flex; gap:32px; flex-wrap:wrap; }
-  .skill .links a { color:var(--blue); text-decoration:none; font-weight:700; padding-bottom:2px; }
-  .skill .links a:hover, .skill .links a:focus-visible { box-shadow:var(--sh-line); }
-  .mini-rows { background:var(--white); border:2px solid var(--ink); border-radius:2px; box-shadow:var(--shadow); }
-  .mini { display:flex; gap:24px; align-items:baseline; padding:24px; }
+  .skill .links { margin-top:16px; font-size:15px; display:flex; gap:28px; flex-wrap:wrap; }
+  .skill .links a { text-decoration:none; font-weight:700; }
+  .skill .links a:hover { text-decoration:underline; }
+  .mini-rows { background:var(--sky2); border-radius:var(--r); overflow:hidden; }
+  .mini { display:grid; grid-template-columns:auto 120px 1fr auto; column-gap:20px; align-items:baseline; padding:20px 28px; }
   .mini + .mini { border-top:1px solid var(--line2); }
-  .mini h4 { font-size:var(--fs-2); font-weight:600; white-space:nowrap; min-width:256px; }
-  .mini .m-no { font-size:var(--fs-3); font-weight:900; color:var(--ink); margin-right:8px; vertical-align:-2px; }
-  .mini .st { font-size:var(--fs-1); font-weight:800; letter-spacing:.18em; color:var(--stamp); background:var(--veil); border:2px solid var(--stamp); padding:0 8px; border-radius:2px; white-space:nowrap; transform:rotate(-3deg); }
-  .mini .st.gray { color:var(--ink2); border-color:var(--ink2); }
-  .mini .m-sno { margin-left:auto; font-size:var(--fs-1); font-weight:700; color:var(--blue-d); letter-spacing:.18em; white-space:nowrap; }
-  .mini p { font-size:var(--fs-1); color:var(--ink2); }
+  .mini .m-no { font-size:16px; font-weight:800; color:var(--blue); }
+  .mini h4 { font-size:15.5px; font-weight:700; white-space:nowrap; min-width:120px; }
+  .mini p { font-size:14px; color:var(--ink2); flex:1; }
+  .mini .pill { margin-left:auto; }
 
-  /* tutorials — 日报附页行式列表 */
-  .tut-list { background:var(--white); border-top:2px solid var(--ink); border-bottom:2px solid var(--ink); background-image:repeating-linear-gradient(transparent, transparent 27px, var(--ink-line) 27px, var(--ink-line) 28px); }
-  .trow { display:flex; flex-wrap:wrap; align-items:center; gap:8px 24px; padding:24px; text-decoration:none; color:var(--ink); transition:background .15s; }
+  /* tutorials */
+  .tut-list { background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--sh-sm); overflow:hidden; }
+  .trow { display:flex; flex-wrap:wrap; align-items:center; gap:6px 24px; padding:22px 28px; text-decoration:none; color:var(--ink); transition:background .15s; }
   .trow + .trow { border-top:1px solid var(--line2); }
-  .trow:hover { background:var(--wash-hov); }
-  .trow .t-no { font-size:var(--fs-1); font-weight:800; letter-spacing:.18em; color:var(--blue-d); white-space:nowrap; }
-  .trow .t-no small { display:block; letter-spacing:.18em; color:var(--mut); font-weight:700; margin-top:8px; }
+  .trow:hover { background:var(--sky2); }
+  .trow .t-no { font-size:14px; font-weight:800; color:var(--blue-d); white-space:nowrap; min-width:88px; }
+  .trow .t-no small { display:block; color:var(--mut); font-weight:600; font-size:12.5px; margin-top:2px; }
   .trow .t-main { flex:1 1 320px; min-width:0; }
-  .trow .t-main b { display:block; font-size:var(--fs-3); font-weight:800; }
-  .trow .t-main span { display:block; font-size:var(--fs-1); color:var(--ink2); line-height:1.65; }
-  .trow .t-go { font-size:var(--fs-1); font-weight:700; color:var(--blue); white-space:nowrap; margin-left:auto; }
+  .trow .t-main b { display:block; font-size:17.5px; font-weight:800; }
+  .trow .t-main span { display:block; font-size:13.5px; color:var(--ink2); line-height:1.65; margin-top:2px; }
+  .trow .t-go { font-size:14px; font-weight:700; color:var(--blue); white-space:nowrap; margin-left:auto; }
 
-  /* steps — 办理记录表 */
-  .steps { background:var(--white); border:2px solid var(--ink); border-radius:2px; box-shadow:var(--shadow); }
-  .step { display:grid; grid-template-columns:64px 1fr; gap:8px 24px; padding:24px; align-items:start; }
+  /* install steps */
+  .steps { background:var(--sky2); border-radius:var(--r); overflow:hidden; }
+  .step { display:grid; grid-template-columns:56px 1fr; gap:6px 24px; padding:24px 28px; align-items:start; }
   .step + .step { border-top:1px solid var(--line2); }
-  .step .num { font-size:var(--fs-3); font-weight:900; color:var(--ink); line-height:1; display:block; }
-  .step h3 { font-size:var(--fs-3); font-weight:700; margin-bottom:8px; }
-  .step p { font-size:var(--fs-2); color:var(--ink2); }
-  .step p a { color:var(--blue); text-decoration:none; font-weight:700; }
-  .step .btn { margin-top:16px; }
-  .cmd-wrap { margin-top:32px; }
-  .cmd-wrap summary { cursor:pointer; font-size:var(--fs-2); font-weight:700; color:var(--blue-d); }
-  .cmd { margin-top:16px; background:var(--white); color:var(--ink); border:2px solid var(--ink); border-radius:2px; box-shadow:var(--shadow); padding:16px 24px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:var(--fs-1); display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  .step .num { font-size:20px; font-weight:800; color:var(--blue); line-height:1.2; }
+  .step h3 { font-size:18px; font-weight:700; margin-bottom:6px; }
+  .step p { font-size:15px; color:var(--ink2); line-height:1.85; }
+  .step p a { text-decoration:none; font-weight:700; }
+  .step p a:hover { text-decoration:underline; }
+  .step .btn { margin-top:14px; }
+  .cmd-wrap { margin-top:24px; }
+  .cmd-wrap summary { cursor:pointer; font-size:15px; font-weight:700; color:var(--blue-d); }
+  .cmd { margin-top:14px; background:var(--ink); color:#e6f1fb; border-radius:14px; padding:16px 20px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13.5px; display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
   .cmd code { overflow-x:auto; white-space:nowrap; flex:1; min-width:0; }
-  .cmd .cmd-copy { appearance:none; background:var(--white); color:var(--ink); border:2px solid var(--ink); border-radius:2px; font-size:var(--fs-1); font-weight:700; padding:8px 16px; cursor:pointer; white-space:nowrap; }
-  .cmd .cmd-copy:hover { background:var(--wash); }
-  .cmd-tip { color:var(--blue-d); font-size:var(--fs-1); font-weight:700; display:none; }
+  .cmd .cmd-copy { appearance:none; background:transparent; color:#fff; border:1px solid rgba(255,255,255,.4); border-radius:999px; font-size:13px; font-weight:700; padding:7px 16px; cursor:pointer; white-space:nowrap; }
+  .cmd .cmd-copy:hover { background:rgba(255,255,255,.12); }
+  .cmd-tip { color:#9fd0f7; font-size:13px; font-weight:700; display:none; }
 
   /* version line */
-  .ver-line { margin-top:64px; border-top:2px solid var(--ink); padding-top:24px; font-size:var(--fs-1); color:var(--ink2); display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
-  .ver-line .v-tag { font-weight:800; letter-spacing:.18em; color:var(--white); background:var(--ink); padding:8px 16px; border-radius:2px; }
-  .ver-line strong { color:var(--ink); font-size:var(--fs-2); }
-  .ver-line a { color:var(--blue); font-weight:700; text-decoration:none; margin-left:auto; padding-bottom:2px; }
-  .ver-line a:hover, .ver-line a:focus-visible { box-shadow:var(--sh-line); }
-  .ver-note { font-size:var(--fs-1); color:var(--mut); margin-top:8px; max-width:780px; }
-  /* 费用事实行（原 facts 第三格逐字移植，全页唯一出处） */
-  .fee-line { display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; margin-top:16px; font-size:var(--fs-1); color:var(--ink2); }
-  .fee-line .fee-k { font-weight:700; letter-spacing:.18em; color:var(--mut); }
-  .fee-line strong { color:var(--ink); font-size:var(--fs-2); }
+  .ver-line { margin-top:72px; border-top:1px solid var(--line2); padding-top:24px; font-size:14px; color:var(--ink2); display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+  .ver-line .v-tag { font-weight:800; color:var(--mut); letter-spacing:.08em; }
+  .ver-line strong { color:var(--ink); font-size:16px; }
+  .ver-line a { font-weight:700; text-decoration:none; margin-left:auto; }
+  .ver-line a:hover { text-decoration:underline; }
+  .ver-note { font-size:13.5px; color:var(--mut); margin-top:8px; max-width:780px; }
+  .fee-line { display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-top:14px; font-size:14px; color:var(--ink2); }
+  .fee-line .fee-k { font-weight:800; letter-spacing:.08em; color:var(--mut); }
+  .fee-line strong { color:var(--ink); font-size:15.5px; }
 
   /* contact */
-  .contact { display:grid; grid-template-columns:280px 1fr 1.2fr; gap:0; background:var(--white); border:2px solid var(--ink); border-radius:2px; }
-  .contact .cell { padding:16px 24px; display:flex; flex-direction:column; }
-  .contact .cell + .cell { border-left:2px solid var(--ink); }
-  .contact .k { font-size:var(--fs-1); letter-spacing:.18em; color:var(--blue-d); font-weight:700; display:block; margin-bottom:16px; }
-  .contact .v { font-size:var(--fs-3); font-weight:700; }
+  .contact { display:grid; grid-template-columns:280px 1fr 1.2fr; background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--sh-sm); overflow:hidden; }
+  .contact .cell { padding:22px 28px; display:flex; flex-direction:column; }
+  .contact .cell + .cell { border-left:1px solid var(--line2); }
+  .contact .k { font-size:13px; letter-spacing:.1em; color:var(--mut); font-weight:700; display:block; margin-bottom:14px; }
+  .contact .v { font-size:19px; font-weight:700; word-break:break-all; }
   .contact .v a { color:var(--ink); text-decoration:none; }
   .contact .v a:hover { color:var(--blue); }
-  .contact .d { font-size:var(--fs-1); color:var(--mut); margin-top:auto; padding-top:8px; }
-  .contact img { width:128px; height:128px; display:block; border-radius:2px; border:2px solid var(--ink); }
-  .foot-edge { margin-top:64px; height:16px; background-image:radial-gradient(circle, var(--dot) 3px, transparent 4px); background-size:24px 16px; background-position:8px center; background-repeat:repeat-x; }
-  footer { padding:24px 0 32px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; font-size:var(--fs-1); color:var(--mut); }
-  footer .f-note { display:block; margin-top:8px; }
-  footer a { color:var(--mut); text-decoration:none; transition:color .2s; padding-bottom:2px; }
-  footer a:hover, footer a:focus-visible { color:var(--blue); box-shadow:var(--sh-line); }
-
-  /* mini 行桌面列格（≥901px）：与技能卡同构——左轨 64px（编号／单号上下同位，与 .skill 的 big-no／s-no 一致）、名称＋印章标题行、说明随其后；左内距 32＋轨 64＋列距 24＋边框 2＝122px，说明左起点与技能卡正文左界同值对齐（K#4 第二案；单号中置列序下说明起点 ≥186px、无法对齐，故不采用） */
-  @media (min-width:901px) {
-    .mini { display:grid; grid-template-columns:64px auto 1fr; column-gap:24px; row-gap:8px; padding:24px 24px 24px 32px; }
-    .mini h4 { display:contents; }
-    .mini .m-no { grid-column:1; grid-row:1; margin-right:0; }
-    .mini .st { grid-column:3; grid-row:1; justify-self:start; margin-left:16px; }
-    .mini .m-sno { grid-column:1; grid-row:2; margin-left:0; white-space:normal; }
-    .mini p { grid-column:2 / -1; grid-row:2; }
+  .contact .d { font-size:13.5px; color:var(--mut); margin-top:12px; }
+  .contact img { width:112px; height:112px; display:block; border-radius:12px; border:1px solid var(--line); }
+  @media (min-width:761px) {
+    .contact .cell { display:grid; grid-template-rows:auto 112px auto; align-content:start; }
   }
-  @media (prefers-reduced-motion: reduce) { * { animation:none !important; transition:none !important; } html { scroll-behavior:auto; } .skill:hover, .btn:hover { transform:none; } }
+  footer { margin-top:72px; border-top:1px solid var(--line2); padding:24px 0 36px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; font-size:13.5px; color:var(--mut); }
+  footer a { color:var(--mut); text-decoration:none; font-weight:600; }
+  footer a:hover { color:var(--blue); }
+
+  @media (prefers-reduced-motion: reduce) { * { animation:none !important; transition:none !important; } html { scroll-behavior:auto; } }
   @media (max-width:900px) {
-    /* 移动端框内顺序：报头→标题＋副文案→单据→样张→support（display:contents 摊平＋order 重排，support 在 DOM 中只一份、桌面仍沉左栏底） */
-    .sheet { display:flex; flex-direction:column; }
-    .hero-grid, .hero-main { display:contents; }
-    .doc-head { order:0; }
-    .sheet h1 { order:1; }
+    .hero { padding-top:36px; }
+    .hero-grid { display:flex; flex-direction:column; gap:0; }
+    .hero-main { display:contents; }
+    .eyebrow { order:0; }
+    .hero h1 { order:1; }
     .hero .sub { order:2; }
-    .sheet .slip { order:3; margin-top:32px; }
-    .sheet .report { order:4; margin-top:32px; }
-    .sheet .support { order:5; margin-top:16px; padding-top:0; }
+    .prompt-card { order:3; margin-top:28px; width:100%; }
+    .support { order:4; margin-top:20px; }
+    .report { order:5; }
+    .report .r-grid { grid-template-columns:1fr 1fr; }
     .mini { flex-wrap:wrap; }
-    .mini h4 { white-space:normal; min-width:0; }
+    .mini .pill { margin-left:0; }
+    .p-steps { display:flex; flex-direction:column; align-items:flex-start; gap:8px; }
+    .p-steps i { display:none; }
   }
   @media (max-width:760px) {
-    .wrap { padding:0 16px; }
+    .wrap { padding:0 18px; }
     html { scroll-padding-top:80px; }
-    .topbar { flex-wrap:nowrap; gap:16px; padding:8px 0; }
-    .brand { font-size:var(--fs-2); }
+    .topbar { flex-wrap:nowrap; gap:16px; padding:12px 0; }
+    .brand { font-size:17px; }
     .brand small, .brand .svc, .brand .sep { display:none; }
-    .nav { flex:none; margin-left:auto; gap:16px; position:relative; }
-    .nav a { font-size:var(--fs-1); }
+    .nav { flex:none; margin-left:auto; gap:18px; position:relative; }
     .has-drop { position:static; }
     .drop { left:0; right:0; width:auto; max-width:none; top:calc(100% + 8px); }
-    .hero { padding:16px 0 0; }
-    .slip-body { padding:16px; }
-    .stub { padding:24px 24px 56px; }
-    .p-steps { flex-direction:column; align-items:flex-start; gap:8px; }
-    .p-steps i { display:none; }
-    /* 单据头移动端 2×2 网格：第一行 收件／事项、第二行 日期／单号，格间线保留；格内签头在上、值在下（与联系回执表同式），长日期串整格宽容纳不断行 */
-    .slip-head { grid-template-columns:1fr 1fr; }
-    .sh-cell { padding:8px; flex-direction:column; align-items:flex-start; gap:0; }
-    .sh-cell + .sh-cell { border-left:0; border-top:0; }
-    .sh-cell:nth-child(even) { border-left:1px solid var(--line2); }
-    .sh-cell:nth-child(n+3) { border-top:1px solid var(--line2); }
-    .sh-k { line-height:1.3; }
-    .sh-v { font-size:var(--fs-1); line-height:1.3; }
-    /* 话术回首屏：副文案与单据的间距在 8 倍数内收紧（32→8） */
-    .sheet .slip { margin-top:8px; }
-    .stamp { bottom:16px; right:16px; font-size:var(--fs-2); padding:8px 16px 8px 24px; }
-    .p-actions { margin-left:0; }
-    /* 样张移动端两行制：栏目名＋状态字同行、说明占整行 */
-    .report .r-item { display:grid; grid-template-columns:1fr auto; column-gap:16px; }
-    .report .r-item b { grid-column:1; grid-row:1; }
-    .report .r-item .r-st { grid-column:2; grid-row:1; margin-left:0; }
-    .report .r-item .r-desc { grid-column:1 / -1; grid-row:2; min-width:0; }
-    /* 教程 mini 行移动端归队：第一行编号＋名／印章，第二行单号起头接说明 */
-    .mini h4 { order:1; }
-    .mini .st { order:2; margin-left:auto; }
-    .mini .m-sno { order:3; margin-left:0; }
-    .mini p { order:4; flex:1 1 220px; }
-    /* 教程行移动端收紧：篇号左栏跨两行、标题与「开始看」同行、说明整行随后 */
-    .trow { display:grid; grid-template-columns:auto 1fr auto; column-gap:16px; align-items:baseline; }
-    .trow .t-main { display:contents; }
-    .trow .t-no { grid-column:1; grid-row:1 / span 2; }
-    .trow .t-main b { grid-column:2; grid-row:1; font-size:var(--fs-2); }
-    .trow .t-go { grid-column:3; grid-row:1; margin-left:0; }
-    .trow .t-main span { grid-column:2 / -1; grid-row:2; }
-    section { padding:48px 0 0; }
-    .sec-head { flex-wrap:wrap; }
-    .sec-head h2 { font-size:var(--fs-h2m); }
-    .sec-head .sec-note { margin-left:0; text-align:left; }
-    .step { padding:16px; }
-    .skill { grid-template-columns:1fr; padding:24px; }
-    .skill .links { flex-direction:column; align-items:flex-start; gap:8px; }
+    .hero { padding-top:28px; }
+    h1 { font-size:34px; }
+    .prompt-card { padding:20px; }
+    .p-actions .btn { width:100%; text-align:center; }
+    .report { padding:20px; margin-top:36px; }
+    .report .r-grid { grid-template-columns:1fr; gap:12px; }
+    section { padding:52px 0 0; }
+    .sec-head h2 { font-size:25px; }
+    .skill { grid-template-columns:1fr; padding:24px 20px; }
+    .skill .links { flex-direction:column; gap:8px; }
+    .mini { padding:18px 20px; display:grid; grid-template-columns:auto 1fr auto; grid-template-areas:"mno mtitle mpill" "mdesc mdesc mdesc"; align-items:center; column-gap:14px; row-gap:4px; }
+    .mini .m-no { grid-area:mno; }
+    .mini h4 { min-width:0; white-space:normal; grid-area:mtitle; }
+    .mini p { grid-area:mdesc; }
+    .mini .pill { grid-area:mpill; margin-left:0; }
+    .trow { padding:20px; position:relative; }
+    .trow .t-main span { padding-right:76px; }
+    .trow .t-go { position:absolute; right:20px; bottom:20px; margin-left:0; }
+    .step { padding:20px; }
     .contact { grid-template-columns:1fr; }
-    .contact .cell + .cell { border-left:0; border-top:2px solid var(--ink); }
+    .contact .cell + .cell { border-left:0; border-top:1px solid var(--line2); }
     .ver-line a { margin-left:0; }
+    .ver-line { margin-top:52px; }
+    footer { margin-top:52px; }
   }
-  @media (max-width:420px) {
-    .report { padding:16px; }
-    .nav .gh span { display:none; }
-  }
+  @media (max-width:420px) { .nav .gh span { display:none; } }
 </style>
 </head>
 <body>
@@ -314,65 +254,52 @@
   </div>
 
   <div class="hero">
-    <div class="sheet">
-    <div class="doc-head"><span class="dh-l">贸知事技能仓 · 日报</span><span class="dh-r" id="docDate">2026 年 11 月 22 日</span></div>
     <div class="hero-grid">
       <div class="hero-main">
+        <p class="eyebrow"><span>贸知事技能仓</span><span class="e-date" id="docDate">2026 年 11 月 22 日</span></p>
         <h1>一个人，<br>也能像一个<span class="mark">团队</span>。</h1>
         <p class="sub">跑工厂、盯生产、陪客户，一天已经够满了。建站更新、找客户、写开发信、排跟进这些<strong>耗时间的活</strong>，现在不用你一件件干：在 Muse 里装上贸知事技能仓，它们都由 Muse 在<strong>云端全自动执行</strong>。你白天忙外面的，晚上回到家，日报已经躺在对话里等你看。</p>
         <p class="support">Muse 是你的 AI 助手应用，网页、手机、电脑上都能用，还没有的先去 <a href="https://muse.ai" target="_blank" rel="noopener">muse.ai</a> 看看。本站主推 Muse 云端运行；技能源码公开，其他 AI 助手也可自行取用。</p>
       </div>
-      <div class="report" role="region" aria-label="日报样式示意">
-        <div class="r-head"><span class="r-title">日报长这样</span><span class="r-tag">样式示例</span></div>
-        <div class="r-sub">每天晚上发到你对话里的日报，栏目是这几样</div>
-        <div class="r-item"><b>网站更新</b><span class="r-desc">今天更新了哪几页、巡检有没有异常，一条条列清</span><span class="r-st">已更新</span></div>
-        <div class="r-item"><b>客户跟进</b><span class="r-desc">今天跟进了哪些客户、发到第几轮，这里能查</span><span class="r-st">已跟进</span></div>
-        <div class="r-item"><b>新回复</b><span class="r-desc">新回信先帮你分好轻重，重要的排在前面</span><span class="r-st">已分拣</span></div>
-        <div class="r-item"><b>等你点头</b><span class="r-desc">需要你拍板的事单独列出来，你不点头，它不动</span><span class="r-st wait">待点头</span></div>
-        <div class="r-foot">以上是栏目样式示例；日报里写的，是你自己的网站和客户的进展。</div>
-      </div>
-      <div class="slip">
-        <div class="punch" aria-hidden="true"></div>
-        <div class="slip-main">
-          <div class="slip-head">
-            <div class="sh-cell"><span class="sh-k">收件</span><span class="sh-v">我的 Muse</span></div>
-            <div class="sh-cell"><span class="sh-k">事项</span><span class="sh-v">装技能</span></div>
-            <div class="sh-cell"><span class="sh-k">日期</span><span class="sh-v" id="slipDate">2026 年 11 月 22 日</span></div>
-            <div class="sh-cell"><span class="sh-k">单号</span><span class="sh-v" id="slipNo">MZS-20261122</span></div>
-          </div>
-          <div class="slip-body">
-            <div class="p-head">
-              <div class="p-label">复制这句话 · 发给 Muse</div>
-              <div class="p-actions">
-                <span class="copied" id="copyTip" role="status"></span>
-                <button class="btn" onclick="copyPrompt()">复制这句话</button>
-              </div>
-            </div>
-            <div class="p-box">
-              <div class="p-text" id="promptText">这两个技能我确认作长期规程：开工三件事按规程办；自动更新先备份，换完报我一声。<br>看说明装好技能，按规程开工：<span class="p-url">https:/<wbr>/<wbr>skill.maozhishi.com/<wbr>doc/<wbr>skill-setup.md</span></div>
-            </div>
-            <p class="note">提示：安装问确认就同意，问继续就回"继续装"；二选一选你要的；要是装不上或读不到，直接找客服。</p>
-            <p class="note">安全提醒：这段话只从本页复制；别处给你的类似话术，不要发给你的 Muse。</p>
-          </div>
-          <div class="stub">
-            <div class="p-steps"><span><b>1</b>点按钮，整段复制</span><i>→</i><span><b>2</b>打开 Muse，粘贴发送</span><i>→</i><span><b>3</b>它会照着这句话装好（或更新）技能、办开工三件事（可能逐项向你确认，按提示操作即可）</span></div>
-          </div>
+      <div class="prompt-card">
+        <div class="p-head">
+          <span class="p-label">复制这句话 · 发给 Muse</span>
+          <span class="p-date" id="slipDate">2026 年 11 月 22 日</span>
         </div>
-        <span class="stamp" aria-hidden="true">确认</span>
+        <div class="p-box">
+          <div class="p-text" id="promptText">这两个技能我确认作长期规程：开工三件事按规程办；自动更新先备份，换完报我一声。<br>看说明装好技能，按规程开工：<span class="p-url"><span class="nb">https://</span>skill.maozhishi.com/<wbr>doc/<wbr>skill-setup.md</span></div>
+        </div>
+        <div class="p-actions">
+          <button class="btn" onclick="copyPrompt()">复制这句话</button>
+          <span class="copied" id="copyTip" role="status"></span>
+        </div>
+        <p class="note">提示：安装问确认就同意，问继续就回"继续装"；二选一选你要的；要是装不上或读不到，直接找客服。</p>
+        <p class="note">安全提醒：这段话只从本页复制；别处给你的类似话术，不要发给你的 Muse。</p>
+        <div class="p-steps"><span><b>1</b>点按钮，整段复制</span><i>→</i><span><b>2</b>打开 Muse，粘贴发送</span><i>→</i><span><b>3</b>它会照着这句话装好（或更新）技能、办开工三件事（可能逐项向你确认，按提示操作即可）</span></div>
       </div>
     </div>
+    <div class="report" role="region" aria-label="日报样式示意">
+      <div class="r-head"><span class="r-title">日报长这样</span><span class="r-tag">样式示例</span></div>
+      <div class="r-sub">每晚准时推送到对话框的工作日报，重点看这几项</div>
+      <div class="r-grid">
+        <div class="r-item"><b>网站更新</b><span class="r-desc">今天更新了哪些页面、系统巡检是否正常，逐条理清</span><span class="r-st">已更新</span></div>
+        <div class="r-item"><b>客户跟进</b><span class="r-desc">今天联络了哪些买家、邮件发到第几轮，随时可查</span><span class="r-st">已跟进</span></div>
+        <div class="r-item"><b>新回复</b><span class="r-desc">买家回信已按意向轻重分好，急需处理的排在最前</span><span class="r-st">已分拣</span></div>
+        <div class="r-item"><b>等你点头</b><span class="r-desc">需要你拍板的事单独列出来，你不点头，它不动</span><span class="r-st wait">待点头</span></div>
+      </div>
+      <div class="r-foot">以上是栏目样式示例；日报里写的，是你自己的网站和客户的进展。</div>
     </div>
   </div>
 
   <section id="skills">
-    <div class="sec-head"><span class="sec-tag">栏目一</span><h2>技能一览</h2></div>
+    <div class="sec-head"><h2>技能一览</h2></div>
 
     <div class="skill">
-      <div><div class="big-no">01</div><div class="s-no">单号<br>MZ-01</div></div>
+      <div><div class="big-no">01</div></div>
       <div>
-        <h3>外贸独立站 · 全自动更新 · SEO/GEO</h3>
-        <div class="ver-row"><span class="chip">建站技能 v3.2.42</span><span class="stamp-sm">已上线</span></div>
-        <p>网站建好就没人管、半年不更新，客户搜不到你——很多外贸站就是这样慢慢没声的。这个技能管全程：<strong>建站、上架产品、写文章、日常更新</strong>；自带 <strong>SEO/GEO</strong>，按客户的搜索意图做内容，<strong>让网站被搜索引擎和 AI 推荐，带来流量、询盘和订单</strong>。<strong>设定好后，Muse 每天在云端替你更新、巡检，网站一直「活着」，你只看日报。</strong></p>
+        <h3>外贸独立站 · 云端自动更新 · SEO/GEO</h3>
+        <div class="ver-row"><span class="chip">建站技能 v3.2.42</span><span class="pill">已上线</span></div>
+        <p>做好了网站却没空打理，半年不更新就很难被海外买家搜到，很多外贸站就此搁置。这项技能帮你稳妥打理全程：从搭建、产品上传、写行业文章到日常维护；结合 SEO/GEO，紧贴买家搜索习惯做内容，帮网站提升搜索与 AI 推荐曝光，<strong>带来流量、询盘和订单</strong>。配置好后，Muse 每日在云端自动维护、巡检，让网站保持活力，你只需查阅日报。</p>
         <div class="links">
           <a href="/laicms/index.html">新手使用说明</a>
           <a href="https://github.com/tony-apan/maozhishi-skills/blob/main/laicms-site-builder/SKILL.md" target="_blank" rel="noopener">技能原文</a>
@@ -382,11 +309,11 @@
     </div>
 
     <div class="skill">
-      <div><div class="big-no">02</div><div class="s-no">单号<br>MZ-02</div></div>
+      <div><div class="big-no">02</div></div>
       <div>
         <h3>来发信 AI 获客 · <span class="nb">24 小时</span>全自动开发客户</h3>
-        <div class="ver-row"><span class="chip">来发信 v1.4.21</span><span class="stamp-sm">已上线</span></div>
-        <p>来发信平台 12,000+ 企业在用。客户名单躺在表格里、开发信写一封歇三天、跟进全靠脑子记——单子就是这样漏掉的。这个技能把获客全程接管：<strong>找客户、验证邮箱、写开发信、排好节奏自动跟进</strong>；还能<strong>梳理 WhatsApp 会话、提炼客户痛点</strong>。<strong>计划排好后，云端 <span class="nb">24 小时</span>照节奏执行，该你出面时它提醒你。</strong></p>
+        <div class="ver-row"><span class="chip">来发信 v1.4.21</span><span class="pill">已上线</span></div>
+        <p>已有 12,000+ 家企业在用来发信平台。买家名单积压在表格里、开发信发得断断续续、后续跟进容易遗漏，单子往往就这么错失了。这项技能帮你打理开发全程：<strong>挖掘买家、核验邮箱、拟写信件、依节奏自动跟进</strong>；还能整理 WhatsApp 聊天记录、归纳客户痛点。设定计划后，云端 <span class="nb">24 小时</span>按步推进，遇到关键节点主动提醒你把关。</p>
         <div class="links">
           <a href="/laifaxin/index.html">新手使用说明</a>
           <a href="https://github.com/tony-apan/maozhishi-skills/blob/main/laifaxin-leadgen/SKILL.md" target="_blank" rel="noopener">技能原文</a>
@@ -396,18 +323,18 @@
     </div>
 
     <div class="mini-rows">
-      <div class="mini"><h4><span class="m-no">03</span>B2B 运营</h4><span class="st">测试中</span><span class="m-sno">单号 MZ-03</span><p><strong>免费 B2B 平台注册、铺店、产品上架</strong>；公司和产品资料整理一次，多个平台复用。</p></div>
-      <div class="mini"><h4><span class="m-no">04</span>社媒运营</h4><span class="st">测试中</span><span class="m-sno">单号 MZ-04</span><p><strong>公众号、视频号等平台的内容发布与运营</strong>；网站新文章自动备帖、分发到各平台。</p></div>
-      <div class="mini"><h4><span class="m-no">05</span>工作区模板</h4><span class="st gray">随仓更新</span><span class="m-sno">单号 MZ-05</span><p>台账、清单、交接的现成模板，装好技能仓就能用，干活的记录都在你自己手里。</p></div>
+      <div class="mini"><span class="m-no">03</span><h4>B2B 运营</h4><p>主流免费平台<strong>建档、开店与产品发布</strong>；资料只需整理一份，全平台直接复用。</p><span class="pill test">测试中</span></div>
+      <div class="mini"><span class="m-no">04</span><h4>社媒运营</h4><p><strong>公众号、视频号</strong>等多渠道日常运营；网站新上内容自动转为社媒帖，一键同步分发。</p><span class="pill test">测试中</span></div>
+      <div class="mini"><span class="m-no">05</span><h4>工作区模板</h4><p>备齐日常清单、跟进表与交接规范，装好即可使用，所有业务数据稳妥留在自己手里。</p><span class="pill gray">随仓更新</span></div>
     </div>
   </section>
 
   <section id="tutorials">
-    <div class="sec-head"><span class="sec-tag">栏目二</span><h2>使用教程</h2></div>
+    <div class="sec-head"><h2>使用教程</h2></div>
     <div class="tut-list">
       <a class="trow" href="/muse/index.html">
         <span class="t-no">第一篇<small>先看这个</small></span>
-        <span class="t-main"><b>先认识 Muse</b><span>它是什么、怎么注册开通、免费版够不够用。还没账号的，先看这篇。</span></span>
+        <span class="t-main"><b>先认识 Muse</b><span>功能介绍、注册开通步骤与免费版额度说明。初次接触，建议先看这篇指南。</span></span>
         <span class="t-go">开始看 →</span>
       </a>
       <a class="trow" href="/laifaxin/index.html">
@@ -424,10 +351,10 @@
   </section>
 
   <section id="install">
-    <div class="sec-head"><span class="sec-tag">栏目三</span><h2>怎么装</h2></div>
+    <div class="sec-head"><h2>怎么装</h2></div>
     <div class="steps">
       <div class="step"><span class="num">01</span><div><h3>在 Muse 里发这句话</h3><p>复制本页最上面那句话，粘贴到 Muse 的对话里，剩下的它自己办。</p><button class="btn small" onclick="copyPrompt()">复制这句话</button></div></div>
-      <div class="step"><span class="num">02</span><div><h3>Muse 装好技能并自检</h3><p>装技能、核对文件、跑自检，全是它在云端自己办，你不用懂技术，装没装好它会明确告诉你。</p></div></div>
+      <div class="step"><span class="num">02</span><div><h3>Muse 装好技能并自检</h3><p>安装技能、核对文件、环境检测都在云端自动完成，你不用懂技术，装没装好它会明确告诉你。</p></div></div>
       <div class="step"><span class="num">03</span><div><h3>交代资料，云端开工</h3><p>建站先开通 <a href="https://www.allincms.com" target="_blank" rel="noopener">AllinCMS</a>，获客先注册 <a href="https://laifa.xin" target="_blank" rel="noopener">来发信</a>；把产品目录、公司介绍发给 Muse，它问什么你答什么，活就在云端跑起来了。</p></div></div>
     </div>
     <details class="cmd-wrap">
@@ -439,33 +366,31 @@
 
   <div class="ver-line"><span class="v-tag">最新版本</span><strong>v1.4.21</strong><span>2026 年 11 月 22 日</span><a href="https://github.com/tony-apan/maozhishi-skills/releases">看全部版本说明 →</a></div>
   <p class="fee-line"><span class="fee-k">费用</span><strong>技能仓免费</strong><span>平台与 AI 服务按各自规则收费</span></p>
-  <p class="ver-note">版本你也不用管：每次开工它自己先检查，有新版先备份你的东西再更新，你填过的资料都还在、随时能找回。</p>
+  <p class="ver-note">版本更新无须操心：每次工作前会自动检查，升级时先周全备份已有数据，以往填写的资料妥善保存、随时可查。</p>
 
   <section id="contact">
-    <div class="sec-head"><span class="sec-tag">栏目四</span><h2>联系与社群</h2></div>
+    <div class="sec-head"><h2>联系与社群</h2></div>
     <div class="contact">
-      <div class="cell"><span class="k">微信</span><img src="https://cos.files.maozhishi.com/data/web/web-files/wx/tony-apan.png" alt="微信二维码" width="128" height="128" loading="lazy"><div class="d">扫码加微信，进交流群</div></div>
-      <div class="cell"><span class="k">邮箱</span><span class="v">help@zhijixinxi.com</span><div class="d">工作日回复</div></div>
+      <div class="cell"><span class="k">微信</span><img src="https://cos.files.maozhishi.com/data/web/web-files/wx/tony-apan.png" alt="微信二维码" width="112" height="112" loading="lazy"><div class="d">微信扫码，加入同行交流群</div></div>
+      <div class="cell"><span class="k">邮箱</span><span class="v">help@zhijixinxi.com</span><div class="d">工作日及时回复</div></div>
       <div class="cell"><span class="k">问题反馈</span><span class="v"><a href="https://github.com/tony-apan/maozhishi-skills/issues" target="_blank" rel="noopener">GitHub Issues</a></span><div class="d">装不上、不会用，也可以到这里提问、看常见问题</div></div>
     </div>
   </section>
 
-  <div class="foot-edge" aria-hidden="true"></div>
   <footer>
-    <span>贸知事 AI 工作技能仓<span class="f-note">本页是一份日报 · 贸知事技能仓出具</span></span>
+    <span>贸知事 AI 工作技能仓</span>
     <span><a href="https://github.com/tony-apan/maozhishi-skills" target="_blank" rel="noopener">GitHub</a></span>
   </footer>
 </div>
 <script>
-  var slipDate = document.getElementById('slipDate');
-  if (slipDate) { var nd = new Date(); var dateStr = nd.getFullYear() + ' 年 ' + (nd.getMonth() + 1) + ' 月 ' + nd.getDate() + ' 日'; slipDate.textContent = dateStr; var docDate = document.getElementById('docDate'); if (docDate) { docDate.textContent = dateStr; } var slipNo = document.getElementById('slipNo'); if (slipNo) { var pm = ('0' + (nd.getMonth() + 1)).slice(-2); var pd = ('0' + nd.getDate()).slice(-2); slipNo.textContent = 'MZS-' + nd.getFullYear() + pm + pd; } }
+  (function(){ var nd = new Date(); var dateStr = nd.getFullYear() + ' 年 ' + (nd.getMonth() + 1) + ' 月 ' + nd.getDate() + ' 日'; var a = document.getElementById('slipDate'); if (a) { a.textContent = dateStr; } var b = document.getElementById('docDate'); if (b) { b.textContent = dateStr; } })();
   function copyPrompt() {
     var src = document.getElementById('promptText');
     if (!src) { return; }
     var t = src.innerText;
     var tip = document.getElementById('copyTip');
-    function done() { if (tip) { tip.textContent = '已复制，去粘贴给 Muse'; tip.style.color = 'var(--blue-d)'; tip.style.display = 'inline'; } }
-    function fail() { if (tip) { tip.textContent = '没复制上，选中上面这段话复制一下就行'; tip.style.color = 'var(--stamp)'; tip.style.display = 'inline'; } }
+    function done() { if (tip) { tip.textContent = '已复制，去粘贴给 Muse'; tip.style.display = 'inline'; } }
+    function fail() { if (tip) { tip.textContent = '没复制上，选中上面这段话复制一下就行'; tip.style.display = 'inline'; } }
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(t).then(done).catch(function(){ fallback(); });
     } else { fallback(); }
@@ -490,7 +415,7 @@
     var t = src.innerText;
     var tip = document.getElementById('cmdTip');
     function done() { if (tip) { tip.textContent = '已复制'; tip.style.display = 'inline'; } }
-    function fail() { if (tip) { tip.textContent = '没复制上，选中命令复制一下就行'; tip.style.color = 'var(--stamp)'; tip.style.display = 'inline'; } }
+    function fail() { if (tip) { tip.textContent = '没复制上，选中命令复制一下就行'; tip.style.display = 'inline'; } }
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(t).then(done).catch(fail);
     } else { fail(); }
