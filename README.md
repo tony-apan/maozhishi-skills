@@ -16,7 +16,7 @@
 
 打开你平时用的 AI，把这句话发给它就行——不用下载，不用复制长文：
 
-「把贸知事的来发信和建站两个技能装上，先读这份安装说明：https://skill.maozhishi.com/INSTALL.md」
+「请阅读 https://skill.maozhishi.com/INSTALL.md ，为我装上贸知事的来发信和独立站两个 skill。」
 
 它会照着仓库把两个技能装好，装好后当面跟你确认，再带你开工。
 
