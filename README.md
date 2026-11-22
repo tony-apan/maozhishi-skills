@@ -22,7 +22,7 @@
 
 ### 给来安装的 AI（简短指引）
 
-- 本仓的 laifaxin-leadgen/ 与 laicms-site-builder/ 两个目录就是两个技能本体；打包下载与指纹在官网发现索引 https://skill.maozhishi.com/.well-known/agent-skills/index.json ，装前把包的 sha256 与索引对一遍。
+- 推荐装法：从官网发现索引 https://skill.maozhishi.com/.well-known/agent-skills/index.json 取两个包的文件名与 sha256，下载地址是 https://skill.maozhishi.com/.well-known/agent-skills/ 后面接文件名；下载后先把 sha256 与索引对一遍，对上再装。本仓的 laifaxin-leadgen/ 与 laicms-site-builder/ 两个目录是同一内容的展开形态。
 - 装法：每个技能放进你的技能目录、同名文件夹即可。
 - 每个技能包里有自己的《开工卡》，装好后的确认按它走。
 
