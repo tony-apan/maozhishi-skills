@@ -20,7 +20,7 @@ owner: 贸知事
 | [release-manifest.json](release-manifest.json) | 版本清单（机器读：最新版本号、每版摘要、改名映射） |
 | [VERSION](VERSION) | 仓库现在的版本号 |
 | [feedback.md](.github/ISSUE_TEMPLATE/feedback.md) | 用技能遇到问题时的提单模板（在仓库 Issues 里新建问题时自动带出） |
-| [SKILL.md](laicms-site-builder/SKILL.md)（建站） | 建站说明书主文件，现行 **v3.2.37** |
+| [SKILL.md](laicms-site-builder/SKILL.md)（建站） | 建站说明书主文件，现行 **v3.2.43** |
 | [开工卡.md](laicms-site-builder/开工卡.md) | 建站开工卡：开工先读这一页短卡（核对采纳、比版本、备份、更新检查、逐项汇报），细则在 SKILL.md 里按需读 |
 | [beginner-guide.md](laicms-site-builder/references/beginner-guide.md)（建站） | 新手使用说明：第一次用先看这份，带 11 张截图，跟着一个新人从准备、提问、施工到验收走全程 |
 | [laicms-platform-guide.md](laicms-site-builder/references/laicms-platform-guide.md)（建站） | AllinCMS 平台介绍与文档地图：平台是什么、怎么收费、官方教程在哪怎么查 |
