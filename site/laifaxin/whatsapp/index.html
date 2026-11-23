@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WhatsApp 会话梳理说明 · 贸知事</title>
+<meta name="description" content="来发信技能的 WhatsApp 用法：扫码登录网页版，AI 帮你梳理与客户的聊天、提炼痛点、记进客户档案，还能凭电话一对一触达；默认只读不发，边界一条条摆明。">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+  :root { --blue:#1668d8; --org:#c94f0e; --ink:#0c1f30; --ink2:#3d5265; --mut:#5d7a93; --line:#dce7f1; --wash:#eef5fc; --paper:#fbfcfe; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  html { scroll-padding-top:110px; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; color:var(--ink); background:var(--paper); line-height:1.8; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:920px; margin:0 auto; padding:0 24px; }
+  .topbar { display:flex; justify-content:space-between; align-items:center; padding:26px 0 22px; position:sticky; top:0; z-index:100; background:var(--paper); border-bottom:1px solid var(--line); }
+  .brand { font-size:20px; font-weight:800; letter-spacing:.02em; white-space:nowrap; }
+  .brand small { font-weight:400; color:var(--mut); font-size:12.5px; letter-spacing:.18em; margin-left:9px; }
+  .brand .sep { color:#c3dff5; font-weight:300; margin:0 12px; }
+  .brand .svc { font-size:14px; font-weight:500; color:var(--ink2); letter-spacing:.1em; }
+  .nav { display:flex; gap:34px; flex:1; margin-left:34px; align-items:center; }
+  .nav a { color:var(--ink2); text-decoration:none; font-size:14.5px; font-weight:600; white-space:nowrap; background-image:linear-gradient(currentColor,currentColor); background-size:0% 2px; background-repeat:no-repeat; background-position:0 100%; transition:background-size .3s, color .2s; padding-bottom:2px; }
+  .nav a:hover { color:var(--blue); background-size:100% 2px; }
+  .has-drop { position:relative; display:inline-block; }
+  .drop { position:absolute; top:calc(100% + 14px); left:0; transform:translateY(8px); width:240px; max-width:calc(100vw - 40px); background:#fff; border:2px solid var(--ink); border-radius:14px; box-shadow:7px 7px 0 rgba(12,31,48,.9); padding:8px; opacity:0; pointer-events:none; transition:opacity .18s, transform .18s; z-index:60; }
+  .drop::before { content:""; position:absolute; left:0; right:0; top:-16px; height:16px; }
+  .has-drop:hover .drop, .has-drop:focus-within .drop, .has-drop.open .drop { opacity:1; pointer-events:auto; transform:translateY(0); }
+  .has-drop.suppressed .drop { opacity:0; pointer-events:none; transform:translateY(8px); }
+  .nav .gh { margin-left:auto; display:inline-flex; align-items:center; gap:7px; color:var(--ink); background-image:none; padding-bottom:0; }
+  .nav .gh:hover { color:var(--blue); background-image:none; }
+  .nav .gh svg { display:block; }
+  .drop a { display:block; padding:10px 12px; border-radius:9px; background-image:none; white-space:normal; }
+  .drop a:hover { background:var(--wash); background-image:none; }
+  .drop .t { display:block; font-size:15px; font-weight:700; color:var(--ink); }
+  .drop .d { display:block; font-size:12.5px; font-weight:500; color:var(--mut); margin-top:1px; }
+  @media (max-width:760px) {
+    .topbar { flex-wrap:wrap; row-gap:10px; padding:14px 0 12px; }
+    .nav { position:relative; }
+    .has-drop { position:static; }
+    .drop { left:0; right:0; width:auto; max-width:none; top:calc(100% + 10px); }
+    html { scroll-padding-top:100px; }
+    .nav { width:100%; gap:19px; margin-left:0; }
+    .brand .svc, .brand .sep { display:none; }
+  }
+  .p-head { padding:44px 0 4px; }
+  .eyebrow { color:var(--blue); font-weight:700; font-size:13.5px; letter-spacing:.22em; margin-bottom:14px; }
+  h1 { font-size:clamp(32px,5.4vw,46px); font-weight:850; line-height:1.2; letter-spacing:.01em; }
+  h1 .mark { background-image:linear-gradient(transparent 76%, rgba(201,79,14,.30) 76%, rgba(201,79,14,.30) 94%, transparent 94%); }
+  .lead { margin-top:16px; font-size:17px; color:var(--ink2); max-width:38em; }
+  .toc { display:flex; flex-wrap:wrap; gap:10px; margin:28px 0 6px; }
+  .toc a { border:1.5px solid var(--ink); border-radius:999px; padding:6px 16px; font-size:14px; font-weight:700; color:var(--ink); text-decoration:none; background:#fff; }
+  .toc a:hover { background:var(--wash); color:var(--blue); border-color:var(--blue); }
+  article { font-size:16.5px; }
+  article h2 { font-size:25px; font-weight:800; margin:2.3em 0 .7em; padding-bottom:.35em; border-bottom:2px solid var(--line); scroll-margin-top:24px; }
+  article h2::before { content:""; display:inline-block; width:.48em; height:.48em; background:var(--org); border-radius:2px; margin-right:.45em; }
+  article h3 { font-size:18.5px; font-weight:800; margin:1.7em 0 .5em; }
+  article p { margin:.75em 0; color:var(--ink2); }
+  article p strong, article li strong { color:var(--ink); }
+  article ul, article ol { margin:.6em 0 .9em 1.4em; color:var(--ink2); }
+  article li { margin:.35em 0; }
+  article a { color:var(--blue); text-underline-offset:.22em; }
+  article table { width:100%; border-collapse:separate; border-spacing:0; border:1.5px solid var(--line); border-radius:12px; overflow:hidden; margin:1em 0; font-size:15px; }
+  article th { background:var(--wash); color:var(--ink); font-weight:700; text-align:left; }
+  article th, article td { padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top; }
+  article tr:last-child td { border-bottom:0; }
+  .note, .warn { border-radius:12px; padding:16px 20px; margin:1.2em 0; font-size:15.5px; }
+  .note { background:var(--wash); border-left:5px solid var(--blue); color:var(--ink2); }
+  figure { margin:1.3em 0; }
+  figure img { width:100%; border:1.5px solid var(--line); border-radius:12px; display:block; }
+  figure.shot { max-width:720px; margin-left:auto; margin-right:auto; }
+  figcaption { text-align:center; color:var(--mut); font-size:14px; margin-top:8px; }
+  .warn { background:#fdf1e7; border-left:5px solid var(--org); color:var(--ink2); }
+  .note strong, .warn strong { color:var(--ink); }
+  .faq dt { font-weight:800; color:var(--ink); margin-top:1.3em; }
+  .faq dd { color:var(--ink2); margin:.3em 0 0; }
+  .next { display:block; background:#fff; border:2px solid var(--ink); border-radius:16px; padding:24px 28px 20px; text-decoration:none; color:var(--ink); box-shadow:7px 7px 0 rgba(12,31,48,.9); margin-top:52px; transition:transform .15s, box-shadow .15s; }
+  .routes { margin-top:52px; }
+  .routes .next { margin-top:0; }
+  .routes .next + .next { margin-top:22px; }
+  @media (min-width:1081px) { .routes { display:grid; grid-template-columns:1fr 1fr; gap:22px; } .routes .next + .next { margin-top:0; } }
+  .next:hover { transform:translate(-2px,-2px); box-shadow:9px 9px 0 rgba(12,31,48,.9); }
+  .next .no { font-size:13px; font-weight:800; letter-spacing:.2em; color:var(--org); }
+  .next h2 { font-size:23px; font-weight:800; margin:8px 0 6px; border:0; padding:0; }
+  .next h2::before { display:none; }
+  .next p { color:var(--ink2); font-size:15.5px; }
+  .foot { margin-top:48px; padding:26px 0 44px; border-top:1px solid var(--line); font-size:13.5px; color:var(--mut); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+  .foot a { color:var(--mut); text-decoration:none; }
+  .foot a:hover { color:var(--blue); }
+  @media (max-width:640px) { article { font-size:16px; } td, th { overflow-wrap:anywhere; } }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } .next { transition:none; } }
+
+      .outline { box-sizing:border-box; background:var(--wash); border-radius:12px; padding:16px 18px; margin:0 0 10px; }
+  .ol-head { display:flex; align-items:center; gap:10px; }
+  .ol-title { font-weight:700; font-size:15px; letter-spacing:.04em; color:var(--ink2); }
+  .ol-toggle { display:none; background:none; border:0; padding:0; font:inherit; cursor:pointer; color:var(--blue); font-size:13px; }
+  .ol-btn-label { font-weight:700; font-size:15px; letter-spacing:.04em; color:var(--ink2); }
+  .ol-nav a { display:block; padding:5px 0; color:var(--ink2); text-decoration:none; font-size:14.5px; line-height:1.5; }
+  .ol-nav a:hover { color:var(--blue); }
+  article h2 { scroll-margin-top:120px; }
+  @media (min-width:1356px) {
+    .outline { position:fixed; top:96px; left:max(12px, calc(50% - 666px)); width:190px; z-index:20; margin:0; max-height:calc(100vh - 120px); overflow:auto; }
+  }
+  @media (min-width:1081px) {
+    .ol-nav { display:block; margin-top:8px; }
+    .outline.is-ready.collapsed .ol-nav { display:none; }
+    .outline.is-ready .ol-toggle { display:inline-block; margin-left:auto; border:1px solid var(--line); border-radius:999px; padding:2px 10px; background:var(--paper); }
+    .ol-btn-label { display:none; }
+  }
+  @media (max-width:1080px) {
+    .outline.is-ready .ol-title { display:none; }
+    .outline.is-ready .ol-toggle { display:flex; flex:1; justify-content:space-between; align-items:center; min-height:44px; }
+    .outline.is-ready .ol-nav { display:none; }
+    .outline.is-ready.open .ol-nav { display:block; margin:6px 0 4px; }
+    .ol-nav a { padding:13px 0; }
+  }
+
+  figure { margin:1.5em 0; }
+  figure img { width:100%; display:block; border:1.5px solid var(--line); border-radius:14px; }
+  figcaption { font-size:13.5px; color:var(--mut); margin-top:8px; text-align:center; }
+  .backlinks { display:flex; flex-wrap:wrap; gap:10px; margin:2.8em 0 3.2em; }
+  .backlinks a { border:1.5px solid var(--ink); border-radius:999px; padding:6px 16px; font-size:14px; font-weight:700; color:var(--ink); text-decoration:none; background:#fff; }
+  .backlinks a:hover { background:var(--wash); color:var(--blue); border-color:var(--blue); }
+  .say { background:var(--wash); border-left:4px solid var(--blue); border-radius:8px; padding:14px 18px; font-size:17px; font-weight:700; color:var(--ink); margin:1em 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">贸知事<small>MAOZHISHI</small><span class="sep">|</span><span class="svc">AI 工作技能仓</span></div>
+    <div class="nav">
+      <a href="/">首页</a>
+      <span class="has-drop"><a href="/#tutorials" aria-expanded="false">教程</a><span class="drop">
+        <a href="/muse/index.html"><span class="t">先认识 Muse</span><span class="d">注册、开通、装上技能</span></a>
+        <a href="/laifaxin/index.html"><span class="t">来发信技能使用教程</span><span class="d">开发信获客，全程一篇</span></a>
+        <a href="/laifaxin/authorization/index.html"><span class="t">来发信授权说明</span><span class="d">五步连上账号，配真实截图</span></a>
+        <a href="/laicms/index.html"><span class="t">独立站技能使用教程</span><span class="d">建站全程，带真实截图</span></a>
+      </span></span>
+      <a href="/#skills">技能</a>
+      <a href="/contact/index.html">联系</a>
+      <a class="gh" href="https://github.com/tony-apan/maozhishi-skills" target="_blank" rel="noopener" aria-label="GitHub 仓库"><svg viewBox="0 0 16 16" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg><span>GitHub</span></a>
+    </div>
+  </div>
+
+  <div class="p-head">
+    <div class="eyebrow">来发信 · WHATSAPP 会话</div>
+    <h1>WhatsApp 里的客户，<span class="mark">AI 也能帮你跟上</span></h1>
+    <p class="lead">不少海外客户谈生意习惯用 WhatsApp——问题问在那儿、顾虑说在那儿、答应你的事也留在那儿。来发信技能除了找客户、发开发信，还能借你浏览器里的 <strong>WhatsApp 网页版</strong>，把这些聊天读懂、用好。这篇讲清它能做什么、怎么开始、边界在哪。定位先说清：<strong>这是 AI 借 WhatsApp 网页版干活，不是来发信平台的功能</strong>；它是邮件之外的辅助通道，不替代开发信。</p>
+  </div>
+
+  <article>
+    <h2>怎么开始：扫一次码</h2>
+    <ol>
+      <li><strong>你开口，AI 打开网页版。</strong>你跟 AI 说想用 WhatsApp，它会在浏览器里打开 WhatsApp 网页版，把登录二维码呈给你。</li>
+      <li><strong>你拿手机扫一下。</strong>打开手机上的 WhatsApp，点「设置 → 已关联设备 → 关联设备」，对着二维码扫。</li>
+      <li><strong>看到会话列表，就是登录成功。</strong>之后 AI 就能在这个登录状态下帮你读会话了。</li>
+    </ol>
+    <div class="note"><strong>登录这件事，两条先说清：</strong>一是 AI 不保存你的 WhatsApp 账号和密码，它靠的就是你扫码这一次授权；登录会保持一段时间，过期了再扫一次就行。二是你随时能在手机的「已关联设备」里把这个浏览器退出，退出立即失效，主动权一直在你手里。</div>
+
+    <h2>登录之后，AI 能帮你做的四件事</h2>
+    <ol>
+      <li><strong>梳理聊天，提炼痛点。</strong>把你和某个客户的历史会话读一遍，提炼出四样东西：他明确说过的<strong>痛点和需求</strong>、<strong>反复问的问题</strong>、<strong>顾虑和异议</strong>、<strong>他答应过但还没兑现的事</strong>。不用你自己翻几百条聊天记录找重点。</li>
+      <li><strong>把客户记住，建起档案。</strong>提炼出的痛点进客群痛点库；和这个客户的沟通摘要、他在意的点、下一步该做什么，写回他的客户档案。往后 AI 给他写开发信、排跟进时都记得这些，不用每次从零了解。</li>
+      <li><strong>凭电话直达会话。</strong>客户档案里有电话的，AI 能直接打开你和他的会话：聊过的接着聊，没聊过的是新会话。发任何消息之前，它会先核对会话顶部的名字和号码与档案一致，对不上就停手——发错人是事故。</li>
+      <li><strong>和邮件跟进打通，不重复打扰。</strong>客户在 WhatsApp 上回了话，邮件那边还没发出的跟进会自动停掉；排好的三封邮件跟进里，也可以挑一封改走 WhatsApp 发。两个渠道共用一个节奏，不会同一天两边一起找他。</li>
+    </ol>
+
+    <h2>规矩和边界，五条摆明</h2>
+    <ul>
+      <li><strong>默认只读不发。</strong>AI 不会背着你回复、转发、删除或改动任何会话。</li>
+      <li><strong>要发，先给你看。</strong>真要发消息，草稿先过你的眼、你点头才发；能由你本人在 WhatsApp 里点发送的，优先你来点；确需 AI 代发，必须单独得到你这一次的同意，发完把内容和时间记进发送记录。</li>
+      <li><strong>克制着来，保护你的号。</strong>WhatsApp 对批量和高频操作有封号机制，所以只许一对一逐个会话联系，不批量群发、不拿名单连环打开连着发，节奏放缓、从小量起步。这些做法是降低风险，不是打包票，账号该多小心还是多小心。</li>
+      <li><strong>说别联系，立刻停。</strong>对方明确拒绝或要求别再联系，AI 立即停手，并把他记进禁发名单——邮件和 WhatsApp 全渠道都不再打扰。</li>
+      <li><strong>聊天原文不搬家。</strong>AI 只把提炼后的结论存进档案，聊天原文留在 WhatsApp 里，需要时随时回查。</li>
+    </ul>
+
+    <div class="backlinks">
+      <a href="/laifaxin/index.html">← 回到来发信使用教程</a>
+      <a href="/laifaxin/authorization/index.html">来发信授权说明</a>
+    </div>
+  </article>
+</div>
+</body>
+</html>
