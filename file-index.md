@@ -20,7 +20,7 @@ owner: 贸知事
 | [release-manifest.json](release-manifest.json) | 版本清单（机器读：最新版本号、每版摘要、改名映射） |
 | [VERSION](VERSION) | 仓库现在的版本号 |
 | [feedback.md](.github/ISSUE_TEMPLATE/feedback.md) | 用技能遇到问题时的提单模板（在仓库 Issues 里新建问题时自动带出） |
-| [SKILL.md](laicms-site-builder/SKILL.md)（建站） | 建站说明书主文件，现行 **v3.2.44** |
+| [SKILL.md](laicms-site-builder/SKILL.md)（建站） | 建站说明书主文件，现行 **v3.2.45** |
 | [开工卡.md](laicms-site-builder/开工卡.md) | 建站开工卡：开工先读这一页短卡（核对采纳、比版本、备份、更新检查、逐项汇报），细则在 SKILL.md 里按需读 |
 | [beginner-guide.md](laicms-site-builder/references/beginner-guide.md)（建站） | 新手使用说明：第一次用先看这份，带 11 张截图，跟着一个新人从准备、提问、施工到验收走全程 |
 | [laicms-platform-guide.md](laicms-site-builder/references/laicms-platform-guide.md)（建站） | AllinCMS 平台介绍与文档地图：平台是什么、怎么收费、官方教程在哪怎么查 |
@@ -34,7 +34,7 @@ owner: 贸知事
 | [social-sharing.md](laicms-site-builder/references/social-sharing.md)（建站） | 文章发布后，四平台现成分享文案的生成规则 |
 | [ai-api-and-language.md](laicms-site-builder/references/ai-api-and-language.md)（建站） | 站点 AI 配置引导（绑 Key 分工与选型）与语言策略：不建议主站开多语言、先英语站见效再按地区建独立站做站群 |
 | [seo-geo-optimization.md](laicms-site-builder/references/seo-geo-optimization.md)（建站） | SEO/GEO 双轨优化：勤更新为主线，标题描述、问答式小节、常见问答与上线验收都由 AI 顺手做完 |
-| [SKILL.md](laifaxin-leadgen/SKILL.md)（获客） | 获客说明书主文件，现行 **v1.5.1** |
+| [SKILL.md](laifaxin-leadgen/SKILL.md)（获客） | 获客说明书主文件，现行 **v1.5.2** |
 | [SKILL.md](b2b-platforms/SKILL.md)（背书） | B2B 平台背书说明书主文件，现行 **v1.0.0** |
 | [platforms.md](b2b-platforms/references/platforms.md)（背书） | 55 家免费 B2B 平台情况清单：免费档口径、注册要求、推荐顺序与先别碰名单 |
 | [开工卡.md](laifaxin-leadgen/开工卡.md) | 来发信开工卡：开工先读这一页短卡（核对采纳、比版本、备份、更新检查、逐项汇报），细则在 SKILL.md 里按需读 |
