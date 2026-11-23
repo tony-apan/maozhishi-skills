@@ -4,7 +4,7 @@
   {
    "name": "laicms-site-builder",
    "description": "什么时候用我——用户要新建或维护 LaiCMS 独立站、传产品、写文章、美化页面、看数据或开每日更新时用我；双通道执行：环境支持时走接口回放（见发文规范增补第六条），否则走登录网页操作。",
-   "digest": "sha256:a90f186fe96523499f6e4cfebf3d99ca9b7dde4cf5a8a1a5f694f772280b3328",
+   "digest": "sha256:4bd1e3b72835f513da09caddb131095d7a49e81eecd1013a59945041cce4319b",
    "type": "archive",
    "url": "laicms-site-builder-v3.2.44.zip"
   },
