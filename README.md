@@ -1,6 +1,6 @@
 # 贸知事 AI 工作技能仓（maozhishi-skills）
 
-[![技能仓 v1.4.24](https://img.shields.io/badge/%E6%8A%80%E8%83%BD%E4%BB%93-v1.4.24-orange?style=flat-square)](VERSION) [![建站技能 v3.2.37](https://img.shields.io/badge/%E5%BB%BA%E7%AB%99%E6%8A%80%E8%83%BD-v3.2.37-green?style=flat-square)](laicms-site-builder/SKILL.md) [![来发信 v1.4.24](https://img.shields.io/badge/%E6%9D%A5%E5%8F%91%E4%BF%A1-v1.4.24-blue?style=flat-square)](laifaxin-leadgen/SKILL.md)
+[![技能仓 v1.5.0](https://img.shields.io/badge/%E6%8A%80%E8%83%BD%E4%BB%93-v1.5.0-orange?style=flat-square)](VERSION) [![建站技能 v3.2.44](https://img.shields.io/badge/%E5%BB%BA%E7%AB%99%E6%8A%80%E8%83%BD-v3.2.44-green?style=flat-square)](laicms-site-builder/SKILL.md) [![来发信 v1.5.0](https://img.shields.io/badge/%E6%9D%A5%E5%8F%91%E4%BF%A1-v1.5.0-blue?style=flat-square)](laifaxin-leadgen/SKILL.md) [![B2B 背书 v1.0.0](https://img.shields.io/badge/B2B%20%E8%83%8C%E4%B9%A6-v1.0.0-purple?style=flat-square)](b2b-platforms/SKILL.md)
 
 公众号「贸知事」出品的**外贸获客技能仓**。所谓「技能」，就是**写给 AI 的一份干活说明书**：你把资料交给 AI，它照着说明书把活干完——建站、找客户、写开发信、跟进，都在这里。
 
@@ -26,6 +26,7 @@
 
 - **建外贸独立站**：搭站、上架产品、写文章、日常更新。
 - **找客户、发开发信**：找国外客户、做背调、写开发信、跟进。
+- **铺 B2B 背书**：把公司注册到免费 B2B 平台、铺一致的公司档案，客户查你时加分。
 - **整理资料**：公司和产品资料归好类放一处，建站、写信都从这里取。
 
 ## 📦 里面有什么
@@ -42,9 +43,9 @@
 
 📖 **使用说明**：[新手使用说明](laifaxin-leadgen/references/beginner-guide.md)——从注册到发出第一封开发信，跟着走一遍就会。
 
-### 3️⃣ B2B 运营 ![测试中](https://img.shields.io/badge/%E6%B5%8B%E8%AF%95%E4%B8%AD-orange?style=flat-square)
+### 3️⃣ [B2B 平台背书 · 免费平台铺档案](b2b-platforms/SKILL.md)
 
-**免费 B2B 平台注册、铺店、产品上架**；公司和产品资料整理一次，多个平台复用
+**给公司做背书**：客户收到开发信，会先搜你公司。技能带你把公司注册到 **55 家免费 B2B 平台**，公司档案和产品处处一致——查得到、对得上，就是实力的象征。密码你自己设，资料只填真的
 
 ### 4️⃣ 社媒运营 ![测试中](https://img.shields.io/badge/%E6%B5%8B%E8%AF%95%E4%B8%AD-orange?style=flat-square)
 
