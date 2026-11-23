@@ -4,7 +4,7 @@
 
 ## 包的位置与版本
 
-技能包登记在官网索引里：https://skill.maozhishi.com/.well-known/agent-skills/index.json ——索引里有每个包的文件名和 sha256，下载地址是同一目录后接文件名。两个包的现行版本号登记在同一份索引里，以索引登记为准。
+技能包登记在官网索引里：https://skill.maozhishi.com/.well-known/agent-skills/index.json ——索引里有每个包的文件名和 sha256，下载地址是 https://skill.maozhishi.com/.well-known/agent-skills/ 后接索引里登记的文件名。两个包的现行版本号登记在同一份索引里，以索引登记为准。
 
 ## 安装的样子
 
