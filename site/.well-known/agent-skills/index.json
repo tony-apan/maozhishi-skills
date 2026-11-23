@@ -14,6 +14,13 @@
    "digest": "sha256:56a2edcf32a8b3c32439da4b320400e58b2d043d917b375581cc8f0966bcfa6d",
    "type": "archive",
    "url": "https://skill.maozhishi.com/.well-known/agent-skills/laifaxin-leadgen-v1.5.2.zip"
+  },
+  {
+   "name": "b2b-platforms",
+   "description": "什么时候用我——用户想把公司注册到免费 B2B 平台上做背书、铺公司档案和产品时用我；我负责讲清为什么铺、按清单逐家指引注册、把各平台的公司信息保持一致；密码、手机验证码、证件上传由用户本人完成。",
+   "digest": "sha256:c6aa824ab1f12315b40d6155b43e28510fbf4abba8bcfd825cd6e90a930c10e2",
+   "type": "archive",
+   "url": "https://skill.maozhishi.com/.well-known/agent-skills/b2b-platforms-v1.0.0.zip"
   }
  ]
 }
