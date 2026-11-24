@@ -11,9 +11,9 @@
   {
    "name": "laifaxin-leadgen",
    "description": "什么时候用我——用户要做外贸获客时用我：找客户、存联系人、AI 评分、自有邮箱精发与来发信优质通道群发跟进，全程一张台账，严守发送安全闸；平台操作首选来发信官方 Agent 接口通道、网页操作兜底。",
-   "digest": "sha256:56a2edcf32a8b3c32439da4b320400e58b2d043d917b375581cc8f0966bcfa6d",
+   "digest": "sha256:b214c8c9147e41cb1895c8648a7555b6b53c75342941666327fce6e1be54dc0b",
    "type": "archive",
-   "url": "https://skill.maozhishi.com/.well-known/agent-skills/laifaxin-leadgen-v1.5.2.zip"
+   "url": "https://skill.maozhishi.com/.well-known/agent-skills/laifaxin-leadgen-v1.5.3.zip"
   },
   {
    "name": "b2b-platforms",

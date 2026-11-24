@@ -53,7 +53,7 @@ owner: 贸知事
 | 群发统计与任务日志（marketing） | /marketing/tasks/show（任务数据）、/marketing/tasks/show-count（计数）、/marketing/task-details（单任务明细）、/marketing/task-logs（收件人日志；**status 须传枚举值如 total/delivered，传 all 回空；gtid 放 filter 内、平铺顶层回参数错误**）、/marketing/task-rename | 实测（2026-11-19 全量对账通过）；/marketing/task-html、task-preview 与 tracks 追踪族未覆盖（缺样本/涉真实发送日志），不在口径内、要用先小步验证 |
 | 跟进记录与跟进任务（record） | 记录：/record/log-list、log-add、log-save、log-delete；任务：/record/task-list、task-info、task-add、task-save、task-delete、tasks-delete（task-list 属缺参 500 家族，配方见下节） | 实测（2026-11-19 全量对账：自建对象生命周期实测通过、测后删净/恢复基线） |
 | 视图（views） | /views/views-list、view-config、view-fields、view-add、view-save、view-rename、view-delete、views-pin、views-pin-save（多带 type 区分视图对象、置顶保存口用 viewType） | 实测（2026-11-19 全量对账通过） |
-| WhatsApp 会话（§4.4） | 无——不是平台功能，维持浏览器通道 | 不适用 |
+| WhatsApp 会话（§4.4） | 已停用（2026-11-24），无接口、不走浏览器通道 | 不适用 |
 
 两条边界写死：
 
@@ -177,6 +177,16 @@ owner: 贸知事
 - **接口**：`POST /contacts/companies/save`（批量改字段口）。正解参数：`{selectAll:false, selectKeys:[公司_id], selectSort:{}, selectTotal:1, changeField:"<字段名>", changeType:"renew", changeValue:<新值>}`。踩坑记录：只传 {_id, 字段} 报 422（缺 selectTotal）；传 {ids:[...]} 返回 success 但 matchedCount=0（假成功），一律不用。
 - **已实测可写字段**：short_description（公司简介，改＋恢复全程读回无残留）、phone_number（公司电话）。判读注意：同值写入 matchedCount=1、**modifiedCount=0**——是后端 no-op 语义，不等于字段不可写；改值写入 modifiedCount=1 且回读在位才算验通。
 - **字段存在性以注册表为准**：`POST /fields/company-fields` {belongTo:"company", saveType:"read"} 返回 17 个系统字段（orgName、domain、website、countryCode、status、tags、employees、industry、phone_number、linkedin_url、facebook_url、twitter_url、founded、short_description、company_address、create_time、scoreLevels）。**公司没有 remark 字段**（记录转储/编辑表单/类型定义/字段注册表四源核实）；公司级备注走自定义字段补建（SKILL §4.1 B4，补建路径已实测——2026-11-19 网页端建并回验、失败降级）。联系人有 remark 与 source。
+
+## 接口引导信息处置（ai_hint）
+
+平台接口的部分返回会带两个额外字段：`code`（情形代码，机器可读）与 `ai_hint`（给 AI 的一句话指引，写清原因与建议动作）。这不是报错字段，平台是在提醒有更合适的走法；收到后先确认本次操作结果：返回里有状态字段的按状态字段对账，状态缺失或结果不明的先查状态对账（与 R29 同口径）；确认结果后，再按结果处理当前操作、按指引调整后续安排。处置口径写死：
+
+- **默认按指引改道**：指引管的是后续安排——已经成功执行的当次操作不重做、不撤销（结果按状态对账确认即可）；此后同类操作按指引调整走法（例如同量级的发送改走单发、不再重复建小群发任务）。不许看一眼就丢开、按原路继续。
+- **按代码处置**：情形代码是处置的锚（下列代码值是我方建议值、平台尚未确认；实际处置以平台返回代码的语义为准，语义对上就按本节处置）。`SMALL_BATCH_USE_SINGLE`（小批量群发改单发）→ 后续同类批次改走系统通道单发逐封发（配方见本文件「单发配方要点」）；当次仅在状态对账确认原操作未执行、且未生成可继续发送的任务或预约后，才可改单发；已成功创建的任务或已成功发送的邮件不因本提示另行单发，结果未明时不另行提交。`SINGLE_VIA_BOUND_MAILBOX`（单发走了绑定邮箱）→ 后续冷发改走系统通道，绑定邮箱留给客户回复后的跟进；当次适用上述结果对账与不重复执行口径。指引里没写清的目标接口与参数不许猜，按本文件既有配方与 SKILL.md 既有口径走。
+- **例外**：用户明确要求按原路执行的，照用户要求办，但在日报里显名（收到的代码、未改道的理由）。
+- **日报显名**：当日每一次收到引导都记进日报第⑥段——代码、原计划路线、实际改走的路线；未改道的写明理由。
+- 平台没返回这两个字段时按原口径执行，本节不构成额外动作。
 
 ## 调用纪律（与 R29 同口径）
 
