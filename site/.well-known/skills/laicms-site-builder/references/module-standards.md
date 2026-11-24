@@ -57,6 +57,7 @@ owner: 贸知事
 
 - 模块库共 **37 个 / 10 组**；全站已放置 **65 个实例 / 33 种**；**4 个从未被任何页面使用**：Header (Card)、Image Gallery、Video Section、Logo Cloud。【实测】
 - 每个模块配置面板顶部都有 **Anchor ID＋Visible** 两项。【实测】
+- 例外（2026-11-22 巡检补记）：Global 模块（Header、Footer 类）配置顶部现为 **Anchor ID＋ScopeMode＋Visible** 三项——ScopeMode 是全局模块的作用域字段、仅 Global 模块有，Page 模块无此项；其可选值未逐项核实前只记存在与适用范围、不写标准取值，施工取值照平台现状。【实测】
 - **全部 33 种已用模块都没有间距项、高度项、字号项**；仅 **13 种**有 Columns 列数下拉；无其他版式数值项。【实测】
 - 文本字段多带 **/300 字符上限**（Description、Supporting Copy、Quote、Answer 等）；站点描述为 /500。【实测】文章摘要的具体字符上限本次盘点未覆盖文章逐条内容，标 **【待验】（U4）**，见第 17 条与 §5.1。
 - 链接字段统一用四档目标选择器：**None / Custom / Internal / Action**。【实测】教程《跳转链接》倡能用 Internal 直接选时优先、不要猜路径（列表是 /products 不是 /product）；但具体模块的实测值以盘点为准（如 Category Showcase 为 Custom，见第 9 条）。【教程】
