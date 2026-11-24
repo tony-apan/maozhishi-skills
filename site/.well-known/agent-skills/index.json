@@ -4,23 +4,23 @@
   {
    "name": "laicms-site-builder",
    "description": "什么时候用我——用户要新建或维护 LaiCMS 独立站、传产品、写文章、美化页面、看数据或开每日更新时用我；双通道执行：环境支持时走接口回放（见发文规范增补第六条），否则走登录网页操作。",
-   "digest": "sha256:3bda0f12c4e0b648094589355dda7e91489f5d3654cd1aec9bdc92a0067188d0",
+   "digest": "sha256:2cdc49bcf839a2ef190572775ab4200e735e2b1b55ffbd997c97b0db918e93ed",
    "type": "archive",
    "url": "https://skill.maozhishi.com/.well-known/agent-skills/laicms-site-builder-v3.2.46.zip"
   },
   {
    "name": "laifaxin-leadgen",
    "description": "什么时候用我——用户要做外贸获客时用我：找客户、存联系人、AI 评分、自有邮箱精发与来发信优质通道群发跟进，全程一张台账，严守发送安全闸；平台操作首选来发信官方 Agent 接口通道、网页操作兜底。",
-   "digest": "sha256:42fe723bb945416e46a872005a40e0deebd745e606d2c428a2c889bc3f9840dc",
+   "digest": "sha256:dde86121a5fee2ce003cef6ec56ab859e0a9e655de40b258a012a70f184ed6a0",
    "type": "archive",
-   "url": "https://skill.maozhishi.com/.well-known/agent-skills/laifaxin-leadgen-v1.5.4.zip"
+   "url": "https://skill.maozhishi.com/.well-known/agent-skills/laifaxin-leadgen-v1.5.5.zip"
   },
   {
    "name": "b2b-platforms",
    "description": "什么时候用我——用户想把公司注册到免费 B2B 平台上做背书、铺公司档案和产品时用我；我负责讲清为什么铺、按清单逐家指引注册、把各平台的公司信息保持一致；密码、手机验证码、证件上传由用户本人完成。",
-   "digest": "sha256:c6aa824ab1f12315b40d6155b43e28510fbf4abba8bcfd825cd6e90a930c10e2",
+   "digest": "sha256:bba2a78f9a560b7cb9478de2afa6ddec26d26904fe42ffb2ba950f02ebeee6b8",
    "type": "archive",
-   "url": "https://skill.maozhishi.com/.well-known/agent-skills/b2b-platforms-v1.0.0.zip"
+   "url": "https://skill.maozhishi.com/.well-known/agent-skills/b2b-platforms-v1.0.1.zip"
   }
  ]
 }

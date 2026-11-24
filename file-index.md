@@ -34,8 +34,8 @@ owner: 贸知事
 | [social-sharing.md](laicms-site-builder/references/social-sharing.md)（建站） | 文章发布后，四平台现成分享文案的生成规则 |
 | [ai-api-and-language.md](laicms-site-builder/references/ai-api-and-language.md)（建站） | 站点 AI 配置引导（绑 Key 分工与选型）与语言策略：不建议主站开多语言、先英语站见效再按地区建独立站做站群 |
 | [seo-geo-optimization.md](laicms-site-builder/references/seo-geo-optimization.md)（建站） | SEO/GEO 双轨优化：勤更新为主线，标题描述、问答式小节、常见问答与上线验收都由 AI 顺手做完 |
-| [SKILL.md](laifaxin-leadgen/SKILL.md)（获客） | 获客说明书主文件，现行 **v1.5.4** |
-| [SKILL.md](b2b-platforms/SKILL.md)（背书） | B2B 平台背书说明书主文件，现行 **v1.0.0** |
+| [SKILL.md](laifaxin-leadgen/SKILL.md)（获客） | 获客说明书主文件，现行 **v1.5.5** |
+| [SKILL.md](b2b-platforms/SKILL.md)（背书） | B2B 平台背书说明书主文件，现行 **v1.0.1** |
 | [platforms.md](b2b-platforms/references/platforms.md)（背书） | 55 家免费 B2B 平台情况清单：免费档口径、注册要求、推荐顺序与先别碰名单 |
 | [开工卡.md](laifaxin-leadgen/开工卡.md) | 来发信开工卡：开工先读这一页短卡（核对采纳、比版本、备份、更新检查、逐项汇报），细则在 SKILL.md 里按需读 |
 | [laifaxin-platform-guide.md](laifaxin-leadgen/references/laifaxin-platform-guide.md)（获客） | 来发信平台介绍与文档地图：平台是什么、点数怎么花、官方文档在哪怎么查 |
