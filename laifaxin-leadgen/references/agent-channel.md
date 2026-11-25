@@ -3,7 +3,7 @@ doc_id: laifaxin-agent-channel
 title: 官方 Agent 通道（接口映射与调用纪律）
 description: 来发信官方 Agent Skill 作为本 skill 首选执行通道的接入、接口映射（带证据等级）、调用纪律与降级规则；绑箱动作维持网页通道。
 status: active
-updated: 2026-11-20
+updated: 2026-11-25
 owner: 贸知事
 ---
 
@@ -30,7 +30,7 @@ owner: 贸知事
 | 搜客·AI 数据库（找新客） | /refine/company-list（关键词/客群 query_en；**结果不带 domain 字段，取种子域名须另调 /domain/base-info**）、/refine/company-list-by-name、/domain/resolve-domain-name | 实测（2026-11-18） |
 | 搜客·已保存公司检索 | /contacts/company-search（**只搜账号已保存公司**，客户管理内按名检索用；不用于搜新客）、/contacts/people-search（**只搜账号已保存联系人**，与 company-search 同口径；不用于搜新客） | company-search 实测（2026-11-18）；people-search 契约级 |
 | 公司详情 | /domain/base-info（公司 id 或域名均可） | 实测（2026-11-18） |
-| 搜相似【禁用】 | /domain/similar-list | **禁用，不许调用**（Tony 2026-11-21 令）：接口保留登记仅作识别；找相似公司一律改走 /refine/company-list 关键词搜索（§4.1、§5.2(e)）。历史实测记录：2026-11-18 接口调用实测通过，跨语种相关性为单种子抽样观察（德语种子前 5 家 5/5 相关，非全量验证） |
+| 搜相似 | /domain/similar-list | **可用**（Tony 2026-11-25 修正，取代 2026-11-21 禁用令）：接口保留可用；大批量找客与扩池须改走 AI 数据库关键词搜索（/refine/company-list，§4.1、§5.2(e)），不许拿 similar 当扩池主路逐家绕圈；非大批量的单家找相似不在此限。历史实测记录：2026-11-18 接口调用实测通过，跨语种相关性为单种子抽样观察（德语种子前 5 家 5/5 相关，非全量验证） |
 | AI 推演客群 | /profile/inference-product-add、inference-segment-generate、inference-segment-list、inference-product-save | 实测（2026-11-18；建产品与生成客群各扣 2 点） |
 | 批量搜索任务 | /refine/task-create、task-list、task-info、task-status、task-delete | 链路实测可用（2026-11-18 阶段 0：create 建完即 finished、delete 后 list 回读确认已删、info 可读回）；**计费口径未证实**（源码口径「有效 −2/未知 −1/无效 0」在本轮实测中未发生——任务计数全 0、creditCount 前后不变，不得作为计费依据，待后续核实） |
 | 搜客·领英/地图/谷歌 | /search/linkedin-company-v2-*、/search/map-data-*、/clouds/google-search/* | 契约级 |
@@ -55,7 +55,7 @@ owner: 贸知事
 | 视图（views） | /views/views-list、view-config、view-fields、view-add、view-save、view-rename、view-delete、views-pin、views-pin-save（多带 type 区分视图对象、置顶保存口用 viewType） | 实测（2026-11-19 全量对账通过） |
 | WhatsApp 会话（§4.4） | 已停用（2026-11-24），无接口、不走浏览器通道 | 不适用 |
 
-两条边界写死：
+四条边界与口径写死：
 
 - **绑箱动作不走接口**：绑定要填的授权码是凭据，不许经 AI 构造的请求体传递（R23）；绑定仍在来发信网页由用户本人填入（见《邮箱绑定指南》），接口只做两件事——查已绑账号列表、对已绑账号做连通性校验；凡要新填、重填授权码的动作一律回网页。
 - **禁发名单**：登记与查询走上表黑名单接口（即平台禁发名单管理接口）；一切禁发类写操作（含 AI 评分结果里的「存禁发」）同为契约级、未实测；名单对发送的拦截效力以平台实际行为为准，本 skill 不另作保证，发送前四查（R13）照旧。
