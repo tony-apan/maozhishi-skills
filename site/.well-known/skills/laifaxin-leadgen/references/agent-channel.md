@@ -1,3 +1,4 @@
+<!-- 包内文件版本标识：laifaxin-leadgen v1.6.1 -->
 ---
 doc_id: laifaxin-agent-channel
 title: 官方 Agent 通道（接口映射与调用纪律）
