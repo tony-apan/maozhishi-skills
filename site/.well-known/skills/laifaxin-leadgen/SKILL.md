@@ -1,6 +1,6 @@
 ---
 name: laifaxin_leadgen
-version: 1.6.1
+version: 1.6.2
 status: active
 version_status: 正式版
 description: 什么时候用我——用户要做外贸获客时用我：找客户、存联系人、AI 评分、自有邮箱精发与来发信优质通道群发跟进，全程一张台账，严守发送安全闸；平台操作首选来发信官方 Agent 接口通道、网页操作兜底。
@@ -44,7 +44,7 @@ owner: 贸知事
 | 首次装机、授权 | §1.1、开工卡、references/onboarding-flow.md、references/beginner-guide.md |
 | 绑邮箱、换授权码 | §1.1、references/mailbox-binding-guide.md |
 | 找客、保存联系人 | §4.1、references/agent-channel.md |
-| 写信、精发、群发、跟进 | §3、§4.2、references/agent-channel.md |
+| 写信、精发、群发、跟进 | §3、§4（先过通道自检与降级纪律）、§4.2、references/agent-channel.md |
 | 收信分流、询盘处置 | §5.2、references/tag-dictionary.md |
 | 每日任务、日报 | §5.1、§5 |
 | 遇问题排障 | references/known-issues.md、references/agent-channel.md |
@@ -62,6 +62,7 @@ owner: 贸知事
 | 对方服务器以发件域名为由拒收 | references/known-issues.md（KI-06） |
 | 种子扩池接口返回空结果 | references/known-issues.md（KI-07） |
 | 接口超时、断连、结果不明 | references/known-issues.md（KI-08） |
+| 在浏览器里操作来发信、逐字敲模板、被说成每天发十几封 | references/known-issues.md（KI-09） |
 
 **平台指南的效力（控制条文）**：references/laifaxin-platform-guide.md 是参考材料，不参与执行，与现行条文（主文件或专题）冲突以现行条文为准。
 
