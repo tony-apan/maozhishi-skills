@@ -1,5 +1,5 @@
-<!-- 包内文件版本标识：laifaxin-leadgen v1.6.2 -->
-# 引用解析表（1.6.1 首版）
+<!-- 包内文件版本标识：laifaxin-leadgen v1.6.3 -->
+# 引用解析表（1.6.1 首版，随版累积；现行累积至整仓 1.6.3）
 
 本表登记文中「§x.x」与「Rx」的现行位置，随包发布、逐版累积。查不到或对出两个位置时，按 SKILL.md「导航」节引用解析条文办：停下报告、不许猜。R 条文同在 §7 内，以编号本身为锚点（在 §7 内按「Rxx」定位条文段）；标「已删除／历史提及」的行是状态登记，不是现行位置。章节行按主文件出现顺序排列（文末对账节如 §1.3.7 对账——编号属第 1 章、正文位置在文末——按其出现位置列于 §7 之后）。
 
@@ -72,3 +72,19 @@
 | R32 | 规则索引条文 R32 | SKILL.md | §7 内「R32」条 |
 | R33 | 规则索引条文 R33 | SKILL.md | §7 内「R33」条 |
 | §8 | 历史提及：多文件拆分规划未执行、原 §8 仓库结构已于整仓 1.5.8 删除 | SKILL.md | 发布形态注（已删除状态行） |
+
+## 流程步骤标识登记（开工链）
+
+开工链步骤标识登记在此，标识不复用、不随章节重编号（本表按标识号登记序排列，执行序以 onboarding-flow 的 4A 表为准）；图与边登记在 references/onboarding-flow.md 的开工链图节，条件标识 AC-C1 至 AC-C8 的含义以该文件图后条件说明为准。
+
+| 标识 | 步骤 | 所在文件 |
+| --- | --- | --- |
+| AC-01 | 选线 | references/onboarding-flow.md |
+| AC-02 | 交资料 | references/onboarding-flow.md |
+| AC-03 | 提炼确认 | references/onboarding-flow.md |
+| AC-04 | 定量 | references/onboarding-flow.md |
+| AC-05 | 定时间 | references/onboarding-flow.md |
+| AC-55 | 最低备份 | references/onboarding-flow.md |
+| AC-06 | 启动告知 | references/onboarding-flow.md |
+| AC-07 | 运行 | references/onboarding-flow.md |
+| AC-08 | 停步显名卡点 | references/onboarding-flow.md |

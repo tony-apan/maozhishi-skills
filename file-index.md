@@ -20,7 +20,7 @@ owner: 贸知事
 | [release-manifest.json](release-manifest.json) | 版本清单（机器读：最新版本号、每版摘要、改名映射） |
 | [VERSION](VERSION) | 仓库现在的版本号 |
 | [feedback.md](.github/ISSUE_TEMPLATE/feedback.md) | 用技能遇到问题时的提单模板（在仓库 Issues 里新建问题时自动带出） |
-| [SKILL.md](laicms-site-builder/SKILL.md)（建站） | 建站说明书主文件，现行 **v3.2.47** |
+| [SKILL.md](laicms-site-builder/SKILL.md)（建站） | 建站说明书主文件，现行 **v3.2.48** |
 | [开工卡.md](laicms-site-builder/开工卡.md) | 建站开工卡：开工先读这一页短卡（核对采纳、比版本、备份、更新检查、逐项汇报），细则在 SKILL.md 里按需读 |
 | [beginner-guide.md](laicms-site-builder/references/beginner-guide.md)（建站） | 新手使用说明：第一次用先看这份，带 11 张截图，跟着一个新人从准备、提问、施工到验收走全程 |
 | [onboarding-flow.md](laicms-site-builder/references/onboarding-flow.md)（建站） | 上手流程编排（建站）：开工顺序与阶段引导的编排 |
@@ -35,21 +35,24 @@ owner: 贸知事
 | [social-sharing.md](laicms-site-builder/references/social-sharing.md)（建站） | 文章发布后，四平台现成分享文案的生成规则 |
 | [ai-api-and-language.md](laicms-site-builder/references/ai-api-and-language.md)（建站） | 站点 AI 配置引导（绑 Key 分工与选型）与语言策略：不建议主站开多语言、先英语站见效再按地区建独立站做站群 |
 | [seo-geo-optimization.md](laicms-site-builder/references/seo-geo-optimization.md)（建站） | SEO/GEO 双轨优化：勤更新为主线，标题描述、问答式小节、常见问答与上线验收都由 AI 顺手做完 |
-| [SKILL.md](laifaxin-leadgen/SKILL.md)（获客） | 获客说明书主文件，现行 **v1.6.2** |
-| [SKILL.md](b2b-platforms/SKILL.md)（背书） | B2B 平台背书说明书主文件，现行 **v1.1.0** |
-| [platforms.md](b2b-platforms/references/platforms.md)（背书） |
-| [开工卡.md](b2b-platforms/开工卡.md) | B2B 平台背书开工卡：开工先读这一页短卡 | 55 家免费 B2B 平台情况清单：免费档口径、注册要求、推荐顺序与先别碰名单 |
+| [SKILL.md](laifaxin-leadgen/SKILL.md)（获客） | 获客说明书主文件，现行 **v1.6.3** |
+| [SKILL.md](b2b-platforms/SKILL.md)（背书） | B2B 平台背书说明书主文件，现行 **v1.1.1** |
+| [platforms.md](b2b-platforms/references/platforms.md)（背书） | 55 家免费 B2B 平台情况清单：免费档口径、注册要求、推荐顺序与先别碰名单 |
+| [开工卡.md](b2b-platforms/开工卡.md) | B2B 平台背书开工卡：开工先读这一页短卡 |
 | [开工卡.md](laifaxin-leadgen/开工卡.md) | 来发信开工卡：开工先读这一页短卡（核对采纳、比版本、备份、更新检查、逐项汇报），细则在 SKILL.md 里按需读 |
 | [laifaxin-platform-guide.md](laifaxin-leadgen/references/laifaxin-platform-guide.md)（获客） | 来发信平台介绍与文档地图：平台是什么、点数怎么花、官方文档在哪怎么查 |
 | [section-resolution.md](laifaxin-leadgen/references/section-resolution.md)（获客） | 引用解析表：文中「§x.x」与「Rx」的现行位置，查不到或对出两个位置时停下报告 |
 | [known-issues.md](laifaxin-leadgen/references/known-issues.md)（获客） | 已证实问题与绕法：现象、先守什么（条文摘录）、去看哪、停止条件 |
 | [beginner-guide.md](laifaxin-leadgen/references/beginner-guide.md)（获客） | 新手使用说明：第一次用先看这份，跟着一个新人从注册、领点数、找客、筛客、发信到跟进走全程 |
 | [mailbox-binding-guide.md](laifaxin-leadgen/references/mailbox-binding-guide.md)（获客） | 邮箱绑定指南：服务器参数表、密码类型速查、授权码获取的逐步引导、绑失败错误码自查 |
-| [agent-channel.md](laifaxin-leadgen/references/agent-channel.md)（获客） |
-| [onboarding-flow.md](laifaxin-leadgen/references/onboarding-flow.md)（获客） | 上手流程编排：装机后先干哪件、后续引导等对应阶段到了再给 | 官方 Agent 通道：平台操作首选的官方接口通道怎么接、哪些操作走哪些接口、接口被拒了怎么降级回网页 |
+| [agent-channel.md](laifaxin-leadgen/references/agent-channel.md)（获客） | 官方 Agent 通道：平台操作首选的官方接口通道怎么接、哪些操作走哪些接口、接口被拒了怎么降级回网页 |
+| [onboarding-flow.md](laifaxin-leadgen/references/onboarding-flow.md)（获客） | 上手流程编排：装机后先干哪件、后续引导等对应阶段到了再给 |
 | [tag-dictionary.md](laifaxin-leadgen/references/tag-dictionary.md)（获客） | 系统标签字典：客户状态、来源、通道、阶段标签的全网统一口径，哪个 AI 接手都照这套认 |
 | [skill.yaml](laifaxin-leadgen/skill.yaml)（获客） | 获客模块的登记信息 |
-| [backup-continuity-spec.md](shared/backup-continuity-spec.md)（整仓共用） | 备份与换账号接续规格：备份地怎么定、数据怎么分区、换账号怎么凭备份接回来，两个技能共用 |
+| [backup-continuity-spec.md](shared/backup-continuity-spec.md)（整仓共用） | 备份与换账号接续规格（备份模块）：主备份介质与只读镜像、同意三档、巡检五档与换账号接续，三个技能共用、以后接入的技能同样适用 |
+| [backup-continuity-spec.md](laifaxin-leadgen/references/backup-continuity-spec.md) | 备份模块（来发信技能内副本，与整仓共用文件同文，供只有技能目录的安装布局读取） |
+| [backup-continuity-spec.md](laicms-site-builder/references/backup-continuity-spec.md) | 备份模块（建站技能内副本，与整仓共用文件同文，供只有技能目录的安装布局读取） |
+| [backup-continuity-spec.md](b2b-platforms/references/backup-continuity-spec.md) | 备份模块（B2B 技能内副本，与整仓共用文件同文，供只有技能目录的安装布局读取） |
 | [rename-cleanup-contract.md](shared/rename-cleanup-contract.md)（整仓共用） | 改名清理解析契约：技能更新时按版本清单的改名登记清理旧名文件的判定规矩，两个技能共用 |
 | [rename-cleanup-contract.md](laifaxin-leadgen/references/rename-cleanup-contract.md) | 改名清理解析契约（来发信技能内副本，与整仓共用文件同文，供只有技能目录的安装布局读取） |
 | [rename-cleanup-contract.md](laicms-site-builder/references/rename-cleanup-contract.md) | 改名清理解析契约（建站技能内副本，与整仓共用文件同文，供只有技能目录的安装布局读取） |

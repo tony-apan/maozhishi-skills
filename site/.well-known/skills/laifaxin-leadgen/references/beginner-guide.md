@@ -1,4 +1,4 @@
-<!-- 包内文件版本标识：laifaxin-leadgen v1.6.2 -->
+<!-- 包内文件版本标识：laifaxin-leadgen v1.6.3 -->
 ---
 doc_id: laifaxin-beginner-guide
 title: 新手使用说明
