@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>技能装不上时的救援指南 · 贸知事</title>
+<meta name="description" content="你的 AI 说它不能帮你装贸知事技能时，看这一页：不是你操作错了。两条自己能走的路——把安装包发给 AI 装，或者自己动手装；都不成，先把活干起来，再联系我们。">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+  :root { --blue:#1668d8; --org:#c94f0e; --ink:#0c1f30; --ink2:#3d5265; --mut:#5d7a93; --line:#dce7f1; --wash:#eef5fc; --paper:#fbfcfe; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  html { scroll-padding-top:110px; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; color:var(--ink); background:var(--paper); line-height:1.8; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:920px; margin:0 auto; padding:0 24px; }
+  .topbar { display:flex; justify-content:space-between; align-items:center; padding:26px 0 22px; position:sticky; top:0; z-index:100; background:var(--paper); border-bottom:1px solid var(--line); }
+  .brand { font-size:20px; font-weight:800; letter-spacing:.02em; white-space:nowrap; }
+  .brand small { font-weight:400; color:var(--mut); font-size:12.5px; letter-spacing:.18em; margin-left:9px; }
+  .brand .sep { color:#c3dff5; font-weight:300; margin:0 12px; }
+  .brand .svc { font-size:14px; font-weight:500; color:var(--ink2); letter-spacing:.1em; }
+  .nav { display:flex; gap:34px; flex:1; margin-left:34px; align-items:center; }
+  .nav a { color:var(--ink2); text-decoration:none; font-size:14.5px; font-weight:600; white-space:nowrap; background-image:linear-gradient(currentColor,currentColor); background-size:0% 2px; background-repeat:no-repeat; background-position:0 100%; transition:background-size .3s, color .2s; padding-bottom:2px; }
+  .nav a:hover { color:var(--blue); background-size:100% 2px; }
+  .has-drop { position:relative; display:inline-block; }
+  .drop { position:absolute; top:calc(100% + 14px); left:0; transform:translateY(8px); width:240px; max-width:calc(100vw - 40px); background:#fff; border:2px solid var(--ink); border-radius:14px; box-shadow:7px 7px 0 rgba(12,31,48,.9); padding:8px; opacity:0; pointer-events:none; transition:opacity .18s, transform .18s; z-index:60; }
+  .drop::before { content:""; position:absolute; left:0; right:0; top:-16px; height:16px; }
+  .has-drop:hover .drop, .has-drop:focus-within .drop, .has-drop.open .drop { opacity:1; pointer-events:auto; transform:translateY(0); }
+  .has-drop.suppressed .drop { opacity:0; pointer-events:none; transform:translateY(8px); }
+  .nav .gh { margin-left:auto; display:inline-flex; align-items:center; gap:7px; color:var(--ink); background-image:none; padding-bottom:0; }
+  .nav .gh:hover { color:var(--blue); background-image:none; }
+  .nav .gh svg { display:block; }
+  .drop a { display:block; padding:10px 12px; border-radius:9px; background-image:none; white-space:normal; }
+  .drop a:hover { background:var(--wash); background-image:none; }
+  .drop .t { display:block; font-size:15px; font-weight:700; color:var(--ink); }
+  .drop .d { display:block; font-size:12.5px; font-weight:500; color:var(--mut); margin-top:1px; }
+  @media (max-width:760px) {
+    .topbar { flex-wrap:wrap; row-gap:10px; padding:14px 0 12px; }
+    .nav { position:relative; }
+    .has-drop { position:static; }
+    .drop { left:0; right:0; width:auto; max-width:none; top:calc(100% + 10px); }
+    html { scroll-padding-top:100px; }
+    .nav { width:100%; gap:19px; margin-left:0; }
+    .brand .svc, .brand .sep { display:none; }
+  }
+  .p-head { padding:44px 0 4px; }
+  .eyebrow { color:var(--blue); font-weight:700; font-size:13.5px; letter-spacing:.22em; margin-bottom:14px; }
+  h1 { font-size:clamp(32px,5.4vw,46px); font-weight:850; line-height:1.2; letter-spacing:.01em; }
+  h1 .mark { background-image:linear-gradient(transparent 76%, rgba(201,79,14,.30) 76%, rgba(201,79,14,.30) 94%, transparent 94%); }
+  .lead { margin-top:16px; font-size:17px; color:var(--ink2); max-width:38em; }
+  .toc { display:flex; flex-wrap:wrap; gap:10px; margin:28px 0 6px; }
+  .toc a { border:1.5px solid var(--ink); border-radius:999px; padding:6px 16px; font-size:14px; font-weight:700; color:var(--ink); text-decoration:none; background:#fff; }
+  .toc a:hover { background:var(--wash); color:var(--blue); border-color:var(--blue); }
+  article { font-size:16.5px; }
+  article h2 { font-size:25px; font-weight:800; margin:2.3em 0 .7em; padding-bottom:.35em; border-bottom:2px solid var(--line); scroll-margin-top:24px; }
+  article h2::before { content:""; display:inline-block; width:.48em; height:.48em; background:var(--org); border-radius:2px; margin-right:.45em; }
+  article h3 { font-size:18.5px; font-weight:800; margin:1.7em 0 .5em; }
+  article p { margin:.75em 0; color:var(--ink2); }
+  article p strong, article li strong { color:var(--ink); }
+  article ul, article ol { margin:.6em 0 .9em 1.4em; color:var(--ink2); }
+  article li { margin:.35em 0; }
+  article a { color:var(--blue); text-underline-offset:.22em; }
+  article table { width:100%; border-collapse:separate; border-spacing:0; border:1.5px solid var(--line); border-radius:12px; overflow:hidden; margin:1em 0; font-size:15px; }
+  article th { background:var(--wash); color:var(--ink); font-weight:700; text-align:left; }
+  article th, article td { padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top; }
+  article tr:last-child td { border-bottom:0; }
+  .note, .warn { border-radius:12px; padding:16px 20px; margin:1.2em 0; font-size:15.5px; }
+  .note { background:var(--wash); border-left:5px solid var(--blue); color:var(--ink2); }
+  figure { margin:1.3em 0; }
+  figure img { width:100%; border:1.5px solid var(--line); border-radius:12px; display:block; }
+  figure.shot { max-width:720px; margin-left:auto; margin-right:auto; }
+  figcaption { text-align:center; color:var(--mut); font-size:14px; margin-top:8px; }
+  .warn { background:#fdf1e7; border-left:5px solid var(--org); color:var(--ink2); }
+  .note strong, .warn strong { color:var(--ink); }
+  .faq dt { font-weight:800; color:var(--ink); margin-top:1.3em; }
+  .faq dd { color:var(--ink2); margin:.3em 0 0; }
+  .next { display:block; background:#fff; border:2px solid var(--ink); border-radius:16px; padding:24px 28px 20px; text-decoration:none; color:var(--ink); box-shadow:7px 7px 0 rgba(12,31,48,.9); margin-top:52px; transition:transform .15s, box-shadow .15s; }
+  .routes { margin-top:52px; }
+  .routes .next { margin-top:0; }
+  .routes .next + .next { margin-top:22px; }
+  @media (min-width:1081px) { .routes { display:grid; grid-template-columns:1fr 1fr; gap:22px; } .routes .next + .next { margin-top:0; } }
+  .next:hover { transform:translate(-2px,-2px); box-shadow:9px 9px 0 rgba(12,31,48,.9); }
+  .next .no { font-size:13px; font-weight:800; letter-spacing:.2em; color:var(--org); }
+  .next h2 { font-size:23px; font-weight:800; margin:8px 0 6px; border:0; padding:0; }
+  .next h2::before { display:none; }
+  .next p { color:var(--ink2); font-size:15.5px; }
+  .foot { margin-top:48px; padding:26px 0 44px; border-top:1px solid var(--line); font-size:13.5px; color:var(--mut); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+  .foot a { color:var(--mut); text-decoration:none; }
+  .foot a:hover { color:var(--blue); }
+  @media (max-width:640px) { article { font-size:16px; } td, th { overflow-wrap:anywhere; } }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } .next { transition:none; } }
+
+      .outline { box-sizing:border-box; background:var(--wash); border-radius:12px; padding:16px 18px; margin:0 0 10px; }
+  .ol-head { display:flex; align-items:center; gap:10px; }
+  .ol-title { font-weight:700; font-size:15px; letter-spacing:.04em; color:var(--ink2); }
+  .ol-toggle { display:none; background:none; border:0; padding:0; font:inherit; cursor:pointer; color:var(--blue); font-size:13px; }
+  .ol-btn-label { font-weight:700; font-size:15px; letter-spacing:.04em; color:var(--ink2); }
+  .ol-nav a { display:block; padding:5px 0; color:var(--ink2); text-decoration:none; font-size:14.5px; line-height:1.5; }
+  .ol-nav a:hover { color:var(--blue); }
+  article h2 { scroll-margin-top:120px; }
+  @media (min-width:1356px) {
+    .outline { position:fixed; top:96px; left:max(12px, calc(50% - 666px)); width:190px; z-index:20; margin:0; max-height:calc(100vh - 120px); overflow:auto; }
+  }
+  @media (min-width:1081px) {
+    .ol-nav { display:block; margin-top:8px; }
+    .outline.is-ready.collapsed .ol-nav { display:none; }
+    .outline.is-ready .ol-toggle { display:inline-block; margin-left:auto; border:1px solid var(--line); border-radius:999px; padding:2px 10px; background:var(--paper); }
+    .ol-btn-label { display:none; }
+  }
+  @media (max-width:1080px) {
+    .outline.is-ready .ol-title { display:none; }
+    .outline.is-ready .ol-toggle { display:flex; flex:1; justify-content:space-between; align-items:center; min-height:44px; }
+    .outline.is-ready .ol-nav { display:none; }
+    .outline.is-ready.open .ol-nav { display:block; margin:6px 0 4px; }
+    .ol-nav a { padding:13px 0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">贸知事<small>MAOZHISHI</small><span class="sep">|</span><span class="svc">AI 工作技能仓</span></div>
+    <div class="nav">
+      <a href="/">首页</a>
+      <span class="has-drop"><a href="/#tutorials" aria-expanded="false">教程</a><span class="drop">
+        <a href="/muse/index.html"><span class="t">先认识 Muse</span><span class="d">注册、开通、装上技能</span></a>
+        <a href="/laifaxin/index.html"><span class="t">来发信技能使用教程</span><span class="d">开发信获客，全程一篇</span></a><a href="/laifaxin/authorization/index.html"><span class="t">来发信授权说明</span><span class="d">五步连上账号，配真实截图</span></a>
+        <a href="/laicms/index.html"><span class="t">独立站技能使用教程</span><span class="d">建站全程，带真实截图</span></a>
+      </span></span>
+      <a href="/#skills">技能</a>
+      <a href="/contact/index.html">联系</a>
+      <a class="gh" href="https://github.com/tony-apan/maozhishi-skills" target="_blank" rel="noopener" aria-label="GitHub 仓库"><svg viewBox="0 0 16 16" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg><span>GitHub</span></a>
+    </div>
+  </div>
+
+    <div class="p-head">
+    <div class="eyebrow">安装救援指南</div>
+    <h1>AI 说它装不了？<span class="mark">照着这一页自己装</span></h1>
+    <p class="lead">你的 AI 要是明确跟你说，它不能碰贸知事技能的安装和更新——先别急，这种情况我们见过，<strong>不是你操作错了</strong>。这一页是写给你本人看的，照着一步一步来，自己就能试着装；实在装不上，也有办法先把活干起来。</p>
+    <div class="toc">
+      <a href="#anxin">先放心</a>
+      <a href="#lu1">路一：把包发给 AI</a>
+      <a href="#lu2">路二：自己动手装</a>
+      <a href="#bucheng">都不成怎么办</a>
+    </div>
+  </div>
+
+  <div class="outline">
+      <div class="ol-head"><div class="ol-title">本页大纲</div><button type="button" class="ol-toggle" aria-controls="ol-nav"><span class="ol-btn-label">本页大纲</span><span class="ol-hint">展开 ▾</span></button></div>
+      <nav class="ol-nav" id="ol-nav" aria-label="本页大纲">
+<a href="#anxin">先放心：不是你的错</a>
+      <a href="#lu1">路一：把安装包发给你的 AI</a>
+      <a href="#lu2">路二：自己动手装</a>
+      <a href="#bucheng">两条路都不成</a>
+      </nav>
+    </div>
+    <script>(function(){var o=document.querySelector(".outline");if(!o)return;var b=o.querySelector(".ol-toggle"),n=o.querySelector(".ol-nav"),h=o.querySelector(".ol-hint");if(!b||!n||!h)return;var mq=window.matchMedia("(min-width:1081px)");function sync(){var e=mq.matches?!o.classList.contains("collapsed"):o.classList.contains("open");b.setAttribute("aria-expanded",String(e));h.textContent=mq.matches?(e?"收起":"展开"):(e?"收起 ▴":"展开 ▾");}b.addEventListener("click",function(){if(mq.matches){o.classList.toggle("collapsed");}else{o.classList.toggle("open");}sync();});if(mq.addEventListener){mq.addEventListener("change",sync);}else if(mq.addListener){mq.addListener(sync);}sync();o.classList.add("is-ready");})();</script>
+<article>
+<h2 id="anxin">先放心：不是你的错</h2>
+    <p>先说三件要紧事：</p>
+    <ul>
+      <li><strong>不是你操作错了。</strong>这是我们已经知道的一种情况，遇到过的用户不止你一个。</li>
+      <li><strong>千万别删东西。</strong>装不上技能，不等于需要删资料——删对话、删记忆、删文件都解不开这件事，只会把你的客户资料、跟进记录弄丢。先停手，剩下的千万别再删。</li>
+      <li><strong>活不用停。</strong>技能先放一边，要做的事直接告诉现在用的 AI、按现在的版本继续做，不用等技能装好。</li>
+    </ul>
+    <p>简单说一句为什么：从你那位 AI 的说法看，它那边有一道自己的安全检查，把我们的技能拦下了——所以它不能帮你装、也不能帮你更新，只会让你自己来。好在路不止一条，下面两条都是你自己能走的。</p>
+
+<h2 id="lu1">路一：把安装包发给你的 AI 装</h2>
+    <p>有的 AI 只是打不开我们的网站、自己拿不到安装包——这种把包递到它手里就能装。按顺序来：</p>
+    <ol>
+      <li><strong>在浏览器里打开技能站首页</strong> skill.maozhishi.com 。如果你是在微信里看到这页，先点右上角菜单、选「在浏览器打开」，不然下载好的文件容易找不到。</li>
+      <!-- 下载链接与技能站首页「备选办法」里的三包链接同源，发版时随首页一并刷新（派生面登记见候选登记册候选 35 追记） -->
+      <li><strong>下载你要装的包</strong>，点对应的名字就能下载：<a href="/.well-known/agent-skills/laifaxin-leadgen-v1.6.4.zip" download>来发信技能包</a>、<a href="/.well-known/agent-skills/laicms-site-builder-v3.2.49.zip" download>建站技能包</a>、<a href="/.well-known/agent-skills/b2b-platforms-v1.2.0.zip" download>B2B 背书技能包</a>。三个都要，就一个个都下载好。</li>
+      <li><strong>把文件原样发进你和 AI 的对话里</strong>，不用解压。</li>
+      <li><strong>再发这一句话给它</strong>：「这是我从贸知事官网下载的技能包，麻烦先按安装说明里的五项清单审查，把审查结果如实告诉我；确认可以装了，再帮我装上。」</li>
+      <li>装好之后，<strong>先让它把装了什么、会不会动你的东西讲一遍</strong>，你确认了再让它开工。它要是讲不清、或者你听不明白，就先别让它开工，把情况发给我们（看最后一节）。</li>
+    </ol>
+    <div class="warn"><strong>这一条只试一次。</strong>如果文件发过去，它还是说装不了，就不要再反复试了，直接看下面的路二。</div>
+
+<h2 id="lu2">路二：自己动手装</h2>
+    <p>路一走不通，就自己来。<strong>路二也只试一次</strong>，走不通别反复试，直接看最后一节。下面按你用的 AI 分开写，对号入座看一段就行。</p>
+    <h3>用 Muse 网页版或 App 的</h3>
+    <ol>
+      <li>先按路一的第 1、2 步，<strong>把你要装的包下载好</strong>。</li>
+      <li>打开 Muse，进入<strong>设置（Settings）</strong>。</li>
+      <li>找到<strong>「代码执行与文件创建」</strong>开关，把它<strong>打开</strong>。（这个开关开不开由你自己定；不开，这条路用不了。）</li>
+      <li>进入<strong>自定义（Customize）</strong>里的<strong>技能（Skills）</strong>。</li>
+      <li>点<strong>添加</strong>、选<strong>上传技能</strong>，把刚下载的包传上去。</li>
+      <li>传完确认一下：这个技能是<strong>开启</strong>状态。</li>
+    </ol>
+    <p>菜单名字以你账号里实际显示的为准，可能略有不同，对上意思就行。</p>
+    <h3>用 WorkBuddy 的</h3>
+    <ol>
+      <li>先按路一的第 1、2 步，<strong>把你要装的包下载好</strong>。</li>
+      <li>在对话页点<strong>「+」</strong>，选<strong>从本地添加技能</strong>，把包导入就行。</li>
+    </ol>
+    <h3>用的是别的 AI</h3>
+    <p>如果你还有<strong>另一个能装技能的 AI</strong>，打开技能站首页 skill.maozhishi.com ，把首页「怎么装」里的<strong>那句话原样发给它</strong>，它读完说明就知道怎么装。</p>
+    <p>装好之后同样先别急着用：先让它把装了什么、会不会动你的东西讲一遍，你确认了再让它开工。</p>
+
+<h2 id="bucheng">两条路都不成</h2>
+    <p>两条都走不通，也别干等着，更不要反复重试、不要删东西。先这样：</p>
+    <ul>
+      <li><strong>活先干起来。</strong>技能先放一边——找客户、写开发信、改网站这些事，直接交代你的 AI 就能做，不用等技能装好。</li>
+      <li><strong>把 AI 拒绝你的那段话截图留好。</strong></li>
+      <li><strong>发给我们，我们逐个登记处理。</strong>邮箱：<strong>help@zhijixinxi.com</strong>；客服电话：<strong>17091913071</strong>。把截图一起发过来，我们看得更准。</li>
+    </ul>
+    <p>联系时把这一页也发给客服，就说「我照救援指南走不通」，我们就知道你走到哪一步了。</p>
+
+    <a class="next" href="/laifaxin/index.html">
+      <div class="no">装好之后</div>
+      <h2>来发信技能使用教程</h2>
+      <p>装好了、也确认开工了？这一篇带你把找客户、发开发信、看日报全程走一遍。</p>
+    </a>
+</article>
+
+  <div class="foot">
+    <span>贸知事 AI 工作技能仓 · 安装救援指南</span>
+    <span><a href="/#skills">技能首页</a> · <a href="/">技能站首页</a></span>
+  </div>
+</div>
+<script>
+  var hd = document.querySelector('.has-drop');
+  if (hd) {
+    var hdLink = hd.querySelector('a');
+    function syncAria() {
+      var open = !hd.classList.contains('suppressed') && (hd.classList.contains('open') || hd.matches(':hover') || hd.contains(document.activeElement));
+      hdLink.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    hdLink.addEventListener('click', function(e) {
+      hd.classList.remove('suppressed');
+      if (window.matchMedia('(hover: none)').matches && !hd.classList.contains('open')) {
+        e.preventDefault();
+        hd.classList.add('open');
+      } else {
+        hd.classList.remove('open');
+      }
+      syncAria();
+    });
+    document.addEventListener('click', function(e) {
+      if (!hd.contains(e.target)) {
+        hd.classList.remove('open');
+        if (document.activeElement && hd.contains(document.activeElement)) { document.activeElement.blur(); }
+        syncAria();
+      }
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && (hd.classList.contains('open') || hd.matches(':hover') || hd.contains(document.activeElement))) {
+        hd.classList.remove('open');
+        hd.classList.add('suppressed');
+        if (document.activeElement && hd.contains(document.activeElement)) { document.activeElement.blur(); }
+        syncAria();
+      }
+    });
+    hd.addEventListener('mouseenter', function() { hd.classList.remove('suppressed'); syncAria(); });
+    hd.addEventListener('mouseleave', function() { hd.classList.remove('suppressed'); syncAria(); });
+    hd.addEventListener('focusin', function() { hd.classList.remove('suppressed'); syncAria(); });
+    hd.addEventListener('focusout', function() { setTimeout(syncAria, 0); });
+  }
+</script>
+</body>
+</html>
