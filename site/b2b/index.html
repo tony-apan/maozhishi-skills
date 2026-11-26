@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B2B 平台背书技能介绍 · 贸知事</title>
+<meta name="description" content="把公司注册到 55 家免费 B2B 平台铺档案，只为背书：买家搜你公司，处处查得到、信息对得上。先讲清防坑——假询盘诱导付费的套路链、验真四问和关门句。不承诺询盘。">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+  :root { --blue:#1668d8; --org:#c94f0e; --ink:#0c1f30; --ink2:#3d5265; --mut:#5d7a93; --line:#dce7f1; --wash:#eef5fc; --paper:#fbfcfe; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  html { scroll-padding-top:110px; }
+  body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; color:var(--ink); background:var(--paper); line-height:1.8; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:920px; margin:0 auto; padding:0 24px; }
+  .topbar { display:flex; justify-content:space-between; align-items:center; padding:26px 0 22px; position:sticky; top:0; z-index:100; background:var(--paper); border-bottom:1px solid var(--line); }
+  .brand { font-size:20px; font-weight:800; letter-spacing:.02em; white-space:nowrap; }
+  .brand small { font-weight:400; color:var(--mut); font-size:12.5px; letter-spacing:.18em; margin-left:9px; }
+  .brand .sep { color:#c3dff5; font-weight:300; margin:0 12px; }
+  .brand .svc { font-size:14px; font-weight:500; color:var(--ink2); letter-spacing:.1em; }
+  .nav { display:flex; gap:34px; flex:1; margin-left:34px; align-items:center; }
+  .nav a { color:var(--ink2); text-decoration:none; font-size:14.5px; font-weight:600; white-space:nowrap; background-image:linear-gradient(currentColor,currentColor); background-size:0% 2px; background-repeat:no-repeat; background-position:0 100%; transition:background-size .3s, color .2s; padding-bottom:2px; }
+  .nav a:hover { color:var(--blue); background-size:100% 2px; }
+  .has-drop { position:relative; display:inline-block; }
+  .drop { position:absolute; top:calc(100% + 14px); left:0; transform:translateY(8px); width:240px; max-width:calc(100vw - 40px); background:#fff; border:2px solid var(--ink); border-radius:14px; box-shadow:7px 7px 0 rgba(12,31,48,.9); padding:8px; opacity:0; pointer-events:none; transition:opacity .18s, transform .18s; z-index:60; }
+  .drop::before { content:""; position:absolute; left:0; right:0; top:-16px; height:16px; }
+  .has-drop:hover .drop, .has-drop:focus-within .drop, .has-drop.open .drop { opacity:1; pointer-events:auto; transform:translateY(0); }
+  .has-drop.suppressed .drop { opacity:0; pointer-events:none; transform:translateY(8px); }
+  .nav .gh { margin-left:auto; display:inline-flex; align-items:center; gap:7px; color:var(--ink); background-image:none; padding-bottom:0; }
+  .nav .gh:hover { color:var(--blue); background-image:none; }
+  .nav .gh svg { display:block; }
+  .drop a { display:block; padding:10px 12px; border-radius:9px; background-image:none; white-space:normal; }
+  .drop a:hover { background:var(--wash); background-image:none; }
+  .drop .t { display:block; font-size:15px; font-weight:700; color:var(--ink); }
+  .drop .d { display:block; font-size:12.5px; font-weight:500; color:var(--mut); margin-top:1px; }
+  @media (max-width:760px) {
+    .topbar { flex-wrap:wrap; row-gap:10px; padding:14px 0 12px; }
+    .nav { position:relative; }
+    .has-drop { position:static; }
+    .drop { left:0; right:0; width:auto; max-width:none; top:calc(100% + 10px); }
+    html { scroll-padding-top:100px; }
+    .nav { width:100%; gap:19px; margin-left:0; }
+    .brand .svc, .brand .sep { display:none; }
+  }
+  .p-head { padding:44px 0 4px; }
+  .eyebrow { color:var(--blue); font-weight:700; font-size:13.5px; letter-spacing:.22em; margin-bottom:14px; }
+  h1 { font-size:clamp(32px,5.4vw,46px); font-weight:850; line-height:1.2; letter-spacing:.01em; }
+  h1 .mark { background-image:linear-gradient(transparent 76%, rgba(201,79,14,.30) 76%, rgba(201,79,14,.30) 94%, transparent 94%); }
+  .lead { margin-top:16px; font-size:17px; color:var(--ink2); max-width:38em; }
+  .toc { display:flex; flex-wrap:wrap; gap:10px; margin:28px 0 6px; }
+  .toc a { border:1.5px solid var(--ink); border-radius:999px; padding:6px 16px; font-size:14px; font-weight:700; color:var(--ink); text-decoration:none; background:#fff; }
+  .toc a:hover { background:var(--wash); color:var(--blue); border-color:var(--blue); }
+  article { font-size:16.5px; }
+  article h2 { font-size:25px; font-weight:800; margin:2.3em 0 .7em; padding-bottom:.35em; border-bottom:2px solid var(--line); scroll-margin-top:24px; }
+  article h2::before { content:""; display:inline-block; width:.48em; height:.48em; background:var(--org); border-radius:2px; margin-right:.45em; }
+  article h3 { font-size:18.5px; font-weight:800; margin:1.7em 0 .5em; }
+  article p { margin:.75em 0; color:var(--ink2); }
+  article p strong, article li strong { color:var(--ink); }
+  article ul, article ol { margin:.6em 0 .9em 1.4em; color:var(--ink2); }
+  article li { margin:.35em 0; }
+  article a { color:var(--blue); text-underline-offset:.22em; }
+  article table { width:100%; border-collapse:separate; border-spacing:0; border:1.5px solid var(--line); border-radius:12px; overflow:hidden; margin:1em 0; font-size:15px; }
+  article th { background:var(--wash); color:var(--ink); font-weight:700; text-align:left; }
+  article th, article td { padding:10px 14px; border-bottom:1px solid var(--line); vertical-align:top; }
+  article tr:last-child td { border-bottom:0; }
+  .note, .warn { border-radius:12px; padding:16px 20px; margin:1.2em 0; font-size:15.5px; }
+  .note { background:var(--wash); border-left:5px solid var(--blue); color:var(--ink2); }
+  figure { margin:1.3em 0; }
+  figure img { width:100%; border:1.5px solid var(--line); border-radius:12px; display:block; }
+  figure.shot { max-width:720px; margin-left:auto; margin-right:auto; }
+  figcaption { text-align:center; color:var(--mut); font-size:14px; margin-top:8px; }
+  .warn { background:#fdf1e7; border-left:5px solid var(--org); color:var(--ink2); }
+  .note strong, .warn strong { color:var(--ink); }
+  .faq dt { font-weight:800; color:var(--ink); margin-top:1.3em; }
+  .faq dd { color:var(--ink2); margin:.3em 0 0; }
+  .next { display:block; background:#fff; border:2px solid var(--ink); border-radius:16px; padding:24px 28px 20px; text-decoration:none; color:var(--ink); box-shadow:7px 7px 0 rgba(12,31,48,.9); margin-top:52px; transition:transform .15s, box-shadow .15s; }
+  .routes { margin-top:52px; }
+  .routes .next { margin-top:0; }
+  .routes .next + .next { margin-top:22px; }
+  @media (min-width:1081px) { .routes { display:grid; grid-template-columns:1fr 1fr; gap:22px; } .routes .next + .next { margin-top:0; } }
+  .next:hover { transform:translate(-2px,-2px); box-shadow:9px 9px 0 rgba(12,31,48,.9); }
+  .next .no { font-size:13px; font-weight:800; letter-spacing:.2em; color:var(--org); }
+  .next h2 { font-size:23px; font-weight:800; margin:8px 0 6px; border:0; padding:0; }
+  .next h2::before { display:none; }
+  .next p { color:var(--ink2); font-size:15.5px; }
+  .foot { margin-top:48px; padding:26px 0 44px; border-top:1px solid var(--line); font-size:13.5px; color:var(--mut); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+  .foot a { color:var(--mut); text-decoration:none; }
+  .foot a:hover { color:var(--blue); }
+  @media (max-width:640px) { article { font-size:16px; } td, th { overflow-wrap:anywhere; } }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } .next { transition:none; } }
+
+      .outline { box-sizing:border-box; background:var(--wash); border-radius:12px; padding:16px 18px; margin:0 0 10px; }
+  .ol-head { display:flex; align-items:center; gap:10px; }
+  .ol-title { font-weight:700; font-size:15px; letter-spacing:.04em; color:var(--ink2); }
+  .ol-toggle { display:none; background:none; border:0; padding:0; font:inherit; cursor:pointer; color:var(--blue); font-size:13px; }
+  .ol-btn-label { font-weight:700; font-size:15px; letter-spacing:.04em; color:var(--ink2); }
+  .ol-nav a { display:block; padding:5px 0; color:var(--ink2); text-decoration:none; font-size:14.5px; line-height:1.5; }
+  .ol-nav a:hover { color:var(--blue); }
+  article h2 { scroll-margin-top:120px; }
+  @media (min-width:1356px) {
+    .outline { position:fixed; top:96px; left:max(12px, calc(50% - 666px)); width:190px; z-index:20; margin:0; max-height:calc(100vh - 120px); overflow:auto; }
+  }
+  @media (min-width:1081px) {
+    .ol-nav { display:block; margin-top:8px; }
+    .outline.is-ready.collapsed .ol-nav { display:none; }
+    .outline.is-ready .ol-toggle { display:inline-block; margin-left:auto; border:1px solid var(--line); border-radius:999px; padding:2px 10px; background:var(--paper); }
+    .ol-btn-label { display:none; }
+  }
+  @media (max-width:1080px) {
+    .outline.is-ready .ol-title { display:none; }
+    .outline.is-ready .ol-toggle { display:flex; flex:1; justify-content:space-between; align-items:center; min-height:44px; }
+    .outline.is-ready .ol-nav { display:none; }
+    .outline.is-ready.open .ol-nav { display:block; margin:6px 0 4px; }
+    .ol-nav a { padding:13px 0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">贸知事<small>MAOZHISHI</small><span class="sep">|</span><span class="svc">AI 工作技能仓</span></div>
+    <div class="nav">
+      <a href="/">首页</a>
+      <span class="has-drop"><a href="/#tutorials" aria-expanded="false">教程</a><span class="drop">
+        <a href="/muse/index.html"><span class="t">先认识 Muse</span><span class="d">注册、开通、装上技能</span></a>
+        <a href="/laifaxin/index.html"><span class="t">来发信技能使用教程</span><span class="d">开发信获客，全程一篇</span></a><a href="/laifaxin/authorization/index.html"><span class="t">来发信授权说明</span><span class="d">五步连上账号，配真实截图</span></a>
+        <a href="/laicms/index.html"><span class="t">独立站技能使用教程</span><span class="d">建站全程，带真实截图</span></a>
+      </span></span>
+      <a href="/#skills">技能</a>
+      <a href="/contact/index.html">联系</a>
+      <a class="gh" href="https://github.com/tony-apan/maozhishi-skills" target="_blank" rel="noopener" aria-label="GitHub 仓库"><svg viewBox="0 0 16 16" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg><span>GitHub</span></a>
+    </div>
+  </div>
+
+  <div class="p-head">
+    <div class="eyebrow">技能介绍 · 背书</div>
+    <h1>B2B 平台背书<span class="mark">技能介绍</span></h1>
+    <p class="lead">客户收到开发信，会先搜你公司。这个技能手里有一份 <strong>55 家免费 B2B 平台</strong>的清单，带你逐家铺好公司档案和主打产品——目的只有一个：<strong>背书</strong>。查得到、对得上，就是实力的象征。先说清：<strong>它不承诺带来询盘</strong>；还有一件事比注册更重要——免费平台钓你付费的套路，这一页先给你讲破。</p>
+    <div class="toc">
+      <a href="#why">为什么铺</a>
+      <a href="#fangkeng">防坑必读</a>
+      <a href="#how">怎么铺</a>
+      <a href="#install">怎么装</a>
+      <a href="#list">平台清单（55 家）</a>
+      <a href="#faq">常见问题</a>
+    </div>
+  </div>
+
+  <div class="outline">
+      <div class="ol-head"><div class="ol-title">本页大纲</div><button type="button" class="ol-toggle" aria-controls="ol-nav"><span class="ol-btn-label">本页大纲</span><span class="ol-hint">展开 ▾</span></button></div>
+      <nav class="ol-nav" id="ol-nav" aria-label="本页大纲">
+<a href="#why">先说清：铺平台图什么</a>
+      <a href="#fangkeng">防坑必读：免费的另一面</a>
+      <a href="#how">怎么铺：AI 逐家带，你只管三样</a>
+      <a href="#install">怎么装上这个技能</a>
+      <a href="#list">附录：55 家平台清单</a>
+      <a href="#faq">常见问题</a>
+      </nav>
+    </div>
+    <script>(function(){var o=document.querySelector(".outline");if(!o)return;var b=o.querySelector(".ol-toggle"),n=o.querySelector(".ol-nav"),h=o.querySelector(".ol-hint");if(!b||!n||!h)return;var mq=window.matchMedia("(min-width:1081px)");function sync(){var e=mq.matches?!o.classList.contains("collapsed"):o.classList.contains("open");b.setAttribute("aria-expanded",String(e));h.textContent=mq.matches?(e?"收起":"展开"):(e?"收起 ▴":"展开 ▾");}b.addEventListener("click",function(){if(mq.matches){o.classList.toggle("collapsed");}else{o.classList.toggle("open");}sync();});if(mq.addEventListener){mq.addEventListener("change",sync);}else if(mq.addListener){mq.addListener(sync);}sync();o.classList.add("is-ready");})();</script>
+    <article>
+<h2 id="why">先说清：铺平台图什么</h2>
+    <p>买家收到你的开发信、做背调时，会先搜你公司。这个技能做的事，是把你的公司注册到一批免费 B2B 平台上，铺好公司档案、发几个主打产品。目的只有一个：<strong>背书</strong>。</p>
+    <p>买家搜公司名，能在好几个平台看到一致的公司档案和产品——这是公司实力的象征，能帮买家下决心。所以有一条铁规：<strong>所有平台用同一套档案</strong>——公司名称、地址、电话、简介的内容一致；平台要求用其他语言、或字段格式不一样时，按平台要求翻译、转换，内容不许走样。信息处处对得上，本身就是背书；各平台写得对不上，反而显得不正规。</p>
+    <div class="warn"><strong>先把丑话说在前面：它不承诺带来询盘。</strong>不拿「流量」「订单」画饼。真询盘来了、能成单，那是意外之喜——不进预期，更不当成果邀功。图的就是查得到、对得上。</div>
+
+<h2 id="fangkeng">防坑必读：免费的另一面</h2>
+    <p>铺平台之前，先把平台的套路讲破。这不是吓唬你——免费入驻之后，平台真正赚钱的环节往往在后面，这一节先讲清。</p>
+    <h3>套路是怎么走的</h3>
+    <p>下面是一种需要警惕的套路链：</p>
+    <ol>
+      <li><strong>免费放你进来</strong>：门槛低到不用想——「免费」两个字就是鱼饵。</li>
+      <li><strong>给甜头</strong>：注册后第一个月，「询盘」准时出现。来得越快、越巧，越是信号，不是运气。</li>
+      <li><strong>收网</strong>：客户经理紧跟着出现，热情帮你「分析市场」，核心话术就是让你升级套餐。</li>
+      <li><strong>付费墙</strong>：真要回复、看全联系方式、拿更多曝光——每一步都要先升级。钩子就藏在这。</li>
+    </ol>
+    <p>点破一句：<strong>询盘有时候就是让你升级的手段；客户经理靠你买套餐挣钱，不靠你成单，他越积极，你越要冷静。</strong></p>
+    <h3>一个典型的套路链（2026 年 11 月）</h3>
+    <p>最近有一线用户反馈了这样一件事（2026 年 11 月）：有位用户刚把公司铺上 TradeKey 等平台，很快收到一封「询盘」。但这封询盘有三处不对劲：一是<strong>同一封询盘，群里好几个人同时收到</strong>；二是询盘里<strong>没写公司名、没写数量、没写目的港</strong>；三是拿买家的信息去网上查，<strong>查不到对应的公司</strong>。紧接着，平台的客户经理就加上了这位用户的微信，开始推付费服务。</p>
+    <p>把顺序排出来，就是一条需要警惕的链：<strong>收到可疑询盘 → 客户经理加好友推销 → 推介付费服务</strong>。这些现象不足以确认询盘是假的，也不能确认询盘与推销由同一方安排，但足以触发谨慎处理：先验真，不付费。客户经理还会绕开平台、加到微信和企业微信上来：自称平台的海外员工，先夸你的产品，再许诺帮你推广、给你找买家——渠道换了，套路不变，照样用关门句、照样不付费。</p>
+    <p>这条链不是某一家平台独有——清单里值得先铺的平台一样可能遇到。铺哪家都一样：收到「询盘」先验真，再谈回复。</p>
+    <div class="warn"><strong>总纲：诱饵吃下，钩别吞下，打死不付费。</strong>注册只为背书；真询盘来了、能成单，是意外之喜，不进预期。</div>
+    <h3>白嫖纪律</h3>
+    <ul>
+      <li>只用免费档；注册时<strong>不绑卡、不开自动续费、不签付费试用</strong>。</li>
+      <li>这里禁的是付给平台的套餐、升级和一切预付费。两样不在此列：① 事先写明、成交后才付的<strong>成交佣金</strong>；② 样品、快递这类正常做生意的<strong>业务成本</strong>。</li>
+      <li>任何付费决定，不许在收到「询盘」或被客户经理联系的当口做——<strong>先冷静 48 小时再谈</strong>，冷静完默认答案仍然是不买。冷静期后你明确坚持要付的，技能会把风险讲清、留痕，再照你的决定执行：拦是它的职责，决定权在你。</li>
+    </ul>
+    <h3>收到「询盘」，先验真，别先高兴</h3>
+    <p>先问四件事——<strong>验真四问：规格参数、数量、目的港与交期、对方公司全名与官网</strong>；再把对方公司名拿去网上搜一遍，并看联系邮箱是不是公司域名邮箱。真买家越问越具体，还会主动补信息；答不上、越问越虚的，降级处理、不投入精力。</p>
+    <p>假询盘常见信号，命中越多越可疑：</p>
+    <ul>
+      <li>注册后头一个月就到；</li>
+      <li>只问 best price，没规格、没数量、没目的港；</li>
+      <li>公司搜不到，或用免费邮箱冒充采购；</li>
+      <li>同一封询盘，多人同时收到；</li>
+      <li>你一问细节就消失；</li>
+      <li>询盘到后一两天，客户经理就来推套餐。</li>
+    </ul>
+    <div class="note">这些信号只是降级投入的依据，<strong>不是定罪</strong>：查不到官网的新公司也可能真实存在。拿不准就小步跟进、多问一句，别一棍子打死真客户。</div>
+    <p><strong>真询盘的打法</strong>：正常回复、认真报价——诱饵该吃吃。尽早把客户引到你自己的渠道（邮箱、WhatsApp、独立站）继续谈（平台规则明文不许站外联系的，按平台规则来）——愿意转渠道的，可信度更高；只肯留在平台里、又催着你升级才肯深入的，多留个心眼。免费额度内能办完的就在平台办完，任何一步说要付费才能继续，一律停。</p>
+    <h3>客户经理的关门句</h3>
+    <p>他来推套餐，这样回就够了：<strong>「只做免费入驻，付费暂不考虑，有需要我主动联系你。」</strong>不当场决定、不约下次详谈。他夸你产品有市场、说询盘质量高、说同行都在升级——都是销售话术，听完就忘。记住一件事：<strong>他的热情是工作，不是认可；他的积极程度和你的产品好不好，没有关系。</strong></p>
+
+<h2 id="how">怎么铺：AI 逐家带，你只管三样</h2>
+    <h3>第一步：先备齐一套统一档案</h3>
+    <ul>
+      <li>公司英文名、地址、电话、邮箱、网站；</li>
+      <li>公司英文简介（一段，100 词上下）、主营产品一句话；</li>
+      <li>主打产品 3–5 个：英文名、关键参数、一句卖点、产品图；</li>
+      <li>Logo。</li>
+    </ul>
+    <p>你要是已经装了来发信、建站技能，它们攒下的产品档案和公司资料会先被复用（只读引用，不改人家的文件），缺什么再向你一次要齐，不重复问。</p>
+    <h3>第二步：逐家注册，一次铺 3–5 家就停下汇报</h3>
+    <ol>
+      <li>打开该平台注册页，先对照清单核一遍这家的免费口径和注册要求有没有变——页面跟清单对不上，以页面为准，当场告诉你差在哪，并回头把清单里那一条改对。</li>
+      <li>能代填的普通字段（公司名、地址、产品这些公开信息）由 AI 填；填之前，把要填的内容先给你看一眼。</li>
+      <li>到设密码这一步停下——见下面红线。</li>
+      <li>注册完，进后台把公司档案补完整（简介、联系方式照统一档案），再把主打产品发到免费额度内。</li>
+      <li>记一笔台账（状态只用三个值：待铺／进行中／完成），跟你报这一家的结果：注册成没成、发了几个产品、卡在哪。</li>
+    </ol>
+    <div class="warn"><strong>三样东西必须你本人经手，AI 不碰：</strong>① <strong>密码</strong>——你自己在页面上设，AI 不接收、不记录、不保存你的平台密码，建议用你惯用的密码管理方式记好；② <strong>手机短信验证码</strong>——你自己收、自己填；③ <strong>营业执照等证件</strong>——你自己上传。密码不进台账、不进任何文件，验证码、证件号同样不记。</div>
+    <p>其他硬规矩：只用你真实的公司资料注册，地址、电话、证件不许编造，缺了就向你要；一家平台只注册一个公司账号，不批量开号、不开假号；平台页面写明不许代操作或自动化的步骤，就停下让你本人点完，AI 接着干后面的。</p>
+    <h3>铺完之后</h3>
+    <p>不用天天管。隔段时间可以逐家复查一遍：<strong>登录由你本人完成</strong>（密码在你手里），AI 在你登录好的页面里帮着看——账号还正常吗、产品还在吗、平台免费政策变没变、各家的公司档案跟统一档案还对不对得上，对不上的当场改回来，并把台账的「最后核对日期」更新掉。</p>
+
+<h2 id="install">怎么装上这个技能</h2>
+    <ol>
+      <li>打开 <a href="/">技能站首页</a>，把首屏那句话复制下来发给你的 AI 助手：<strong>阅读 https://skill.maozhishi.com/cli-setup.md ，为我装上贸知事的来发信、独立站和 B2B 平台背书三个 skill。</strong></li>
+      <li>AI 照着安装说明自己装好，然后带你从备齐统一档案开始，一家一家铺。</li>
+    </ol>
+    <p>想先看全文再决定：<a href="https://github.com/tony-apan/maozhishi-skills/blob/main/b2b-platforms/SKILL.md" target="_blank" rel="noopener">看技能全文</a>；也可以<a href="/.well-known/agent-skills/b2b-platforms-v1.1.0.zip" download>下载技能包</a>发给 AI，AI 先审后装。</p>
+
+<h2 id="list">附录：55 家平台清单</h2>
+    <p>清单按推荐度分三组：<strong>值得先铺</strong>（先花时间在这几家）、<strong>可以顺手铺</strong>（有空再补）、<strong>观望</strong>（先放一放，理由写在条目里）；末尾还有一份「先别碰」。先说清：55 家指三组可铺清单的全量（观望组里多家暂不具备注册条件，实际动手先铺前两组）；「先别碰」的 12 家是另行点名的，不在这 55 家里。本清单整理于 2026 年 11 月，平台政策变得快，注册前以页面当时显示为准。</p>
+    <div class="note">带「（官方口径，未确认）」的数字，是平台官方宣传的说法、还没逐一核实，看到时留个心眼，以注册后后台实际给的额度为准。清单里「能收询盘」一类说法是平台的说法，不等于有效果。每家注册走到设密码那一步，都是你自己在页面上设——见上面<a href="#how">红线说明</a>。</div>
+    <h3>一、值得先铺（14 家）</h3>
+    <table>
+      <tr><th>平台</th><th>主要市场</th><th>免费档</th><th>注册要点</th></tr>
+      <tr><td><strong>TradeKey</strong>（tradekey.com）</td><td>全球，中东、南亚、非洲买家比较多</td><td>可发 10 个产品（官方口径，未确认）</td><td>邮箱注册，收邮件验证码；手机号一栏没标必填</td></tr>
+      <tr><td><strong>环球资源 Global Sources</strong>（globalsources.com）</td><td>全球，展会系老牌平台</td><td>有免费档，能发几个产品未公布</td><td>第一步只要邮箱</td></tr>
+      <tr><td><strong>Europages</strong>（europages.com）</td><td>欧洲全境</td><td>有免费档，数量未公布；档案自动翻译成 21 种语言（官方口径，未确认）</td><td>邮箱注册，验证后建公司档案</td></tr>
+      <tr><td><strong>WLW</strong>（wlw.de）</td><td>德国、奥地利、瑞士（德语区）</td><td>有免费档，数量未公布；可免费建公司档案、上传产品</td><td>邮箱注册，电话选填；与 Europages 是同一家公司、账号可能通用</td></tr>
+      <tr><td><strong>Flagma</strong>（flagma.com，另有多个国家站）</td><td>俄罗斯、乌克兰、哈萨克斯坦等独联体，覆盖 54 个国家（官方口径，未确认）</td><td>可免费发商品和服务公告，条数按各国家站规则</td><td>邮箱注册，只填邮箱加设密码</td></tr>
+      <tr><td><strong>TradeFord</strong>（tradeford.com）</td><td>全球</td><td>免费会员可展示 ≤10 个产品，还能建一个网店（注册页写明）</td><td>邮箱注册；电话一栏没标必填</td></tr>
+      <tr><td><strong>B2BMAP</strong>（b2bmap.com）</td><td>全球</td><td>有免费档，数量未公布；免费会员长期有效，资料人工核验后 72 小时内上线</td><td>邮箱注册；电话一栏没标必填</td></tr>
+      <tr><td><strong>Freshdi</strong>（freshdi.com）</td><td>全球（农产品、食品起家，现已扩到全品类）</td><td>官方写明三件都免费：注册、展示产品、联系认证企业；数量未公布</td><td>邮箱注册，选卖家身份；不用手机号</td></tr>
+      <tr><td><strong>B2BCO</strong>（b2bco.com）</td><td>全球，站内中国供应商比较密集</td><td>有免费档，数量未公布（官方口径，未确认）</td><td>邮箱注册，只要邮箱加设密码</td></tr>
+      <tr><td><strong>IbaadU</strong>（ibaadu.com）</td><td>阿联酋、海湾国家和中东 13 国（官方口径，未确认）</td><td>有免费档，数量未公布；入驻后可上架产品、回复采购询价</td><td>邮箱注册；入驻环节要审贸易执照和身份文件，证件自己备好、自己传</td></tr>
+      <tr><td><strong>Abraa</strong>（abraa.com）</td><td>阿联酋、中东、非洲</td><td>免费上架不限量（官方价目页核实过）；免费档一年只有 1 条免费客户线索</td><td>第一步就要手机号，选 +86 用你自己的号</td></tr>
+      <tr><td><strong>Ambesa</strong>（ambesa.com）</td><td>全非洲</td><td>免费档 25 个产品，带一个微店，不收佣金（价目页核实过）</td><td>填供应商申请表，不卡手机号、不用执照；地址和城市必填，填真实的</td></tr>
+      <tr><td><strong>TendersGo</strong>（tendersgo.com）</td><td>全球，招标平台出身，覆盖 220 多个国家（官方口径，未确认）</td><td>每家公司 1 个免费虚拟店、上架 ≤10 个产品（官方口径，未确认）</td><td>邮箱注册；注册页会主推 7 天高级版试用，别误点成付费的</td></tr>
+      <tr><td><strong>中国制造网 Made-in-China</strong>（made-in-china.com）</td><td>中国供应商卖向全球，工业品、机械类尤其对口</td><td>免费会员默认 20 条产品（官方口径，未确认）；发产品前要先传营业执照审核（官方口径，未确认）</td><td>第一步手机短信验证，用你自己的大陆手机号</td></tr>
+    </table>
+    <h3>二、可以顺手铺（22 家）</h3>
+    <table>
+      <tr><th>平台</th><th>主要市场</th><th>免费档</th><th>注册要点</th></tr>
+      <tr><td><strong>ExportersIndia</strong>（exportersindia.com）</td><td>印度为主，面向全球</td><td>免费会员可加 400 个产品（官方口径，未确认；这是平台的说法，不等于有效果）</td><td>手机号必填，认不认中国号还没确认，没有 +86 就先跳过</td></tr>
+      <tr><td><strong>Allbiz</strong>（all.biz）</td><td>俄罗斯、独联体，外加 90 个国家</td><td>有免费档，数量未公布（官方口径，未确认）</td><td>邮箱注册，点邮件里的确认链接激活</td></tr>
+      <tr><td><strong>Burket</strong>（burket.ph）</td><td>菲律宾</td><td>全平台免费上架，数量未公布（官方口径，未确认）</td><td>邮箱注册，手机号明确选填；国家列表里没有中国，选「Other」</td></tr>
+      <tr><td><strong>Ralali</strong>（ralali.com）</td><td>印尼</td><td>有免费档，数量未公布（官方口径，未确认）；官方说法卖家免费开店上架、成交不收佣金</td><td>邮箱注册，联系方式可以只填邮箱</td></tr>
+      <tr><td><strong>IAFETRADE</strong>（iafetrade.com）</td><td>西班牙语市场，偏拉美</td><td>有免费档，数量未公布；可免费开一个虚拟外贸办公室并上产品</td><td>邮箱注册，表单只有 6 项，没有手机号</td></tr>
+      <tr><td><strong>ConnectAmericas</strong>（connectamericas.com）</td><td>拉美和加勒比，美洲开发银行的官方平台</td><td>注册和全部功能完全免费（官网口径）；形态是公司档案加商机帖，发不了标准产品页</td><td>邮箱注册，第一步只要邮箱</td></tr>
+      <tr><td><strong>Fibre2Fashion</strong>（fibre2fashion.com）</td><td>全球纺织、服装、面料（覆盖 190 国，官方口径，未确认）</td><td>有免费档，数量未公布；基础版免费，可免费发买卖信息（官网口径）</td><td>邮箱注册，点邮件验证链接继续；只适合纺织服装品类</td></tr>
+      <tr><td><strong>Tridge</strong>（tridge.com）</td><td>全球农产品、食品</td><td>有免费档，数量未公布；可逐个发布供货信息，不收佣金</td><td>邮箱注册，一共三步；只适合农产品和食品品类</td></tr>
+      <tr><td><strong>PaperIndex</strong>（paperindex.com）</td><td>全球纸业</td><td>有免费档，数量未公布；基础会员免费、长期有效，每月还能联系 1 个买家</td><td>邮箱注册，输邮件里收到的 4 位验证码；只适合纸业品类</td></tr>
+      <tr><td><strong>IndustryStock</strong>（industrystock.com）</td><td>德国为主的全球工业品</td><td>有免费档，数量未公布（官方口径，未确认）；标准条目免费</td><td>邮箱注册；公司官网、街道、邮编、城市四项必填，填真实的；只收工业企业或其服务商</td></tr>
+      <tr><td><strong>Tradeling</strong>（tradeling.com）</td><td>阿联酋和中东</td><td>免费注册、上架不限量，只在成交时收大约 3–10% 佣金（官网口径）</td><td>邮箱注册；要先过企业文件审核，审核细节还没确认</td></tr>
+      <tr><td><strong>ECVV</strong>（ecvv.com）</td><td>中国供应商卖向全球</td><td>免费会员可发 ≤50 个产品（官方帮助页写明）</td><td>官网有免费注册入口；网站最近打不开（服务器故障），等恢复了再注册</td></tr>
+      <tr><td><strong>DagangHalal</strong>（daganghalal.com）</td><td>马来西亚和全球清真市场</td><td>有免费档，数量未公布（官方口径，未确认）；注册页与加入页的免费说法对不上，先确认清楚再动手</td><td>邮箱注册，一共四步；只适合有清真卖点的品类</td></tr>
+      <tr><td><strong>Faire</strong>（faire.com）</td><td>北美、英国、欧洲、澳新的独立零售店批发</td><td>品牌免费上架、数量不限，成交才收佣金（条款核实过）</td><td>第一步就要手机号，选 +86 用你自己的号；之后还要过人工审核</td></tr>
+      <tr><td><strong>TradeIndia</strong>（tradeindia.com）</td><td>印度为主，面向全球</td><td>免费会员最多 50 个产品（官方口径，未确认）</td><td>邮箱加手机号；认不认中国号还没确认</td></tr>
+      <tr><td><strong>Dial4Trade</strong>（dial4trade.com）</td><td>印度综合</td><td>有免费档，数量未公布；官网写了免费注册加产品列表</td><td>第一步就要手机号，区号可以改选中国 +86、用你自己的号</td></tr>
+      <tr><td><strong>go4WorldBusiness</strong>（go4worldbusiness.com）</td><td>全球，1997 年的老牌平台</td><td>有免费档，数量未公布；免费档案可以加产品和公司信息</td><td>第一步就要手机号，区号可选 +86；提醒：你填的手机号会跟着公开档案一起展示</td></tr>
+      <tr><td><strong>Global Trade Plaza</strong>（globaltradeplaza.com）</td><td>印度系的全球平台</td><td>有免费档，数量未公布（官方口径，未确认）</td><td>WhatsApp 号必填，选中国自动 +86，填你自己带 WhatsApp 的手机号</td></tr>
+      <tr><td><strong>Pepagora</strong>（pepagora.com）</td><td>印度系、面向全球买家</td><td>有免费档，数量未公布；免费档包含单页网站、产品上架等（官方价目页）</td><td>第一步只有手机号一栏，区号有 +86，验完号之后才填邮箱、公司</td></tr>
+      <tr><td><strong>B2Brazil 家族</strong>（b2brazil.com，另有四国分站）</td><td>巴西为主，一套账号覆盖五国</td><td>有免费档，数量未公布（官方口径，未确认）</td><td>手机号必填（选中国自动 +86）；公司执照号也是必填，填你营业执照上的统一社会信用代码，不要编</td></tr>
+      <tr><td><strong>HiSupplier</strong>（hisupplier.com）</td><td>中国供应商卖向全球，工业品、原材料比较多</td><td>有免费档，数量未公布（官方口径，未确认）</td><td>电话和手机都必填，写死了中国 +86——正好用你自己的大陆手机号和公司电话；不用营业执照</td></tr>
+      <tr><td><strong>Echemi</strong>（echemi.com）</td><td>全球化工行业（中国运营）</td><td>有免费档，数量未公布（官方口径，未确认）</td><td>第二步手机号必填，区号可选 +86、用你自己的号；只适合化工品类</td></tr>
+    </table>
+    <h3>三、观望（19 家）</h3>
+    <table>
+      <tr><th>平台</th><th>主要市场</th><th>免费档</th><th>观望原因</th></tr>
+      <tr><td><strong>Kompass</strong>（kompass.com）</td><td>全球 60 多个国家（官方口径，未确认）的企业目录</td><td>有免费档，数量未公布；免费能不能发产品，官方两处说法对不上，还没确认</td><td>先等免费发产品的口径确认了再说，只建主页背书价值有限</td></tr>
+      <tr><td><strong>BizVibe</strong>（bizvibe.com）</td><td>全球，偏企业数据和采购需求</td><td>有免费档，额度没写明</td><td>注册第二步是「填付款信息」——性质没确认之前，不要往里填卡</td></tr>
+      <tr><td><strong>Exporters.sg</strong>（exporters.sg）</td><td>新加坡，全球综合</td><td>注册入口其实是 30 天试用会员，不是长期的免费档</td><td>背书讲究长期在架，试用号到期就没了，不划算</td></tr>
+      <tr><td><strong>TradeWheel</strong>（tradewheel.com）</td><td>全球，中东比较活跃</td><td>有免费档，数量未公布；官方说建档案和发产品完全免费</td><td>第一步手机号必填，而且表单上没有区号选择器，认哪个国家的号没法确认</td></tr>
+      <tr><td><strong>Supl.biz</strong>（supl.biz）</td><td>俄罗斯和独联体</td><td>免费演示版每月只能发 5 条供求信息</td><td>免费额度小、规则也没完全摸清，俄语市场有余力再说</td></tr>
+      <tr><td><strong>OptList</strong>（optlist.ru）</td><td>俄罗斯</td><td>有免费档，数量未公布（官方口径，未确认）</td><td>第一步电话必填，没有区号选择器，认哪个国家的号不明确</td></tr>
+      <tr><td><strong>Foreign Trade Online</strong>（foreign-trade.com）</td><td>全球综合，1999 年的老站</td><td>收费口径自相矛盾：常见问题说全部免费，注册页又标着供应商基础版 1 美元／月</td><td>先别往里搭时间，等它自己把口径理顺</td></tr>
+      <tr><td><strong>TurkTradeIndex／SerbestBolge</strong>（turktradeindex.com／serbestbolge.com）</td><td>土耳其，两个站同一家运营，一个会员覆盖三个站</td><td>免费会员可以发 1 个产品或需求（会员页核实过）</td><td>额度只有 1 个产品；网站的 HTTPS 是坏的，密码传输有风险，真要注册别用你常用的密码</td></tr>
+      <tr><td><strong>PulsCen</strong>（pulscen.ru）</td><td>俄罗斯</td><td>免费只能在自己的小站里放商品，不进平台主目录；进主目录年费 21.9 万卢布起</td><td>免费部分不进目录、背书价值低；公司电话格式写死俄罗斯 +7，中国号码填不进去</td></tr>
+      <tr><td><strong>themarket.africa</strong>（themarket.africa）</td><td>泛非洲，还在上线前的早鸟阶段</td><td>有免费档，数量未公布；官网说可以无限免费刊登（官方口径，未确认）</td><td>平台还没正式上线，先等它开起来再说</td></tr>
+      <tr><td><strong>Parceria Positiva</strong>（parceriapositiva.com.br）</td><td>巴西国内</td><td>注册 100% 免费、没有月费，可以发 ≤10 条供需或服务公告（公告形态，不是标准产品目录）</td><td>区号选择里没有 +86 的具名选项，你的号码能不能用没确认</td></tr>
+      <tr><td><strong>Africa Business Pages</strong>（africa-business.com）</td><td>非洲 54 国（官方口径，未确认）</td><td>有免费档，数量未公布（官方口径，未确认）；免费到底给几个产品位没写明</td><td>先确认免费能给多少东西，再投入</td></tr>
+      <tr><td><strong>Forie（现 TurkishExporter）</strong>（forie.com）</td><td>土耳其</td><td>有免费档，数量未公布（官方口径，未确认）；基础会员能不能自己新增产品没说清</td><td>免费发品的口径没说清，先放一放</td></tr>
+      <tr><td><strong>Indonetwork</strong>（indonetwork.co.id）</td><td>印尼</td><td>有免费档，数量未公布（官方口径，未确认）；免费会员可以上传产品</td><td>手机号没有区号选择器；第三步是证件，印尼税号要不要还没确认，可能卡外国公司</td></tr>
+      <tr><td><strong>MyDeal Saathi</strong>（mydealsaathi.com）</td><td>印度</td><td>首年免费（本期到 2027 年 10 月），免费期最多 50 个在架产品，不用绑付款方式（官网会员页核实过）</td><td>手机号没有区号选择器，示例是印度号开头，疑似只认印度号、没确认</td></tr>
+      <tr><td><strong>Naayatrade</strong>（naayatrade.in）</td><td>印度卖向全球</td><td>有免费档，数量未公布（官方口径，未确认）</td><td>邮箱、店铺电话、GST 税号都是必填——GST 是印度的税号，外国公司没有，大概率直接卡住</td></tr>
+      <tr><td><strong>IndiaMART</strong>（indiamart.com）</td><td>印度，主要面向印度本土卖家</td><td>有免费档，数量未公布</td><td>第一步就强制印度手机号收短信验证码，中国号码过不了</td></tr>
+      <tr><td><strong>Impexly</strong>（impexly.com）</td><td>全球 100 多个国家（官方口径，未确认）</td><td>有免费档，数量未公布（官方口径，未确认）；常见问题里称完全免费</td><td>网站的安全证书已经过期、打不开，平台也很新，等它把证书修好再说</td></tr>
+      <tr><td><strong>Market Link Africa</strong>（marketlinkafrica.com）</td><td>非洲对全球</td><td>有免费档，数量未公布（官方口径，未确认）；官网写了免费加入、免费上架</td><td>网站打不开，注册要求还没摸清，等它修好再看</td></tr>
+    </table>
+    <h3>四、先别碰（12 家）</h3>
+    <p>下面这些就别花时间了，分三种情况：</p>
+    <ul>
+      <li><strong>要收费才能发产品</strong>：阿里巴巴国际站（中国供应商开店走付费会员，一年约 3 万起）、敦煌网 DHgate（先交平台使用费才能上货）、IndoTrading（海外供应商通道 900 美元／年起，没有免费档）、HKTDC Sourcing（没查到普通供应商免费自助发品的现行官方说法）。</li>
+      <li><strong>已经关门或暂停</strong>：SoloStocks（网站已经变成别人的承接页，平台不存在了）、BDTDC（网站已经变成域名出售页）、eWorldTrade（域名被美国执法部门查封）、JETRO e-Venue（官方公告临时停止服务，没有恢复日期）。</li>
+      <li><strong>只收当地公司，中国公司注册不了</strong>：ThomasNet（只收北美本地公司）、tradeKorea（卖家只限韩国公司）、Taiwantrade（只限台湾供应商）、Xtiende（注册第一步就要智利税号）。</li>
+    </ul>
+    <p>另外还有一批连清单都没进的：有的只对买家免费、有的免费会员根本发不了产品、有的只有社交媒体上在宣传、官网拿不出免费条款——遇到生面孔平台，先按这份清单的标记习惯核对一遍再动手。</p>
+
+<h2 id="faq">常见问题</h2>
+    <dl class="faq">
+      <dt>铺了能带来询盘吗？</dt>
+      <dd>不承诺。目的只有背书：让买家搜你公司时，处处查得到、信息对得上。真询盘来了、能成单，是意外之喜。平台宣传「能收询盘」，是平台的说法，不等于有效果。</dd>
+      <dt>要花钱吗？</dt>
+      <dd>清单里的平台，都是冲着免费档够用挑的：注册和发产品不收钱。观望组里有几家免费口径还没确认清楚，条目里都写明了，注册前先看那一条。个别平台在你真卖出东西之后收成交佣金，那是成交才有的、事先会写明。哪家要是开口就要先交钱才能注册或发产品，当场停下告诉你、换下一家。防坑细则见上面<a href="#fangkeng">防坑节</a>。</dd>
+      <dt>平台给我发询盘了，是不是有戏？</dt>
+      <dd>先别高兴，先验真。把<a href="#fangkeng">防坑节</a>的验真四问走一遍：规格参数、数量、目的港与交期、对方公司全名与官网。验真通过的，正常回复、认真报价；越问越虚的，降级处理、不投入精力。</dd>
+      <dt>密码为什么非得自己设？</dt>
+      <dd>密码只该在你自己手里。AI 不接收、不记录、不保存你的平台密码；手机验证码、营业执照等证件也一样，都由你本人经手。日后复查时登录也由你本人完成，AI 只在你登录好的页面里帮着看。</dd>
+      <dt>各平台信息填得对不上，怎么办？</dt>
+      <dd>复查时对着统一档案逐家核，对不上的当场改回来。各平台信息一致，本身就是背书的一部分；写得对不上，反而显得不正规。</dd>
+      <dt>「先别碰」里的平台，我就想注册一家，行不行？</dt>
+      <dd>先把清单里记的问题听完——收费的、已停运的、只收当地公司的，技能会逐条讲清，再由你决定，它不替你拍板。</dd>
+    </dl>
+
+<p>想开始铺，就把这一页发给你的 AI，跟它说一句「照着这篇带我铺」，它就知道怎么带你了。</p>
+
+    <a class="next" href="/laifaxin/index.html">
+      <div class="no">下一篇</div>
+      <h2>来发信技能使用教程</h2>
+      <p>背书铺好了，开发信跟上：AI 全自动找买家、验邮箱、发信跟进，关键节点你把关。</p>
+    </a>
+</article>
+
+  <div class="foot">
+    <span>贸知事 AI 工作技能仓 · 技能介绍</span>
+    <span><a href="/#skills">技能首页</a> · <a href="/">技能站首页</a></span>
+  </div>
+</div>
+<script>
+  var hd = document.querySelector('.has-drop');
+  if (hd) {
+    var hdLink = hd.querySelector('a');
+    function syncAria() {
+      var open = !hd.classList.contains('suppressed') && (hd.classList.contains('open') || hd.matches(':hover') || hd.contains(document.activeElement));
+      hdLink.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    hdLink.addEventListener('click', function(e) {
+      hd.classList.remove('suppressed');
+      if (window.matchMedia('(hover: none)').matches && !hd.classList.contains('open')) {
+        e.preventDefault();
+        hd.classList.add('open');
+      } else {
+        hd.classList.remove('open');
+      }
+      syncAria();
+    });
+    document.addEventListener('click', function(e) {
+      if (!hd.contains(e.target)) {
+        hd.classList.remove('open');
+        if (document.activeElement && hd.contains(document.activeElement)) { document.activeElement.blur(); }
+        syncAria();
+      }
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && (hd.classList.contains('open') || hd.matches(':hover') || hd.contains(document.activeElement))) {
+        hd.classList.remove('open');
+        hd.classList.add('suppressed');
+        if (document.activeElement && hd.contains(document.activeElement)) { document.activeElement.blur(); }
+        syncAria();
+      }
+    });
+    hd.addEventListener('mouseenter', function() { hd.classList.remove('suppressed'); syncAria(); });
+    hd.addEventListener('mouseleave', function() { hd.classList.remove('suppressed'); syncAria(); });
+    hd.addEventListener('focusin', function() { hd.classList.remove('suppressed'); syncAria(); });
+    hd.addEventListener('focusout', function() { setTimeout(syncAria, 0); });
+  }
+</script>
+</body>
+</html>
