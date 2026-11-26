@@ -1,6 +1,6 @@
 # 贸知事 AI 工作技能仓（maozhishi-skills）
 
-[![技能仓 v1.6.3](https://img.shields.io/badge/%E6%8A%80%E8%83%BD%E4%BB%93-v1.6.3-orange?style=flat-square)](VERSION) [![建站技能 v3.2.48](https://img.shields.io/badge/%E5%BB%BA%E7%AB%99%E6%8A%80%E8%83%BD-v3.2.48-green?style=flat-square)](laicms-site-builder/SKILL.md) [![来发信 v1.6.3](https://img.shields.io/badge/%E6%9D%A5%E5%8F%91%E4%BF%A1-v1.6.3-blue?style=flat-square)](laifaxin-leadgen/SKILL.md) [![B2B 背书 v1.1.1](https://img.shields.io/badge/B2B%20%E8%83%8C%E4%B9%A6-v1.1.1-purple?style=flat-square)](b2b-platforms/SKILL.md)
+[![技能仓 v1.6.4](https://img.shields.io/badge/%E6%8A%80%E8%83%BD%E4%BB%93-v1.6.4-orange?style=flat-square)](VERSION) [![建站技能 v3.2.49](https://img.shields.io/badge/%E5%BB%BA%E7%AB%99%E6%8A%80%E8%83%BD-v3.2.49-green?style=flat-square)](laicms-site-builder/SKILL.md) [![来发信 v1.6.4](https://img.shields.io/badge/%E6%9D%A5%E5%8F%91%E4%BF%A1-v1.6.4-blue?style=flat-square)](laifaxin-leadgen/SKILL.md) [![B2B 背书 v1.2.0](https://img.shields.io/badge/B2B%20%E8%83%8C%E4%B9%A6-v1.2.0-purple?style=flat-square)](b2b-platforms/SKILL.md)
 
 公众号「贸知事」出品的**外贸获客技能仓**。所谓「技能」，就是**写给 AI 的一份干活说明书**：你把资料交给 AI，它照着说明书把活干完——建站、找客户、写开发信、跟进，都在这里。
 
