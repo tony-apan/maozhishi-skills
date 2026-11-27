@@ -1,0 +1,29 @@
+{
+ "bundle_version": "1.6.6",
+ "skills": [
+  {
+   "name": "laicms-site-builder",
+   "version": "3.2.50",
+   "package": "laicms-site-builder-v3.2.50.zip",
+   "sha256": "65a56d1d2929f0d653823fc8b759b975287c1fccbecad3c9bb45f59f34c32a63",
+   "files": 27,
+   "file_list_sha256": "82ed72618072105324ab8ad2e80551f1f27427801b8efc1634b65f9d77c41990"
+  },
+  {
+   "name": "laifaxin-leadgen",
+   "version": "1.6.6",
+   "package": "laifaxin-leadgen-v1.6.6.zip",
+   "sha256": "de04d31cb7c52035f99538c66ba38ef91c4b3e113c1362f41b59aebd57064c5c",
+   "files": 13,
+   "file_list_sha256": "2f569cb3f6e7242c6014914ac034210b6500a9aebfcf65f0c778a5a117f3c0e6"
+  },
+  {
+   "name": "b2b-platforms",
+   "version": "1.2.0",
+   "package": "b2b-platforms-v1.2.0.zip",
+   "sha256": "21f1984e97defeb0d5682889204ecc37e6d29eaf0fd06e2f38593f246798c6f1",
+   "files": 4,
+   "file_list_sha256": "b7b02172d353a7785ea1bb7fd9262f40c8bf3efdc2872a74f532aae946025c74"
+  }
+ ]
+}
