@@ -1,6 +1,17 @@
 {
- "latest": "1.6.7",
+ "latest": "1.6.8",
  "releases": [
+  {
+   "version": "1.6.8",
+   "date": "2026-11-28",
+   "skills": {
+    "laifaxin-leadgen": "1.6.7",
+    "laicms-site-builder": "3.2.52",
+    "b2b-platforms": "1.2.1"
+   },
+   "summary": "建站技能装不上热修：版本状态行冒号修复，余两技能不动",
+   "renames": []
+  },
   {
    "version": "1.6.7",
    "date": "2026-11-28",

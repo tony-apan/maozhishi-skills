@@ -1,11 +1,11 @@
 {
- "bundle_version": "1.6.7",
+ "bundle_version": "1.6.8",
  "skills": [
   {
    "name": "laicms-site-builder",
-   "version": "3.2.51",
-   "package": "laicms-site-builder-v3.2.51.zip",
-   "sha256": "70c6279a2e9bb91bd8917c567f4cffa7fa5b1c862674dc100b9907ae38c80a98",
+   "version": "3.2.52",
+   "package": "laicms-site-builder-v3.2.52.zip",
+   "sha256": "070635648670af2edbab265b4f427dc52a8a5c4c688aa67630ffd4ba0402e969",
    "files": 27,
    "file_list_sha256": "82ed72618072105324ab8ad2e80551f1f27427801b8efc1634b65f9d77c41990"
   },
@@ -13,7 +13,7 @@
    "name": "laifaxin-leadgen",
    "version": "1.6.7",
    "package": "laifaxin-leadgen-v1.6.7.zip",
-   "sha256": "e5355b2157c1f081591a557272690c8ba3391ff33f81d2dcf741cbafe6d3174c",
+   "sha256": "afd2ac9b8a30dc08f963cf86fca72c59ea64302363d55ff69313c87ff5539203",
    "files": 13,
    "file_list_sha256": "2f569cb3f6e7242c6014914ac034210b6500a9aebfcf65f0c778a5a117f3c0e6"
   },
@@ -21,7 +21,7 @@
    "name": "b2b-platforms",
    "version": "1.2.1",
    "package": "b2b-platforms-v1.2.1.zip",
-   "sha256": "02da01073e1a0dd13fbb98ce1ba8057bd3a5d5459d377f967e1f64271c425baf",
+   "sha256": "2719af8cf985bc507f19206c8b8720901242c5bb30c41f07c8c3e157af9f414c",
    "files": 4,
    "file_list_sha256": "b7b02172d353a7785ea1bb7fd9262f40c8bf3efdc2872a74f532aae946025c74"
   }
