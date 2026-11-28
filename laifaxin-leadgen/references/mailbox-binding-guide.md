@@ -1,4 +1,4 @@
-<!-- 包内文件版本标识：laifaxin-leadgen v1.6.6 -->
+<!-- 包内文件版本标识：laifaxin-leadgen v1.6.7 -->
 ---
 doc_id: laifaxin-mailbox-binding-guide
 title: 来发信邮箱绑定指南（参数速查与授权码引导）

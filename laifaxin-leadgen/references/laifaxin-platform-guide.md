@@ -1,4 +1,4 @@
-<!-- 包内文件版本标识：laifaxin-leadgen v1.6.6 -->
+<!-- 包内文件版本标识：laifaxin-leadgen v1.6.7 -->
 ---
 doc_id: laifaxin-platform-guide
 title: 来发信平台介绍与文档地图

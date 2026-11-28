@@ -1,6 +1,17 @@
 {
- "latest": "1.6.6",
+ "latest": "1.6.7",
  "releases": [
+  {
+   "version": "1.6.7",
+   "date": "2026-11-28",
+   "skills": {
+    "laifaxin-leadgen": "1.6.7",
+    "laicms-site-builder": "3.2.51",
+    "b2b-platforms": "1.2.1"
+   },
+   "summary": "更新改四步工具落盘并立校验分层；定目标档位隔离；建站默认 B 端不问风格；关键流程补图",
+   "renames": []
+  },
   {
    "version": "1.6.6",
    "date": "2026-11-27",
